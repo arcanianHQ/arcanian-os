@@ -1,0 +1,96 @@
+# Node.js Stack - {{PROJECT_NAME}}
+
+## Overview
+
+Node.js runtime configuration and patterns.
+
+## Package Management
+
+Using npm (or yarn/pnpm):
+
+```bash
+npm install           # Install dependencies
+npm ci                # Clean install (CI)
+npm audit             # Security audit
+npm outdated          # Check for updates
+```
+
+## Scripts
+
+```json
+{
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src",
+    "format": "prettier --write src"
+  }
+}
+```
+
+## Project Structure
+
+```
+src/
+├── index.ts          # Entry point
+├── config/           # Configuration
+├── routes/           # API routes
+├── controllers/      # Request handlers
+├── services/         # Business logic
+├── models/           # Data models
+├── middleware/       # Express middleware
+├── utils/            # Helpers
+└── types/            # TypeScript types
+```
+
+## Environment Variables
+
+Using `.env` files with `dotenv`:
+
+```bash
+# .env.example
+NODE_ENV=development
+PORT=3000
+DATABASE_URL=postgres://...
+API_KEY=your-key-here
+```
+
+**Never commit `.env` files!**
+
+## Error Handling
+
+```typescript
+// Custom error class
+class AppError extends Error {
+  constructor(
+    public statusCode: number,
+    message: string,
+    public isOperational = true
+  ) {
+    super(message);
+  }
+}
+
+// Global error handler
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  res.status(statusCode).json({
+    error: err.message,
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+});
+```
+
+## Logging
+
+Using Winston or Pino:
+
+```typescript
+import pino from 'pino';
+const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
+```
+
+---
+*Stack template generated on {{INIT_DATE}}*

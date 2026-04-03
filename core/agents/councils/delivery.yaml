@@ -1,0 +1,33 @@
+id: delivery
+name: Delivery Council
+description: Quality gate before client-facing deliverables leave the team
+
+agents:
+  council:
+    - report-reviewer
+    - copy-analyst         # Voice consistency, banned terms, messaging quality
+    - pii-scanner
+    - data-rules-checker
+  chairman: report-reviewer
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+    - id: synthesis
+      enabled: true
+      agent: chairman
+
+context:
+  categories:
+    - brand
+
+data:
+  categories: []
+
+use_when:
+  - Before sending any audit report or Prism to client
+  - Before publishing client-referenced content
+  - Team member flags deliverable as "ready for review"
+  - Pre-commit check on sensitive repos

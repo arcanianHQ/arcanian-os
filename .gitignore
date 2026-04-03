@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+*.output
+
+# MCP (real config has API keys)
+.mcp.json
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Client data (if anyone adds real clients)
+clients/*/data/
+clients/*/audit/evidence/
+clients/*/meetings/raw/
+clients/*/inbox/
+
+# Secrets
+.env
+*.key
+*.pem
+credentials.*

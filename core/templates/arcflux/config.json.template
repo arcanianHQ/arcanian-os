@@ -1,0 +1,54 @@
+{
+  "project": {
+    "name": "{{PROJECT_NAME}}",
+    "prefix": "{{PROJECT_PREFIX}}",
+    "type": "{{PROJECT_TYPE}}",
+    "description": "{{PROJECT_DESCRIPTION}}"
+  },
+  "workflow": {
+    "phases": ["explore", "plan", "architect", "implement", "review", "test", "document"],
+    "requiredPhases": ["explore", "implement", "review"],
+    "skipArchitectFor": ["bugfix", "docs", "config"]
+  },
+  "integrations": {
+    "github": {
+      "enabled": {{GITHUB_ENABLED}},
+      "repo": "{{GITHUB_REPO}}",
+      "defaultBranch": "main",
+      "branchPrefix": "feature/"
+    },
+    "linear": {
+      "enabled": {{LINEAR_ENABLED}},
+      "team": "{{LINEAR_TEAM}}",
+      "project": "{{LINEAR_PROJECT}}"
+    }
+  },
+  "quality": {
+    "validation": {
+      "enabled": true,
+      "threshold": 0.80,
+      "blockOnCritical": true
+    },
+    "agents": {
+      "code-reviewer": { "weight": 0.20, "enabled": true },
+      "bug-detector": { "weight": 0.25, "enabled": true },
+      "security-scanner": { "weight": 0.25, "enabled": true },
+      "compliance-checker": { "weight": 0.15, "enabled": true },
+      "test-analyzer": { "weight": 0.15, "enabled": true }
+    },
+    "testCoverage": {
+      "minimum": 70,
+      "enforce": false
+    }
+  },
+  "hooks": {
+    "sessionStart": { "enabled": true, "preflight": true },
+    "preToolUse": { "enabled": true, "security": true, "screenshotHarness": true },
+    "postToolUse": { "enabled": true, "trackModifications": true }
+  },
+  "stacks": {{STACKS}},
+  "memory": {
+    "autoLoad": ["architecture", "active-issue"],
+    "captainsLog": true
+  }
+}

@@ -1,0 +1,42 @@
+id: measurement
+name: Measurement Council
+description: Audit tracking, consent, data compliance, and extract patterns
+
+agents:
+  council:
+    - audit-checker
+    - channel-analyst      # GTM attribution, ROAS, channel performance
+    - data-rules-checker
+    - knowledge-extractor
+  chairman: audit-checker
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+    - id: peer_review
+      enabled: false  # opt-in via --peer-review
+    - id: warning_intel
+      enabled: true
+      methodology: grabo
+    - id: synthesis
+      enabled: true
+      agent: chairman
+
+context:
+  categories:
+    - brand
+    - offerings
+
+data:
+  categories:
+    - analytics
+    - google_ads
+    - meta_ads
+
+use_when:
+  - Measurement audit (Phase 2+)
+  - GTM/consent compliance check
+  - Post-audit knowledge extraction
+  - Periodic tracking health verification

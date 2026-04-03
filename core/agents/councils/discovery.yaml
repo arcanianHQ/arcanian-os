@@ -1,0 +1,38 @@
+id: discovery
+name: Discovery Council
+description: New client reconnaissance, project setup, and digital presence baseline
+
+agents:
+  council:
+    - client-explorer
+    - project-architect
+  chairman: client-explorer
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+    - id: peer_review
+      enabled: false  # opt-in via --peer-review
+    - id: synthesis
+      enabled: true
+      agent: chairman
+
+context:
+  categories:
+    - brand
+    - audience
+    - competition
+    - market
+
+data:
+  categories:
+    - analytics
+    - organic_search
+
+use_when:
+  - New lead enters pipeline
+  - First Signal / Morsel preparation
+  - Client onboarding (first 2 weeks)
+  - Before formal audit begins

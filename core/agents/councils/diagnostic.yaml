@@ -1,0 +1,57 @@
+id: diagnostic
+name: Diagnostic Council
+description: Full 7-layer diagnosis with constraint mapping — the core Arcanian workflow
+
+agents:
+  council:
+    - belief-analyst       # L0-L2: beliefs, identity, NLP, constraints
+    - channel-analyst      # L4-L7: offer, channels, customer, market, JTBD, Hormozi
+    - copy-analyst         # Messaging, voice, copy-market fit
+    - client-explorer      # Digital presence recon
+    - audit-checker        # Measurement/tracking lens
+    - knowledge-extractor  # Pattern extraction, cross-client knowledge
+  chairman: knowledge-extractor
+  available:              # Not in default roster, invoke when needed
+    - report-reviewer
+    - pii-scanner
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+    - id: peer_review
+      enabled: false  # opt-in via --peer-review; RECOMMENDED for Prism/Fixer
+    - id: warning_intel
+      enabled: true
+      methodology: grabo
+    - id: ach
+      enabled: true
+      methodology: heuer
+    - id: synthesis
+      enabled: true
+      agent: chairman
+    - id: bluf_ooda
+      enabled: true
+
+context:
+  categories:
+    - brand
+    - audience
+    - competition
+    - offerings
+    - market
+    - culture
+
+data:
+  categories:
+    - analytics
+    - organic_search
+    - google_ads
+    - meta_ads
+
+use_when:
+  - /7layer Mode 2 (Pattern Map)
+  - /identify-constraints
+  - Prism engagement (full diagnostic package)
+  - The Fixer engagement (operating plan)

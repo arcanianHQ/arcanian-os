@@ -1,0 +1,127 @@
+# Project Scope: {{PROJECT_NAME}}
+
+## Overview
+
+| Field | Value |
+|-------|-------|
+| Project | {{PROJECT_NAME}} |
+| Type | {{PROJECT_TYPE}} |
+| Status | Active |
+| Created | {{DATE}} |
+
+## Vision
+
+[What is the end goal? What problem does this solve? Who is it for?]
+
+## Goals
+
+### Primary Goals
+1. [Main objective 1]
+2. [Main objective 2]
+3. [Main objective 3]
+
+### Success Criteria
+- [ ] [Measurable success criterion 1]
+- [ ] [Measurable success criterion 2]
+- [ ] [Measurable success criterion 3]
+
+## Scope
+
+### In Scope
+- [Feature/capability that IS part of this project]
+- [Feature/capability that IS part of this project]
+
+### Out of Scope
+- [Feature/capability that is NOT part of this project]
+- [Feature/capability that is NOT part of this project]
+
+### Future Considerations
+- [Feature that might be added later]
+- [Feature that might be added later]
+
+## Technical Constraints
+
+### Technology Stack
+- **Frontend**: [e.g., React, Vue, etc.]
+- **Backend**: [e.g., Node.js, Python, etc.]
+- **Database**: [e.g., PostgreSQL, MongoDB, etc.]
+- **Infrastructure**: [e.g., AWS, Fly.io, etc.]
+
+### Requirements
+- **Performance**: [e.g., Page load < 2s, API response < 200ms]
+- **Scalability**: [e.g., Support 1000 concurrent users]
+- **Availability**: [e.g., 99.9% uptime]
+- **Security**: [e.g., SOC2 compliant, GDPR compliant]
+
+### Limitations
+- [Technical limitation 1]
+- [Technical limitation 2]
+
+## Non-Functional Requirements
+
+### Performance
+- [Response time requirements]
+- [Throughput requirements]
+
+### Security
+- [Authentication method]
+- [Data encryption requirements]
+- [Compliance requirements]
+
+### Accessibility
+- [WCAG compliance level]
+- [Supported devices/browsers]
+
+### Maintainability
+- [Code quality standards]
+- [Documentation requirements]
+- [Testing coverage requirements]
+
+## Stakeholders
+
+| Role | Name/Team | Responsibility |
+|------|-----------|----------------|
+| Product Owner | [Name] | Requirements, priorities |
+| Tech Lead | [Name] | Architecture, technical decisions |
+| Developer | [Name] | Implementation |
+| QA | [Name] | Testing, quality |
+
+## Timeline
+
+### Milestones
+| Milestone | Target Date | Status |
+|-----------|-------------|--------|
+| MVP | [Date] | [Status] |
+| Beta | [Date] | [Status] |
+| Launch | [Date] | [Status] |
+
+## Risks & Mitigations
+
+| Risk | Impact | Likelihood | Mitigation |
+|------|--------|------------|------------|
+| [Risk 1] | High/Medium/Low | High/Medium/Low | [How to mitigate] |
+| [Risk 2] | High/Medium/Low | High/Medium/Low | [How to mitigate] |
+
+## Dependencies
+
+### External Dependencies
+- [External service/API 1]
+- [External service/API 2]
+
+### Internal Dependencies
+- [Other team/project dependency]
+
+## Resources
+
+### Documentation
+- [Link to design docs]
+- [Link to API docs]
+- [Link to architecture docs]
+
+### Related Projects
+- [Related project 1]
+- [Related project 2]
+
+---
+
+*Last updated: {{DATE}}*

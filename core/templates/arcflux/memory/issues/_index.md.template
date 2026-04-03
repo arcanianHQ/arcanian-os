@@ -1,0 +1,48 @@
+# {{PROJECT_NAME}} Issue Index
+
+Quick reference for all tracked issues.
+
+## Status Legend
+
+| Status | Meaning |
+|--------|---------|
+| 📋 BACKLOG | Not started |
+| 🔄 IN_PROGRESS | Currently being worked on |
+| 👀 IN_REVIEW | Code complete, under review |
+| ✅ DONE | Completed |
+| ❌ BLOCKED | Waiting on dependency |
+| 🚫 CANCELLED | Will not do |
+
+## Issues by Status
+
+### 🔄 In Progress
+
+(None yet)
+
+### 📋 Backlog
+
+(None yet - create your first issue!)
+
+### ✅ Completed
+
+(None yet)
+
+---
+
+## All Issues
+
+| ID | Title | Status | Priority | Phase |
+|----|-------|--------|----------|-------|
+| - | - | - | - | - |
+
+---
+
+## Quick Links
+
+- [Architecture](../architecture.md)
+- [Captain's Log](../captains-log.md)
+- [Config](../../config.json)
+
+---
+
+*Last updated: {{INIT_DATE}}*

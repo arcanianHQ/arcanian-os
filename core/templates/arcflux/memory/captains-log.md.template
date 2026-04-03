@@ -1,0 +1,35 @@
+# Captain's Log - {{PROJECT_NAME}}
+
+A chronological decision journal tracking significant choices, their rationale, and outcomes.
+
+---
+
+## Entry 001 - {{INIT_DATE}}
+
+### Project Initialization
+
+**Context**: Setting up {{PROJECT_NAME}} with ArcFlux workflow management.
+
+**Decisions Made**:
+1. Using ArcFlux for issue-driven development
+2. 7-phase workflow (explore → document)
+3. Multi-agent validation before commits
+
+**Configuration Choices**:
+- Issue prefix: {{PROJECT_PREFIX}}
+- Project type: {{PROJECT_TYPE}}
+{{#if GITHUB_ENABLED}}
+- GitHub integration: {{GITHUB_REPO}}
+{{/if}}
+{{#if LINEAR_ENABLED}}
+- Linear integration: Team {{LINEAR_TEAM}}
+{{/if}}
+
+**Next Steps**:
+- Define initial architecture
+- Create first issues
+- Begin development
+
+---
+
+*Add new entries above this line, incrementing the entry number.*

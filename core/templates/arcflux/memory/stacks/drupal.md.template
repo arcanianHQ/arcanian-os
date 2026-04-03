@@ -1,0 +1,97 @@
+# Drupal Stack - {{PROJECT_NAME}}
+
+## Overview
+
+Drupal 10/11 development patterns and configuration.
+
+## Project Structure
+
+```
+web/
+├── modules/
+│   └── custom/          # Custom modules
+├── themes/
+│   └── custom/          # Custom themes
+├── sites/
+│   └── default/
+│       └── settings.php
+└── core/                # Drupal core (don't modify)
+```
+
+## Coding Standards
+
+Using Drupal coding standards enforced by:
+- `phpcs --standard=Drupal`
+- `phpstan` for static analysis
+
+### Naming Conventions
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Module | snake_case | `my_custom_module` |
+| Class | PascalCase | `MyCustomService` |
+| Function | snake_case | `my_module_form_alter()` |
+| Hook | module_hook | `my_module_node_presave()` |
+
+## Common Patterns
+
+### Services
+
+```php
+// my_module.services.yml
+services:
+  my_module.custom_service:
+    class: Drupal\my_module\CustomService
+    arguments: ['@entity_type.manager']
+```
+
+### Hooks
+
+```php
+/**
+ * Implements hook_form_alter().
+ */
+function my_module_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Form modifications
+}
+```
+
+### Dependency Injection
+
+```php
+class MyController extends ControllerBase {
+  public function __construct(
+    protected EntityTypeManagerInterface $entityTypeManager,
+  ) {}
+
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager'),
+    );
+  }
+}
+```
+
+## Testing
+
+- Unit tests: `tests/src/Unit/`
+- Kernel tests: `tests/src/Kernel/`
+- Functional tests: `tests/src/Functional/`
+
+```bash
+vendor/bin/phpunit -c web/core/phpunit.xml.dist web/modules/custom
+```
+
+## Database
+
+Using DDEV or Lando for local development.
+
+```bash
+ddev drush cr     # Clear cache
+ddev drush updb   # Run updates
+ddev drush cex    # Export config
+ddev drush cim    # Import config
+```
+
+---
+*Stack template generated on {{INIT_DATE}}*

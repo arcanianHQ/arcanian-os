@@ -1,0 +1,74 @@
+# TypeScript Stack - {{PROJECT_NAME}}
+
+## Overview
+
+TypeScript configuration and patterns for this project.
+
+## Configuration
+
+### tsconfig.json
+
+Key settings:
+- `strict`: true (recommended)
+- `target`: ES2022 or later
+- `module`: ESNext or NodeNext
+
+### ESLint
+
+Using `@typescript-eslint/parser` with recommended rules.
+
+## Patterns
+
+### Type Definitions
+
+```typescript
+// Prefer interfaces for object shapes
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+// Use type for unions/intersections
+type Status = 'pending' | 'active' | 'completed';
+```
+
+### Null Handling
+
+```typescript
+// Use optional chaining
+const name = user?.profile?.name;
+
+// Use nullish coalescing
+const displayName = name ?? 'Anonymous';
+```
+
+### Async/Await
+
+```typescript
+// Always handle errors in async functions
+async function fetchUser(id: string): Promise<User> {
+  try {
+    const response = await api.get(`/users/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new UserNotFoundError(id);
+  }
+}
+```
+
+## Testing
+
+Using Jest with ts-jest:
+- Test files: `*.test.ts` or `*.spec.ts`
+- Coverage target: 80%
+
+## Build
+
+```bash
+npm run build     # Compile TypeScript
+npm run type-check # Check types without emit
+```
+
+---
+*Stack template generated on {{INIT_DATE}}*
