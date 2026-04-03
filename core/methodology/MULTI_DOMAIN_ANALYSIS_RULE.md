@@ -1,8 +1,8 @@
-> v1.0 — 2026-03-27
+> v2.0 — 2026-04-03
 
 # Multi-Domain Analysis Rule
 
-> **MANDATORY for every client with 2+ domains.** Before ANY channel analysis, ROAS calculation, or performance query — load the client's `DOMAIN_CHANNEL_MAP.md` and filter by domain.
+> **MANDATORY for every client with 2+ domains.** Before ANY channel analysis, ROAS calculation, or performance query — load the client's `DOMAIN_CHANNEL_MAP.md` and filter by domain AND business unit.
 
 ---
 
@@ -16,6 +16,19 @@ Many clients run multiple domains through shared ad accounts, analytics properti
 - "ExampleD2C ROAS dropped" becomes unanswerable when the same Google Ads account runs example-pool.com campaigns
 
 **Not mentioned in the query ≠ not present in the data.**
+
+## Business Unit Isolation (v2.0)
+
+**Domains are not just technical separations — they may represent separate business units with different P&Ls, markets, currencies, and economics.** The `DOMAIN_CHANNEL_MAP.md` may define a Business Units section that groups domains into units.
+
+When business units are defined:
+- **NEVER blend data across business units** in analysis, budgets, or recommendations
+- **"Client ROAS"** is meaningless — always specify which business unit
+- **Budget recommendations** must be per business unit — "move from Google to Meta" requires "for which unit?"
+- **Cross-unit comparison** is valid IF clearly labeled as a comparison, with each unit's numbers isolated
+- **A domain belongs to exactly one business unit.** There is no "blended" view unless explicitly requested.
+
+Example: A brand has a US D2C store (USD) and a EU wholesale operation (EUR). Blending them produces numbers that describe no real business.
 
 ## The Rule
 
