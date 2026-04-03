@@ -14,7 +14,7 @@
 For each: add Waiting on: + Waiting since: + Follow-up:
 ```
 
-Clients affected: examplebrand (26), exampleretail (8), ExamplePress (3), internal (5), examplelocal (2), ExampleBuild (2), cegalapito (1), dhora-editoria (1)
+Clients affected: examplebrand (26), exampleretail (8), ExamplePress (3), internal (5), examplelocal (2), ExampleBuild (2), example-startup (1), example-edu-editoria (1)
 
 **Effort:** ~1 hour across all projects. Run per-client session.
 

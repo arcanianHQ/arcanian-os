@@ -220,7 +220,7 @@ Examples:
 
 ### Last Line: External Sync (if synced)
 ```
-  - ext: 6gFHJH6XRpQ2r7h5 | synced: 2026-03-24
+  - ext: {todoist-project-id} | synced: 2026-03-24
 ```
 - `ext:` = Todoist task ID or Asana task GID
 - `synced:` = last sync timestamp

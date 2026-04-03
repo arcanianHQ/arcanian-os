@@ -17,39 +17,39 @@
 
 | # | Client | Todoist ID | TASKS.md | Notes |
 |---|---|---|---|---|
-| 601.1 | ExampleRetail Marketing | `6X3pHx76VjqWHwmV` | `clients/example-retail/TASKS.md` | |
-| 601.2 | ExampleRetail Klubkártya | `6X3qrv42vQG6HwQ4` | `clients/example-retail/TASKS.md` | |
-| 602 | ExampleBrand | `6gFHC29R3ghhp525` | `clients/example-ecom/TASKS.md` | Migrated from Asana 2026-03-24 |
-| 603.1 | DHORA Editoria | `6X3vPgvrQCVPmrpw` | `clients/dhora/TASKS.md` | |
-| 603.2 | DHORA Academy | `6X3vPhXQR6pCHjq5` | `clients/dhora/TASKS.md` | Entello = tool, not client |
-| 603.3 | DHORA Welcome | `6X3vPjJVF3R25C3j` | `clients/dhora/TASKS.md` | |
-| 604.1 | ExampleBuild Marketing | `6X3pJ37g2ffPXxvg` | `clients/ExampleBuild/TASKS.md` | |
-| 604.2 | ExampleBuild ProcessDev | `6X3qwVW9RhVP3hRX` | `clients/ExampleBuild/TASKS.md` | |
-| 605.1 | ExampleSoft HU | `6X3pGR76h4wvPWHC` | `clients/ExampleSoft/TASKS.md` | |
-| 605.2 | ExampleSoft SK | `6X3qvPRW6g23HFFp` | `clients/ExampleSoftsk/TASKS.md` | |
-| 605.3 | ExampleSoft RO | `6X3qvGvXJX85JFF5` | — | |
-| 605.4 | ExampleSoft Codeguru | `6X3qvVWWxfFR6c84` | — | |
-| 605.5 | ExampleSoft DigitalSoft | `6X3qvcQJ6PvQqcV7` | — | |
-| 606.1 | András CFH | `6X3pHrcv9HgQJjFP` | — | |
-| 606.2 | András Cégalapító | `6X3qvp5r4wrWWVWC` | — | |
-| 606.3 | András OffshoreMarket | `6X3qw6P7XR57wm85` | — | |
-| 607.1 | Domy Fejlesztés | `6Wqjjmc9vCvj244h` | — | |
-| 607.2 | Domy Marketing | `6X3qv7V72wW8VPRg` | — | |
-| 608 | MancsBázis | `6X3pHvWMP9xHHXgM` | `clients/examplelocal/TASKS.md` | |
-| 612.1 | Visibility Puella | `6X3qwpgm5MwxF8VX` | — | |
-| 612.2 | Visibility Namaximum | `6X3qwr7FwHMFJWr4` | — | |
-| 613 | LindaFüggöny | `6X3qvwrw3WXmG5M8` | — | |
-| 614 | Novossadi | `6X3qw42fxxPF7qxP` | — | |
-| 615 | KPower | `6X3qwX4jhjHCqh65` | — | |
-| 616 | Selet | `6X3vP9X9VhQPqXCr` | — | |
-| 617 | VajneAPS | `6X3vmJ46JXGCWMch` | — | |
-| 618 | Vital | `6X3qwwMQ8r2rwf3R` | — | |
+| 601.1 | ExampleRetail Marketing | `{todoist-project-id}` | `clients/example-retail/TASKS.md` | |
+| 601.2 | ExampleRetail Loyalty | `{todoist-project-id}` | `clients/example-retail/TASKS.md` | |
+| 602 | ExampleBrand | `{todoist-project-id}` | `clients/example-ecom/TASKS.md` | Migrated from Asana 2026-03-24 |
+| 603.1 | ExampleEdu Editoria | `{todoist-project-id}` | `clients/example-edu/TASKS.md` | |
+| 603.2 | ExampleEdu Academy | `{todoist-project-id}` | `clients/example-edu/TASKS.md` | [Tool] = tool, not client |
+| 603.3 | ExampleEdu Welcome | `{todoist-project-id}` | `clients/example-edu/TASKS.md` | |
+| 604.1 | ExampleBuild Marketing | `{todoist-project-id}` | `clients/ExampleBuild/TASKS.md` | |
+| 604.2 | ExampleBuild ProcessDev | `{todoist-project-id}` | `clients/ExampleBuild/TASKS.md` | |
+| 605.1 | ExampleSoft HU | `{todoist-project-id}` | `clients/ExampleSoft/TASKS.md` | |
+| 605.2 | ExampleSoft SK | `{todoist-project-id}` | `clients/ExampleSoftsk/TASKS.md` | |
+| 605.3 | ExampleSoft RO | `{todoist-project-id}` | — | |
+| 605.4 | ExampleSoft Codeguru | `{todoist-project-id}` | — | |
+| 605.5 | ExampleSoft DigitalSoft | `{todoist-project-id}` | — | |
+| 606.1 | ExampleClient1 | `{todoist-project-id}` | — | |
+| 606.2 | ExampleClient2 | `{todoist-project-id}` | — | |
+| 606.3 | ExampleClient3 | `{todoist-project-id}` | — | |
+| 607.1 | ExampleDev | `{todoist-project-id}` | — | |
+| 607.2 | ExampleMkt | `{todoist-project-id}` | — | |
+| 608 | ExampleLocal | `{todoist-project-id}` | `clients/examplelocal/TASKS.md` | |
+| 612.1 | ExampleVis1 | `{todoist-project-id}` | — | |
+| 612.2 | ExampleVis2 | `{todoist-project-id}` | — | |
+| 613 | ExampleCurtain | `{todoist-project-id}` | — | |
+| 614 | ExampleNov | `{todoist-project-id}` | — | |
+| 615 | ExamplePower | `{todoist-project-id}` | — | |
+| 616 | ExampleSel | `{todoist-project-id}` | — | |
+| 617 | ExampleAPS | `{todoist-project-id}` | — | |
+| 618 | ExampleVital | `{todoist-project-id}` | — | |
 
 ### Archived Clients (grey)
 
 | # | Client | Todoist ID |
 |---|---|---|
-| 609 | Caribú [ARCHIVE] | `6X3pJ24F5RgXJWQG` |
+| 609 | ExampleCarib [ARCHIVE] | `{todoist-project-id}` |
 | 610.1-3 | MOTP [ARCHIVE] | Marketing/WP/Magento |
 | 611.1-2 | Kmon [ARCHIVE] | Magento/Marketing |
 
@@ -80,7 +80,7 @@ updated: 2026-03-24T16:00
 For ExampleBrand (legacy Asana reference):
 ```yaml
 sync: todoist
-sync_id: "6gFHC29R3ghhp525"
+sync_id: "{todoist-project-id}"
 # Legacy Asana: EXAMPLE-ID-001 (read-only, migrated 2026-03-24)
 ```
 
@@ -101,7 +101,7 @@ sync_id: "6gFHC29R3ghhp525"
 | 2026-03-24 | Todoist project tree: all clients numbered 601-618 |
 | 2026-03-24 | ExampleBrand: 93 Asana tasks cross-referenced → 6 new added to TASKS.md, 80 created in Todoist 602 |
 | 2026-03-24 | ExampleBrand: Asana sync removed, Todoist is now sole sync target |
-| 2026-03-24 | DHORA: `clients/dhora/` scaffolded with 7 tasks |
+| 2026-03-24 | ExampleEdu: `clients/example-edu/` scaffolded with 7 tasks |
 | 2026-03-24 | Hub TASKS.md: 15 ops tasks added (#40-#54) |
 | 2026-03-24 | ExampleRetail TASKS.md: 5 tasks added (#55-#59) |
 | 2026-03-24 | ExampleBuild TASKS.md: 2 tasks added (#19-#20) |

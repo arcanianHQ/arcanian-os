@@ -288,7 +288,7 @@ Create full task format with ALL ontology edges populated:
 
 **Update frontmatter:**
 ```yaml
-sync_id: "6X3pHvWMP9xHHXgM"   ← store project ID after first sync
+sync_id: "{todoist-project-id}"   ← store project ID after first sync
 updated: 2026-03-24T16:30
 ```
 

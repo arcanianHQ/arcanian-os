@@ -36,7 +36,7 @@
 
 | Name | Nickname | Company | Role | Email | Phone | Status | Notes |
 |------|----------|---------|------|-------|-------|--------|-------|
-| András | András | [Agency A] | Google Ads | — | — | Contract ends 03-31 | — |
+| [Name] | [Name] | [Agency A] | Google Ads | — | — | Contract ends 03-31 | — |
 | Marcell | Marcell | [Agency B] | AC Admin | — | — | Active | — |
 | Péter Szesztay | Peti | BP Digital | SEO (strategic) | — | — | Active | — |
 
