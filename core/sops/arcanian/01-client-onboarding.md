@@ -10,7 +10,7 @@ Ensure every new client engagement starts with a consistent, thorough diagnostic
 
 ## 2. Trigger
 
-- Qualified lead confirms interest in an engagement (Morsel, Prism, or Fractional CMO)
+- Qualified lead confirms interest in an engagement (Morsel, [Diagnostic Service], or Fractional CMO)
 - Referral introduction accepted by both parties
 
 ## 3. RACI
@@ -59,7 +59,7 @@ Ensure every new client engagement starts with a consistent, thorough diagnostic
 
 ### 5.5 Proposal
 - Founder drafts proposal using diagnostic results (see SOP-03: Proposal Delivery)
-- 3-tier offer structure: Morsel / Prism / Fractional CMO
+- 3-tier offer structure: Morsel / [Diagnostic Service] / Fractional CMO
 - Internal review before sending
 
 ### 5.6 Contract

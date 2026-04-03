@@ -354,7 +354,7 @@ Don't log WHAT you did. Log **WHY.** Format: Decision + Reasoning + Important Nu
 If you sell a diagnostic framework, run it on your own business first. Document the results. This creates authenticity AND serves as a teaching case for new team members. ("Here's how we'd analyze a client like us.")
 
 ### Pattern 4: Terminology Consistency Across All Surfaces
-Define key terms in CLAUDE.md. Use them identically everywhere: code comments, content, pitches, internal docs. If your diagnostic report is called "Prism" — it's ALWAYS "Prism", never "report" or "analysis." Claude will follow this if instructed.
+Define key terms in CLAUDE.md. Use them identically everywhere: code comments, content, pitches, internal docs. If your diagnostic report is called "[Diagnostic Service]" — it's ALWAYS "[Diagnostic Service]", never "report" or "analysis." Claude will follow this if instructed.
 
 ### Pattern 5: Publication Tracking as Accountability
 Maintain a `PUBLICATION_DIRECTORY.md` with Status / Date / File Reference for all published content. This creates a real-time map of shipped vs. promised. Gap visibility drives prioritization.

@@ -62,7 +62,7 @@ Tasks connect to other business objects via **typed edges**. These are the key d
 | `finding` | Finding (FND) | Many-to-Many | `FND-039`, `FND-002` |
 | `recommendation` | Recommendation (REC) | Many-to-Many | `REC-039` |
 | `sop` | Process/SOP document | Many-to-Many | `05-CAMPAIGN-MANAGEMENT`, `MEASUREMENT_HEALTH_SOP → Phase 3` |
-| `goal` | Goal (shallow tag) | Many-to-Many | `Q1-ship-prism`, `Q1-examplebrand-revenue` |
+| `goal` | Goal (shallow tag) | Many-to-Many | `Q1-ship-[diagnostic-service]`, `Q1-examplebrand-revenue` |
 | `meeting` | Calendar event | Many-to-Many | `2026-03-10 IT vezető ([Name])` |
 | `email` | Email thread | Many-to-Many | `Jenő 2026-03-04 "JSON-LD duplicate block"` |
 | `layer` | Framework Layer (L0-L7) | Many-to-Many | `L1`, `L5, L7` |
@@ -117,8 +117,8 @@ Goals are shallow tags — not a full OKR system. No hierarchy.
 
 | Property | Type | Example |
 |---|---|---|
-| `id` | String (slug) | `Q1-ship-prism` |
-| `name` | String | `Ship first Prism (Euronics)` |
+| `id` | String (slug) | `Q1-ship-[diagnostic-service]` |
+| `name` | String | `Ship first [Diagnostic Service] (Euronics)` |
 | `project_id` | FK → Project | `arcanian` |
 | `quarter` | String | `Q1-2026` |
 
@@ -169,7 +169,7 @@ This is NOT a standard scale. It was designed to match how our business thinks a
 | `hygiene` | "If we don't, what breaks?" | Consent gating — GDPR compliance |
 | `lever` | "What does this multiply?" | Enhanced Conversions → better Smart Bidding → more ROAS |
 | `unlock` | "What does this unblock?" | Fix dead GTM message bus → ALL tracking starts working |
-| `breakthrough` | "Does this change the game?" | First Prism delivery → proves the business model |
+| `breakthrough` | "Does this change the game?" | First [Diagnostic Service] delivery → proves the business model |
 
 ### 3.5 Effort Scale
 
@@ -195,7 +195,7 @@ Every task can be tagged with one or more layers from the Arcanian L0–L7 diagn
 | `L0` | Source (Forrás) | People's identity, patterns, mindset. WHY they can't change. | `Kocsibeallo [diagnostic profile] — Premium vs Standard identity conflict` |
 | `L1` | Core | Organizational capability: structure, capacity, decisions, team. WHAT they can't do. | `[Team Member 2] & [Team Member 1] → operational — delegate delivery` |
 | `L2` | Customer | Who the customer is, segments, Target Profile, personas. | `ExampleD2C brand identity + messaging document` |
-| `L3` | Value | What value is delivered, product-market fit, offer structure. | `Create offer/pricing page — 3 tiers (Morsel/Nexus/Fractional)` |
+| `L3` | Value | What value is delivered, product-market fit, offer structure. | `Create offer/pricing page — 3 tiers (Morsel/[Service Tier]/Fractional)` |
 | `L4` | Offer | How the value is packaged: pricing, bundling, guarantees. | `Offer optimalizáció (finanszírozás, szezonális, garanciák)` |
 | `L5` | Channels | Where marketing happens: SEO, paid, email, social, distribution. | `Attribution kiépítés (GA4 → sGTM → AC → Shopify)` |
 | `L6` | Conversion | How leads become customers: funnels, scoring, automation, CRM. | `Lead scoring újraépítés + életciklus automatizálás` |
@@ -346,7 +346,7 @@ These are the queries that make this system different from a flat task manager:
 |---|---|
 | "Show all tasks linked to FND-039" | Filter by finding edge |
 | "What tasks follow SOP 05-CAMPAIGN-MANAGEMENT?" | Filter by SOP edge |
-| "What tasks serve Goal Q1-ship-prism?" | Filter by goal edge |
+| "What tasks serve Goal Q1-ship-[diagnostic-service]?" | Filter by goal edge |
 | "What tasks have a meeting this week?" | Filter by meeting edge + date |
 | "Show the FND → REC → Task chain for ExampleRetail" | Traverse finding → recommendation → task edges |
 | "What goals have no tasks?" | Goals without incoming task edges |
@@ -443,7 +443,7 @@ updated: 2026-03-23T18:00
   - Created: 2026-02-26 | Updated: 2026-03-23
   - FND: FND-039 | REC: REC-039
   - SOP: MEASUREMENT_HEALTH_SOP → Phase 3
-  - Goal: Q1-ship-prism
+  - Goal: Q1-ship-[diagnostic-service]
   - Meeting: 2026-03-10 IT vezető
   - Email: Jenő 2026-03-04 "JSON-LD duplicate"
   - ext: 000000000000 | synced: 2026-03-23T14:30
@@ -582,7 +582,7 @@ This is a suggestion — developer can propose alternatives.
 | State | Zustand or Jotai | Lightweight, works with SSR |
 | Backend | Next.js API routes or separate Hono/Express | Simple REST, no GraphQL needed yet |
 | Database | SQLite (via Turso) or Postgres | SQLite for simplicity, Postgres if multi-user |
-| ORM | Drizzle or Prisma | Type-safe queries |
+| ORM | Drizzle or [Diagnostic Service]a | Type-safe queries |
 | Markdown parser | Custom (spec above) or remark/unified | Must follow exact format spec |
 | Sync engine | Background jobs (Inngest or cron) | Per-project sync on schedule |
 | Graph viz | D3.js or Cytoscape.js | For ontology explorer |

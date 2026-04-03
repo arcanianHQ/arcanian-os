@@ -11,7 +11,7 @@ An optional protocol that runs 3 independent diagnostic perspectives in parallel
 ## When to Use (OPT-IN)
 
 **Use when:**
-- Prism or Fixer engagement (paid diagnostic — worth the extra LLM cost)
+- [Diagnostic Service] or Fixer engagement (paid diagnostic — worth the extra LLM cost)
 - High-stakes client decision depends on the diagnosis
 - Previous diagnostic produced a surprising or counterintuitive result — verify it
 - Client explicitly asks for a second opinion
@@ -27,7 +27,7 @@ An optional protocol that runs 3 independent diagnostic perspectives in parallel
 
 ```
 Peer review available: run `/7layer --peer-review` for 3 independent perspectives.
-Recommended for Prism/Fixer tier.
+Recommended for [Diagnostic Service]/Fixer tier.
 ```
 
 ## How It Works
@@ -136,7 +136,7 @@ Add at the end of Mode 2 (Pattern Map) output:
 ### Peer Review
 
 This diagnosis was produced from a single analytical perspective.
-For Prism/Fixer engagements, run with `--peer-review` to get 3
+For [Diagnostic Service]/Fixer engagements, run with `--peer-review` to get 3
 independent perspectives with anonymous synthesis.
 ```
 
@@ -231,4 +231,4 @@ if user requested --peer-review:
 | Agent calls | 1 | 4 (3 perspectives + 1 synthesis) |
 | Time | ~1-2 min | ~3-5 min |
 | Token cost | ~1x | ~3-4x |
-| When justified | First Signal, routine | Prism, Fixer, high-stakes |
+| When justified | First Signal, routine | [Diagnostic Service], Fixer, high-stakes |

@@ -16,14 +16,14 @@ Deep exploration of a new client's digital presence to build a comprehensive bas
 ## When to Use
 - During Discovery phase (before formal audit begins)
 - When a new lead enters the pipeline
-- When preparing a Morsel or Prism proposal
+- When preparing a Morsel or [Diagnostic Service] proposal
 - First Signal phase: quick reconnaissance for pitch preparation
 
 ## Input
 - Client name and primary website URL
 - Known platform accounts (if any)
 - Industry/vertical context
-- Engagement scope (Morsel / Prism / Fractional CMO)
+- Engagement scope (Morsel / [Diagnostic Service] / Fractional CMO)
 
 ## Process
 

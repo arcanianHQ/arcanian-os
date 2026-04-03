@@ -36,7 +36,7 @@ SOPs exist in `core/sops/` (30+ procedures) and per-client `processes/` (numbere
 | sales, feedback, lead quality, OCT, sales-marketing, standup | SOP-09 Sales-Marketing Loop | `marketing-ops/09-sales-marketing-loop.md` |
 | audit, phase 0, phase 1, browser verify, container audit, feed audit | [Audit Framework] SOPs | `[audit-framework]/01-06` (match by phase) |
 | onboard client, new client, discovery, proposal, scaffold | SOP arcanian/01-03 | `arcanian/01-client-onboarding.md` |
-| prism, diagnostic, 7layer delivery | SOP arcanian/04 | `arcanian/04-prism-delivery.md` |
+| [diagnostic-service], diagnostic, 7layer delivery | SOP arcanian/04 | `arcanian/04-[diagnostic-service]-delivery.md` |
 | publish, substack, pattern drop, quality bomb | SOP arcanian/05 | `arcanian/05-content-publishing.md` |
 | intelligence profile, brand file, voice, Target Profile | SOP arcanian/06 | `arcanian/06-client-intelligence-profile.md` |
 | memo, deliverable, extract tasks | SOP arcanian/11 | `arcanian/11-memo-to-tasks.md` |

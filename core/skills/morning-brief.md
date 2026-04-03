@@ -63,7 +63,7 @@ Quick wins: {count} available
 
 ── P0 TASKS ──────────────────
 [ExampleRetail] #53 Fix GA4 consent mode — Due: today — Owner: [Owner]
-[Arcanian] #1 Ship Euronics Prism — Due: 03-25 — Owner: [Owner]
+[Arcanian] #1 Ship Euronics [Diagnostic Service] — Due: 03-25 — Owner: [Owner]
 
 ── OVERDUE ────────────────────
 [ExampleRetail] #41 Feed audit (3 days) — Owner: [Team Member 1]

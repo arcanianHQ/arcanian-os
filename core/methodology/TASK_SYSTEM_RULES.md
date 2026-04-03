@@ -164,7 +164,7 @@ Each task is a node connected to other objects:
 | Finding | `FND: FND-039` | Measurement audit finding |
 | Recommendation | `REC: REC-039` | Measurement audit recommendation |
 | Process/SOP | `SOP: 05-CAMPAIGN-MANAGEMENT` | Which process this follows |
-| Goal | `Goal: Q1-ship-prism` | Shallow tag, no hierarchy |
+| Goal | `Goal: Q1-ship-[diagnostic-service]` | Shallow tag, no hierarchy |
 | Layer | `Layer: L1` or `Layer: L1, L5` | Which framework layer(s) this task touches (L0–L7) |
 | Meeting | `Meeting: 2026-03-10 IT vezető` | Calendar/meeting reference |
 | Email | `Email: Jenő 2026-03-04 subject` | Email thread reference |

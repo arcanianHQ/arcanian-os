@@ -116,7 +116,6 @@ User request: $ARGUMENTS
 
 | Command file | Skill | Purpose |
 |---|---|---|
-| `newsletter.md` | `newsletter-process.md` | Email newsletter workflow |
 
 ### Step 8: Create symlinks to core
 ```bash

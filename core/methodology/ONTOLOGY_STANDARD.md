@@ -12,7 +12,7 @@
 | **Recommendation** | `REC-NNN` | `clients/<slug>/findings/REC-NNN-*.md` | `REC-039-relink-gaawe-tags.md` |
 | **Pattern** | `PAT-NNN` | `core/methodology/KNOWN_PATTERNS.md` | `PAT-035 Dead GA4 message bus` |
 | **SOP** | `SOP-NN-name` | `core/sops/` | `SOP-05-campaign-launch.md` |
-| **Goal** | shallow tag | task inline / project-level | `Q1-ship-prism` |
+| **Goal** | shallow tag | task inline / project-level | `Q1-ship-[diagnostic-service]` |
 | **Layer** | `L0`..`L7` | Arcanian Marketing Control Framework | `L5` (Channel) |
 | **Meeting** | date + label | task inline | `2026-03-10 IT` |
 | **Email** | name + date | task inline | `Jeno 2026-03-04` |
@@ -33,7 +33,7 @@ All edges SHOULD be bidirectional. Forward = where you write it first. Backward 
 | Task -> Finding | `FND: FND-039` in task line | `Tasks: #53` in finding file | YES - required |
 | Task -> Recommendation | `REC: REC-039` in task line | `Tasks: #53` in recommendation file | YES - required |
 | Task -> SOP | `SOP: 05-campaign` in task line | _(not tracked in SOP -- too many refs)_ | One-way |
-| Task -> Goal | `Goal: Q1-ship-prism` in task line | _(tracked in goal definition if exists)_ | Soft |
+| Task -> Goal | `Goal: Q1-ship-[diagnostic-service]` in task line | _(tracked in goal definition if exists)_ | Soft |
 | Task -> Layer | `Layer: L5` in task line | _(queryable via grep)_ | Queryable |
 | Task -> Meeting | `Meeting: 2026-03-10 IT` in task line | _(text reference)_ | One-way |
 | Task -> Email | `Email: Jeno 2026-03-04` in task line | _(text reference)_ | One-way |

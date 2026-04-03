@@ -54,7 +54,7 @@ Our own operational SOPs.
 | 01 | [Client Onboarding](arcanian/01-client-onboarding.md) | Discovery → proposal → contract → scaffold → kickoff |
 | 02 | [Discovery Call](arcanian/02-discovery-call.md) | Standard discovery call structure + scoring |
 | 03 | [Proposal Delivery](arcanian/03-proposal-delivery.md) | Proposal writing → review → send → follow-up |
-| 04 | [Prism Delivery](arcanian/04-prism-delivery.md) | Diagnostic → Prism report → walk-through → handoff |
+| 04 | [[Diagnostic Service] Delivery](arcanian/04-[diagnostic-service]-delivery.md) | Diagnostic → [Diagnostic Service] report → walk-through → handoff |
 | 05 | [Content Publishing](arcanian/05-content-publishing.md) | Wed Pattern Drop + Fri Quality Bomb + Bridge Rule |
 | 06 | [Client Intelligence Profile](arcanian/06-client-intelligence-profile.md) | 7 diagnostic files per client (7layer, constraints, repair, pattern, voice, Target Profile, positioning) |
 | 07 | [Knowledge Sharing](arcanian/07-knowledge-sharing.md) | Team briefing, skill updates, methodology evolution |

@@ -28,7 +28,7 @@ Convert diagnostic insights into a clear, compelling proposal that demonstrates 
 
 - Diagnostic outputs (7-Layer, constraint map, [diagnostic profile])
 - Proposal template (standard 3-tier structure)
-- Offer ladder: Morsel / Prism / Fractional CMO
+- Offer ladder: Morsel / [Diagnostic Service] / Fractional CMO
 - Email / direct communication channel
 
 ## 5. Steps
@@ -48,12 +48,12 @@ Structure every proposal with three clear options:
 | Tier | Scope | Typical Range |
 |------|-------|---------------|
 | **Morsel** | Single diagnostic insight or quick audit (1-2 layers) | Free -- EUR 497 |
-| **Prism** | Full 7-Layer diagnostic + [Customer Need Framework] suite + walk-through report | EUR 2,000 -- 5,000 |
+| **[Diagnostic Service]** | Full 7-Layer diagnostic + [Customer Need Framework] suite + walk-through report | EUR 2,000 -- 5,000 |
 | **Fractional CMO** | Ongoing engagement: diagnose + stay to fix + change leadership | EUR 5,000 -- 10,000/month |
 
 - Recommend the tier that matches the diagnostic findings
 - Make clear what each tier includes and excludes
-- Prism always includes the walk-through (not just a document drop)
+- [Diagnostic Service] always includes the walk-through (not just a document drop)
 
 ### 5.3 Pricing Calculation
 
@@ -110,4 +110,4 @@ Structure every proposal with three clear options:
 
 - SOP-01: Client Onboarding
 - SOP-02: Discovery Call
-- SOP-04: Prism Delivery
+- SOP-04: [Diagnostic Service] Delivery

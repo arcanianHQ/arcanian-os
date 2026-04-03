@@ -57,7 +57,7 @@ type: project
 - **Where:** `__example_full/arcanian/archive/TASKS_2026_Q1.md` (phase-based goals)
 - **Where:** [Task Manager] (goals feature — couldn't verify, API down)
 - **Gap:** Goal documents exist but tasks don't reference which goal they serve.
-- **Need:** `Goal: Q1-ship-prism` or `OKR: revenue-target` in task metadata.
+- **Need:** `Goal: Q1-ship-[diagnostic-service]` or `OKR: revenue-target` in task metadata.
 - **Cascade question:** Goal → Key Result → Initiative → Task? Or just Goal → Task?
 
 ### F. GTD Tags — NOT CONNECTED LOCALLY
@@ -246,7 +246,7 @@ Task ←→ GTD Context (@next, @waiting, @someday)
 |---|---|
 | Object Type | Task, Finding, Process, Goal, Meeting, Email |
 | Property | Priority, Status, Due, Owner |
-| Link | `FND: FND-039`, `SOP: 05-CAMPAIGN`, `Goal: Q1-ship-prism` |
+| Link | `FND: FND-039`, `SOP: 05-CAMPAIGN`, `Goal: Q1-ship-[diagnostic-service]` |
 | Action | Status change, completion, escalation |
 | Ontology View | The local TASKS.md file = a view over the graph |
 
@@ -282,7 +282,7 @@ GTD-style labels are the tagging system. These map to [Task Manager] labels AND 
 ### How labels interact with source types:
 - A task can be `@waiting` AND linked to `Email: Bacsa NIS2 reply`
 - A task can be `@next` AND linked to `SOP: 01-AGENCY-COORDINATION`
-- A task can be `@someday` AND linked to `Goal: Q2-prism-productize`
+- A task can be `@someday` AND linked to `Goal: Q2-[diagnostic-service]-productize`
 
 ---
 
@@ -298,7 +298,7 @@ A unified local task format needs to support:
    - `SOP: 05-CAMPAIGN-MANAGEMENT` (process)
    - `Meeting: 2026-03-10 IT vezető` (calendar event)
    - `Email: Benji handover 2026-03-03` (email thread)
-   - `Goal: Q1-ship-prism` (goal/OKR)
+   - `Goal: Q1-ship-[diagnostic-service]` (goal/OKR)
 4. **GTD labels** — `@next`, `@waiting`, `@someday`, `@agenda`, `@review`, `@computer`, `@phone`, `@email`, `@deep`, `@quick`
 5. **Owner** ([Owner], [Team Member 1], [Team Member 2], [Name], ITG, client)
 6. **Due date**
@@ -325,7 +325,7 @@ A unified local task format needs to support:
 - [x] **Timestamps format:** `Created:` and `Updated:` use `YYYY-MM-DD`. Only `synced:` uses full `YYYY-MM-DDTHH:MM` for conflict precision. (confirmed 2026-03-23)
 - [x] **Timestamp line position:** Always line 4 (after GTD labels, core metadata, before ontology edges). Always present on every task. (confirmed 2026-03-23)
 
-- [x] **Goal cascade = shallow:** Just a tag on the task (`Goal: Q1-ship-prism`). No KR/Initiative hierarchy. (confirmed 2026-03-23)
+- [x] **Goal cascade = shallow:** Just a tag on the task (`Goal: Q1-ship-[diagnostic-service]`). No KR/Initiative hierarchy. (confirmed 2026-03-23)
 - [x] **External system = per-project default + per-task override:** Each project has a default sync target ([Task Manager], Asana, Trello, etc.). Tasks inherit the project default. Individual tasks can override with a different system reference. (confirmed 2026-03-23)
 
 ## 11. External System Mapping

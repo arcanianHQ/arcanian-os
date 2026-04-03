@@ -21,7 +21,7 @@ Builds a layer-by-layer repair plan from a completed 7-Layer diagnosis and Const
 
 Use this skill when:
 - 7-Layer diagnosis is complete and the client asks "now what?"
-- Building a Prism deliverable — the repair roadmap IS the action plan
+- Building a [Diagnostic Service] deliverable — the repair roadmap IS the action plan
 - Starting a Fixer engagement — this becomes the operating plan
 - Client has a previous diagnosis but nothing was implemented
 - Re-scoping after constraints changed (90-day review)
@@ -223,7 +223,7 @@ Monthly:   Layer status update. Any exit criteria met?
 
 ### Date: [Date]
 ### Based on: 7-Layer Diagnosis ([date]) + Constraint Map ([date])
-### Engagement: [First Signal / Prism / The Fixer]
+### Engagement: [First Signal / [Diagnostic Service] / The Fixer]
 ### Ceiling: [X]% (based on [N] locked layers)
 
 ---
@@ -339,9 +339,9 @@ L5 repair needed → /analyze-gtm + /plan-gtm
 L6 repair needed → /[customer need framework] (customer jobs + identity)
 L7 repair needed → Competitive Matrix (from /7layer Mode 2)
 
-PRISM DELIVERABLE:
+[DIAGNOSTIC_SERVICE] DELIVERABLE:
 /7layer Mode 2 →  → /repair-roadmap
-= The complete Prism package (diagnosis + constraints + repair plan)
+= The complete [Diagnostic Service] package (diagnosis + constraints + repair plan)
 
 THE FIXER OPERATING PLAN:
 /repair-roadmap output = the month-by-month operating plan

@@ -308,7 +308,6 @@ person_brief(person_uuid, context) → get_context(client_id) → search_linkedi
 
 ### 5. LinkedIn Comment Workflow (A.E.L.Q.)
 ```
-load_skill("linkedin-comment skill uuid") → search_linkedin_comments(language="hu", limit=5) → create_linkedin_comment(...)  → update_linkedin_comment(uuid, publish_status="posted", posted_date="...")
 ```
 Or use the `/comment` skill which orchestrates this full workflow automatically.
 

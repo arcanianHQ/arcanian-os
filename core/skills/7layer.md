@@ -119,7 +119,7 @@ Use this skill when:
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for Prism/Fixer. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
+| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for [Diagnostic Service]/Fixer. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
 
 When `--peer-review` is active: after the standard diagnosis completes, spawn 3 Agent subagents with different lenses (Deep Layer L0-L2, Channel/Market L4-L7, Systems/Constraint cross-layer). Anonymize outputs, synthesize without knowing which lens produced what, then reveal. Convergent findings become HIGH confidence; divergent findings feed into ACH as competing hypotheses. Full protocol: `core/methodology/PEER_REVIEW_PROTOCOL.md`.
 

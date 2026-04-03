@@ -57,7 +57,7 @@ internal/leads/{slug}/
 
 | Field | Value |
 |---|---|
-| **Potential** | Morsel / Prism / Fractional CMO |
+| **Potential** | Morsel / [Diagnostic Service] / Fractional CMO |
 | **Est. value** | €X/month or one-time |
 | **Probability** | Low / Medium / High |
 ```

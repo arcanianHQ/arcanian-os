@@ -42,7 +42,7 @@ Használd ezt a skillt, amikor:
 - Ügynökséget váltottak, kreatívokat frissítették, büdzsét emelték — ugyanaz az eredmény
 - Az ügyfélnek second opinion kell a marketing irányáról
 - Bármilyen taktikai munka előtt — először diagnosztizálj, utána hajtsd végre
-- Nexus: Diagnostic futtatása (48 órás marketing röntgen)
+- [Service Tier]: Diagnostic futtatása (48 órás marketing röntgen)
 - Az ügyfélnek specifikus kérdése van, de mélyebb rétegeket gyanítasz
 
 ## Mi Ez — És Mi NEM Ez
@@ -133,7 +133,7 @@ Ez a skill **három módban** működik.
 │  Input: Weboldal + kimondott kihívás                            │
 │  Output: Top 5 probléma, rangsorolva, elsődleges                │
 │          szűk keresztmetszettel                                 │
-│  Idő: Gyors — a Nexus: Diagnostic termék (48 óra)              │
+│  Idő: Gyors — a [Service Tier]: Diagnostic termék (48 óra)              │
 │                                                                 │
 │  MÓD 2: MINTÁZAT TÉRKÉP (Teljes Diagnózis)                     │
 │  Input: Minden elérhető adat az összes rétegből                 │
@@ -725,9 +725,9 @@ TÜNET: "Nem tudunk nyereségesen skálázni"
 ## Integráció Más Skillekkel
 
 ```
-/7layer (Mód 1)  →  Belépési pont. Nexus: Diagnostic (röntgen). 48 óra.
-/7layer (Mód 2)  →  Teljes Mintázat Térkép — Nexus: Strategy szint.
-/7layer (Mód 3)  →  Mélyfúrás — Nexus: Foundation/Insight/Optimize szint.
+/7layer (Mód 1)  →  Belépési pont. [Service Tier]: Diagnostic (röntgen). 48 óra.
+/7layer (Mód 2)  →  Teljes Mintázat Térkép — [Service Tier]: Strategy szint.
+/7layer (Mód 3)  →  Mélyfúrás — [Service Tier]: Foundation/Insight/Optimize szint.
 
 DIAGNÓZIS UTÁN:
 /7layer → /[customer need framework]          Térképezd fel az ügyfél valódi job-ját (ha L6 az akadály)
@@ -748,25 +748,25 @@ KOMBINÁLÁS [Customer Need Framework]-VEL:
 ## A Fractional CMO Alkalmazás
 
 ### Térkép (Map) — 1-2. hónap
-Futtasd a `/7layer` Mód 1-et először: ez a **Nexus: Diagnostic** — a 48 órás röntgen. Aztán Mód 2-t (Mintázat Térkép) a teljes képért. Ez MAGA a Térkép fázis — láthatóvá tenni a láthatatlant.
+Futtasd a `/7layer` Mód 1-et először: ez a **[Service Tier]: Diagnostic** — a 48 órás röntgen. Aztán Mód 2-t (Mintázat Térkép) a teljes képért. Ez MAGA a Térkép fázis — láthatóvá tenni a láthatatlant.
 
 ### Rendszer (System) — 2-4. hónap
-Használd a Mód 3-at (Constraint Drill) minden javítandó rétegre, mélységi sorrendben. Ez a **Nexus: Foundation** (L1+L2), **Nexus: Insight** (L3+L4), vagy **Nexus: Optimize** (L5+L6) szint, attól függően, melyik réteg az akadály. A **Nexus: Strategy** (L1-L6 teljes) az, ha az egész rendszert kell felépíteni. A **Nexus: Core** (L7) a piaci szintű elemzés.
+Használd a Mód 3-at (Constraint Drill) minden javítandó rétegre, mélységi sorrendben. Ez a **[Service Tier]: Foundation** (L1+L2), **[Service Tier]: Insight** (L3+L4), vagy **[Service Tier]: Optimize** (L5+L6) szint, attól függően, melyik réteg az akadály. A **[Service Tier]: Strategy** (L1-L6 teljes) az, ha az egész rendszert kell felépíteni. A **[Service Tier]: Core** (L7) a piaci szintű elemzés.
 
 ### Változás (Change) — Folyamatos
 A Mintázat Térkép lesz az operációs rendszer. Hetente: "Melyik rétegen dolgozunk? Mi változott? Mi a következő akadály?" A marketing kontrollálhatóvá válik, nem kaotikus.
 
-### Nexus Terméklétra
+### [Service Tier] Terméklétra
 
 | Termék | Rétegek | Ár | Mikor |
 |--------|---------|-----|-------|
-| **Nexus: Morsel** | Felszíni scan | Ingyenes | Lead gen — első benyomás |
-| **Nexus: Diagnostic** | Mind a 7 feltérképezve | $497 | Mintázat Térkép + hol kell indulni |
-| **Nexus: Foundation** | L1 + L2 (Core + Identity) | $997 | "Nem tudjuk, kik vagyunk és mit érünk" |
-| **Nexus: Insight** | L3 + L4 (Product + Offer) | $2,500 | "A termékünk jó, de nem fogy" |
-| **Nexus: Optimize** | L5 + L6 (Channels + Customer) | $5,000 | "Minden csatornán ott vagyunk, de nem működik" |
-| **Nexus: Strategy** | L1-L6 teljes | $10,000 | "Mindenen dolgozunk egyszerre" |
-| **Nexus: Core** | L7 | $5,000/negyedév | "Mindent jól csinálunk, mégis akadunk" |
+| **[Service Tier]: Morsel** | Felszíni scan | Ingyenes | Lead gen — első benyomás |
+| **[Service Tier]: Diagnostic** | Mind a 7 feltérképezve | $497 | Mintázat Térkép + hol kell indulni |
+| **[Service Tier]: Foundation** | L1 + L2 (Core + Identity) | $997 | "Nem tudjuk, kik vagyunk és mit érünk" |
+| **[Service Tier]: Insight** | L3 + L4 (Product + Offer) | $2,500 | "A termékünk jó, de nem fogy" |
+| **[Service Tier]: Optimize** | L5 + L6 (Channels + Customer) | $5,000 | "Minden csatornán ott vagyunk, de nem működik" |
+| **[Service Tier]: Strategy** | L1-L6 teljes | $10,000 | "Mindenen dolgozunk egyszerre" |
+| **[Service Tier]: Core** | L7 | $5,000/negyedév | "Mindent jól csinálunk, mégis akadunk" |
 
 ---
 
