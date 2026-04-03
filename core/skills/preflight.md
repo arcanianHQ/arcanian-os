@@ -31,7 +31,7 @@ None. Operates on the current working directory.
 ### Step 3: Check MCP connections
 1. Read `.claude/settings.json` or `.mcp.json` if present
 2. List configured MCP servers and their connection status
-3. Common connections to check: GA4, Google Ads, Search Console, Meta Ads, Todoist, Asana
+3. Common connections to check: GA4, Google Ads, Search Console, Meta Ads, [Task Manager], Asana
 4. If no MCP config: note "No MCP connections configured for this project"
 
 ### Step 4: Last session context
@@ -58,7 +58,7 @@ Tasks: {P0_count} P0, {P1_count} P1, {total} total | {overdue_count} overdue
   P0: #12 Fix consent mode v2 implementation
   P0: #15 GA4 ecommerce events audit
 
-MCP: GA4 ✓  Ads ✓  SC ✓  Todoist ✗  Meta ✗
+MCP: GA4 ✓  Ads ✓  SC ✓  [Task Manager] ✗  Meta ✗
 
 Last session (YYYY-MM-DD):
   {first 3 lines of last log entry}

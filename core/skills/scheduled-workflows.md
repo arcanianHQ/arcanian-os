@@ -17,7 +17,7 @@
   --cron "0 7 * * 1-5" \
   --prompt "
     Read ~/.claude/user.json for session user.
-    Run /task-sync all (pull from Todoist/Asana, rate-limited).
+    Run /task-sync all (pull from [Task Manager]/Asana, rate-limited).
     Run /task-oversight (scan all projects, flag issues).
     Run /morning-brief (P0s, overdue, quick wins).
     Save combined output to internal/briefs/BRIEF_{date}.md.
@@ -28,7 +28,7 @@
 **Output:** `internal/briefs/BRIEF_2026-03-26.md`
 
 **What it produces:**
-- Todoist sync status (what changed overnight)
+- [Task Manager] sync status (what changed overnight)
 - Task oversight report (overdue, missing Layer, stale @waiting, sync drift)
 - Morning brief (P0s across all projects, quick wins)
 - Cross-project warning intelligence (Grabo-lite)
@@ -71,7 +71,7 @@
   "
 ```
 
-### 4. Weekly Todoist Full Sync — Sunday 20:00
+### 4. Weekly [Task Manager] Full Sync — Sunday 20:00
 
 **Purpose:** Ensure all projects are in sync before the week starts.
 **Frequency:** Sunday, 20:00
@@ -125,7 +125,7 @@
       Score confidence per CONFIDENCE_ENGINE.md.
       If confidence >= 0.4 AND outside threshold:
         Create task in TASKS.md with ontology edges.
-        Auto-sync to Todoist.
+        Auto-sync to [Task Manager].
       Log all results to data/MONITOR_LOG.md.
     Save summary to internal/briefs/MONITOR_{date}.md.
   "
@@ -205,7 +205,7 @@
 ## Prerequisites
 
 1. **dedicated server always-on** — schedules run on the dedicated server via Remote Control
-2. **MCP servers configured** — Todoist, Asana, Databox, Fireflies must be connected
+2. **MCP servers configured** — [Task Manager], Asana, Databox, Fireflies must be connected
 3. **`~/.claude/user.json`** on the dedicated server — identifies the default user for scheduled runs
 4. **Claude Code installed** on dedicated server with valid auth token
 5. **Remote Control** — `/schedule` uses Claude Code's built-in trigger system

@@ -40,7 +40,7 @@ Every project has exactly TWO task files in its root:
 ```yaml
 ---
 project: "project-name"
-sync: todoist          # default external system (todoist/asana/trello/bitrix/none)
+sync: [task-manager]          # default external system ([task-manager]/asana/trello/bitrix/none)
 sync_id: ""            # external project/board ID
 updated: 2026-03-23T18:00
 ---
@@ -180,7 +180,7 @@ Each task is a node connected to other objects:
 Each project has a default sync target in frontmatter (`sync:`).
 Tasks inherit the project default. Individual tasks can override with `sync:` line.
 
-**Supported systems:** `todoist` `asana` `trello` `bitrix` `none`
+**Supported systems:** `[task-manager]` `asana` `trello` `bitrix` `none`
 
 **Sync fields on task:**
 ```
@@ -232,8 +232,8 @@ Tasks inherit the project default. Individual tasks can override with `sync:` li
 | Project | Location | Sync | Tasks |
 |---|---|---|---|
 | ExampleBrand | `_example_full/` | asana (`EXAMPLE-ID-001`) | ~111 |
-| ExampleRetail | `_example_full/` | todoist | ~26 |
-| ExampleLocal | `_example_full/` | todoist | ~10 |
-| Arcanian | `__example_full/` | todoist | ~26 |
-| ExampleBuild | `_ExampleBuild_full/` | todoist | ~18 |
-| [Audit Framework] | `[audit-framework]/` | todoist | ~14 |
+| ExampleRetail | `_example_full/` | [task-manager] | ~26 |
+| ExampleLocal | `_example_full/` | [task-manager] | ~10 |
+| Arcanian | `__example_full/` | [task-manager] | ~26 |
+| ExampleBuild | `_ExampleBuild_full/` | [task-manager] | ~18 |
+| [Audit Framework] | `[audit-framework]/` | [task-manager] | ~14 |

@@ -6,7 +6,7 @@
 
 | MCP Server | Required? | What it does |
 |---|---|---|
-| **Todoist** or **Asana** | Yes (per sync target) | Task sync |
+| **[Task Manager]** or **Asana** | Yes (per sync target) | Task sync |
 | **Databox** | Yes | Dashboard read/write, metrics, goals |
 | **Google Analytics 4** | Yes | Traffic, conversions, audiences |
 | **Google Ads** | If client runs Ads | Campaign performance, conversions |
@@ -22,13 +22,13 @@
 |---|---|---|
 | **Chrome DevTools** | Yes | Phase 1 browser verification |
 | **Firecrawl** | Recommended | Phase 0 website scraping |
-| **Todoist** | Yes | Task sync |
+| **[Task Manager]** | Yes | Task sync |
 
 ## Internal Projects
 
 | MCP Server | Required? | What it does |
 |---|---|---|
-| **Todoist** | Yes | Task sync |
+| **[Task Manager]** | Yes | Task sync |
 | **Firecrawl** | Optional | Diagnostics, First Signal automation |
 | **Slack** | Yes | Team coordination |
 

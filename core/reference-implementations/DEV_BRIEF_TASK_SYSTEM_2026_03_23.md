@@ -15,7 +15,7 @@ The system currently runs as markdown files managed by Claude Code AI. This brie
 
 ### Why This Exists
 
-We run a fractional CMO practice with 6+ concurrent projects. Each project has 10-300 tasks. Tasks originate from different sources (audit findings, SOPs, meetings, emails, goals) and sync to different external systems (Todoist, Asana, Trello, Bitrix) per client. No existing tool handles all of this — they either do flat task lists (Todoist) or complex project management (Asana/Monday) but none model the *relationships between tasks and business objects*.
+We run a fractional CMO practice with 6+ concurrent projects. Each project has 10-300 tasks. Tasks originate from different sources (audit findings, SOPs, meetings, emails, goals) and sync to different external systems ([Task Manager], Asana, Trello, Bitrix) per client. No existing tool handles all of this — they either do flat task lists ([Task Manager]) or complex project management (Asana/Monday) but none model the *relationships between tasks and business objects*.
 
 ### Current State (working, needs to be replaced)
 
@@ -83,7 +83,7 @@ Some targets are structured (FND-039 has its own file), others are text labels (
 
 | Property | Type | Required | Example |
 |---|---|---|---|
-| `sync_system` | Enum | No | `todoist`, `asana`, `trello`, `bitrix`, `none` |
+| `sync_system` | Enum | No | `[task-manager]`, `asana`, `trello`, `bitrix`, `none` |
 | `ext_id` | String | No | `000000000000` (task ID in external system) |
 | `synced_at` | DateTime | No | `2026-03-23T14:30` (minute precision needed) |
 
@@ -236,7 +236,7 @@ Multiple layers:
 
 | Value | API | Auth | Notes |
 |---|---|---|---|
-| `todoist` | REST API v2 | Bearer token | Primary for most projects |
+| `[task-manager]` | REST API v2 | Bearer token | Primary for most projects |
 | `asana` | REST API | OAuth or PAT | Used by ExampleBrand |
 | `trello` | REST API | API key + token | Used by some clients |
 | `bitrix` | REST API | Webhook or OAuth | Used by ExampleOrg |
@@ -272,7 +272,7 @@ For each task with ext_id:
 
 Not all fields exist in all external systems. Here's the mapping:
 
-| Our Field | Todoist | Asana | Trello | Bitrix |
+| Our Field | [Task Manager] | Asana | Trello | Bitrix |
 |---|---|---|---|---|
 | `title` | `content` | `name` | `name` | `TITLE` |
 | `notes` | `description` | `notes` | `desc` | `DESCRIPTION` |
@@ -284,7 +284,7 @@ Not all fields exist in all external systems. Here's the mapping:
 | `effort` | `duration` | `custom_field` | `custom_field` | N/A |
 | `owner` | `responsible_uid` | `assignee` | `idMembers[0]` | `RESPONSIBLE_ID` |
 
-**Priority inversion for Todoist:** Todoist uses 1=normal, 4=urgent. We use P0=critical, P3=low. Mapping: P0→4, P1→3, P2→2, P3→1.
+**Priority inversion for [Task Manager]:** [Task Manager] uses 1=normal, 4=urgent. We use P0=critical, P3=low. Mapping: P0→4, P1→3, P2→2, P3→1.
 
 ### 4.3 Sync for New Tasks
 
@@ -599,7 +599,7 @@ This is a suggestion — developer can propose alternatives.
 3. Verify round-trip: export back to markdown, diff against original
 
 ### Phase 2: Sync connections
-1. Connect Todoist API (most projects)
+1. Connect [Task Manager] API (most projects)
 2. Connect Asana API (ExampleBrand)
 3. Run first sync, resolve any conflicts
 4. Verify: tasks appear in both systems correctly
@@ -622,11 +622,11 @@ This is a suggestion — developer can propose alternatives.
 | Project | Slug | Active Tasks | Done Tasks | Sync | External ID |
 |---|---|---|---|---|---|
 | ExampleBrand | `examplebrand` | 111 | 12 | Asana | `EXAMPLE-ID-001` |
-| ExampleRetail | `exampleretail` | 26 | 14 | Todoist | TBD |
-| ExampleLocal | `examplelocal` | 10 | 9 | Todoist | TBD |
-| Arcanian | `arcanian` | 26 | 7 | Todoist | TBD |
-| ExampleBuild | `ExampleBuild` | 18 | 8 | Todoist | TBD |
-| [Audit Framework] | `[audit-framework]` | 14 | 4 | Todoist | TBD |
+| ExampleRetail | `exampleretail` | 26 | 14 | [Task Manager] | TBD |
+| ExampleLocal | `examplelocal` | 10 | 9 | [Task Manager] | TBD |
+| Arcanian | `arcanian` | 26 | 7 | [Task Manager] | TBD |
+| ExampleBuild | `ExampleBuild` | 18 | 8 | [Task Manager] | TBD |
+| [Audit Framework] | `[audit-framework]` | 14 | 4 | [Task Manager] | TBD |
 | **Total** | | **205** | **54** | | |
 
 ### Sample Data Files (for testing)
@@ -657,7 +657,7 @@ The system is done when:
 
 1. **Import:** All 205 active tasks + 54 done tasks import correctly from markdown
 2. **Round-trip:** `parse(serialize(task)) == task` for all tasks — zero data loss
-3. **Sync:** Bidirectional sync works with Todoist and Asana
+3. **Sync:** Bidirectional sync works with [Task Manager] and Asana
 4. **Views:** All 12 standard views + 7 ontology queries work
 5. **Quick wins:** Can answer "what can I do in 15 minutes that moves the needle?" in 1 click
 6. **Ontology:** Can click a Finding and see all linked tasks, or click a Goal and see all tasks serving it
@@ -689,7 +689,7 @@ The system is done when:
 | **SQL (relational modeling)** | The ontology is a graph stored in relational tables. Edges table design, self-referential joins (task→task dependencies), efficient cross-project queries. | Can design a normalized schema for a graph-in-SQL pattern and write the queries for "find all tasks linked to FND-039 across projects" |
 | **REST API design** | Clean CRUD + action endpoints. Sync engine exposes status/conflict endpoints. Markdown import/export. | Understands idempotency, proper HTTP verbs, error handling |
 | **Markdown parsing** | Must build a custom parser that handles the exact format spec (Section 7). Not a generic markdown-to-HTML — it's a structured data extraction problem. | Has written a parser for a structured document format (not just used a library) |
-| **External API integration** | Bidirectional sync with Todoist REST API, Asana REST API. OAuth/PAT auth. Rate limiting. Pagination. | Has built a sync between two systems with conflict resolution |
+| **External API integration** | Bidirectional sync with [Task Manager] REST API, Asana REST API. OAuth/PAT auth. Rate limiting. Pagination. | Has built a sync between two systems with conflict resolution |
 | **State management (frontend)** | Kanban board with drag-and-drop (priority changes), optimistic updates, real-time edge editing. | Has built interactive UIs with complex local state |
 
 ### Nice-to-Have
@@ -727,12 +727,12 @@ The system is done when:
 
 | Risk | Consequence | Guardrail |
 |---|---|---|
-| **Sync overwrites local changes** | User edited a task locally, sync pulls older version from Todoist | NEVER auto-overwrite. Timestamp comparison is mandatory before any write. If `both changed since last sync` → flag as conflict, require manual resolution. Never silently resolve. |
+| **Sync overwrites local changes** | User edited a task locally, sync pulls older version from [Task Manager] | NEVER auto-overwrite. Timestamp comparison is mandatory before any write. If `both changed since last sync` → flag as conflict, require manual resolution. Never silently resolve. |
 | **Sync creates duplicates** | Same task exists in both systems, sync creates it again | Match by `ext_id` first. If no `ext_id`, match by title + project (fuzzy). On first sync of existing project, run a "match candidates" step before creating anything new. Require user confirmation for bulk creates. |
-| **API rate limiting** | Todoist/Asana rate-limits hit during bulk sync | Implement exponential backoff. Queue sync operations. Show progress ("syncing 45/111 tasks..."). Never fail silently — show exactly which tasks couldn't sync and why. |
+| **API rate limiting** | [Task Manager]/Asana rate-limits hit during bulk sync | Implement exponential backoff. Queue sync operations. Show progress ("syncing 45/111 tasks..."). Never fail silently — show exactly which tasks couldn't sync and why. |
 | **API token expiry / auth failure** | Sync silently stops working | Health check on every sync start. If auth fails, surface it immediately in dashboard: "ExampleBrand Asana sync: AUTH FAILED since 2026-03-23." Don't retry auth in a loop. |
-| **External system deletes a task** | User deletes in Todoist, sync pulls deletion to local | NEVER auto-delete locally. Flag as "deleted in external system" — user decides whether to archive locally or re-create externally. Deletion is irreversible; the guardrail is making it a conscious choice. |
-| **Field mapping loses data** | Impact scale doesn't exist in Todoist — syncing back loses it | Track which fields are "local-only" vs "synced". On sync, only write fields that map. On conflict display, show which fields exist only locally. Document clearly: "Impact, Effort, Monitor fields, and Ontology edges are LOCAL ONLY — they don't sync to external systems." |
+| **External system deletes a task** | User deletes in [Task Manager], sync pulls deletion to local | NEVER auto-delete locally. Flag as "deleted in external system" — user decides whether to archive locally or re-create externally. Deletion is irreversible; the guardrail is making it a conscious choice. |
+| **Field mapping loses data** | Impact scale doesn't exist in [Task Manager] — syncing back loses it | Track which fields are "local-only" vs "synced". On sync, only write fields that map. On conflict display, show which fields exist only locally. Document clearly: "Impact, Effort, Monitor fields, and Ontology edges are LOCAL ONLY — they don't sync to external systems." |
 
 ### Operational Safety
 
@@ -748,10 +748,10 @@ The system is done when:
 
 | Risk | Consequence | Guardrail |
 |---|---|---|
-| **API tokens in config** | Todoist/Asana tokens exposed in code or files | Store tokens in environment variables or a secrets manager. NEVER in TASKS.md, NEVER in git. `.env.local` with `.gitignore`. |
+| **API tokens in config** | [Task Manager]/Asana tokens exposed in code or files | Store tokens in environment variables or a secrets manager. NEVER in TASKS.md, NEVER in git. `.env.local` with `.gitignore`. |
 | **Client data cross-contamination** | ExampleRetail's findings visible in ExampleBrand project | Project isolation is absolute. No cross-project data in API responses unless explicitly queried via cross-project views. Cross-project views require explicit permission (founder-only). |
 | **Markdown files contain client-sensitive data** | TASKS.md with client contacts, tracking IDs, business details | These files should NOT be committed to public repos. `.gitignore` TASKS.md and TASKS_DONE.md by default. If backup is needed, encrypt or use a private repo. |
-| **Sync tokens give write access to client systems** | Compromised token could modify client's Asana/Todoist | Use minimum-permission tokens. Todoist: read+write on specific projects only. Asana: limit to specific workspace. Review token permissions quarterly. |
+| **Sync tokens give write access to client systems** | Compromised token could modify client's Asana/[Task Manager] | Use minimum-permission tokens. [Task Manager]: read+write on specific projects only. Asana: limit to specific workspace. Review token permissions quarterly. |
 
 ### UX Guardrails
 

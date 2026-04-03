@@ -3,7 +3,7 @@
 # System Guardrail: MCP Rate Limits
 
 > **SYSTEM-WIDE RULE** — applies to ALL MCP operations.
-> Learned from: Todoist 429 error (2026-03-24) — 50 assign operations sent at once, all failed.
+> Learned from: [Task Manager] 429 error (2026-03-24) — 50 assign operations sent at once, all failed.
 
 ---
 
@@ -15,7 +15,7 @@
 
 | Platform | Max per call | Delay between batches | Notes |
 |---|---|---|---|
-| **Todoist** | 10 items | 3 seconds | 429 at ~50. Safe at 10. |
+| **[Task Manager]** | 10 items | 3 seconds | 429 at ~50. Safe at 10. |
 | **Asana** | 10 items | 2 seconds | Rate limit varies by endpoint |
 | **Fireflies** | 5 transcripts | 5 seconds | Large responses — batch small |
 | **Databox** | 5 metrics | 2 seconds | Per-metric calls are fine |
@@ -27,12 +27,12 @@
 
 ```
 WRONG:
-  todoist.manage-assignments(taskIds: [50 IDs])  → 429 ALL FAILED
+  [task-manager].manage-assignments(taskIds: [50 IDs])  → 429 ALL FAILED
 
 RIGHT:
-  Batch 1: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
-  Batch 2: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
-  Batch 3: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 1: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 2: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 3: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
   ...
 ```
 
@@ -49,7 +49,7 @@ When 429 received:
 
 Any skill that does bulk MCP operations must follow this:
 - `/meeting-sync` — 5 transcripts per batch (already documented)
-- `/tasks sync` — 10 tasks per batch to Todoist/Asana
+- `/tasks sync` — 10 tasks per batch to [Task Manager]/Asana
 - `/client-report` — 5 metric calls max before pause
 - `/health-check` — sequential MCP checks, not parallel
 - `/morning-brief` — read-only, safe (but still batch if many clients)

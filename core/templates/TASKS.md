@@ -1,6 +1,6 @@
 ---
 project: "{slug}"
-sync: todoist
+sync: [task-manager]
 sync_id: ""
 updated: {YYYY-MM-DDThh:mm}
 ---
@@ -70,7 +70,7 @@ updated: {YYYY-MM-DDThh:mm}
   - Required fields: #{N}, @tag, Priority, Owner, Due, Impact, Created, Layer
   - @waiting requires: Waiting on, Waiting since, Follow-up
   - Multi-domain clients: add Domain: field to every task
-  - Sync: /task-sync pushes to Todoist with ontology enrichment
+  - Sync: /task-sync pushes to [Task Manager] with ontology enrichment
 
 ---
 

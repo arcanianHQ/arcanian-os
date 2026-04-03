@@ -1,6 +1,6 @@
 # Arcanian Ops — Risk Register
 
-> Cross-project risks and mitigations. Learned from ArcFlux patterns + operational experience.
+> Cross-project risks and mitigations. Learned from [Workflow System] patterns + operational experience.
 > Per-client risks go in client CAPTAINS_LOG. This is for SYSTEMIC risks.
 
 ---

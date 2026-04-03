@@ -1,6 +1,6 @@
 ---
 project: "project-name"
-sync: todoist
+sync: [task-manager]
 sync_id: ""
 updated: 2026-03-23T00:00
 ---
@@ -184,7 +184,7 @@ updated: 2026-03-23T00:00
 `15m` `30m` `1h` `2h` `4h` `1d` `2d` `3d` `1w` `2w+`
 
 ### Sync systems
-`todoist` `asana` `trello` `bitrix` `none`
+`[task-manager]` `asana` `trello` `bitrix` `none`
 
 ### Priority
 | P | Meaning |

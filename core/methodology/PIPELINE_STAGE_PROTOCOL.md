@@ -177,7 +177,7 @@ projects:
     brand_complete: 3
     issues: ["brand profile incomplete"]
 mcp:
-  - server: todoist
+  - server: [task-manager]
     status: connected
   - server: asana
     status: auth_error

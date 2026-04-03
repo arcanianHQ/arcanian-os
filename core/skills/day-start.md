@@ -6,7 +6,7 @@
 
 > **Output posture:** Present observations with questions. Help think, don't tell.
 
-Morning routine: pull from Todoist, update local, show what needs attention. Run at the start of every work day.
+Morning routine: pull from [Task Manager], update local, show what needs attention. Run at the start of every work day.
 
 ## Trigger
 
@@ -16,18 +16,18 @@ Morning routine: pull from Todoist, update local, show what needs attention. Run
 
 ## Process
 
-### 1. Sync ALL projects with Todoist (bidirectional pull)
+### 1. Sync ALL projects with [Task Manager] (bidirectional pull)
 
-**Every project syncs to Todoist.** Run from hub root.
+**Every project syncs to [Task Manager].** Run from hub root.
 
 For EACH project (hub → internal → all clients):
 1. Read TASKS.md frontmatter → get `sync_id`
-2. If `sync_id` empty → flag: "Project {name} not mapped to Todoist yet"
-3. `todoist.find-tasks(projectId: sync_id, limit: 100)`
-4. Compare timestamps: pull where Todoist is newer
-5. Tasks completed in Todoist → move to TASKS_DONE.md locally
-6. Tasks created in Todoist → pull to TASKS.md (ask for Layer + Impact before adding)
-7. Tasks updated in Todoist → update local if Todoist is newer
+2. If `sync_id` empty → flag: "Project {name} not mapped to [Task Manager] yet"
+3. `[task-manager].find-tasks(projectId: sync_id, limit: 100)`
+4. Compare timestamps: pull where [Task Manager] is newer
+5. Tasks completed in [Task Manager] → move to TASKS_DONE.md locally
+6. Tasks created in [Task Manager] → pull to TASKS.md (ask for Layer + Impact before adding)
+7. Tasks updated in [Task Manager] → update local if [Task Manager] is newer
 8. Update `ext:` + `synced:` on all synced tasks
 9. Rate limited: 10/batch, 3s delay between projects
 
@@ -72,10 +72,10 @@ Read `.registry-updates` file — any stale registries flagged by hooks?
 ```
 ☀️ DAY START — 2026-03-25
 
-TODOIST SYNC:
+[TASK_MANAGER] SYNC:
   ExampleBrand: pulled 3 updates, 1 completed overnight
   ExampleRetail: no changes
-  ExampleLocal: 2 new tasks from Todoist
+  ExampleLocal: 2 new tasks from [Task Manager]
 
 P0 TASKS: 2
   ExampleBrand #77: Roivenue BigQuery billing (Due: today)

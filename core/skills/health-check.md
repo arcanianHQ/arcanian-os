@@ -36,7 +36,7 @@ For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
 For each project with `.claude/settings.json` or `.mcp.json`:
 1. List configured MCP servers
 2. Attempt a minimal query per server type:
-   - Todoist: `get-overview` or `user-info`
+   - [Task Manager]: `get-overview` or `user-info`
    - Asana: `asana_list_workspaces`
    - GA4/Ads/Meta: note as configured (no simple ping available)
 3. Record: connected, auth error (401/403), not configured, or timeout
@@ -137,7 +137,7 @@ Symlinks: {N}/{total} resolve ✓
 Brand profiles: {N}/{total} complete ({incomplete list})
 
 ── MCP CONNECTIONS ────────────
-Todoist ✓ | Asana ✗ (401) | GA4 ✓ | Meta ✗ (not configured)
+[Task Manager] ✓ | Asana ✗ (401) | GA4 ✓ | Meta ✗ (not configured)
 
 ── GIT STATUS ─────────────────
 Clean: {N} repos

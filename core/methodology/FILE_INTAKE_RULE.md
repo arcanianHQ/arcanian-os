@@ -83,7 +83,7 @@ For each action item:
 2. `From:` = source of the file (person who sent it, meeting where it was discussed)
 3. `Inform:` = relevant stakeholders
 4. `Domain:` = from the file's context
-5. Auto-sync to Todoist (per `/tasks create` auto-sync)
+5. Auto-sync to [Task Manager] (per `/tasks create` auto-sync)
 6. Link task back to the file: `Source: {destination_path}`
 
 ### Step 6: Log to CAPTAINS_LOG

@@ -123,7 +123,7 @@ If run as part of /morning-brief, include in the morning brief output.
 
 ```
 /day-start calls:
-  1. /task-sync all (pull from Todoist/Asana)
+  1. /task-sync all (pull from [Task Manager]/Asana)
   2. /task-oversight (scan + report)
   3. /morning-brief (uses oversight data)
 

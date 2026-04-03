@@ -18,7 +18,7 @@ Use when: starting a new client/internal/audit project, "scaffold a project", "o
 | `display_name` | Yes | `Heavy Tools` | Titlecase of project_name |
 | `project_type` | Yes | `client` / `internal` / `audit` | `client` |
 | `location` | No | `/path/to/project` | `_arcanian-ops/clients/{name}` |
-| `sync_system` | No | `todoist` / `asana` / `trello` / `bitrix` | `todoist` |
+| `sync_system` | No | `[task-manager]` / `asana` / `trello` / `bitrix` | `[task-manager]` |
 | `sync_id` | No | `EXAMPLE-ID-001` | `""` |
 | `owner` | No | `[Owner]` | `[Owner]` |
 | `team` | No | `["[Owner]", "[Team Member 1]"]` | `["[Owner]"]` |
@@ -103,7 +103,7 @@ User request: $ARGUMENTS
 | Command file | Skill | Purpose |
 |---|---|---|
 | `tasks.md` | `tasks.md` | Task management (create, update, complete — with auto-sync + ontology) |
-| `task-sync.md` | `task-sync.md` | Bidirectional Todoist/Asana sync |
+| `task-sync.md` | `task-sync.md` | Bidirectional [Task Manager]/Asana sync |
 | `task-oversight.md` | `task-oversight.md` | Cross-project task health scan |
 | `council.md` | `council.md` | Multi-agent council deliberation |
 | `pipeline.md` | `pipeline.md` | Auto-chained diagnostic/measurement/discovery pipeline |

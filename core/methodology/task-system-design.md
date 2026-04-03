@@ -7,7 +7,7 @@ type: project
 # Task System Design — Discovery & Planning
 
 > **Status:** In progress (2026-03-23)
-> **Goal:** Unified task architecture across all Arcanian projects with local .md fallback when Todoist is down.
+> **Goal:** Unified task architecture across all Arcanian projects with local .md fallback when [Task Manager] is down.
 
 ---
 
@@ -55,13 +55,13 @@ type: project
 ### E. Goals (Quarterly / Yearly / Personal / Business) — NOT CONNECTED
 - **Where:** `_ExampleBuild_full/DELUXE_OKR_BLUF_2026_01_20.md`
 - **Where:** `__example_full/arcanian/archive/TASKS_2026_Q1.md` (phase-based goals)
-- **Where:** Todoist (goals feature — couldn't verify, API down)
+- **Where:** [Task Manager] (goals feature — couldn't verify, API down)
 - **Gap:** Goal documents exist but tasks don't reference which goal they serve.
 - **Need:** `Goal: Q1-ship-prism` or `OKR: revenue-target` in task metadata.
 - **Cascade question:** Goal → Key Result → Initiative → Task? Or just Goal → Task?
 
 ### F. GTD Tags — NOT CONNECTED LOCALLY
-- **Where:** Todoist labels (couldn't pull — API 401)
+- **Where:** [Task Manager] labels (couldn't pull — API 401)
 - **Gap:** No local representation of GTD contexts (@waiting, @next, @someday, @context).
 - **Need:** Tags/labels field in local task format.
 
@@ -146,7 +146,7 @@ _example_full/
 
 ---
 
-## 5. Todoist — Current State
+## 5. [Task Manager] — Current State
 
 **API Status:** 401 Unauthorized (2026-03-23). Could not pull:
 - Project structure (do per-client projects exist?)
@@ -154,8 +154,8 @@ _example_full/
 - Sections (how are projects organized?)
 - Filters (saved views?)
 
-**TODO:** Re-run discovery when Todoist API is restored. Key questions:
-- [ ] List all Todoist projects — do they mirror the 5 client projects?
+**TODO:** Re-run discovery when [Task Manager] API is restored. Key questions:
+- [ ] List all [Task Manager] projects — do they mirror the 5 client projects?
 - [ ] List all labels — what GTD tags exist?
 - [ ] List sections per project — what structure exists?
 - [ ] List saved filters — what views are configured?
@@ -254,7 +254,7 @@ Task ←→ GTD Context (@next, @waiting, @someday)
 
 ## 8. GTD Label System (CONFIRMED)
 
-GTD-style labels are the tagging system. These map to Todoist labels AND local .md tags.
+GTD-style labels are the tagging system. These map to [Task Manager] labels AND local .md tags.
 
 ### Core GTD Labels
 | Label | Meaning | When to use |
@@ -303,7 +303,7 @@ A unified local task format needs to support:
 5. **Owner** ([Owner], [Team Member 1], [Team Member 2], [Name], ITG, client)
 6. **Due date**
 7. **Project** (ExampleRetail, ExampleBrand, ExampleBuild, Arcanian, ExampleLocal)
-8. **Todoist sync ID** (when available)
+8. **[Task Manager] sync ID** (when available)
 
 ---
 
@@ -326,7 +326,7 @@ A unified local task format needs to support:
 - [x] **Timestamp line position:** Always line 4 (after GTD labels, core metadata, before ontology edges). Always present on every task. (confirmed 2026-03-23)
 
 - [x] **Goal cascade = shallow:** Just a tag on the task (`Goal: Q1-ship-prism`). No KR/Initiative hierarchy. (confirmed 2026-03-23)
-- [x] **External system = per-project default + per-task override:** Each project has a default sync target (Todoist, Asana, Trello, etc.). Tasks inherit the project default. Individual tasks can override with a different system reference. (confirmed 2026-03-23)
+- [x] **External system = per-project default + per-task override:** Each project has a default sync target ([Task Manager], Asana, Trello, etc.). Tasks inherit the project default. Individual tasks can override with a different system reference. (confirmed 2026-03-23)
 
 ## 11. External System Mapping
 
@@ -334,10 +334,10 @@ Each project syncs to ONE primary external system. Tasks inherit that default.
 
 | Project | Primary System | System ID / Board |
 |---------|---------------|-------------------|
-| **Arcanian** | Todoist | TBD (API was 401) |
+| **Arcanian** | [Task Manager] | TBD (API was 401) |
 | **ExampleBrand** | Asana | `EXAMPLE-ID-001` (C:ExampleBrand Transition) |
-| **ExampleRetail** | Todoist | TBD |
-| **ExampleLocal** | Todoist | TBD |
+| **ExampleRetail** | [Task Manager] | TBD |
+| **ExampleLocal** | [Task Manager] | TBD |
 | **ExampleBuild** | TBD | TBD |
 
 ### Per-task sync fields:
@@ -350,7 +350,7 @@ Each project syncs to ONE primary external system. Tasks inherit that default.
 ```
 
 ### Supported systems:
-- `todoist` — Todoist (API via MCP)
+- `[task-manager]` — [Task Manager] (API via MCP)
 - `asana` — Asana (API via MCP)
 - `trello` — Trello (manual or API)
 - `bitrix` — Bitrix24 (manual or API)
@@ -358,8 +358,8 @@ Each project syncs to ONE primary external system. Tasks inherit that default.
 
 ### Rules:
 - Project-level `sync:` field in TASKS.md frontmatter = default for all tasks
-- Task-level `sync:` overrides project default (rare — e.g., one task tracked in client's Bitrix while rest is in Todoist)
-- `ext:` = the task ID in the external system (Asana task ID, Todoist task ID, Trello card ID, etc.)
+- Task-level `sync:` overrides project default (rare — e.g., one task tracked in client's Bitrix while rest is in [Task Manager])
+- `ext:` = the task ID in the external system (Asana task ID, [Task Manager] task ID, Trello card ID, etc.)
 - Conflict resolution uses same timestamp logic regardless of external system
 
 ## 12. Task Types (9 types, confirmed 2026-03-23)
@@ -450,11 +450,11 @@ All major decisions made. Ready to create TASKS.md files for all 5 projects.
 
 ---
 
-## 11. Todoist Discovery — BLOCKED
+## 11. [Task Manager] Discovery — BLOCKED
 
 **API Status:** 401 Unauthorized (2026-03-23)
 **TODO when restored:**
-- [ ] List all Todoist projects — do they mirror the 5 client projects?
+- [ ] List all [Task Manager] projects — do they mirror the 5 client projects?
 - [ ] List all labels — what GTD labels already exist?
 - [ ] List sections per project — what structure exists?
 - [ ] List saved filters — what views are configured?
@@ -464,9 +464,9 @@ All major decisions made. Ready to create TASKS.md files for all 5 projects.
 
 ## 12. Next Steps
 
-1. Fix Todoist API access → re-run discovery (labels, projects, sections)
+1. Fix [Task Manager] API access → re-run discovery (labels, projects, sections)
 2. Decide on unified format (one template for all projects)
 3. Create missing task files (ExampleBuild, Arcanian)
 4. Backfill SOP/goal/calendar/GTD references into existing task files
-5. Define sync protocol (Todoist ↔ local .md)
+5. Define sync protocol ([Task Manager] ↔ local .md)
 6. Test: convert one existing project (e.g., ExampleBrand) to new format as proof of concept

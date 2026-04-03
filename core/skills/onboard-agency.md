@@ -18,7 +18,7 @@ Use when: user says `/onboard-agency`, "set up AOS for a new agency", "onboard n
 | `display_name` | Yes | Titlecase of `agency_name` |
 | `first_client` | No | `example-client` |
 | `databox_connected` | No | `false` |
-| `sync_system` | No | `todoist` |
+| `sync_system` | No | `[task-manager]` |
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Copy `.mcp.json.example` to `.mcp.json`. Guide the user through:
 | MCP Server | Required? | Setup |
 |---|---|---|
 | Databox | Recommended | API key from Databox settings |
-| Todoist | Optional | OAuth via `/mcp` |
+| [Task Manager] | Optional | OAuth via `/mcp` |
 | Asana | Optional | OAuth via `/mcp` |
 | ActiveCampaign | If used | API URL + key per instance |
 
@@ -90,7 +90,7 @@ Output to user:
 ## Onboarding Validation — {display_name}
 
 - [ ] Repo cloned and CLAUDE.md loads correctly
-- [ ] .mcp.json configured (Databox: {yes/no}, Todoist: {yes/no})
+- [ ] .mcp.json configured (Databox: {yes/no}, [Task Manager]: {yes/no})
 - [ ] First client scaffolded at clients/{first_client}/
 - [ ] CLIENT_CONFIG.md filled with domains and tracking IDs
 - [ ] DOMAIN_CHANNEL_MAP.md created (if multi-domain)

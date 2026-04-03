@@ -6,7 +6,7 @@
 
 > **Output posture:** Present observations with questions. Help reflect, don't judge.
 
-End-of-day routine: push local changes to Todoist, process inboxes, capture what happened, prepare for tomorrow.
+End-of-day routine: push local changes to [Task Manager], process inboxes, capture what happened, prepare for tomorrow.
 
 ## Trigger
 
@@ -15,15 +15,15 @@ End-of-day routine: push local changes to Todoist, process inboxes, capture what
 
 ## Process
 
-### 1. Push ALL projects to Todoist (bidirectional push)
+### 1. Push ALL projects to [Task Manager] (bidirectional push)
 
-**Every project syncs to Todoist.** Run from hub root.
+**Every project syncs to [Task Manager].** Run from hub root.
 
 For EACH project (hub → internal → all clients):
 1. Read TASKS.md → find tasks with `Updated > synced` (local is newer)
-2. Tasks created locally (no `ext:`) → create in Todoist with enriched description (Layer/FND/SOP/Goal)
-3. Tasks updated locally → push to Todoist
-4. Tasks completed locally → complete in Todoist
+2. Tasks created locally (no `ext:`) → create in [Task Manager] with enriched description (Layer/FND/SOP/Goal)
+3. Tasks updated locally → push to [Task Manager]
+4. Tasks completed locally → complete in [Task Manager]
 5. Store new `ext:` IDs + update `synced:` timestamps
 6. Rate limited: 10/batch, 3s delay between projects
 7. If `sync_id` empty → "Project {name} not mapped — run /task-sync {name} first"
@@ -67,9 +67,9 @@ CREATED TODAY: 4 tasks
   ExampleLocal: #23-#28 (from audit findings)
   ExampleBrand: #80 (from [Client Contact] meeting)
 
-SYNCED TO TODOIST: ✓
+SYNCED TO [TASK_MANAGER]: ✓
   Pushed: 11 tasks (4 new, 7 updates)
-  Completed: 7 in Todoist
+  Completed: 7 in [Task Manager]
 
 MEETINGS PROCESSED: 2
   ExampleBrand [Client Contact] weekly → 14 action items extracted

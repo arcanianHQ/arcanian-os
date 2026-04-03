@@ -55,7 +55,7 @@
 - When a task is done → you know WHO to tell (Inform list)
 - When a task is blocked → you know WHO to escalate to (From = the person who wanted it)
 - When prioritizing → tasks from [Client Contact] (CEO) hit different than tasks you created yourself
-- `/task-sync` can add Inform people as Todoist followers / Asana followers
+- `/task-sync` can add Inform people as [Task Manager] followers / Asana followers
 
 **From vs Owner vs Inform:**
 | Field | Who | Example |
@@ -220,9 +220,9 @@ Examples:
 
 ### Last Line: External Sync (if synced)
 ```
-  - ext: {todoist-project-id} | synced: 2026-03-24
+  - ext: {[task-manager]-project-id} | synced: 2026-03-24
 ```
-- `ext:` = Todoist task ID or Asana task GID
+- `ext:` = [Task Manager] task ID or Asana task GID
 - `synced:` = last sync timestamp
 
 ## Done Tasks
@@ -261,14 +261,14 @@ A task SHOULD also have:
 - [ ] Meeting reference (if sourced from a meeting)
 - [ ] Effort estimate
 - [ ] `Blocks:` field if other tasks depend on it
-- [ ] ext: + synced: (if project syncs to Todoist/Asana)
+- [ ] ext: + synced: (if project syncs to [Task Manager]/Asana)
 
 ## TASKS.md File Structure
 
 ```markdown
 ---
 project: "{slug}"
-sync: todoist|asana|none
+sync: [task-manager]|asana|none
 sync_id: "{external_project_id}"
 updated: {YYYY-MM-DDThh:mm}
 ---

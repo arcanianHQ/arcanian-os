@@ -8,7 +8,7 @@
 
 - When writing emails/memos → system auto-loads recipient's name, nickname, preferred language
 - When assigning tasks → `Owner:` and `From:` resolve to real people
-- When Todoist syncs → `Inform:` maps to correct email
+- When [Task Manager] syncs → `Inform:` maps to correct email
 - When /council delivery runs → report-reviewer checks names against contact list
 - When meeting notes come in → system identifies speakers by nickname/full name
 
@@ -65,7 +65,7 @@
 | **Name** | Yes | Full name (in native order — HU: Family Given) |
 | **Nickname** | Yes | What we CALL them in tasks, meetings, and conversation. Maps to Owner:/From:/Inform: fields. |
 | **Role** | Yes | Their function in this engagement |
-| **Email** | Recommended | For Todoist sync (Inform → follower) and correspondence |
+| **Email** | Recommended | For [Task Manager] sync (Inform → follower) and correspondence |
 | **Phone** | Optional | Only if phone is a primary channel |
 | **Preferred Channel** | Recommended | Email / Slack / Phone / WhatsApp — how they prefer to be contacted |
 | **Language** | Recommended | HU / EN / both — what language to use with them |
@@ -77,9 +77,9 @@
 
 | Task field | System looks up | Action |
 |------------|----------------|--------|
-| `Owner: [Owner] + [Name]` | CONTACTS.md → email | Todoist assigns to [Owner], adds [Name] as follower |
+| `Owner: [Owner] + [Name]` | CONTACTS.md → email | [Task Manager] assigns to [Owner], adds [Name] as follower |
 | `From: [Client Contact] (meeting)` | CONTACTS.md → nickname confirmed | Validates person exists in client contacts |
-| `Inform: Viktor, [Team Member 1]` | CONTACTS.md → email | Todoist adds as followers (if collaborators), otherwise in description |
+| `Inform: Viktor, [Team Member 1]` | CONTACTS.md → email | [Task Manager] adds as followers (if collaborators), otherwise in description |
 | Deliverable `For: [Client Contact]` | CONTACTS.md → language, tegező/magázó | Auto-sets deliverable tone |
 | Meeting transcript speaker "Ben" | CONTACTS.md → [Client Contact 2], Online Sales Mgr | Meeting-sync identifies speaker role |
 

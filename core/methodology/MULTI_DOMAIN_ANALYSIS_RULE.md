@@ -40,7 +40,7 @@ Many clients run multiple domains through shared ad accounts, analytics properti
 | **Search Console** | Which property? | Each domain has its own SC property — never mix |
 | **Shopify** | Which store? | ExampleD2C store ≠ Factory Store |
 | **Google Merchant Center** | Which MC account? | ExampleD2C has TWO MC IDs (`646843372` US, `280763264` legacy HU) |
-| **Asana / Todoist** | Which project/section? | Tasks may span domains — check Domain field |
+| **Asana / [Task Manager]** | Which project/section? | Tasks may span domains — check Domain field |
 
 ### The domain question comes BEFORE the data question:
 
@@ -121,7 +121,7 @@ Single-domain clients (e.g., ExampleLocal, ExampleOrg) do NOT need this file.
 - **Databox MCP** — check if data source is shared → filter by dimension + campaign patterns
 - **ActiveCampaign MCP** — identify which instance (US vs EU) before any contact/automation/campaign query
 - **Asana MCP** — tasks may span domains; filter by Domain field or section
-- **Todoist MCP** — check domain label on tasks
+- **[Task Manager] MCP** — check domain label on tasks
 - **Any future platform MCP** (GA4, Google Ads, Meta) — same rule applies: domain first, query second
 
 ## Domain Isolation in Analysis (v2.0 — 2026-03-31)

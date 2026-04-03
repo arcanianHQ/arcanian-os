@@ -17,7 +17,7 @@ Use when: user says `/onboard-client`, "onboard new client", "set up a new clien
 | `name` | Yes | — (slug, e.g., `heavytools`) |
 | `display_name` | Yes | Titlecase of `name` |
 | `type` | No | `client` |
-| `sync_system` | No | `todoist` |
+| `sync_system` | No | `[task-manager]` |
 | `owner` | No | `[Owner]` |
 | `team` | No | `["[Owner]"]` |
 

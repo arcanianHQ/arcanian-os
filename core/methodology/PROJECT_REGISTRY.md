@@ -62,9 +62,9 @@ Cross-project discovery (from hub session):
 | Skills | `core/skills/` | 5+refs | /tasks, /scaffold-project, /validate, /preflight, /delivery-phase |
 | Agents | `core/agents/` | 7 | audit-checker, report-reviewer, pii-scanner, data-rules-checker, project-architect, client-explorer, knowledge-extractor |
 | SOPs | `core/sops/` | 12 | 9 marketing-ops + 1 audit knowledge-extraction + index + template |
-| Templates | `core/templates/` | 6+16 | Project templates + ArcFlux memory bank templates |
+| Templates | `core/templates/` | 6+16 | Project templates + [Workflow System] memory bank templates |
 | Scripts | `core/scripts/` | 43 | SCRIPTS_INDEX.md lists all with purpose + phase |
-| Tools | `core/tools/` | ~160 | GTM debug, ArcFlux, hooks, learning docs |
+| Tools | `core/tools/` | ~160 | GTM debug, [Workflow System], hooks, learning docs |
 | Brand | `core/brand/arcanian/` | 8 | Our voice, Target Profile, positioning, identity sentence, content strategy |
 | Infrastructure | `core/infrastructure/` | ~55 | BRIEF, SETUP, SLACK, REMOTE, DATA_RULES, IT systems |
 | Ref. implementations | `core/reference-implementations/` | 3 | ExampleBrand patterns, [Audit Framework] patterns, dev brief |
