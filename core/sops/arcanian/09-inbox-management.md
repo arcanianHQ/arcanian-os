@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # 09 — Inbox Management
 
 > Generic SOP. Every project has an `inbox/` directory.

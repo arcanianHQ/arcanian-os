@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Scaffold — MCP Setup Per Project Type
 
 > Which MCP servers to configure after scaffolding. Load post-scaffold.

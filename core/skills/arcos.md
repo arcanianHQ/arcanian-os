@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # ArcOS System Context
 
 You are connected to **ArcOS (Arcanian OS)** — a Company OS that manages knowledge, meetings, clients, projects, skills, content publishing, and workflows. All data lives in Drupal (headless CMS), accessed via MCP tools or Drupal REST/JSON:API. AI capabilities use Claude/OpenAI via a Python agent layer.

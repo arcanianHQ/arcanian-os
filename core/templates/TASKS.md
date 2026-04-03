@@ -4,6 +4,7 @@ sync: [task-manager]
 sync_id: ""
 updated: {YYYY-MM-DDThh:mm}
 ---
+> v1.0 — 2026-04-03
 
 # {Display Name} — Tasks
 

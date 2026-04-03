@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-07: Knowledge Sharing
 
 > Team briefing, methodology updates, and institutional knowledge management.

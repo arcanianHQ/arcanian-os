@@ -3,6 +3,7 @@ client: "{project_name}"
 updated: "YYYY-MM-DD"
 classification: "CONFIDENTIAL"
 ---
+> v1.0 — 2026-04-03
 
 # {Display Name} — Client Configuration
 

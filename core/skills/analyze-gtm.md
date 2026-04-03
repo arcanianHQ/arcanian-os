@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Analyze GTM Gaps (GTM Strategist Framework)
 
 ## Purpose

@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 client: "{client}"
 audit_date: "YYYY-MM-DD"
@@ -10,6 +11,7 @@ high_count: 0
 medium_count: 0
 low_count: 0
 ---
+> v1.0 — 2026-04-03
 
 # {Client Name} — Audit Report
 

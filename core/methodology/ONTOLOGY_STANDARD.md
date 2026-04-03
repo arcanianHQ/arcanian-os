@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops Ontology Standard
 
 > Canonical reference for how objects connect across the Arcanian Ops system.
@@ -15,9 +17,9 @@
 | **Goal** | shallow tag | task inline / project-level | `Q1-ship-[diagnostic-service]` |
 | **Layer** | `L0`..`L7` | Arcanian Marketing Control Framework | `L5` (Channel) |
 | **Meeting** | date + label | task inline | `2026-03-10 IT` |
-| **Email** | name + date | task inline | `Jeno 2026-03-04` |
-| **Lead** | slug | `core/leads/LEAD_STATUS.md` | `euronics` |
-| **Person** | name | contacts / inline | `Jeno Koller` |
+| **Email** | name + date | task inline | `[Client Contact] 2026-03-04` |
+| **Lead** | slug | `core/leads/LEAD_STATUS.md` | `retail-lead` |
+| **Person** | name | contacts / inline | `[Client Contact]` |
 | **Client** | slug | `clients/<slug>/` | `exampleretail`, `examplebrand` |
 
 ---
@@ -36,8 +38,8 @@ All edges SHOULD be bidirectional. Forward = where you write it first. Backward 
 | Task -> Goal | `Goal: Q1-ship-[diagnostic-service]` in task line | _(tracked in goal definition if exists)_ | Soft |
 | Task -> Layer | `Layer: L5` in task line | _(queryable via grep)_ | Queryable |
 | Task -> Meeting | `Meeting: 2026-03-10 IT` in task line | _(text reference)_ | One-way |
-| Task -> Email | `Email: Jeno 2026-03-04` in task line | _(text reference)_ | One-way |
-| Task -> Lead | `Lead: euronics` in task line | `Tasks:` section in LEAD_STATUS.md | YES - required |
+| Task -> Email | `Email: [Client Contact] 2026-03-04` in task line | _(text reference)_ | One-way |
+| Task -> Lead | `Lead: retail-lead` in task line | `Tasks:` section in LEAD_STATUS.md | YES - required |
 
 ### Finding / Recommendation / Pattern Edges
 
@@ -57,7 +59,7 @@ All edges SHOULD be bidirectional. Forward = where you write it first. Backward 
 ```
 #53 Fix dead GTM message bus | P0 @next
     FND: FND-039 | REC: REC-039 | Layer: L5 | Lead: exampleretail
-    Meeting: 2026-03-10 IT | Email: Jeno 2026-03-04
+    Meeting: 2026-03-10 IT | Email: [Client Contact] 2026-03-04
 ```
 
 ### In a Finding file (FND-039)
@@ -83,7 +85,7 @@ All edges SHOULD be bidirectional. Forward = where you write it first. Backward 
 
 ### In LEAD_STATUS.md
 ```
-## euronics
+## retail-lead
 Status: analysis-complete
 Tasks: #12, #14, #15, #22
 ```
@@ -95,7 +97,7 @@ Tasks: #12, #14, #15, #22
 1. **Every required edge MUST be bidirectional.** When you write `FND: FND-039` in a task, also add `Tasks: #N` to the finding file.
 2. **When completing a task that references a finding**, update the finding's status if the finding is now resolved.
 3. **When creating a finding**, always include a `Tasks:` section -- even if empty (`Tasks: (none yet)`).
-4. **When a task mentions a lead name** (euronics, heavy-tools, etc.), add a `Lead:` edge to the task.
+4. **When a task mentions a lead name** (retail-lead, heavy-tools, etc.), add a `Lead:` edge to the task.
 5. **The `/query` skill can traverse these edges** -- correct linking makes querying possible.
 6. **IDs are globally unique per type.** FND-039 exists once across all clients. The client is inferred from the file path.
 7. **Soft edges** (Goal, Meeting, Email, SOP) are informational -- no backlink enforcement. They exist for context.
@@ -129,6 +131,6 @@ Tasks: #12, #14, #15, #22
 ### Priority backfill order
 
 1. **Finding <-> Task backlinks** -- highest value, enables `/query FND-NNN` to show related tasks
-2. **Lead <-> Task edges** -- enables `/query lead euronics` to show all related work
+2. **Lead <-> Task edges** -- enables `/query lead retail-lead` to show all related work
 3. **Task -> Goal** -- enables progress tracking against quarterly goals
 4. **Meeting/Email references** -- lowest priority, informational only

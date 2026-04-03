@@ -3,6 +3,7 @@ name: Task System Design
 description: Cross-project task architecture design — connecting tasks to findings, SOPs, calendar, email, goals, and GTD tags. Ongoing design project.
 type: project
 ---
+> v1.0 — 2026-04-03
 
 # Task System Design — Discovery & Planning
 
@@ -48,7 +49,7 @@ type: project
 - **Need:** `Meeting: 2026-03-10 IT vezető` or similar structured reference.
 
 ### D. Emails — WEAK CONNECTION
-- **Where:** Inline in ExampleBrand tasks ("Benji email deactivation risk")
+- **Where:** Inline in ExampleBrand tasks ("[Former Team Member] email deactivation risk")
 - **Gap:** Mentioned as context but not traceable to a specific email/thread.
 - **Need:** At minimum, `Email: subject line / date / sender` reference.
 
@@ -297,7 +298,7 @@ A unified local task format needs to support:
    - `REC: REC-039` (recommendation)
    - `SOP: 05-CAMPAIGN-MANAGEMENT` (process)
    - `Meeting: 2026-03-10 IT vezető` (calendar event)
-   - `Email: Benji handover 2026-03-03` (email thread)
+   - `Email: [Former Team Member] handover 2026-03-03` (email thread)
    - `Goal: Q1-ship-[diagnostic-service]` (goal/OKR)
 4. **GTD labels** — `@next`, `@waiting`, `@someday`, `@agenda`, `@review`, `@computer`, `@phone`, `@email`, `@deep`, `@quick`
 5. **Owner** ([Owner], [Team Member 1], [Team Member 2], [Name], ITG, client)

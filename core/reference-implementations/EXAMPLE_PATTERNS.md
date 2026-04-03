@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Reference: ExampleBrand Patterns
 
 > ExampleBrand is the most complete project (944 files, all L0-L7 layers). Use as gold standard for client projects.
@@ -49,7 +51,7 @@ agencies/
 ├── bp-digital-seo/          ← 557 files! 7 markets, per-market: keywords + content + SEO + monitoring
 ├── growww-digital/           ← Contracts v1-v3, meeting notes, Roivenue partnership
 ├── [agency-a]/                   ← Termination docs (ends 2026-03-31)
-├── benji-handover/           ← 10 files: Excel tracking, roadmap, NDA
+├── team-handover/           ← 10 files: Excel tracking, roadmap, NDA
 ├── [competitor]/                 ← Partnership intel
 └── brandmaker/               ← Legacy (minimal)
 ```
@@ -74,7 +76,7 @@ takeover/
 - `skills/` — 27 Arcanian skills imported
 
 ## Key ExampleBrand-Specific Rules (from CLAUDE.md)
-1. Laci = ExampleBrand employee (use example-ecom.com email, NEVER Arcanian)
+1. [Owner] = ExampleBrand employee (use example-ecom.com email, NEVER Arcanian)
 2. Single source of truth: TASKS.md (syncs to Asana)
 3. No financial data in client-facing docs
 4. All data under NDA

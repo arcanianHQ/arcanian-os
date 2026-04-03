@@ -7,6 +7,7 @@ data: [analytics, organic_search]
 active: true
 confidence_scoring: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Client Explorer
 

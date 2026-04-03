@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops — Project Registry
 
 > All projects with paths, status, and discovery info.

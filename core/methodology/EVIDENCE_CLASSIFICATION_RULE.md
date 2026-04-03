@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # System Guardrail: Evidence Classification
 
 > **SYSTEM-WIDE RULE** — applies to ALL data analysis, OODA, ACH, and causal reasoning.
@@ -19,10 +21,10 @@ When an analysis mixes system data with narratives, meeting notes, and "someone 
 
 **The ExampleD2C failure:**
 - GA4 sessions data → HIGH confidence ✓
-- "Benji caused the drop" → **narrative from meetings, not measured** → treated as CC (Consistently Consistent) in ACH
+- "[Former Team Member] caused the drop" → **narrative from meetings, not measured** → treated as CC (Consistently Consistent) in ACH
 - "Criteo 9.4x ROAS" → **number from unknown source, never verified** → treated as fact
 - "[Agency A] switched to lead forms" → **inferred from current state, not timestamped** → treated as causal explanation
-- Timeline didn't match: drop started Feb 1, Benji left Feb 23. **Nobody checked.**
+- Timeline didn't match: drop started Feb 1, [Former Team Member] left Feb 23. **Nobody checked.**
 
 ---
 
@@ -48,19 +50,19 @@ Every row in an ACH table MUST be classified. Only **DATA** and **OBSERVED** ite
 
 ```markdown
 ❌ Bad ACH:
-| Benji távozása | CC | — the "evidence" is a narrative, not data
+| [Former Team Member] távozása | CC | — the "evidence" is a narrative, not data
 
 ✓ Good ACH:
 | facebook/cpc sessions -49% Jan→Feb [DATA: GA4 Databox, 2026-03-31] | CC |
-| Benji left Feb 23 [STATED: HR, 2026-02-23] — but drop started Feb 1 [DATA] | I (inconsistent!) |
+| [Former Team Member] left Feb 23 [STATED: HR, 2026-02-23] — but drop started Feb 1 [DATA] | I (inconsistent!) |
 ```
 
 ### 2. BLUF Confidence
 A BLUF confidence rating CANNOT be HIGH if the causal explanation relies on NARRATIVE, STATED, or INFERRED evidence.
 
 ```markdown
-❌ [Confidence: HIGH — GA4 source/medium bontás + Criteo spend data + timeline egyezés Benji departure-rel]
-— the GA4 data is HIGH, but "timeline egyezés Benji departure-rel" is INFERRED and actually WRONG
+❌ [Confidence: HIGH — GA4 source/medium bontás + Criteo spend data + timeline egyezés [Former Team Member] departure-rel]
+— the GA4 data is HIGH, but "timeline egyezés [Former Team Member] departure-rel" is INFERRED and actually WRONG
 
 ✓ [Confidence: HIGH for session data, LOW for causal attribution — causes are hypotheses, not verified]
 ```
@@ -73,13 +75,13 @@ Any statement of the form "X caused Y" or "the drop is because of X" MUST includ
 3. **The counterfactual** — could Y have happened without X?
 
 ```markdown
-❌ "A csökkenés oka: Benji távozása + Meta kampánytípus változás + Criteo leállás"
+❌ "A csökkenés oka: [Former Team Member] távozása + Meta kampánytípus változás + Criteo leállás"
 — presented as conclusion, no evidence classification, no temporal check
 
 ✓ "Három lehetséges ok (mind UNVERIFIED):
    1. Meta kampány típus változás — [INFERRED: current state is lead form, but start date unknown]
    2. Criteo leállás — [DATA: €0 spend from Feb, Databox] — but WHEN in Feb? Before or after session drop?
-   3. Coordination gap — [NARRATIVE: attributed to Benji departure, but timeline doesn't match]"
+   3. Coordination gap — [NARRATIVE: attributed to [Former Team Member] departure, but timeline doesn't match]"
 ```
 
 ### 4. The Repetition Trap
@@ -97,8 +99,8 @@ When you find the same explanation in CAPTAINS_LOG, meeting notes, emails, and t
 Before any causal claim, plot both events on a timeline:
 
 ```markdown
-❌ "Benji távozott → sessions dropped"
-Timeline check: Drop started Feb 1. Benji left Feb 23.
+❌ "[Former Team Member] távozott → sessions dropped"
+Timeline check: Drop started Feb 1. [Former Team Member] left Feb 23.
 → The effect preceded the supposed cause by 22 days.
 → Causal claim FAILS timeline test.
 ```
@@ -154,6 +156,6 @@ Before delivering ANY analysis:
 1. **Strip out all NARRATIVE and HEARSAY.** Does the analysis still hold? If not, the analysis is built on stories, not data.
 2. **Check the timeline.** Does the supposed cause actually precede the effect?
 3. **Check for the Repetition Trap.** Is a claim treated as strong because it appears in many documents, or because it's independently verified?
-4. **Split the confidence.** Data confidence and causal confidence are different things. "Sessions dropped 38% [HIGH]" and "because Benji left [LOW]" are two separate statements with two separate confidence levels.
+4. **Split the confidence.** Data confidence and causal confidence are different things. "Sessions dropped 38% [HIGH]" and "because [Former Team Member] left [LOW]" are two separate statements with two separate confidence levels.
 
 **"A story told five times doesn't become data. A correlation plotted on a chart doesn't become causation. A narrative that feels right doesn't become verified."**

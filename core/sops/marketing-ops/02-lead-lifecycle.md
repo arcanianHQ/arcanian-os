@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # 02 — Lead Lifecycle
 
 > Generic SOP. Adapt per client in `clients/{slug}/processes/`.

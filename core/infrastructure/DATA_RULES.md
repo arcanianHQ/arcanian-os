@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops — Data Rules
 
 > Every team member must read and acknowledge this document before accessing any client project.
@@ -94,6 +96,13 @@ In addition to automated hooks, visually verify before committing:
 - Aggregated reports: keep in Git indefinitely
 - Completed tasks: archived in TASKS_DONE.md (keep indefinitely)
 - Client access credentials: update ACCESS_REGISTRY.md, rotate tokens quarterly
+
+## Rule 8: Forbidden References (Security Blocklist)
+
+- Follow `SECURITY_BLOCKLIST.md` for prohibited terms and categories.
+- Prohibited terms are checked in both file names and file contents.
+- Any match is a blocking issue and must be removed before commit.
+- This is for client-specific references and sensitive identifiers; core product/methodology vocabulary is allowed.
 
 ---
 

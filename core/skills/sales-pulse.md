@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Sales Pulse (`/sales-pulse`)
 
 > **Data Reliability Framework applies.** Every metric must include [Confidence: HIGH/MED/LOW] and source tag [DATA]/[OBSERVED]/[INFERRED].

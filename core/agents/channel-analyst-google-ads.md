@@ -6,6 +6,7 @@ context: [audience, offerings, market]
 data: [google_ads, analytics]
 active: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Google Ads Channel Analyst
 

@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # ArcOS Connection Diagnostic
 
 Check whether Claude Code is properly connected to the ArcOS (Arcanian OS) stack. Runs all checks via Bash (not MCP) so it works even when MCP is broken.

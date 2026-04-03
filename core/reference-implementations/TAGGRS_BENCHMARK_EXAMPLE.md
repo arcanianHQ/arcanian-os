@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 name: TAGGRS Configuration Benchmark (ExampleRetail Gold Standard)
 description: Reference implementation of TAGGRS tracking tags in Web GTM and sGTM — extracted from ExampleRetail production setup (GTM-EXAMPLE-001-001 ws296, GTM-EXAMPLE-001-002 ws118)
@@ -9,6 +10,7 @@ containers:
   sgtm: GTM-EXAMPLE-001-002 (workspace 118)
   taggrs_container: "{{Taggrs Container ID}}" variable
 ---
+> v1.0 — 2026-04-03
 
 # TAGGRS Configuration Benchmark — ExampleRetail Gold Standard
 

@@ -84,7 +84,7 @@ When invoked, ask what the user needs or detect from context:
    - Scan task content for references: FND-NNN, REC-NNN, SOP names, meeting dates, lead names, domain names, goal tags
    - Auto-add detected edges if not already present
    - **Create backlinks:** If task has `FND: FND-039` → open finding file, add `Tasks: #{N}` to it
-   - **Create backlinks:** If task has `Lead: euronics` → open LEAD_STATUS.md, add `#{N}` to lead's task list
+   - **Create backlinks:** If task has `Lead: retail-lead` → open LEAD_STATUS.md, add `#{N}` to lead's task list
    - If edges detected from conversation context (user said "from the [Client Contact] meeting"), add `Meeting:` and `From:` automatically
 
 ### `/tasks complete #N` — Complete a task

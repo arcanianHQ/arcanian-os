@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Client Onboarding Checklist
 
 > Use this checklist when onboarding a new measurement audit client.

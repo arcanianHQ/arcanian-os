@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian OS
 
 An open-source operating system for marketing operations — powered by Claude Code and Databox.

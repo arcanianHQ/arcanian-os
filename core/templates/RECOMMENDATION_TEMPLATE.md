@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 id: "REC-NNN"
 client: "{slug}"
@@ -8,6 +9,7 @@ addresses: ["FND-NNN", "FND-NNN"]
 status: "open|in-progress|done"
 created: "YYYY-MM-DD"
 ---
+> v1.0 — 2026-04-03
 
 # REC-NNN: {Title}
 

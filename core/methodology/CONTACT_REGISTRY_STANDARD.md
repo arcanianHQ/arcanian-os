@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Contact Registry Standard
 
 > Every client project MUST have a `CONTACTS.md` file with ALL people involved.
@@ -30,21 +32,21 @@
 |------|----------|------|-------|-------|-------------------|----------|-------|
 | [Client Contact] | [Client Contact] | US CEO | client-contact@example-ecom.com | — | Email (HU) | HU | Micro-manages, needs proof. Tegező. |
 | [Client MD] | [Name] | Marketing Dir HU | — | — | Email / Slack | HU | Day-to-day coord. Tegező. |
-| [Client Contact 2] | Ben | Online Sales Mgr US | contact@example-ecom.com | — | Email (EN) | EN | Manages 14 US reps. |
+| [Client Contact 2] | [Client Contact 2] | Online Sales Mgr US | contact@example-ecom.com | — | Email (EN) | EN | Manages 14 US reps. |
 
 ## Agencies & Partners
 
 | Name | Nickname | Company | Role | Email | Phone | Status | Notes |
 |------|----------|---------|------|-------|-------|--------|-------|
 | [Name] | [Name] | [Agency A] | Google Ads | — | — | Contract ends 03-31 | — |
-| Marcell | Marcell | [Agency B] | AC Admin | — | — | Active | — |
-| Péter Szesztay | Peti | BP Digital | SEO (strategic) | — | — | Active | — |
+| [Partner Contact] | [Partner Contact] | [Agency B] | AC Admin | — | — | Active | — |
+| [External Specialist] | [Team Member] | BP Digital | SEO (strategic) | — | — | Active | — |
 
 ## Arcanian Team
 
 | Name | Nickname | Role | Email | Notes |
 |------|----------|------|-------|-------|
-| [Owner Name] | [Owner] / Laci | Creator/Strategy | owner@example.com | ExampleBrand email: owner@example-ecom.com |
+| [Owner Name] | [Owner] | Creator/Strategy | owner@example.com | ExampleBrand email: owner@example-ecom.com |
 | [Team Member 1] | [Team Member 1] | Research | team1@example.com | No ExampleBrand access |
 | [Team Member 2] | [Team Member 2] | Delivery | team2@example.com | No ExampleBrand access |
 
@@ -55,7 +57,7 @@
 - **Tegező/Magázó:** {per person — see Notes column}
 - **Default language:** {HU/EN per person}
 - **NDA applies:** {yes/no}
-- **Who reviews deliverables:** {name — e.g., "Magdolna reviews everything" for ExampleRetail}
+- **Who reviews deliverables:** {name — e.g., "[Client Contact 3] reviews everything" for ExampleRetail}
 ```
 
 ## Fields
@@ -79,9 +81,9 @@
 |------------|----------------|--------|
 | `Owner: [Owner] + [Name]` | CONTACTS.md → email | [Task Manager] assigns to [Owner], adds [Name] as follower |
 | `From: [Client Contact] (meeting)` | CONTACTS.md → nickname confirmed | Validates person exists in client contacts |
-| `Inform: Viktor, [Team Member 1]` | CONTACTS.md → email | [Task Manager] adds as followers (if collaborators), otherwise in description |
+| `Inform: [Stakeholder], [Team Member 1]` | CONTACTS.md → email | [Task Manager] adds as followers (if collaborators), otherwise in description |
 | Deliverable `For: [Client Contact]` | CONTACTS.md → language, tegező/magázó | Auto-sets deliverable tone |
-| Meeting transcript speaker "Ben" | CONTACTS.md → [Client Contact 2], Online Sales Mgr | Meeting-sync identifies speaker role |
+| Meeting transcript speaker "[Client Contact 2]" | CONTACTS.md → [Client Contact 2], Online Sales Mgr | Meeting-sync identifies speaker role |
 
 ### Save-Deliverable → Tone Auto-Loading (Step 0)
 

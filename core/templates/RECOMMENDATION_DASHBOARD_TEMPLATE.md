@@ -4,8 +4,8 @@
 # Recommendation Effectiveness Dashboard — Template
 
 > **Purpose:** Make the closed-loop feedback system visible. Show whether recommendations actually moved the numbers.
-> **Data source:** AOS Recommendation Outcomes (Databox source `4942040`, Arcanian account `579880`)
-> **Datasets:** Recommendation Outcomes (`a757ff92`) + REC Hit Rate Summary (`a58ca753`)
+> **Data source:** AOS Recommendation Outcomes (create via `create_data_source` — see `core/agents/outcome-tracker.md`)
+> **Datasets:** Recommendation Outcomes + REC Hit Rate Summary (create via `create_dataset`)
 
 ---
 
@@ -66,7 +66,7 @@ Sort by: outcome_date desc. Filter: client = {current}.
 ## Setup Instructions
 
 1. In Databox, create a new Datawall
-2. Add data source: "AOS Recommendation Outcomes" (`4942040`)
+2. Add data source: "AOS Recommendation Outcomes" (the one you created via outcome-tracker setup)
 3. For each block above, add a Datablock and configure metric + filter
 4. Set date range: Last 90 days (rolling)
 5. Share with client (optional — hide confidence column for client-facing view)

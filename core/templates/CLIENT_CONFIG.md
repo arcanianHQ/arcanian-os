@@ -7,6 +7,7 @@ status: "active"
 platform: ""
 platform_version: ""
 ---
+> v1.0 — 2026-04-03
 
 # {Client Name} — Configuration
 

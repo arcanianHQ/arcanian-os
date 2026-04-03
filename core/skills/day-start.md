@@ -84,11 +84,11 @@ P0 TASKS: 2
 OVERDUE: 3
   ExampleRetail #53: GTM message bus (3 days)
   ExampleBrand #60: IT requests (2 days)
-  Arcanian #10: Euronics follow-up (26 days!)
+  Arcanian #10: [Retail Lead] follow-up (26 days!)
 
 @WAITING > 7 DAYS: 2
   [Name]: 2 tasks (BigQuery, Windsor)
-  Attila (Euronics): 1 task (follow-up)
+  [Contact Person] ([Retail Lead]): 1 task (follow-up)
 
 QUICK WINS: 3
   ExampleBrand #49: Wire Enhanced Conversions (15m, lever)

@@ -5,6 +5,7 @@ phase: "{Phase 1 / Consent Check / Ad-hoc}"
 domain: "{domain tested}"
 browser_state: "clean"
 ---
+> v1.0 — 2026-04-03
 
 # Browser Session Log — {Client} — YYYY-MM-DD
 

@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 id: "FND-NNN"
 client: "{slug}"
@@ -9,6 +10,7 @@ status: "open|verified|resolved|false-positive"
 created: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 ---
+> v1.0 — 2026-04-03
 
 # FND-NNN: {Title}
 

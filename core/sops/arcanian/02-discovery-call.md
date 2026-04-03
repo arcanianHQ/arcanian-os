@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-02: Discovery Call
 
 > Standard discovery call structure and pre/post-call process.

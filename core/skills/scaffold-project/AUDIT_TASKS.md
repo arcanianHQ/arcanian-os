@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Scaffold — Pre-Populated Audit Tasks
 
 > Added to TASKS.md when `project_type == audit`. These are starter tasks for the full Phase 0-5 audit + mandatory knowledge extraction.

@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # File Intake Rule — Auto-Route External Files
 
 > When a user references a file from outside the project (Downloads, Desktop, Documents, inbox/),
@@ -130,14 +132,14 @@ Append to CAPTAINS_LOG.md:
   Logged to CAPTAINS_LOG.md
 ```
 
-**User:** "Peti sent this Shopify report" + path to ~/Documents/shopify-export-march.csv
+**User:** "[Team Member] sent this Shopify report" + path to ~/Documents/shopify-export-march.csv
 ```
 ✓ Filed: shopify-export-march.csv
   → clients/example-ecom/data/shopify-export-2026-03.csv
   Type: data export | Client: examplebrand | Domain: example-d2c.com
   Tasks extracted: 1
     #193 Review Shopify March export — P2 | Owner: [Owner]
-    From: Peti (email) | Inform: [Name]
+    From: [Team Member] (email) | Inform: [Name]
   Logged to CAPTAINS_LOG.md
 ```
 

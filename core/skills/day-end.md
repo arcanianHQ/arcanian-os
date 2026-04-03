@@ -80,12 +80,12 @@ DELIVERABLES SENT: 1
 
 STILL OPEN:
   P0: 1 (ExampleLocal #9 consent gating)
-  Overdue: 2 (ExampleRetail #53, Euronics follow-up)
+  Overdue: 2 (ExampleRetail #53, [Retail Lead] follow-up)
 
 TOMORROW'S PRIORITIES:
   1. ExampleLocal #9 — consent gating (P0)
   2. ExampleRetail #53 — GTM message bus (P0, overdue)
-  3. Euronics — follow up (26 days!)
+  3. [Retail Lead] — follow up (26 days!)
 
 CAPTAINS_LOG entries today: 4
 ```

@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # System Guardrail: Unverified Assumptions
 
 > **SYSTEM-WIDE RULE** — applies to ALL skills, agents, SOPs, and diagnostics.

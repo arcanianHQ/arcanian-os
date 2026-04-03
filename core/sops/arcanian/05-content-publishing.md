@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-05: Content Publishing
 
 > Content creation and publishing workflow for LinkedIn and Substack.

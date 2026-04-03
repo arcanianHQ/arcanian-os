@@ -6,6 +6,7 @@ context: [audience, offerings, market]
 data: [meta_ads, analytics]
 active: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Meta Ads Channel Analyst
 

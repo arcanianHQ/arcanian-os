@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 id: copy-analyst
 name: Copy & Voice Analyst
@@ -8,6 +9,7 @@ active: true
 confidence_scoring: true
 recommendation_log: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Copy & Voice Analyst
 

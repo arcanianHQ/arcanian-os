@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-08: Quarterly Review
 
 > Client engagement health check and renewal decision every 90 days.

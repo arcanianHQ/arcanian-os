@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Auto-Save Deliverable
 
 ## Purpose
@@ -246,10 +248,10 @@ Before saving, check if the project has a `PROJECT_GLOSSARY.md`. If it does, ver
 → Checks: Bridge Rule (must land on marketing diagnosis)
 ```
 
-**User:** "write a memo about the Euronics follow-up plan"
+**User:** "write a memo about the [Retail Lead] follow-up plan"
 ```
-→ Saves to: internal/leads/euronics/sent/{date}_followup-plan.md
+→ Saves to: internal/leads/retail-lead/sent/{date}_followup-plan.md
 → Opens in Typora
-→ Ontology: Lead: euronics, Layer: L6
+→ Ontology: Lead: retail-lead, Layer: L6
 → Updates LEAD_STATUS.md timeline
 ```

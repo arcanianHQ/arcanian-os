@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Developer Brief: Arcanian Task Management System
 
 **Date:** 2026-03-23
@@ -118,7 +120,7 @@ Goals are shallow tags — not a full OKR system. No hierarchy.
 | Property | Type | Example |
 |---|---|---|
 | `id` | String (slug) | `Q1-ship-[diagnostic-service]` |
-| `name` | String | `Ship first [Diagnostic Service] (Euronics)` |
+| `name` | String | `Ship first [Diagnostic Service] ([Retail Lead])` |
 | `project_id` | FK → Project | `arcanian` |
 | `quarter` | String | `Q1-2026` |
 
@@ -742,7 +744,7 @@ The system is done when:
 | **TASKS_DONE.md grows forever** | Archive becomes massive over months/years | Partition by quarter: `TASKS_DONE_2026_Q1.md`, `TASKS_DONE_2026_Q2.md`. Auto-rotate when archive exceeds 500 entries. Old archives become read-only. |
 | **Concurrent markdown edits** | Claude Code and the UI both write to TASKS.md at the same time | File locking: before writing, acquire a `.TASKS.md.lock` file. If lock exists and is <30 seconds old, wait. If >30 seconds, assume stale lock, override. On write: read → parse → merge changes → write. Never overwrite the whole file blind. |
 | **User accidentally moves all tasks to P0** | Everything is "critical," nothing is prioritized | Soft limit: warn if >5 tasks are P0. "You have 8 P0 tasks. P0 means 'fix now' — are all of these truly critical?" Don't block, just warn. |
-| **Owner field becomes inconsistent** | "[Owner]" vs "Laci" vs "laszlo" for same person | Normalize owners to a fixed list per project. On import, fuzzy-match to known owners. Suggest corrections: "Did you mean '[Owner]'?" Enum in UI, free text only on import. |
+| **Owner field becomes inconsistent** | "[Owner]" vs "[Owner]" vs "[Owner-variant]" for same person | Normalize owners to a fixed list per project. On import, fuzzy-match to known owners. Suggest corrections: "Did you mean '[Owner]'?" Enum in UI, free text only on import. |
 
 ### Security & Privacy
 

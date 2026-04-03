@@ -7,6 +7,7 @@ data: [analytics]
 active: true
 confidence_scoring: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Knowledge Extractor
 

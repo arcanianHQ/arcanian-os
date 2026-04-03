@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Task Format Standard
 
 > Gold standard: `clients/example-ecom/TASKS.md`
@@ -46,7 +48,7 @@
 
 ### Line 3b: Origin & Stakeholders (RECOMMENDED)
 ```
-  - From: [Client Contact] (meeting 2026-03-23) | Inform: [Name], Viktor
+  - From: [Client Contact] (meeting 2026-03-23) | Inform: [Name], [Stakeholder]
 ```
 - **From:** WHO originated/requested this task. Person name + source (meeting, email, Slack, task extraction).
 - **Inform:** WHO needs to know when this is done. People who didn't request it but care about the outcome.
@@ -62,14 +64,14 @@
 |-------|-----|---------|
 | **From** | Requested/originated the task | [Client Contact] (asked for it in meeting) |
 | **Owner** | Does the work | [Owner] + [Name] |
-| **Inform** | Needs to know when done | Viktor, [Team Member 1] |
+| **Inform** | Needs to know when done | [Stakeholder], [Team Member 1] |
 
 **Examples:**
 ```markdown
 - [ ] #115 Hirdetési keret növelés — napi +$500
   - @waiting
   - P0 | Owner: [Owner] + [Name] | Due: 2026-03-27 | Effort: 1h | Impact: unlock
-  - From: [Client Contact] (meeting 2026-03-23) | Inform: Viktor, [Agency A]
+  - From: [Client Contact] (meeting 2026-03-23) | Inform: [Stakeholder], [Agency A]
   - Created: 2026-03-24 | Updated: 2026-03-26
   - Layer: L5
   - Domain: example-d2c.com
@@ -130,7 +132,7 @@ Example:
   - P0 | Owner: [Owner] + [Name] | Due: 2026-03-27 | Effort: 1h | Impact: unlock
   - Created: 2026-03-24 | Updated: 2026-03-26
   - Layer: L5
-  - Waiting on: Viktor + [Agency A] — keret jóváhagyás és beállítás
+  - Waiting on: [Stakeholder] + [Agency A] — keret jóváhagyás és beállítás
   - Waiting since: 2026-03-26
   - Follow-up: 2026-03-28 — [Owner] emlékeztető [Name]nak ha nincs válasz
   - Depends on: #113
@@ -180,7 +182,7 @@ Examples:
 ```markdown
 - [ ] #113 ASAP összekötések — sGTM, BigQuery, GTM admin
   - @next @computer
-  - P0 | Owner: [Owner] + Peti | Due: 2026-03-26 | Effort: 1d | Impact: unlock
+  - P0 | Owner: [Owner] + [Team Member] | Due: 2026-03-26 | Effort: 1d | Impact: unlock
   - Created: 2026-03-24 | Updated: 2026-03-24
   - Layer: L5
   - Domain: example-d2c.com

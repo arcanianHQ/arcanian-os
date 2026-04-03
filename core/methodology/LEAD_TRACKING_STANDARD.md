@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Lead Tracking Standard
 
 > Every lead gets structured tracking — not just files in a folder.
@@ -87,6 +89,6 @@ When stage = Won:
 ## Connection to Hub
 
 - Internal TASKS.md tracks lead follow-ups as tasks
-- Each lead task references: `Lead: euronics` (ontology edge)
+- Each lead task references: `Lead: retail-lead` (ontology edge)
 - `/morning-brief` should surface leads with overdue follow-ups
 - CAPTAINS_LOG tracks strategic decisions about leads

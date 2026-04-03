@@ -4,6 +4,7 @@ week: "YYYY-Www"
 date: "YYYY-MM-DD"
 auditor: ""
 ---
+> v1.0 — 2026-04-03
 
 # {Client Name} — Weekly Check
 

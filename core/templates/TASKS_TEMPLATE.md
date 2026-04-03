@@ -4,6 +4,7 @@ sync: [task-manager]
 sync_id: ""
 updated: 2026-03-23T00:00
 ---
+> v1.0 — 2026-04-03
 
 # Project Name — Tasks
 

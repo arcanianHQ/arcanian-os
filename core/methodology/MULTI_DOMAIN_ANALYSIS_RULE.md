@@ -69,9 +69,9 @@ RIGHT: Which domain? → example-d2c.com → use exampled2c.api-us1.com instance
 ```
 User asks: "What's our Google Ads ROAS?"
                                     ↓
-WRONG: load_metric_data(source: 4924545, metric: cost) → account total
-RIGHT: Which domain? → example-d2c.com → source 4924545 + dimension: campaign + filter example-d2c.com_*
-       Which domain? → example-ecom.com → source 4924545 + dimension: campaign + filter example-ecom.com_*
+WRONG: load_metric_data(source: EXAMPLE_SOURCE_ID, metric: cost) → account total
+RIGHT: Which domain? → example-d2c.com → source EXAMPLE_SOURCE_ID + dimension: campaign + filter example-d2c.com_*
+       Which domain? → example-ecom.com → source EXAMPLE_SOURCE_ID + dimension: campaign + filter example-ecom.com_*
        Which domain? → "all" → break down by domain in output, show each separately
 ```
 

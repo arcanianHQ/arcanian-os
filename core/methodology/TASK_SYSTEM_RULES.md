@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Task System — Rules & Best Practices
 
 > Shared reference for all projects. Each project's CLAUDE.md should point here.

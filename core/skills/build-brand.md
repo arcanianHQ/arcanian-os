@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Build Brand Strategy (100M Branding Framework)
 
 ## Purpose

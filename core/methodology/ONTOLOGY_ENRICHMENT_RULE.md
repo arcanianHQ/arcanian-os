@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Ontology Enrichment Rule — Automatic Palantir-Style Linking
 
 > Every object in the system (task, finding, file, deliverable, meeting, lead) MUST be linked
@@ -22,7 +24,7 @@ When `/tasks create` or `/tasks update` runs, BEFORE saving:
 | A person who requested it | `From: {person}` | "[Client Contact] asked for this" → adds `From: [Client Contact]` |
 | A domain name | `Domain: {domain}` | "on example-d2c.com" → adds `Domain: example-d2c.com` |
 | A goal reference | `Goal: {goal}` | "for the Q1 website launch" → adds `Goal: Q1-website-live` |
-| A lead reference | `Lead: {slug}` | "for the Euronics pitch" → adds `Lead: euronics` |
+| A lead reference | `Lead: {slug}` | "for the [Retail Lead] pitch" → adds `Lead: retail-lead` |
 
 **Auto-create backlinks:**
 
@@ -30,7 +32,7 @@ When `/tasks create` or `/tasks update` runs, BEFORE saving:
 |-------------------------|----------------------|-----|
 | `FND: FND-039` | Finding file FND-039 → add `Tasks: #{N}` | Read + Edit finding file |
 | `REC: REC-039` | Recommendation file REC-039 → add `Tasks: #{N}` | Read + Edit rec file |
-| `Lead: euronics` | LEAD_STATUS.md → add `#{N}` to euronics Tasks section | Read + Edit lead file |
+| `Lead: retail-lead` | LEAD_STATUS.md → add `#{N}` to retail-lead Tasks section | Read + Edit lead file |
 | `Goal: Q1-website-live` | (soft — no backlink needed, queryable via grep) | — |
 
 ### 2. On File Intake (from Downloads, inbox, etc.)

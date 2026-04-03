@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Scaffold — Reference Implementations
 
 > Context for why the scaffold is structured this way. Load when you need to understand the reasoning, not during normal scaffolding.

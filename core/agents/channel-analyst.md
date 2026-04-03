@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 id: channel-analyst
 name: Channel & Market Analyst
@@ -8,6 +9,7 @@ active: true
 confidence_scoring: true
 recommendation_log: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Channel & Market Analyst
 

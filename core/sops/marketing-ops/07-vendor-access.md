@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # 07 — Vendor Access Management
 
 > Generic SOP. Adapt per client in `clients/{slug}/processes/`.

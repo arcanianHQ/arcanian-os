@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops — SOP Library Index
 
 > Master index of all Standard Operating Procedures.

@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops — File Naming Conventions
 
 > Compiled from Arcanian (468 files) and ExampleBrand (944 files). Use these patterns in all projects.

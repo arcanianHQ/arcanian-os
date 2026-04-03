@@ -2,6 +2,7 @@
 client: "{client}"
 last_updated: "YYYY-MM-DD"
 ---
+> v1.0 — 2026-04-03
 
 # {Client Name} — Escalation Contacts
 

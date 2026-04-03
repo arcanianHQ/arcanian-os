@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Meeting Sync (`/meeting-sync`)
 
 ## Purpose
@@ -84,7 +86,7 @@ Match meeting to a client using:
 | Signal | How to match |
 |---|---|
 | Participant email domain | `@example-ecom.com` → examplebrand, `@example-retail.com` → exampleretail |
-| Participant name | "[Name]" → examplelocal, "[Developer]" → example-auto-examplehome, "Péter" → ExampleBuild |
+| Participant name | "[Name]" → examplelocal, "[Developer]" → example-auto-examplehome, "[Builder Contact]" → ExampleBuild |
 | Meeting title | "ExampleBrand weekly" → examplebrand, "ExampleRetail GTM review" → exampleretail |
 | Calendar event | If linked to Google Calendar |
 
@@ -94,10 +96,10 @@ Match meeting to a client using:
 |---|---|
 | [Name], [Name], examplelocal, ExampleLocal | examplelocal |
 | [Developer], example-auto, examplehome | example-auto-examplehome |
-| [Name], ExampleBrand, ExampleD2C, Peti, Viktor, [Client Contact] | examplebrand |
-| Orsi, Péteri, ExampleRetail, Magdolna | exampleretail |
-| Péter (kocsibeallo context), ExampleBuild, Zsuzsi, Devin | ExampleBuild |
-| Fruzsi, Flora, MiniWash | example-wash |
+| [Name], ExampleBrand, ExampleD2C, [Team Member], [Stakeholder], [Client Contact] | examplebrand |
+| [Client Contact 1], [Client Contact 2], ExampleRetail, [Client Contact 3] | exampleretail |
+| [Builder Contact], ExampleBuild, [Builder Contact 2], [Builder Contact 3] | ExampleBuild |
+| [Wash Contact 1], [Wash Contact 2], MiniWash | example-wash |
 | [Name], ExampleBox | ExampleBox |
 | [Name], [Name] (ExampleSoft context), [Name] | ExampleSoft |
 | [Team Member 2], [Team Member 1] (internal, no client) | internal |

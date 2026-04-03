@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Reference: [Audit Framework] Patterns
 
 > The measurement audit platform is the gold standard for structured diagnostic work.

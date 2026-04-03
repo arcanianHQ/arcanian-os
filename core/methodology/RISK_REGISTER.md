@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Arcanian Ops — Risk Register
 
 > Cross-project risks and mitigations. Learned from [Workflow System] patterns + operational experience.

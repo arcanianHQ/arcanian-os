@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-03: Proposal Delivery
 
 > Proposal creation and delivery from diagnostic results to signed engagement.

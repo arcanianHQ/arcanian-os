@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Data Reliability Framework (MANDATORY)
 
 > Every data analysis deliverable must include confidence ratings and measurement error impact.
@@ -76,7 +78,7 @@ Always check which apply:
 
 - **Discovery Not Pronouncement:** Confidence ratings = the team can check the math
 - **Unverified Assumptions:** UNVERIFIED confidence = must verify before acting
-- **Evidence Classification Rule:** Every evidence item must be classified (DATA/OBSERVED/STATED/NARRATIVE/INFERRED/HEARSAY). Source system confidence (this framework) is not the same as evidence class. A GA4 number is HIGH confidence DATA. "Benji caused the drop" is NARRATIVE — even if repeated in 5 documents.
+- **Evidence Classification Rule:** Every evidence item must be classified (DATA/OBSERVED/STATED/NARRATIVE/INFERRED/HEARSAY). Source system confidence (this framework) is not the same as evidence class. A GA4 number is HIGH confidence DATA. "[Former Team Member] caused the drop" is NARRATIVE — even if repeated in 5 documents.
 - **Assumption Guard Hook:** Now also checks for missing confidence markers
 
 ## Examples

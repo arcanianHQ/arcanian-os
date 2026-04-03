@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Skill: Marketing Diagnosis (`/7layer`)
 
 ## Purpose
@@ -684,7 +686,7 @@ L0 (Source) and L1 (Core) are internal — competitors' L0/L1 can only be inferr
 
 - **Mode 2 (Pattern Map):** Always include a Competitive Matrix for 3–6 major competitors. For large markets (retail, e-commerce), map 5–10+ including small emerging players.
 - **Mode 3 (Constraint Drill):** When the constraint is at L3-L5, the matrix reveals whether it's a company problem or a market-wide pattern.
-- **Strategic engagements (Wallis, ExampleRetail, Euronics scale):** The matrix IS the strategic tool — it shows where the client can win and where they're structurally blocked.
+- **Strategic engagements ([Client Example], ExampleRetail, [Retail Lead] scale):** The matrix IS the strategic tool — it shows where the client can win and where they're structurally blocked.
 
 ### Key Insight
 
@@ -799,7 +801,7 @@ L4: No urgency in offer (Offer)
 SYMPTOM: "Can't scale outside Christmas"
 ```
 
-### Euronics
+### [Retail Lead]
 **Client question:** "CPC rising, can't scale with ROAS"
 
 ```

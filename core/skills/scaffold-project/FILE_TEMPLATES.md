@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Scaffold — File Templates
 
 > Template content for generated files. Variables: {project_name}, {display_name}, {project_type}, {owner}, {team}, {sync_system}, {sync_id}, {today}, {goals}.

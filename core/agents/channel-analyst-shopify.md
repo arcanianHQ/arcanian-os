@@ -6,6 +6,7 @@ context: [audience, offerings]
 data: [analytics, shopify]
 active: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Shopify Channel Analyst
 

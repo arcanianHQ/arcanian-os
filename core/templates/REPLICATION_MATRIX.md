@@ -3,6 +3,7 @@ client: "{client}"
 countries: ["HU", "RO", "SK"]
 last_updated: "YYYY-MM-DD"
 ---
+> v1.0 — 2026-04-03
 
 # {Client Name} — Replication Matrix
 

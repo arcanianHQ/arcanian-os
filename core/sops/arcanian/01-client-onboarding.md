@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # SOP-01: Client Onboarding
 
 > End-to-end new client onboarding from first contact to kickoff.

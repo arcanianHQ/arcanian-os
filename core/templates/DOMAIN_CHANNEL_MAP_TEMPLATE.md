@@ -1,4 +1,4 @@
-> v1.1 — {date}
+> v1.2 — {date}
 
 # {Client} — Domain & Channel Map
 
@@ -6,6 +6,26 @@
 > **LOAD THIS BEFORE ANY ANALYSIS.** See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.
 > **Lag column:** typical sync delay per source. See `core/methodology/ALARM_CALIBRATION.md`.
 > **Currency column:** native currency per source. See `core/methodology/CURRENCY_NORMALIZATION.md`.
+
+## Business Units
+
+> **Define how this client's domains group into business units.** Different clients have different structures:
+> - **Separate businesses** (e.g., US D2C brand vs HU wholesale) → different P&L, different markets, NEVER blend
+> - **Same business, different markets** (e.g., brand.hu / brand.ro / brand.sk) → same brand, different currencies/ads, specify market
+> - **Same business, different segments** (e.g., Standard vs Premium) → different customers, different economics
+> - **Same business, different domains** (e.g., SEO domains) → group by platform, analyze per domain
+>
+> If only 1 domain: delete this section.
+
+| Unit | Domains | Market/Segment | Currency | Isolation Level |
+|---|---|---|---|---|
+| {Unit name} | {domain(s)} | {market or segment} | {currency} | {NEVER blend / specify market / per-domain} |
+
+### Enforcement Rules
+
+1. **"{Client} ROAS"** requires specifying which unit: {list units}.
+2. **Budget recommendations** per unit — {reason}.
+3. **Cross-unit comparison** is valid IF clearly labeled and currencies normalized.
 
 ---
 
@@ -67,8 +87,8 @@
 
 | Container Name | Container ID | Type | Domain | Notes |
 |----------------|-------------|------|--------|-------|
-| {Name} | `GTM-EXAMPLE-001` | Web | domain1.com | |
-| {Name} | `GTM-EXAMPLE-001` | Server | domain1.com | sst.domain1.com |
+| {Name} | `GTM-XXXXXXX` | Web | domain1.com | |
+| {Name} | `GTM-XXXXXXX` | Server | domain1.com | sst.domain1.com |
 
 ### Search Console
 

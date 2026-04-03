@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # System Guardrail: Discovery, Not Pronouncement
 
 > **SYSTEM-WIDE RULE** — applies to ALL skills, agents, and outputs.

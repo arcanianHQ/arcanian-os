@@ -6,6 +6,7 @@ context: [offerings, market]
 data: [analytics, google_ads, meta_ads, shopify]
 active: true
 ---
+> v1.0 — 2026-04-03
 
 # Agent: Outcome Tracker
 
@@ -96,10 +97,10 @@ After each weekly run, push outcome data to Databox for dashboard visibility:
 
 | Field | Databox Details |
 |---|---|
-| **Account** | Arcanian Consulting Ltd. (`579880`) |
-| **Data Source** | AOS Recommendation Outcomes (`4942040`) |
-| **Dataset 1** | Recommendation Outcomes (`a757ff92-1875-445a-a572-f991cf4df0c2`) — per-REC row |
-| **Dataset 2** | REC Hit Rate Summary (`a58ca753-7697-4ba1-8b74-67c01a50dd54`) — per-client weekly rollup |
+| **Account** | Your agency account (get ID from `list_accounts`) |
+| **Data Source** | Create via `create_data_source(name="AOS Recommendation Outcomes")` |
+| **Dataset 1** | Recommendation Outcomes — create via `create_dataset` with columns: rec_id, client, metric_targeted, status, metric_before, metric_after, change_pct, confidence, created_date, outcome_date |
+| **Dataset 2** | REC Hit Rate Summary — create via `create_dataset` with columns: client, week, total_recs_checked, confirmed, no_effect, too_early, invalidated, hit_rate_pct, cumulative_hit_rate_pct |
 
 **Ingest flow:**
 1. After updating RECOMMENDATION_LOG.md, format each changed REC as a row

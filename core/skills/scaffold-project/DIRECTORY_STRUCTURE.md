@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Scaffold — Directory Structure
 
 > Full directory tree per project type. Loaded by `/scaffold-project` Step 1 and Step 10.

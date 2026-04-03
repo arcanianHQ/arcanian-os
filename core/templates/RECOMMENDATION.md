@@ -1,3 +1,4 @@
+> v1.0 — 2026-04-03
 ---
 id: "REC-{NNN}"
 client: "{client}"
@@ -10,6 +11,7 @@ estimated_effort: ""
 created: "YYYY-MM-DD"
 updated: "YYYY-MM-DD"
 ---
+> v1.0 — 2026-04-03
 
 # REC-{NNN}: {Title}
 

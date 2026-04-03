@@ -1,3 +1,5 @@
+> v1.0 — 2026-04-03
+
 # Captain's Log — {Display Name}
 
 Strategic decisions and reasoning. Append-only. Newest at bottom.
