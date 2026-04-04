@@ -120,7 +120,6 @@ __example_full/skills/
 ```
 _ExampleBuild_full/
 ├── LEAD_SIGNALS_FRAMEWORK.md
-├── DRUPAL_LEAD_SIGNALS_MODULE.md
 └── skills/ (contains INTEGRATED_BUSINESS_WORKFLOW.md + others)
 ```
 

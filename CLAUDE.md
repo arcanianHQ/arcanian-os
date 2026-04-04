@@ -70,7 +70,7 @@ Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /map-results, /measurement-aud
 JTBD: /jtbd, /jtbd-map, /jtbd-hire, /jtbd-outcomes, /jtbd-switch
 Strategy: /build-brand, /craft-offer, /validate-idea, /analyze-gtm, /plan-gtm
 Content: /linkedin-comment, /substack-post, /magyar-szoveg, /conversion-story
-Platform: /arcos, /connect, /frontend-design, /drupal-plan, /memory-bank, /claude-code-guide
+Platform: /arcos, /connect, /frontend-design, , /memory-bank, /claude-code-guide
 Other: /analyze-copy, /manage-client, /sales-pulse
 
 ## SOP Auto-Surface (ALWAYS-ON BEHAVIOR)

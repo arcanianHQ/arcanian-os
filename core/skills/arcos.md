@@ -2,17 +2,17 @@
 
 # ArcOS System Context
 
-You are connected to **ArcOS (Arcanian OS)** — a Company OS that manages knowledge, meetings, clients, projects, skills, content publishing, and workflows. All data lives in Drupal (headless CMS), accessed via MCP tools or Drupal REST/JSON:API. AI capabilities use Claude/OpenAI via a Python agent layer.
+You are connected to **ArcOS (Arcanian OS)** — a Company OS that manages knowledge, meetings, clients, projects, skills, content publishing, and workflows. All data lives in [CMS] (headless CMS), accessed via MCP tools or [CMS] REST/JSON:API. AI capabilities use Claude/OpenAI via a Python agent layer.
 
 ## Architecture
 
 ```
-Claude Code ──MCP──> Python Agents (FastAPI) ──JSON:API──> Drupal (CMS)
+Claude Code ──MCP──> Python Agents (FastAPI) ──JSON:API──> [CMS] (CMS)
                                               ──REST──>    + PostgreSQL (pgvector)
                                                            + Redis (cache)
 ```
 
-- **Embeddings**: OpenAI `text-embedding-3-small` (1536 dims) via Drupal AI Search
+- **Embeddings**: OpenAI `text-embedding-3-small` (1536 dims) via [CMS] AI Search
 - **Vector DB**: PostgreSQL pgvector (collection: `arcos_content`)
 - **Search indexes**: `arcos_semantic` (vector) + `arcos_fulltext` (database)
 
@@ -84,7 +84,7 @@ Returns: project details + recent logs (10) + meetings (5) + skills (10) + memor
 | `semantic_search` | Natural language search across all content | `query` | `content_type` (memory, skill, procedure, log_entry, meeting, engagement, arcos_project, linkedin_comment, post), `client_id`, `project_id`, `limit` (default 10, max 50) |
 | `find_similar` | Find content similar to a given item | `uuid` | `content_type`, `limit` (default 5) |
 
-`semantic_search` calls Drupal's `/api/search` which runs both fulltext + vector search and returns merged, deduplicated results ranked by score.
+`semantic_search` calls [CMS]'s `/api/search` which runs both fulltext + vector search and returns merged, deduplicated results ranked by score.
 
 ### Ontology — Data Model & Lifecycle (4 tools)
 
@@ -135,7 +135,7 @@ Returns: project details + recent logs (10) + meetings (5) + skills (10) + memor
 | Tool | Description | Required Params | Optional Params |
 |------|-------------|-----------------|-----------------|
 | `meeting_query` | Ask questions about meetings | `question` | `client_id` |
-| `meeting_extract_tasks` | Extract tasks from a meeting | `meeting_uuid` | `target` (asana, drupal), `project_id` |
+| `meeting_extract_tasks` | Extract tasks from a meeting | `meeting_uuid` | `target` (asana, [cms]), `project_id` |
 | `meeting_summarize` | Structured AI summary | `meeting_uuid` | — |
 
 ### Brand Voice & Documents (2 tools)
@@ -185,13 +185,13 @@ Pipelines are procedures with `skill_chain` references. They chain multiple skil
 
 | Tool | Description | Required Params | Optional Params |
 |------|-------------|-----------------|-----------------|
-| `check_health` | System health (API, Drupal, pgvector, embeddings) | — | — |
+| `check_health` | System health (API, [CMS], pgvector, embeddings) | — | — |
 
 ---
 
-## Drupal REST API Endpoints
+## [CMS] REST API Endpoints
 
-These endpoints are available directly on Drupal (port 8080 locally, or the Lagoon URL). Auth: `basic_auth` or `cookie`.
+These endpoints are available directly on [CMS] (port 8080 locally, or the Lagoon URL). Auth: `basic_auth` or `cookie`.
 
 ### Search
 | Method | Endpoint | Params | Purpose |
@@ -263,7 +263,7 @@ These endpoints are available directly on Drupal (port 8080 locally, or the Lago
 
 ---
 
-## Content Types in Drupal
+## Content Types in [CMS]
 
 | Node Type | Description | Key Fields |
 |-----------|-------------|------------|
@@ -365,8 +365,8 @@ check_health → queue_status → scheduler_status
 - **`semantic_search`** for broad natural language search. **`search_memories`/`search_skills`** for filtered, structured searches.
 - **`load_skill`** (not `get_skill`) when you need to _apply_ a skill's instructions. `get_skill` truncates at 2000 chars.
 - **`find_similar`** takes a UUID and finds related content by searching the item's title.
-- All UUIDs come from Drupal — get them from search/list results first.
+- All UUIDs come from [CMS] — get them from search/list results first.
 - All create/update tools return compact summaries. Use `get_*` tools for full details.
 - **Outcome tracking**: Use `update_linkedin_comment` or `update_post` with engagement fields to track content performance.
 - **Pipelines**: Chain skills via procedures with `skill_chain`. Use `list_pipelines` to discover, `describe_pipeline` to preview, `run_pipeline` to execute.
-- API keys are in Drupal's encrypted key store (`/admin/arcos/keystore`), not in `.env` files.
+- API keys are in [CMS]'s encrypted key store (`/admin/arcos/keystore`), not in `.env` files.

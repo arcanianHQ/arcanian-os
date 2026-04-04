@@ -264,7 +264,7 @@ Connection: remote (http://host:8001/mcp)
 - Run: `docker ps --filter "name=arcosv3-" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" 2>/dev/null`
 - Display the output as a formatted table
 - Count running containers
-- Expected: 6 core (nginx, drupal, db, python-api, redis, node) + 2 optional (qdrant, ollama)
+- Expected: 6 core (nginx, [cms], db, python-api, redis, node) + 2 optional (qdrant, ollama)
 - All 6 core running → `[PASS] All 6 core containers running`
 - Any core missing → `[FAIL] Missing containers: <list>`
 
@@ -295,18 +295,18 @@ If CONNECTION is remote, verify config uses HTTP:
 
 **If remote:** Skip — `[SKIP] Import check (remote mode)`
 
-### Check 6: Drupal JSON:API responding (MODE: full, health)
+### Check 6: [CMS] JSON:API responding (MODE: full, health)
 
 **If local:**
 - Run: `curl -sf http://localhost:8080/jsonapi -o /dev/null -w "%{http_code}" 2>/dev/null`
 
 **If remote:**
 - Run: `curl -sf http://REMOTE_HOST:8080/jsonapi -o /dev/null -w "%{http_code}" 2>/dev/null`
-- (Try the remote host's port 8080 — if Drupal is exposed. If not reachable, that's expected.)
+- (Try the remote host's port 8080 — if [CMS] is exposed. If not reachable, that's expected.)
 
-- HTTP 200 → `[PASS] Drupal JSON:API responding`
-- Other (local) → `[FAIL] Drupal not responding`
-- Other (remote) → `[WARN] Drupal not reachable on port 8080 — may not be exposed externally (MCP tools still work via internal Docker network)`
+- HTTP 200 → `[PASS] [CMS] JSON:API responding`
+- Other (local) → `[FAIL] [CMS] not responding`
+- Other (remote) → `[WARN] [CMS] not reachable on port 8080 — may not be exposed externally (MCP tools still work via internal Docker network)`
 
 ### Check 7: Python API responding (MODE: full, health)
 
@@ -369,7 +369,7 @@ ARCOS CONNECTION STATUS: ISSUES FOUND
 - All checks use Bash — never MCP tools (since MCP might be what's broken)
 - Local checks use `docker exec` / `docker ps` (NOT `docker compose`) so they work from any directory
 - Remote checks use `curl` to the MCP HTTP endpoint and exposed ports
-- For remote mode, Drupal/API ports may not be exposed externally — that's OK, MCP tools work via Docker's internal network
+- For remote mode, [CMS]/API ports may not be exposed externally — that's OK, MCP tools work via Docker's internal network
 - The only writes: `/connect setup` creates `.mcp.json`, `/connect install` copies this skill
 - Never modify any other files
 - If Docker / MCP endpoint is not reachable, skip subsequent checks
