@@ -155,6 +155,37 @@ Not every metric drop is a crisis. Each client has a sensitivity setting (low/no
 
 ---
 
+## Demo Data vs Production
+
+This repo includes a demo dataset (`demo-data/`) and a pre-configured example client (`clients/example-ecom/`) with synthetic data loaded into a Databox demo account.
+
+### How data flows differently:
+
+| | Demo (included) | Your Production Setup |
+|---|---|---|
+| **Data source** | Synthetic CSVs pushed to Databox | Native connectors (GA4, Shopify, HubSpot, etc.) |
+| **Query method** | `ask_genie` with dataset ID | `load_metric_data` with metric key (e.g., `GoogleAnalytics4@sessions`) |
+| **Speed** | Slower (natural language) | Fast (structured API) |
+| **Setup** | Already configured | Connect your accounts in Databox → auto-discovered |
+
+### To try the demo:
+
+1. Copy `.mcp.json.example` to `.mcp.json`
+2. Run `claude` and authenticate with Databox when prompted
+3. Type `/sales-pulse` → select `example-ecom` → select `AquaLux US`
+4. The system queries the demo data and produces an analysis with planted anomalies
+
+### To connect your own data:
+
+1. Connect your GA4/Shopify/CRM in Databox (databox.com)
+2. Run `/scaffold-project` to create a new client
+3. Fill in `DOMAIN_CHANNEL_MAP.md` with your Databox data source IDs
+4. Run `/sales-pulse` or `/health-check` — the system queries your live data via `load_metric_data`
+
+The skills, agents, and guardrails work identically in both cases. The only difference is where the data comes from.
+
+---
+
 ## Guardrails
 
 The system includes several mandatory guardrails that apply to every analysis:
