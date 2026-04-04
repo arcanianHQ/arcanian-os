@@ -35,3 +35,20 @@ Before executing any task, check if a relevant SOP exists and LOAD it.
 ## Data Analysis Output Standard (ALWAYS-ON)
 Every data query MUST use BLUF + OODA + Data Reliability frameworks.
 Multi-domain: ALWAYS specify business unit in output.
+
+## Databox Connection (DEMO)
+**Account:** ArcanianOS DEMO (`748621`)
+**Query method:** Use `ask_genie` with dataset IDs from `DOMAIN_CHANNEL_MAP.md`
+
+**Quick reference — AquaLux US dataset IDs:**
+| Data | Dataset ID | Use for |
+|---|---|---|
+| Sessions by channel | `83bc6595-ce2b-4c8d-89f5-5770d7900b1c` | Traffic analysis, channel breakdown |
+| Conversions | `8f370b35-19af-4e27-83a0-066a0312e28d` | Conversion trends, revenue |
+| Shopify Orders | `31adfa69-3f4b-471a-b746-bbe1635d8180` | Order count, AOV, tracking gap |
+| CRM Contacts | `fb6f9f7c-3ff8-4dd1-990b-9db431932f7d` | Contact growth, list health |
+| CRM Email | `e7ba2e29-8210-4913-8e8d-51027bcf448b` | Campaign sends, opens, clicks |
+| CRM Pipeline | `dfb3c16d-3823-4592-b949-60ce27963a21` | Deals by stage, pipeline value |
+| Google Ads | `01f567ea-8d5e-44f2-8f60-4c2b45b21a36` | Spend, ROAS, CPA |
+
+**Do NOT use `list_metrics` — it returns empty for ingestion sources. Always use `ask_genie` with the dataset ID.**
