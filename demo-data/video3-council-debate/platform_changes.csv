@@ -1,0 +1,10 @@
+date,platform,change_description,change_type
+2026-03-10,Google Ads,Budget increase from $700 to $850/day,Planned
+2026-03-14,GTM,Published workspace 45 — consent mode update,Planned
+2026-03-18,Google Ads,"Performance Max campaign ""Spring Sale"" paused at 14:00",Manual — low ROAS
+2026-03-18,Google Ads,"Search campaign ""Brand Terms"" budget reduced 50%",Manual
+2026-03-19,Google Ads,"Performance Max ""Spring Sale"" reactivated at 09:00",Manual
+2026-03-19,GA4,Enhanced Conversions enabled,Planned
+2026-03-20,Meta Ads,New Advantage+ campaign launched — $200/day,Planned
+2026-03-22,Google Ads,Attribution window changed from 30d to 7d click in reporting,Settings change
+2026-03-25,Shopify,Checkout flow updated — new payment provider added,Dev deploy

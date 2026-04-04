@@ -1,0 +1,351 @@
+date,client,client_type,alarm_sensitivity,metric,value
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,sessions,1398.97
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,conversions,8.69
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,revenue,6826.31
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,ad_spend,2235.47
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,cpa,177
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,roas,3.83
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,new_contacts,29.45
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.25
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.4043
+2026-03-29,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.12
+2026-03-29,Greenfield Market,D2C E-commerce,high,sessions,2787.01
+2026-03-29,Greenfield Market,D2C E-commerce,high,conversions,18.91
+2026-03-29,Greenfield Market,D2C E-commerce,high,revenue,16060.6
+2026-03-29,Greenfield Market,D2C E-commerce,high,ad_spend,5975.68
+2026-03-29,Greenfield Market,D2C E-commerce,high,cpa,259
+2026-03-29,Greenfield Market,D2C E-commerce,high,roas,3.27
+2026-03-29,Greenfield Market,D2C E-commerce,high,new_contacts,76.51
+2026-03-29,Greenfield Market,D2C E-commerce,high,email_open_rate,0.1904
+2026-03-29,Greenfield Market,D2C E-commerce,high,bounce_rate,0.4001
+2026-03-29,Greenfield Market,D2C E-commerce,high,page_load_time,1.69
+2026-03-29,Summit Fitness,Local Services,low,sessions,162.0
+2026-03-29,Summit Fitness,Local Services,low,conversions,0.9352
+2026-03-29,Summit Fitness,Local Services,low,revenue,570.1
+2026-03-29,Summit Fitness,Local Services,low,ad_spend,845.71
+2026-03-29,Summit Fitness,Local Services,low,cpa,141
+2026-03-29,Summit Fitness,Local Services,low,roas,3.54
+2026-03-29,Summit Fitness,Local Services,low,new_contacts,8.23
+2026-03-29,Summit Fitness,Local Services,low,email_open_rate,0.3007
+2026-03-29,Summit Fitness,Local Services,low,bounce_rate,0.8318
+2026-03-29,Summit Fitness,Local Services,low,page_load_time,6.27
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,sessions,1956.6
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,conversions,13.3
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,revenue,9935.66
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,ad_spend,3710.98
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,cpa,220
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,roas,3.78
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,new_contacts,51.36
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.1857
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.3977
+2026-03-29,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.2
+2026-03-29,Apex Digital Agency,B2B Services,normal,sessions,950.68
+2026-03-29,Apex Digital Agency,B2B Services,normal,conversions,3.63
+2026-03-29,Apex Digital Agency,B2B Services,normal,revenue,4422.22
+2026-03-29,Apex Digital Agency,B2B Services,normal,ad_spend,1384.53
+2026-03-29,Apex Digital Agency,B2B Services,normal,cpa,354
+2026-03-29,Apex Digital Agency,B2B Services,normal,roas,4.38
+2026-03-29,Apex Digital Agency,B2B Services,normal,new_contacts,14.55
+2026-03-29,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2518
+2026-03-29,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4697
+2026-03-29,Apex Digital Agency,B2B Services,normal,page_load_time,2.11
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,sessions,2283
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,conversions,17
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,revenue,12680
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,ad_spend,3093
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,cpa,185
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,roas,3.78
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,new_contacts,46
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.2142
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.3983
+2026-03-30,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.23
+2026-03-30,Greenfield Market,D2C E-commerce,high,sessions,3851
+2026-03-30,Greenfield Market,D2C E-commerce,high,conversions,30
+2026-03-30,Greenfield Market,D2C E-commerce,high,revenue,24655
+2026-03-30,Greenfield Market,D2C E-commerce,high,ad_spend,8830
+2026-03-30,Greenfield Market,D2C E-commerce,high,cpa,201
+2026-03-30,Greenfield Market,D2C E-commerce,high,roas,3.67
+2026-03-30,Greenfield Market,D2C E-commerce,high,new_contacts,129
+2026-03-30,Greenfield Market,D2C E-commerce,high,email_open_rate,0.1671
+2026-03-30,Greenfield Market,D2C E-commerce,high,bounce_rate,0.4091
+2026-03-30,Greenfield Market,D2C E-commerce,high,page_load_time,1.95
+2026-03-30,Summit Fitness,Local Services,low,sessions,290.54
+2026-03-30,Summit Fitness,Local Services,low,conversions,1.46
+2026-03-30,Summit Fitness,Local Services,low,revenue,894.87
+2026-03-30,Summit Fitness,Local Services,low,ad_spend,1374
+2026-03-30,Summit Fitness,Local Services,low,cpa,169
+2026-03-30,Summit Fitness,Local Services,low,roas,3.45
+2026-03-30,Summit Fitness,Local Services,low,new_contacts,15
+2026-03-30,Summit Fitness,Local Services,low,email_open_rate,0.2819
+2026-03-30,Summit Fitness,Local Services,low,bounce_rate,0.791
+2026-03-30,Summit Fitness,Local Services,low,page_load_time,5.78
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,sessions,3081
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,conversions,25
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,revenue,18703
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,ad_spend,5428
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,cpa,193
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,roas,3.28
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,new_contacts,83
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.1888
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.4197
+2026-03-30,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.59
+2026-03-30,Apex Digital Agency,B2B Services,normal,sessions,1633
+2026-03-30,Apex Digital Agency,B2B Services,normal,conversions,6
+2026-03-30,Apex Digital Agency,B2B Services,normal,revenue,7782
+2026-03-30,Apex Digital Agency,B2B Services,normal,ad_spend,1790
+2026-03-30,Apex Digital Agency,B2B Services,normal,cpa,369
+2026-03-30,Apex Digital Agency,B2B Services,normal,roas,4.34
+2026-03-30,Apex Digital Agency,B2B Services,normal,new_contacts,22
+2026-03-30,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2718
+2026-03-30,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4785
+2026-03-30,Apex Digital Agency,B2B Services,normal,page_load_time,1.84
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,sessions,2008
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,conversions,14
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,revenue,11271
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,ad_spend,2764
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,cpa,219
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,roas,4.27
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,new_contacts,41
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.1999
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.3915
+2026-03-31,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.29
+2026-03-31,Greenfield Market,D2C E-commerce,high,sessions,4302
+2026-03-31,Greenfield Market,D2C E-commerce,high,conversions,40
+2026-03-31,Greenfield Market,D2C E-commerce,high,revenue,32016
+2026-03-31,Greenfield Market,D2C E-commerce,high,ad_spend,8353
+2026-03-31,Greenfield Market,D2C E-commerce,high,cpa,249
+2026-03-31,Greenfield Market,D2C E-commerce,high,roas,3.49
+2026-03-31,Greenfield Market,D2C E-commerce,high,new_contacts,119
+2026-03-31,Greenfield Market,D2C E-commerce,high,email_open_rate,0.1959
+2026-03-31,Greenfield Market,D2C E-commerce,high,bounce_rate,0.4031
+2026-03-31,Greenfield Market,D2C E-commerce,high,page_load_time,1.79
+2026-03-31,Summit Fitness,Local Services,low,sessions,786
+2026-03-31,Summit Fitness,Local Services,low,conversions,8
+2026-03-31,Summit Fitness,Local Services,low,revenue,4932
+2026-03-31,Summit Fitness,Local Services,low,ad_spend,1161
+2026-03-31,Summit Fitness,Local Services,low,cpa,146
+2026-03-31,Summit Fitness,Local Services,low,roas,3.72
+2026-03-31,Summit Fitness,Local Services,low,new_contacts,14
+2026-03-31,Summit Fitness,Local Services,low,email_open_rate,0.2511
+2026-03-31,Summit Fitness,Local Services,low,bounce_rate,0.5492
+2026-03-31,Summit Fitness,Local Services,low,page_load_time,2.9
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,sessions,3472
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,conversions,20
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,revenue,15372
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,ad_spend,4434
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,cpa,206
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,roas,3.61
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,new_contacts,89
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.185
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.3955
+2026-03-31,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.21
+2026-03-31,Apex Digital Agency,B2B Services,normal,sessions,1615
+2026-03-31,Apex Digital Agency,B2B Services,normal,conversions,6
+2026-03-31,Apex Digital Agency,B2B Services,normal,revenue,7962
+2026-03-31,Apex Digital Agency,B2B Services,normal,ad_spend,2171
+2026-03-31,Apex Digital Agency,B2B Services,normal,cpa,346
+2026-03-31,Apex Digital Agency,B2B Services,normal,roas,4.03
+2026-03-31,Apex Digital Agency,B2B Services,normal,new_contacts,28
+2026-03-31,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2661
+2026-03-31,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4316
+2026-03-31,Apex Digital Agency,B2B Services,normal,page_load_time,2.13
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,sessions,2308
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,conversions,15
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,revenue,11361
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,ad_spend,3435
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,cpa,227
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,roas,4.3
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,new_contacts,47
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.2094
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.4448
+2026-04-01,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.22
+2026-04-01,Greenfield Market,D2C E-commerce,high,sessions,4579
+2026-04-01,Greenfield Market,D2C E-commerce,high,conversions,40
+2026-04-01,Greenfield Market,D2C E-commerce,high,revenue,31632
+2026-04-01,Greenfield Market,D2C E-commerce,high,ad_spend,8948
+2026-04-01,Greenfield Market,D2C E-commerce,high,cpa,246
+2026-04-01,Greenfield Market,D2C E-commerce,high,roas,3.5
+2026-04-01,Greenfield Market,D2C E-commerce,high,new_contacts,127
+2026-04-01,Greenfield Market,D2C E-commerce,high,email_open_rate,0.2182
+2026-04-01,Greenfield Market,D2C E-commerce,high,bounce_rate,0.3653
+2026-04-01,Greenfield Market,D2C E-commerce,high,page_load_time,1.97
+2026-04-01,Summit Fitness,Local Services,low,sessions,904
+2026-04-01,Summit Fitness,Local Services,low,conversions,9
+2026-04-01,Summit Fitness,Local Services,low,revenue,5174
+2026-04-01,Summit Fitness,Local Services,low,ad_spend,1178
+2026-04-01,Summit Fitness,Local Services,low,cpa,133
+2026-04-01,Summit Fitness,Local Services,low,roas,3.58
+2026-04-01,Summit Fitness,Local Services,low,new_contacts,13
+2026-04-01,Summit Fitness,Local Services,low,email_open_rate,0.2587
+2026-04-01,Summit Fitness,Local Services,low,bounce_rate,0.5416
+2026-04-01,Summit Fitness,Local Services,low,page_load_time,3.38
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,sessions,2770
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,conversions,20
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,revenue,20123
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,ad_spend,5526
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,cpa,200
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,roas,3.62
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,new_contacts,91
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.2377
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.3772
+2026-04-01,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.49
+2026-04-01,Apex Digital Agency,B2B Services,normal,sessions,1340
+2026-04-01,Apex Digital Agency,B2B Services,normal,conversions,6
+2026-04-01,Apex Digital Agency,B2B Services,normal,revenue,7459
+2026-04-01,Apex Digital Agency,B2B Services,normal,ad_spend,2051
+2026-04-01,Apex Digital Agency,B2B Services,normal,cpa,291
+2026-04-01,Apex Digital Agency,B2B Services,normal,roas,4.14
+2026-04-01,Apex Digital Agency,B2B Services,normal,new_contacts,27
+2026-04-01,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2574
+2026-04-01,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4773
+2026-04-01,Apex Digital Agency,B2B Services,normal,page_load_time,1.83
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,sessions,2177
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,conversions,13
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,revenue,11672
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,ad_spend,3014
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,cpa,211
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,roas,4.1
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,new_contacts,39
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.1928
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.4349
+2026-04-02,NovaTech Solutions,B2B SaaS,normal,page_load_time,1.95
+2026-04-02,Greenfield Market,D2C E-commerce,high,sessions,4653
+2026-04-02,Greenfield Market,D2C E-commerce,high,conversions,38
+2026-04-02,Greenfield Market,D2C E-commerce,high,revenue,25056
+2026-04-02,Greenfield Market,D2C E-commerce,high,ad_spend,8560
+2026-04-02,Greenfield Market,D2C E-commerce,high,cpa,196
+2026-04-02,Greenfield Market,D2C E-commerce,high,roas,3.23
+2026-04-02,Greenfield Market,D2C E-commerce,high,new_contacts,126
+2026-04-02,Greenfield Market,D2C E-commerce,high,email_open_rate,0.2069
+2026-04-02,Greenfield Market,D2C E-commerce,high,bounce_rate,0.3523
+2026-04-02,Greenfield Market,D2C E-commerce,high,page_load_time,1.9
+2026-04-02,Summit Fitness,Local Services,low,sessions,886
+2026-04-02,Summit Fitness,Local Services,low,conversions,8
+2026-04-02,Summit Fitness,Local Services,low,revenue,5051
+2026-04-02,Summit Fitness,Local Services,low,ad_spend,1150
+2026-04-02,Summit Fitness,Local Services,low,cpa,168
+2026-04-02,Summit Fitness,Local Services,low,roas,4.05
+2026-04-02,Summit Fitness,Local Services,low,new_contacts,14
+2026-04-02,Summit Fitness,Local Services,low,email_open_rate,0.2826
+2026-04-02,Summit Fitness,Local Services,low,bounce_rate,0.5601
+2026-04-02,Summit Fitness,Local Services,low,page_load_time,2.92
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,sessions,3283
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,conversions,24
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,revenue,18479
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,ad_spend,5297
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,cpa,202
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,roas,3.37
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,new_contacts,83
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.1922
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.4041
+2026-04-02,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.51
+2026-04-02,Apex Digital Agency,B2B Services,normal,sessions,1441
+2026-04-02,Apex Digital Agency,B2B Services,normal,conversions,6
+2026-04-02,Apex Digital Agency,B2B Services,normal,revenue,7740
+2026-04-02,Apex Digital Agency,B2B Services,normal,ad_spend,1894
+2026-04-02,Apex Digital Agency,B2B Services,normal,cpa,346
+2026-04-02,Apex Digital Agency,B2B Services,normal,roas,4.06
+2026-04-02,Apex Digital Agency,B2B Services,normal,new_contacts,26
+2026-04-02,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2432
+2026-04-02,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4596
+2026-04-02,Apex Digital Agency,B2B Services,normal,page_load_time,2.02
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,sessions,2070
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,conversions,16
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,revenue,13052
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,ad_spend,2648
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,cpa,183
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,roas,4.23
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,new_contacts,49
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.2496
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.4084
+2026-04-03,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.17
+2026-04-03,Greenfield Market,D2C E-commerce,high,sessions,4520
+2026-04-03,Greenfield Market,D2C E-commerce,high,conversions,40
+2026-04-03,Greenfield Market,D2C E-commerce,high,revenue,30833
+2026-04-03,Greenfield Market,D2C E-commerce,high,ad_spend,7583
+2026-04-03,Greenfield Market,D2C E-commerce,high,cpa,260
+2026-04-03,Greenfield Market,D2C E-commerce,high,roas,3.5
+2026-04-03,Greenfield Market,D2C E-commerce,high,new_contacts,115
+2026-04-03,Greenfield Market,D2C E-commerce,high,email_open_rate,0.1753
+2026-04-03,Greenfield Market,D2C E-commerce,high,bounce_rate,0.3978
+2026-04-03,Greenfield Market,D2C E-commerce,high,page_load_time,1.96
+2026-04-03,Summit Fitness,Local Services,low,sessions,768
+2026-04-03,Summit Fitness,Local Services,low,conversions,9
+2026-04-03,Summit Fitness,Local Services,low,revenue,4123
+2026-04-03,Summit Fitness,Local Services,low,ad_spend,1155
+2026-04-03,Summit Fitness,Local Services,low,cpa,161
+2026-04-03,Summit Fitness,Local Services,low,roas,4.09
+2026-04-03,Summit Fitness,Local Services,low,new_contacts,15
+2026-04-03,Summit Fitness,Local Services,low,email_open_rate,0.2681
+2026-04-03,Summit Fitness,Local Services,low,bounce_rate,0.5344
+2026-04-03,Summit Fitness,Local Services,low,page_load_time,3.48
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,sessions,3211
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,conversions,23
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,revenue,15856
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,ad_spend,4821
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,cpa,230
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,roas,3.36
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,new_contacts,68
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.2346
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.4049
+2026-04-03,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.37
+2026-04-03,Apex Digital Agency,B2B Services,normal,sessions,1543
+2026-04-03,Apex Digital Agency,B2B Services,normal,conversions,6
+2026-04-03,Apex Digital Agency,B2B Services,normal,revenue,8438
+2026-04-03,Apex Digital Agency,B2B Services,normal,ad_spend,1804
+2026-04-03,Apex Digital Agency,B2B Services,normal,cpa,371
+2026-04-03,Apex Digital Agency,B2B Services,normal,roas,3.95
+2026-04-03,Apex Digital Agency,B2B Services,normal,new_contacts,28
+2026-04-03,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2525
+2026-04-03,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4484
+2026-04-03,Apex Digital Agency,B2B Services,normal,page_load_time,2.17
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,sessions,1423.92
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,conversions,8.79
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,revenue,7728.99
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,ad_spend,2070.43
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,cpa,218
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,roas,3.81
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,new_contacts,29.52
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,email_open_rate,0.2083
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,bounce_rate,0.4071
+2026-04-04,NovaTech Solutions,B2B SaaS,normal,page_load_time,2.1
+2026-04-04,Greenfield Market,D2C E-commerce,high,sessions,2668.58
+2026-04-04,Greenfield Market,D2C E-commerce,high,conversions,21.28
+2026-04-04,Greenfield Market,D2C E-commerce,high,revenue,17056.65
+2026-04-04,Greenfield Market,D2C E-commerce,high,ad_spend,5474.88
+2026-04-04,Greenfield Market,D2C E-commerce,high,cpa,243
+2026-04-04,Greenfield Market,D2C E-commerce,high,roas,3.61
+2026-04-04,Greenfield Market,D2C E-commerce,high,new_contacts,73.41
+2026-04-04,Greenfield Market,D2C E-commerce,high,email_open_rate,0.2116
+2026-04-04,Greenfield Market,D2C E-commerce,high,bounce_rate,0.371
+2026-04-04,Greenfield Market,D2C E-commerce,high,page_load_time,1.67
+2026-04-04,Summit Fitness,Local Services,low,sessions,474.8
+2026-04-04,Summit Fitness,Local Services,low,conversions,5.19
+2026-04-04,Summit Fitness,Local Services,low,revenue,2519.37
+2026-04-04,Summit Fitness,Local Services,low,ad_spend,838.79
+2026-04-04,Summit Fitness,Local Services,low,cpa,146
+2026-04-04,Summit Fitness,Local Services,low,roas,3.63
+2026-04-04,Summit Fitness,Local Services,low,new_contacts,9.81
+2026-04-04,Summit Fitness,Local Services,low,email_open_rate,0.303
+2026-04-04,Summit Fitness,Local Services,low,bounce_rate,0.5598
+2026-04-04,Summit Fitness,Local Services,low,page_load_time,3.37
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,sessions,1780.56
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,conversions,12.75
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,revenue,11225.86
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,ad_spend,3481.22
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,cpa,205
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,roas,3.61
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,new_contacts,47.34
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,email_open_rate,0.192
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,bounce_rate,0.4083
+2026-04-04,Coastal Living Co,D2C E-commerce,normal,page_load_time,2.18
+2026-04-04,Apex Digital Agency,B2B Services,normal,sessions,978.01
+2026-04-04,Apex Digital Agency,B2B Services,normal,conversions,3.59
+2026-04-04,Apex Digital Agency,B2B Services,normal,revenue,4906.55
+2026-04-04,Apex Digital Agency,B2B Services,normal,ad_spend,1378.83
+2026-04-04,Apex Digital Agency,B2B Services,normal,cpa,286
+2026-04-04,Apex Digital Agency,B2B Services,normal,roas,3.67
+2026-04-04,Apex Digital Agency,B2B Services,normal,new_contacts,13.67
+2026-04-04,Apex Digital Agency,B2B Services,normal,email_open_rate,0.2415
+2026-04-04,Apex Digital Agency,B2B Services,normal,bounce_rate,0.4481
+2026-04-04,Apex Digital Agency,B2B Services,normal,page_load_time,1.96

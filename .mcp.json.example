@@ -1,11 +1,8 @@
 {
   "mcpServers": {
     "databox": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/databox-mcp"],
-      "env": {
-        "DATABOX_API_KEY": "your-databox-api-key-here"
-      }
+      "type": "http",
+      "url": "https://mcp.databox.com/mcp"
     }
   }
 }

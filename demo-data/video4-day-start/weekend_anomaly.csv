@@ -1,0 +1,11 @@
+date,client,metric,actual_value,baseline_value,deviation_pct,severity,note
+2026-03-29,Summit Fitness,sessions,168,480,-65.0,CRITICAL,Weekend sessions 65% below baseline (normal weekend dip is ~40%)
+2026-03-29,Summit Fitness,conversions,1,5,-80.0,CRITICAL,Only 1 conversion vs baseline 5/day weekend
+2026-03-29,Summit Fitness,bounce_rate,0.82,0.55,49.1,HIGH,Bounce rate spiked to 82% — possible page load issue
+2026-03-29,Summit Fitness,page_load_time,5.8,3.2,81.3,HIGH,Page load time nearly doubled — server or CDN issue?
+2026-03-29,Summit Fitness,revenue,540,2700,-80.0,CRITICAL,Revenue collapse matches conversion drop
+2026-03-30,Summit Fitness,sessions,195,480,-59.4,CRITICAL,Sunday still depressed — not recovering
+2026-03-30,Summit Fitness,conversions,2,5,-60.0,CRITICAL,Slight improvement but still well below baseline
+2026-03-30,Summit Fitness,page_load_time,4.9,3.2,53.1,HIGH,Still slow — partially improved from Saturday
+2026-03-31,Summit Fitness,sessions,750,800,-6.3,OK,Monday — recovering to normal weekday levels
+2026-03-31,Summit Fitness,page_load_time,3.4,3.2,6.3,OK,Page load normalized — issue was temporary
