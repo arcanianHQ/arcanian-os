@@ -84,6 +84,16 @@ Other: /analyze-copy, /manage-client, /sales-pulse
 - access/vendor → `marketing-ops/07-vendor-access.md`
 - onboard client → `arcanian/01-client-onboarding.md`
 
+## Data Sufficiency Check (SYSTEM-WIDE — MANDATORY)
+**Before ANY analysis: classify data axes as AVAILABLE / PARTIAL / MISSING.**
+- If a REQUIRED axis (traffic, conversions, prior period) is MISSING → STOP, don't analyze
+- If 3+ axes PARTIAL/MISSING → proceed with DATA SUFFICIENCY WARNING at top
+- Every finding tagged: `[DATA]`, `[INFERRED]`, or `[UNKNOWN]` — never upgrade a tag
+- "What We Don't Know" section MANDATORY in every analysis output
+- One data point ≠ pattern. Absence ≠ zero. Platform gap IS data, its cause is INFERRED.
+- Rule: `core/methodology/DATA_SUFFICIENCY_CHECK.md`
+- Applies to: ALL analytical skills and freeform data queries
+
 ## Confidence Engine (SYSTEM-WIDE — MANDATORY)
 **Every finding and recommendation gets a unified confidence score.**
 Score = min(Source Confidence, Evidence Class, Assumption Status) — weakest link wins.
