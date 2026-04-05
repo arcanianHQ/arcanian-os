@@ -1,4 +1,4 @@
-> v1.1 — 2026-04-04 — GTM reframe, updated skill/agent counts
+> v1.2 — 2026-04-04 — Added Data Sufficiency Check guardrail, .claude/commands wiring, MCP config fix, Drupal/Todoist/Arcflux removed, Business Unit Isolation v2.0
 
 # Arcanian OS — System Instructions
 

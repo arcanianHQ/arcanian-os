@@ -197,6 +197,8 @@ The system includes several mandatory guardrails that apply to every analysis:
 - **Unverified Assumptions** — "not mentioned" does not equal "doesn't exist"
 - **Currency Normalization** — never sum HUF and EUR without conversion
 - **Attribution Windows** — Google 30d click is not comparable to Meta 7d click
+- **Data Sufficiency Check** — classify data axes before analysis; "what we don't know" is mandatory
+- **Business Unit Isolation** — domains may represent separate P&Ls; never blend across units
 
 ---
 
@@ -237,3 +239,13 @@ MIT
 The Arcanian team. Powered by Claude Code + Databox MCP.
 
 Questions? Open an issue or reach out at https://arcanian.com/os
+
+---
+
+## Changelog
+
+| Version | Date | Changes |
+|---|---|---|
+| **v1.2** | 2026-04-04 | Data Sufficiency Check guardrail added. Business Unit Isolation v2.0. `.claude/commands/` for all 34 skills (works on clone). `.mcp.json.example` fixed to HTTP. Demo data + Databoards documented. Drupal, Todoist, Arcflux removed. |
+| **v1.1** | 2026-04-04 | Demo data ingested (11 datasets, 1,045 rows). Example-ecom client wired with Databox dataset IDs. Demo vs production documented in README. |
+| **v1.0** | 2026-04-03 | Initial release. 34 skills, 14 agents, 20+ SOPs, 30+ methodology files, 25+ templates. PII-scanned, anonymized. |
