@@ -1,4 +1,4 @@
-> v1.2 — 2026-04-04 — Added Data Sufficiency Check guardrail, .claude/commands wiring, MCP config fix, Drupal/Todoist/Arcflux removed, Business Unit Isolation v2.0
+> v1.3 — 2026-04-06 — 6 SEO skills added, /verify-pmf added, "First 5 Minutes" quickstart, 44 skills total
 
 # Arcanian OS — System Instructions
 

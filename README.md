@@ -272,6 +272,7 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
-| **v1.2** | 2026-04-04 | Data Sufficiency Check guardrail added. Business Unit Isolation v2.0. `.claude/commands/` for all 34 skills (works on clone). `.mcp.json.example` fixed to HTTP. Demo data + Databoards documented. Drupal, Todoist, Arcflux removed. |
+| **v1.3** | 2026-04-06 | 6 SEO skills (diagnose, cannibalize, gaps, decay, narrative, anomaly). /verify-pmf (5-layer PMF verification). "First 5 Minutes" quickstart. 44 skills total. |
+| **v1.2** | 2026-04-04 | Data Sufficiency Check guardrail added. Business Unit Isolation v2.0. `.claude/commands/` for all skills (works on clone). `.mcp.json.example` fixed to HTTP. Demo data + Databoards documented. Drupal, Todoist, Arcflux removed. |
 | **v1.1** | 2026-04-04 | Demo data ingested (11 datasets, 1,045 rows). Example-ecom client wired with Databox dataset IDs. Demo vs production documented in README. |
 | **v1.0** | 2026-04-03 | Initial release. 34 skills, 14 agents, 20+ SOPs, 30+ methodology files, 25+ templates. PII-scanned, anonymized. |
