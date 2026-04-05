@@ -1,4 +1,4 @@
-> v1.0 — 2026-04-03
+> v1.1 — 2026-04-04 — sanitized references
 
 # ArcOS Connection Diagnostic
 

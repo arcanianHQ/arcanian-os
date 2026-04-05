@@ -1,10 +1,15 @@
-> v1.0 — 2026-04-05
+> v1.1 — 2026-04-05
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
 
 ---
+
+## [1.2.1] — 2026-04-05
+
+### Fixed
+- Bumped file versions on 7 files that were modified after v1.0 but still showed v1.0
 
 ## [1.2.0] — 2026-04-05
 
