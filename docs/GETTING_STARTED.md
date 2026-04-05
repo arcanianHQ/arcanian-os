@@ -32,16 +32,18 @@ Copy the example MCP config:
 cp .mcp.json.example .mcp.json
 ```
 
-Edit `.mcp.json` and add your credentials:
+The `.mcp.json` file defines which servers to connect. The example comes with Databox pre-configured:
 
-| MCP Server | Required? | What it does | How to get credentials |
+| MCP Server | Required? | What it does | How to connect |
 |---|---|---|---|
-| **Databox** | Recommended | Pulls marketing metrics for analysis | Databox Settings → API → Create token |
-| **Todoist** | Optional | Task sync (bidirectional) | OAuth via `/mcp` in Claude Code |
-| **Asana** | Optional | Task sync (alternative to Todoist) | OAuth via `/mcp` in Claude Code |
-| **ActiveCampaign** | If you use AC | CRM/email data | Settings → Developer → API URL + Key |
+| **Databox** | Recommended | Pulls marketing metrics for analysis | Already in `.mcp.json.example`. Authenticate via `/mcp` in Claude Code (OAuth). |
+| **Todoist** | Optional | Task sync (bidirectional) | Add to `.mcp.json`, then OAuth via `/mcp` |
+| **Asana** | Optional | Task sync (alternative to Todoist) | Add to `.mcp.json`, then OAuth via `/mcp` |
+| **ActiveCampaign** | If you use AC | CRM/email data | Add HTTP server URL to `.mcp.json` |
 
-**Important:** MCP connections are frozen at session start. After editing `.mcp.json`, you must restart Claude Code for changes to take effect.
+Databox MCP is a remote HTTP server — no npm packages, no API tokens in the config. Authentication happens via `/mcp` in Claude Code and the token is stored in `~/.claude.json`.
+
+**Important:** MCP connections are frozen at session start. After authenticating or editing `.mcp.json`, restart Claude Code.
 
 For detailed Databox setup, see [DATABOX_SETUP.md](DATABOX_SETUP.md).
 

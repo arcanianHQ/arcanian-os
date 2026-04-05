@@ -40,39 +40,45 @@ Each connected platform becomes a "data source" with a unique ID.
 
 ---
 
-## Step 3: Get Your Databox API Token
+## Step 3: Configure `.mcp.json`
 
-1. Log in to Databox
-2. Go to **Account Settings** (gear icon, bottom left)
-3. Click **Company Settings**
-4. Find **API** section
-5. Copy your API token (or create one if none exists)
+In your arcanian-os root directory, copy the example and edit `.mcp.json`:
 
-Keep this token — you'll need it for the MCP configuration.
+```bash
+cp .mcp.json.example .mcp.json
+```
 
----
-
-## Step 4: Configure `.mcp.json`
-
-In your arcanian-os root directory, edit `.mcp.json`:
+The file should contain:
 
 ```json
 {
   "mcpServers": {
     "databox": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/databox-mcp"],
-      "env": {
-        "DATABOX_API_TOKEN": "your-token-here"
-      }
+      "type": "http",
+      "url": "https://mcp.databox.com/mcp"
     }
   }
 }
 ```
 
-Replace `your-token-here` with the API token from Step 3.
+Databox MCP is a **remote HTTP server** — no npm packages to install, no API tokens in the config file.
 
-**Important:** After editing `.mcp.json`, restart Claude Code. MCP connections are frozen at session start.
+---
+
+## Step 4: Authenticate
+
+1. Start Claude Code (`claude` in your terminal or open the desktop app)
+2. Run `/mcp` — this opens the MCP authentication flow
+3. Select Databox and follow the OAuth login
+4. Sign in with your Databox account credentials
+5. Authorize the connection
+
+The authentication token is stored in `~/.claude.json` — not in `.mcp.json`. This means:
+- `.mcp.json` can be committed to git safely (no secrets)
+- The token persists across sessions
+- If the token expires, run `/mcp` again to re-authenticate
+
+**Important:** MCP connections are frozen at session start. After authenticating, restart Claude Code for the connection to take effect.
 
 ---
 
