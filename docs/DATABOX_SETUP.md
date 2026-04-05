@@ -1,4 +1,4 @@
-> v1.0 — 2026-04-03
+> v1.1 — 2026-04-05 — fixed MCP config: HTTP server + OAuth, not npx + API token
 
 # Databox MCP Setup Guide
 
