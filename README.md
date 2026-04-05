@@ -58,6 +58,31 @@ When uncertain, it spawns multiple agents to analyze the same data from differen
 
 ## Quick Start
 
+### First 5 Minutes (try the demo — no setup needed)
+
+```bash
+git clone https://github.com/arcanianHQ/arcanian-os.git
+cd arcanian-os
+cp .mcp.json.example .mcp.json
+claude
+```
+
+Claude Code starts. Authenticate with Databox when prompted (`/mcp`). Then:
+
+```
+/sales-pulse
+```
+
+Select `example-ecom` → select `AquaLux US`. Wait 30 seconds.
+
+Read the output. That's what it does.
+
+The demo client has synthetic data with planted anomalies — email collapse, tracking gap, channel shift. The system finds them and tells you what they mean. No configuration needed.
+
+---
+
+### Full Setup (connect your own data)
+
 ### 1. Install Claude Code
 
 ```bash
@@ -67,19 +92,17 @@ npm install -g @anthropic-ai/claude-code
 ### 2. Clone this repo
 
 ```bash
-git clone https://github.com/your-org/arcanian-os.git
+git clone https://github.com/arcanianHQ/arcanian-os.git
 cd arcanian-os
 ```
 
 ### 3. Connect Databox
 
-Copy the MCP config example:
-
 ```bash
 cp .mcp.json.example .mcp.json
 ```
 
-Edit `.mcp.json` and add your Databox API key.
+The MCP config points to `https://mcp.databox.com/mcp`. Authentication happens through Databox when you run `/mcp` in Claude Code.
 
 ### 4. Set up your first client
 
@@ -89,19 +112,22 @@ claude
 /scaffold-project
 ```
 
-This creates the full client directory structure with all required files.
+This creates the full client directory structure. Fill in `DOMAIN_CHANNEL_MAP.md` with your Databox data source IDs.
 
 ### 5. Run your first analysis
 
 ```bash
+# Sales pulse — CRM + analytics + e-commerce in one view
+/sales-pulse
+
 # Health check across all clients
 /health-check
 
-# Sales pulse on a specific client
-/sales-pulse
-
 # 7-layer diagnostic
 /7layer
+
+# PMF verification for your own product
+/verify-pmf
 ```
 
 ---
