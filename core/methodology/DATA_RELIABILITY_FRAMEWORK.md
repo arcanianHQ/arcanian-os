@@ -8,7 +8,7 @@
 
 ## When to Apply
 - Any deliverable with data-driven conclusions
-- Skills: /analyze-gtm, , /map-results, /health-check, /morning-brief
+- Skills: /analyze-gtm, , /health-check, /morning-brief
 - Databox queries, GA4 analysis, competitive analysis, financial projections
 - Client reports, business analysis documents
 

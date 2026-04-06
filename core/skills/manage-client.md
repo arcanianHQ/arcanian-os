@@ -59,7 +59,7 @@ Show all clients with status
 ```
 ACTIVE CLIENTS:
 • acme-coaching - Scaling -  in progress
-• smith-fitness - Pre-launch - /validate-idea complete
+• smith-fitness - Pre-launch -  complete
 
 ON HOLD:
 • jones-consulting - since 2024-01-15
@@ -178,8 +178,8 @@ When creating new client:
 □ Add to DASHBOARD.md
 □ Schedule first session
 □ Determine starting point:
-  □ Have marketing copy? → /analyze-copy first
-  □ Have business data? → /map-results first
+  □ Have marketing copy? →  first
+  □ Have business data? →  first
   □ Neither? →  from stated challenge
 ```
 

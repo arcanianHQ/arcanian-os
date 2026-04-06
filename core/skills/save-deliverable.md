@@ -32,7 +32,7 @@ When the user asks for ANY of these:
 
 AND when Claude PRODUCES any of these (even without explicit save request):
 - Data analysis with tables/findings (Databox, GA4, Ads, SEO, any MCP query)
-- Diagnostic output (/7layer, , /repair-roadmap, /health-check)
+- Diagnostic output (/7layer, /repair-roadmap, /health-check)
 - Audit findings or measurement reports
 - Channel/funnel/attribution analysis
 - Any output > 50 lines with structured findings

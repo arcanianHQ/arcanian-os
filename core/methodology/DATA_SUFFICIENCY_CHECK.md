@@ -11,10 +11,10 @@
 ## When to apply
 
 EVERY skill that produces findings, recommendations, or analysis. Specifically:
-- /analyze-alchemy, /analyze-gtm, /plan-gtm
+- , /analyze-gtm, /plan-gtm
 - /sales-pulse, /health-check, /morning-brief
 - /7layer, /7layer-hu
-- /map-results, /council
+- , /council
 - /client-report
 - Any freeform data analysis query
 

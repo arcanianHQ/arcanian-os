@@ -414,13 +414,13 @@ NEW ASSOCIATIONS TO CREATE:
 ```
 /build-brand → Strategic brand positioning
        ↓
-/analyze-copy → Does copy reflect brand associations?
+ → Does copy reflect brand associations?
        ↓
-/map-results → Do results reflect brand strength?
+ → Do results reflect brand strength?
        ↓
  → Are assumptions blocking strong positioning?
        ↓
-/validate-idea → Will new brand direction succeed in market?
+ → Will new brand direction succeed in market?
 ```
 
 **Common Belief Blocks to Strong Branding:**
@@ -510,4 +510,4 @@ From the original playbook:
 - Brand goes BOTH ways - product affects brand, brand affects product
 - Patience is essential - 5+ year time horizon
 - Use `` when customer resists strong positioning
-- Use `/validate-idea` before major brand pivots
+- Use `` before major brand pivots

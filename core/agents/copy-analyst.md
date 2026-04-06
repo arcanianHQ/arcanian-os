@@ -37,12 +37,12 @@ This agent reads everything through the messaging lens:
 
 | Skill | What it contributes |
 |-------|-------------------|
-| `/analyze-copy` | Copy effectiveness analysis, headline scoring, CTA evaluation |
+| `` | Copy effectiveness analysis, headline scoring, CTA evaluation |
 | `/build-brand` | Brand identity construction, voice guide creation, L2 diagnosis |
 | `/magyar-szoveg` | Hungarian text quality, natural register, tegező/magázó matching |
 | `` | Social media voice, engagement style, platform-appropriate tone |
 | `` | Long-form content voice, newsletter style |
-| `/conversion-story` | Narrative structure, customer story framing, before/after |
+| `` | Narrative structure, customer story framing, before/after |
 
 ## Process
 
@@ -93,4 +93,4 @@ For each touchpoint where messaging ≠ identity:
 - `methodology/TONE_REGISTRY.md`
 - Client's `PROJECT_GLOSSARY.md`
 - Client's `brand/VOICE.md`
-- Skills: `/analyze-copy`, `/build-brand`, `/magyar-szoveg`, `/conversion-story`
+- Skills: ``, `/build-brand`, `/magyar-szoveg`, ``

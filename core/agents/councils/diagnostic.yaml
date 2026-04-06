@@ -4,7 +4,6 @@ description: Full 7-layer diagnosis with constraint mapping — the core Arcania
 
 agents:
   council:
-    - belief-analyst       # L0-L2: beliefs, identity, NLP, constraints
     - channel-analyst      # L4-L7: offer, channels, customer, market, JTBD, Hormozi
     - copy-analyst         # Messaging, voice, copy-market fit
     - client-explorer      # Digital presence recon

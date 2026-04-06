@@ -102,7 +102,7 @@ claude
 1. **Don't guess.** If you don't know the domain or who requested a task, add `Domain: TBD` or `From: TBD` — don't make it up.
 2. **Backfill incrementally.** Don't try to do all 500 tasks at once. Do one phase at a time, one project at a time.
 3. **Start with active projects.** ExampleBrand, ExampleRetail, Internal first. Stubs and archived projects last (or never).
-4. **Auto-sync after backfill.** Run `/task-sync push` after each project to push enriched tasks to [Task Manager].
+4. **Auto-sync after backfill.** Run ` push` after each project to push enriched tasks to [Task Manager].
 5. **Update coverage table.** After each phase, re-run the audit to track progress.
 
 ## Coverage Targets

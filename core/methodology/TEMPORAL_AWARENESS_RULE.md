@@ -11,9 +11,9 @@
 ## Mikor alkalmazza
 
 MINDEN skill ami adatot elemez. Különösen:
-- /analyze-alchemy, /analyze-gtm, /sales-pulse, /health-check, /morning-brief
+- , /analyze-gtm, /sales-pulse, /health-check, /morning-brief
 - /seo-diagnose, /seo-decay, /seo-anomaly
-- /authoredup, /verify-pmf
+- , /verify-pmf
 - /7layer, /council, /client-report
 - Bármely freeform adatelemzés
 

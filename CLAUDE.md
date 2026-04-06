@@ -57,22 +57,20 @@ Two session types:
 - `channel-analyst-google-ads.md` — Smart Bidding, PMAX, Shopping, search terms
 - `channel-analyst-meta.md` — Advantage+, creative fatigue, frequency, CAPI
 - `channel-analyst-shopify.md` — GA4 discrepancy, checkout funnel, discount tracking
-- `belief-analyst.md` — L0-L2 owner beliefs, identity patterns
-- `copy-analyst.md` — messaging effectiveness, voice consistency
 - `outcome-tracker.md` — weekly REC verification, closed-loop feedback
 
 Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`, `councils/delivery.yaml`, `councils/discovery.yaml`
 
-## Skills (44 slash commands)
+## Skills (41 slash commands)
 
 Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency
-Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /map-results, /measurement-audit, /council
-JTBD: /jtbd, /jtbd-map, /jtbd-hire, /jtbd-outcomes, /jtbd-switch
-Strategy: /build-brand, /craft-offer, /validate-idea, /analyze-gtm, /plan-gtm
-Content: /linkedin-comment, /substack-post, /magyar-szoveg, /conversion-story
-Platform: /arcos, /connect, /frontend-design, , /memory-bank, /claude-code-guide
+Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council
+
+Strategy: /build-brand, /analyze-gtm, /plan-gtm
+Content: /magyar-szoveg
+Platform: /arcos, /connect, /frontend-design, /claude-code-guide
 SEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly
-Other: /analyze-copy, /manage-client, /sales-pulse, /verify-pmf
+Other: /manage-client, /sales-pulse, /verify-pmf
 
 ## SOP Auto-Surface (ALWAYS-ON BEHAVIOR)
 **Before executing any task, check if a relevant SOP exists and LOAD it.**

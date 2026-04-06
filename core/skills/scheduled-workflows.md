@@ -19,7 +19,7 @@
   --cron "0 7 * * 1-5" \
   --prompt "
     Read ~/.claude/user.json for session user.
-    Run /task-sync all (pull from [Task Manager]/Asana, rate-limited).
+    Run  all (pull from [Task Manager]/Asana, rate-limited).
     Run /task-oversight (scan all projects, flag issues).
     Run /morning-brief (P0s, overdue, quick wins).
     Save combined output to internal/briefs/BRIEF_{date}.md.
@@ -83,7 +83,7 @@
 /schedule create --name "weekly-sync" \
   --cron "0 20 * * 0" \
   --prompt "
-    Run /task-sync all (bidirectional, all projects).
+    Run  all (bidirectional, all projects).
     Log sync results to internal/briefs/SYNC_{date}.md.
     Flag conflicts for Monday morning review.
   "

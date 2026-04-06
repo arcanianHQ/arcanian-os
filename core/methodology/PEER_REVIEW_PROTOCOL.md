@@ -40,18 +40,18 @@ Launch 3 Agent subagents in parallel, each using a formal agent definition from 
 Agent A — [diagnostic-analyst] (core/agents/[diagnostic-analyst].md)
 Focus: L0-L2 (Source, Core, Identity)
 Lens: Owner patterns, [Communication Framework] meta-programs, identity patterns, constraint types.
-Skills: , , , , 
+Skills: , 
 
 Agent B — channel-analyst (core/agents/channel-analyst.md)
 Focus: L4-L7 (Offer, Channels, Customer, Market)
 Lens: ROAS, channel mix, [Framework Author] Value Equation, [Customer Need Framework], competitive position.
-Skills: /analyze-gtm, , /[customer need framework], /[customer need framework]-map, /map-results
+Skills: /analyze-gtm, /[customer need framework], /[customer need framework]-map
 
 Agent C — copy-analyst (core/agents/copy-analyst.md)
 Focus: Cross-layer messaging coherence
 Lens: Does what they SAY match who they ARE (L2), what they OFFER (L4),
       and who they're talking TO (L6)? Voice consistency, copy-market fit.
-Skills: /analyze-copy, /build-brand, /magyar-szoveg, /conversion-story
+Skills: , /build-brand, /magyar-szoveg
 ```
 
 These are real agents with YAML frontmatter, context allocations, and defined skill sets — not ad-hoc prompts.

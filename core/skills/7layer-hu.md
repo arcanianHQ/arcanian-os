@@ -738,7 +738,7 @@ DIAGNÓZIS UTÁN:
 /7layer → /analyze-gtm   Ellenőrizd a GTM összehangolást a Mintázat Térképpel
 /7layer → /plan-gtm      Építs végrehajtási tervet a diagnózisból
 /7layer →    Találd meg az L1 hitet, ami mindent blokkol (ha L1 az akadály)
-/7layer → /analyze-copy   Ellenőrizd, hogy az üzenetek tükrözik-e a javítást
+/7layer →    Ellenőrizd, hogy az üzenetek tükrözik-e a javítást
 
 KOMBINÁLÁS [Customer Need Framework]-VEL:
 /[customer need framework] (milyen job-ra alkalmazzák az ügyfelek) + /7layer (hol törött a marketing)

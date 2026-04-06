@@ -165,12 +165,12 @@ Expected first-run output:
 - [ ] Run `/health-check` daily to catch drift
 - [ ] After 7 days: baselines auto-populate in `data/BASELINES.md`
 - [ ] Try `/7layer` for a full diagnostic (needs brand/ files filled in)
-- [ ] Set up `/task-sync` if using Todoist or Asana
+- [ ] Set up `` if using Todoist or Asana
 
 ### Week 2+
 - [ ] Run `/council diagnostic --client acme-corp --question "Why is acquisition declining?"` — multi-agent deliberation
-- [ ] Try `/measurement-audit` for a deep tracking health check
-- [ ] Explore `/craft-offer`, `/jtbd`, `/plan-gtm` for strategy work
+- [ ] Try `` for a deep tracking health check
+- [ ] Explore ``, ``, `/plan-gtm` for strategy work
 
 ---
 
@@ -182,7 +182,7 @@ Expected first-run output:
 | `/morning-brief` | Daily cross-project summary (P0s, overdue, quick wins) |
 | `/health-check` | System-wide integrity + anomaly detection |
 | `/tasks` | Manage tasks with full ontology |
-| `/task-sync` | Bidirectional sync with Todoist/Asana |
+| `` | Bidirectional sync with Todoist/Asana |
 | `/inbox-process` | Triage unprocessed files |
 
 ### Diagnostics
@@ -190,15 +190,15 @@ Expected first-run output:
 |---|---|
 | `/7layer` | Full marketing diagnosis (L0-L7 constraint mapping) |
 | `/analyze-gtm` | Go-to-market gap analysis |
-| `/measurement-audit` | 6-phase tracking/measurement audit |
-| `/map-results` | Map business results to underlying beliefs |
+| `` | 6-phase tracking/measurement audit |
+| `` | Map business results to underlying beliefs |
 | `/council` | Multi-agent deliberation (3-6 agents debate, consensus) |
 
 ### Strategy
 | Skill | What it does |
 |---|---|
-| `/craft-offer` | Hormozi Value Equation offer construction |
-| `/jtbd` | Jobs-to-be-Done analysis |
+| `` | Hormozi Value Equation offer construction |
+| `` | Jobs-to-be-Done analysis |
 | `/plan-gtm` | Go-to-market action plan |
 | `/build-brand` | Brand intelligence profile builder |
 | `/repair-roadmap` | Constraint-based repair plan |
@@ -206,9 +206,9 @@ Expected first-run output:
 ### Content
 | Skill | What it does |
 |---|---|
-| `/linkedin-comment` | A.E.L.Q. framework LinkedIn comments |
-| `/substack-post` | Long-form article writing |
-| `/linkedin-comment` | Comment engagement |
+| `` | A.E.L.Q. framework LinkedIn comments |
+| `` | Long-form article writing |
+| `` | Comment engagement |
 
 For the full list (48 skills), see `core/skills/` or run `/help`.
 

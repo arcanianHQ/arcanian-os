@@ -7,7 +7,7 @@
 ## When to Use
 
 Use this format for:
-- Executive summaries of diagnostic outputs (/7layer, , /repair-roadmap)
+- Executive summaries of diagnostic outputs (/7layer, /repair-roadmap)
 - Client-facing recommendation documents
 - Internal decision memos
 - Health check and morning brief summaries

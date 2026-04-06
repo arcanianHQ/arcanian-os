@@ -57,7 +57,7 @@
 - When a task is done → you know WHO to tell (Inform list)
 - When a task is blocked → you know WHO to escalate to (From = the person who wanted it)
 - When prioritizing → tasks from [Client Contact] (CEO) hit different than tasks you created yourself
-- `/task-sync` can add Inform people as [Task Manager] followers / Asana followers
+- `` can add Inform people as [Task Manager] followers / Asana followers
 
 **From vs Owner vs Inform:**
 | Field | Who | Example |

@@ -42,14 +42,14 @@ This agent thinks from the OUTSIDE IN. Every internal explanation (bad team, unc
 |-------|-------------------|
 | `/analyze-gtm` | GTM performance analysis, attribution, channel mix, ROAS by channel |
 | `/plan-gtm` | Go-to-market strategy, channel selection, budget allocation |
-| `/map-results` | Results mapping — what's working vs what's not, with data |
+| `` | Results mapping — what's working vs what's not, with data |
 | `` | [Framework Author] Value Equation (Dream Outcome × Perceived Likelihood) / (Time Delay × Effort & Sacrifice). Offer stack, guarantee, risk reversal, bonuses, urgency, scarcity |
 | `/[customer need framework]` | [Customer Need Framework] framework — what job is the customer hiring this product for? |
 | `/[customer need framework]-map` | Customer job mapping — functional, emotional, social jobs |
 | `/[customer need framework]-outcomes` | Desired outcomes per job — what does "done well" look like? |
 | `/[customer need framework]-switch` | Switch interview — why customers switched (push, pull, anxiety, habit) |
 | `/[customer need framework]-hire` | Hiring criteria — what makes a customer choose this over alternatives |
-| `/analyze-copy` | Copy effectiveness, messaging-market fit |
+| `` | Copy effectiveness, messaging-market fit |
 
 ## Process
 
@@ -108,4 +108,4 @@ Score each: 1-10. Identify which quadrant is weakest.
 - `methodology/DATA_RELIABILITY_FRAMEWORK.md`
 - `methodology/GTM_DATA_STANDARD.md`
 - `methodology/AUDIT_EVIDENCE_STANDARD.md`
-- Skills: `/analyze-gtm`, `/plan-gtm`, ``, `/[customer need framework]`, `/[customer need framework]-map`, `/[customer need framework]-hire`, `/[customer need framework]-outcomes`, `/[customer need framework]-switch`, `/map-results`, `/analyze-copy`
+- Skills: `/analyze-gtm`, `/plan-gtm`, ``, `/[customer need framework]`, `/[customer need framework]-map`, `/[customer need framework]-hire`, `/[customer need framework]-outcomes`, `/[customer need framework]-switch`, ``, ``

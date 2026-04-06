@@ -8,7 +8,7 @@ updated: {YYYY-MM-DDThh:mm}
 
 # {Display Name} — Tasks
 
-> Local source of truth. Syncs to `sync:` system via `/task-sync`.
+> Local source of truth. Syncs to `sync:` system via ``.
 > Format: `core/methodology/TASK_FORMAT_STANDARD.md` (ExampleBrand gold standard)
 > Done tasks → `TASKS_DONE.md`
 
@@ -71,7 +71,7 @@ updated: {YYYY-MM-DDThh:mm}
   - Required fields: #{N}, @tag, Priority, Owner, Due, Impact, Created, Layer
   - @waiting requires: Waiting on, Waiting since, Follow-up
   - Multi-domain clients: add Domain: field to every task
-  - Sync: /task-sync pushes to [Task Manager] with ontology enrichment
+  - Sync:  pushes to [Task Manager] with ontology enrichment
 
 ---
 

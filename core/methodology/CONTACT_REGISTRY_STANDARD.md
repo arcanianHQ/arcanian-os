@@ -22,7 +22,7 @@
 # {Client Name} — Contacts
 
 > Single source of truth for all people involved in this engagement.
-> Referenced by: TASKS.md (Owner, From, Inform), CLAUDE.md (Key Contacts), /task-sync, /council delivery
+> Referenced by: TASKS.md (Owner, From, Inform), CLAUDE.md (Key Contacts), /council delivery
 
 ---
 

@@ -26,7 +26,7 @@ For EACH project (hub → internal → all clients):
 4. Tasks completed locally → complete in [Task Manager]
 5. Store new `ext:` IDs + update `synced:` timestamps
 6. Rate limited: 10/batch, 3s delay between projects
-7. If `sync_id` empty → "Project {name} not mapped — run /task-sync {name} first"
+7. If `sync_id` empty → "Project {name} not mapped — run  {name} first"
 
 ### 2. Process unextracted deliverables
 

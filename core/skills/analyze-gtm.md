@@ -498,7 +498,7 @@ SHORT-TERM (This Month):
        ↓
  → Build [Premium Offer] (if offer gap)
 /build-brand → Fix positioning (if positioning gap)
-/validate-idea → Validate assumptions (if market/ECP gap)
+ → Validate assumptions (if market/ECP gap)
        ↓
  → Address assumptions blocking GTM
 ```

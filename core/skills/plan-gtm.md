@@ -648,7 +648,7 @@ KILL CRITERIA:
 /plan-gtm → Create this action plan
        ↓
 Execute with support from:
-├── /validate-idea → Test before building
+├──  → Test before building
 ├──  → Create [Premium Offer]
 ├── /build-brand → Fix positioning
 └──  → Address blocks

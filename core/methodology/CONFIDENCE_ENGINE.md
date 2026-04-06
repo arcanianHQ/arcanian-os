@@ -93,7 +93,7 @@ Every skill or agent that produces findings or recommendations:
 | `/health-check` | Confidence score on every anomaly flag |
 | `/morning-brief` | Confidence score on every alert |
 | `` | Already uses Data Reliability — add unified score |
-| `/map-results` | Confidence on every performance claim |
+| `` | Confidence on every performance claim |
 | `/7layer` | Confidence per layer assessment |
 | Council deliberations | Each agent's position gets a confidence score; consensus weighs by confidence |
 | `channel-analyst-*.md` | Per-platform findings scored |

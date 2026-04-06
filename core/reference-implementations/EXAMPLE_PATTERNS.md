@@ -69,7 +69,7 @@ takeover/
 ```
 
 ### Other Key Patterns
-- `analysis/mindset/` — Arcanian diagnostic skills applied (map-results, , )
+- `analysis/mindset/` — Arcanian diagnostic skills applied (map-results, )
 - `analysis/screenshots/` — 21 visual evidence files (competitors, 404s, Wayback)
 - `newsletter/` — 18 HTML templates (MMDD naming) + EMAIL-BEST-PRACTICES.md
 - `memory/` — google-ads-accounts.md (critical reference)

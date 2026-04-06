@@ -26,7 +26,7 @@ updated: 2026-04-03T00:00
 
 ## P1 — This Week
 
-- [ ] #2 Run /craft-offer — current offer has no guarantee or urgency
+- [ ] #2 Run  — current offer has no guarantee or urgency
   - @next
   - P1 | Owner: You | Due: 2026-04-11 | Effort: 2h | Impact: unlock
   - Created: 2026-04-03

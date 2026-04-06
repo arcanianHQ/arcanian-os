@@ -279,4 +279,4 @@ What did we get wrong? What signals are we missing?
 - Score 2 on Layer 1-3 = minimum viable PMF. Everything below is pre-PMF.
 - The most dangerous state: Layer 1 = 3, Layer 2 = 0. "Everyone wants it, nobody uses it" = the product is a story, not a tool.
 - Pete's endorsement is Layer 1 + Layer 5 simultaneously (he advocated without us asking). But Layer 2-4 are unverified.
-- Pairs with: `/pipeline` (lead tracking), `/health-check` (system health), `/validate-idea` (pre-launch validation)
+- Pairs with: `/pipeline` (lead tracking), `/health-check` (system health), `` (pre-launch validation)

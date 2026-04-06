@@ -843,7 +843,7 @@ REPAIR-SPECIFIC:
 /7layer →     Rebuild the offer (if L4 is constraint)
 /7layer → /analyze-gtm    Check GTM alignment against Pattern Map
 /7layer → /plan-gtm       Build execution plan from diagnosis
-/7layer → /analyze-copy   Check if messaging reflects the fix
+/7layer →    Check if messaging reflects the fix
 
 L0 DIAGNOSTIC TOOLS:
 /7layer finds WHERE the problem is (L0–L7)

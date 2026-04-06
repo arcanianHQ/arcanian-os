@@ -277,4 +277,4 @@ GoogleAnalytics4@newUsers        — new users
 - If a metric returns null/empty, note it as "[Data not available]" — do not skip the section.
 - For multi-domain clients, run separately per domain unless explicitly asked for consolidated view.
 - Skill #3 in the AI Marketing Automation Lab free skill series.
-- Pairs with: `/analyze-gtm` (measurement), `/health-check` (project health), `/map-results` (performance mapping)
+- Pairs with: `/analyze-gtm` (measurement), `/health-check` (project health), `` (performance mapping)

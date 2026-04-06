@@ -375,7 +375,7 @@ created: "{today}"
 > Files, exports, screenshots, and data provided BY THE CLIENT.
 > NOT our analysis — their raw inputs.
 >
-> Examples: GA4 exports, product lists, brand guidelines PDF, photos, 
+> Examples: GA4 exports, product lists, brand guidelines PDF, photos
 > competitor screenshots, email lists, any file the client sends us.
 >
 > Track what was received, when, from whom, and whether it was processed.

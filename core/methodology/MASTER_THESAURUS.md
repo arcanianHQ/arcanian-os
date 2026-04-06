@@ -37,7 +37,7 @@
 |---|---|
 | **upd/** | User Provided Data directory — per client. Raw inputs from the client: exports, screenshots, docs, answers. |
 | **inbox/** | Staging area for unprocessed inputs. Triage within 7 days. |
-| **brand/** | Client intelligence profile (7 files: 7LAYER_DIAGNOSTIC, CONSTRAINT_MAP, REPAIR_ROADMAP, , VOICE, Target Profile, POSITIONING) |
+| **brand/** | Client intelligence profile (7 files: 7LAYER_DIAGNOSTIC, CONSTRAINT_MAP, REPAIR_ROADMAP, VOICE, Target Profile, POSITIONING) |
 | **meetings/** | Meeting transcripts + processed notes. `raw/` subdirectory for original Fireflies output. |
 | **core/** | Protected shared resources (skills, SOPs, methodology). [Owner] only. |
 | **ext:** | External system task ID ([Task Manager] task ID, Asana gid) |

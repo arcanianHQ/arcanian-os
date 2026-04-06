@@ -424,7 +424,7 @@ What did we get wrong? What's missing?
 
 | Council | Agents | Best For |
 |---------|--------|----------|
-| `diagnostic` | [diagnostic-analyst], channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer, , [Diagnostic Service], Fixer |
+| `diagnostic` | [diagnostic-analyst], channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer, [Diagnostic Service], Fixer |
 | `measurement` | audit-checker, channel-analyst, data-rules-checker, knowledge-extractor | Measurement audits, GTM checks |
 | `delivery` | report-reviewer, copy-analyst, pii-scanner, data-rules-checker | Pre-delivery quality gate |
 | `discovery` | client-explorer, project-architect | New leads, onboarding |

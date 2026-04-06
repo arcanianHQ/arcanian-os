@@ -79,7 +79,7 @@ When invoked, ask what the user needs or detect from context:
    - If @waiting: use Follow-up date as [Task Manager] due (not task Due)
    - If Inform people are [Task Manager] collaborators: add as followers
    - **Show sync summary:** "Synced: 1 pushed, 2 pulled (#{N} completed, #{M} rescheduled)"
-   - **This happens automatically — no separate /task-sync needed**
+   - **This happens automatically — no separate  needed**
 7. **ONTOLOGY ENRICHMENT** (auto, per `core/methodology/ONTOLOGY_ENRICHMENT_RULE.md`):
    - Scan task content for references: FND-NNN, REC-NNN, SOP names, meeting dates, lead names, domain names, goal tags
    - Auto-add detected edges if not already present
@@ -159,12 +159,12 @@ When creating or updating tasks, ALWAYS validate per `core/methodology/TASK_FORM
 
 ## Auto-Sync Behavior
 
-**Tasks sync automatically on create, update, and complete.** No separate `/task-sync` step needed for individual task operations.
+**Tasks sync automatically on create, update, and complete.** No separate `` step needed for individual task operations.
 
-`/task-sync` is still available for:
-- `/task-sync pull` — pull changes FROM [Task Manager]/Asana (e.g., tasks created on mobile)
-- `/task-sync all` — bulk sync ALL projects (used in `/day-start`)
-- `/task-sync` — full bidirectional sync with conflict resolution
+`` is still available for:
+- ` pull` — pull changes FROM [Task Manager]/Asana (e.g., tasks created on mobile)
+- ` all` — bulk sync ALL projects (used in `/day-start`)
+- `` — full bidirectional sync with conflict resolution
 
 But for normal task work (create, update, complete), the sync happens inline.
 
