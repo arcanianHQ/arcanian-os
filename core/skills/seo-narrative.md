@@ -58,6 +58,7 @@ Use this skill when:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Minimum: GSC totals for both periods. If missing: STOP.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Load tone and language** — Check `PROJECT_GLOSSARY.md` and `brand/VOICE.md`. Determine: Hungarian or English? Formal or informal? Technical or plain?
 

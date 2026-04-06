@@ -1,4 +1,4 @@
-> v1.3 — 2026-04-06 — 6 SEO skills added, /verify-pmf added, "First 5 Minutes" quickstart, 44 skills total
+> v1.4 — 2026-04-06 — Temporal Awareness Rule added, wired to all analytical skills
 
 # Arcanian OS — System Instructions
 
@@ -84,6 +84,14 @@ Other: /analyze-copy, /manage-client, /sales-pulse, /verify-pmf
 - budget/spend → `marketing-ops/03-financial-controls.md`
 - access/vendor → `marketing-ops/07-vendor-access.md`
 - onboard client → `arcanian/01-client-onboarding.md`
+
+## Temporal Awareness (SYSTEM-WIDE — MANDATORY)
+**Every analysis must identify EXACT dates, check for holidays/seasonality, and distinguish anomalies from calendar effects.**
+- Always state exact period (not "last 90 days" but "Jan 6 – Apr 6, 2026")
+- Check: holiday week? Season change? Black Friday? School break?
+- A 40% drop during Easter is not an anomaly — it's the calendar
+- Never compare periods without checking seasonal context match
+- Rule: `core/methodology/TEMPORAL_AWARENESS_RULE.md`
 
 ## Data Sufficiency Check (SYSTEM-WIDE — MANDATORY)
 **Before ANY analysis: classify data axes as AVAILABLE / PARTIAL / MISSING.**

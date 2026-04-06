@@ -1,6 +1,7 @@
 # Skill: PMF Verification (`/verify-pmf`)
 
 > **Data Sufficiency Check applies.** Every signal must be tagged [DATA], [INFERRED], or [UNKNOWN].
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 > **Discovery, not pronouncement.** PMF is not binary — it's a spectrum. Show where you are on it.
 > **"We don't know yet" is the most common — and most honest — answer.**
 
@@ -37,6 +38,7 @@ Layer 1: DEMAND — do people want it? (inbound interest)
 ## Execution Steps
 
 ### Step 0: Data Sufficiency Check
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 Before anything, identify what data sources are available:
 

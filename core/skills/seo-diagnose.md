@@ -52,6 +52,7 @@ Additionally pull from Semrush MCP:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC data available for both periods. Log gaps as `[UNKNOWN]`. If no GSC: STOP, explain what data is needed.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Pull GSC totals** — Current vs prior period: clicks, impressions, CTR, avg position. Tag all numbers `[DATA]`.
 

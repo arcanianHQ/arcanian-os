@@ -1,10 +1,12 @@
 > v1.0 — 2026-04-03
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 # Skill: Analyze GTM Gaps (GTM Strategist Framework)
 
 ## Purpose
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Analyzes a business's Go-To-Market strategy against the complete GTM Strategist framework to identify gaps, weaknesses, and opportunities. Provides a clear diagnosis of what's missing or underperforming before action planning.

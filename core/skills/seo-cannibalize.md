@@ -48,6 +48,7 @@ Use this skill when:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC query+page data available. Minimum 28 days, ideally 90 days. Log gaps as `[UNKNOWN]`.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Identify cannibalizing pairs** — Pull all queries where 2+ distinct pages received impressions in GSC. Tag `[DATA]`.
 

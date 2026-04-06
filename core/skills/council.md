@@ -1,10 +1,12 @@
 > v1.0 — 2026-04-03
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 # Skill: Council Runner (`/council`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 Orchestrates a multi-agent council deliberation. Reads a council YAML definition, spawns subagents in parallel, runs the pipeline stages (collect → peer review → warning intel → ACH → synthesis → BLUF+OODA), and auto-saves the result.
 

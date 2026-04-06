@@ -223,6 +223,7 @@ The system includes several mandatory guardrails that apply to every analysis:
 - **Unverified Assumptions** — "not mentioned" does not equal "doesn't exist"
 - **Currency Normalization** — never sum HUF and EUR without conversion
 - **Attribution Windows** — Google 30d click is not comparable to Meta 7d click
+- **Temporal Awareness** — exact dates, holiday/season check, calendar effects before flagging anomalies
 - **Data Sufficiency Check** — classify data axes before analysis; "what we don't know" is mandatory
 - **Business Unit Isolation** — domains may represent separate P&Ls; never blend across units
 
@@ -272,6 +273,7 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.4** | 2026-04-06 | Temporal Awareness Rule (mandatory date/holiday/season check). Wired to all analytical skills. |
 | **v1.3** | 2026-04-06 | 6 SEO skills (diagnose, cannibalize, gaps, decay, narrative, anomaly). /verify-pmf (5-layer PMF verification). "First 5 Minutes" quickstart. 44 skills total. |
 | **v1.2** | 2026-04-04 | Data Sufficiency Check guardrail added. Business Unit Isolation v2.0. `.claude/commands/` for all skills (works on clone). `.mcp.json.example` fixed to HTTP. Demo data + Databoards documented. Drupal, Todoist, Arcflux removed. |
 | **v1.1** | 2026-04-04 | Demo data ingested (11 datasets, 1,045 rows). Example-ecom client wired with Databox dataset IDs. Demo vs production documented in README. |

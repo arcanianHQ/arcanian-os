@@ -1,8 +1,10 @@
 > v1.0 — 2026-04-03
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 # Skill: Sales Pulse (`/sales-pulse`)
 
 > **Data Reliability Framework applies.** Every metric must include [Confidence: HIGH/MED/LOW] and source tag [DATA]/[OBSERVED]/[INFERRED].
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 > **Multi-domain prerequisite:** Load DOMAIN_CHANNEL_MAP.md before querying. Identify which CRM instance, which Databox data source.
 > **Discovery, not pronouncement.** Present observations with competing explanations. End with "What did we get wrong?"
 

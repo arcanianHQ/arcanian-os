@@ -53,6 +53,7 @@ Without Semrush, we can't see competitor keywords. Instead, focus on:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC data available. If Semrush available, confirm correct project/domain. Log gaps.
+> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Pull our keyword universe** — All GSC queries with impressions > 0 in last 90 days. Tag `[DATA]`.
 
