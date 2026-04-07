@@ -1,10 +1,11 @@
-> v1.0 — 2026-04-03
+> v1.1 — 2026-04-07
 
 # Contact Registry Standard
 
 > Every client project MUST have a `CONTACTS.md` file with ALL people involved.
 > This is the single source of truth for names, emails, nicknames, and communication preferences.
-> Added: 2026-03-26
+> **Temporal columns (MANDATORY):** every contact has `Active Since` and `Status` — people leave, roles change, agencies get replaced. A contact without dates is a contact you can't trust.
+> Added: 2026-03-26 | Updated: 2026-04-07 (temporal columns)
 
 ## Why
 
@@ -28,27 +29,28 @@
 
 ## Client Team
 
-| Name | Nickname | Role | Email | Phone | Preferred Channel | Language | Notes |
-|------|----------|------|-------|-------|-------------------|----------|-------|
-| [Client Contact] | [Client Contact] | US CEO | client-contact@example-ecom.com | — | Email (HU) | HU | Micro-manages, needs proof. Tegező. |
-| [Client MD] | [Name] | Marketing Dir HU | — | — | Email / Slack | HU | Day-to-day coord. Tegező. |
-| [Client Contact 2] | [Client Contact 2] | Online Sales Mgr US | contact@example-ecom.com | — | Email (EN) | EN | Manages 14 US reps. |
+| Name | Nickname | Role | Email | Phone | Preferred Channel | Language | Active Since | Status | Notes |
+|------|----------|------|-------|-------|-------------------|----------|-------------|--------|-------|
+| [Client Contact] | [Client Contact] | US CEO | client-contact@example-ecom.com | — | Email (HU) | HU | 2024-01 | Active | Micro-manages, needs proof. Tegező. |
+| [Client MD] | [Name] | Marketing Dir HU | — | — | Email / Slack | HU | 2024-01 | Active | Day-to-day coord. Tegező. |
+| [Client Contact 2] | [Client Contact 2] | Online Sales Mgr US | contact@example-ecom.com | — | Email (EN) | EN | 2024-01 | Active | Manages 14 US reps. |
+| [Former Contact] | [Former Contact] | Marketing Coordinator | — | — | — | HU | 2024-01 | **Departed 2026-03-11** | Replaced by [Replacement] |
 
 ## Agencies & Partners
 
-| Name | Nickname | Company | Role | Email | Phone | Status | Notes |
-|------|----------|---------|------|-------|-------|--------|-------|
-| [Name] | [Name] | [Agency A] | Google Ads | — | — | Contract ends 03-31 | — |
-| [Partner Contact] | [Partner Contact] | [Agency B] | AC Admin | — | — | Active | — |
-| [External Specialist] | [Team Member] | BP Digital | SEO (strategic) | — | — | Active | — |
+| Name | Nickname | Company | Role | Email | Phone | Active Since | Status | Notes |
+|------|----------|---------|------|-------|-------|-------------|--------|-------|
+| [Name] | [Name] | [Agency A] | Google Ads | — | — | 2024-01 | **Ended 2026-03-31** | — |
+| [Partner Contact] | [Partner Contact] | [Agency B] | AC Admin | — | — | 2024-01 | Active | — |
+| [External Specialist] | [Team Member] | BP Digital | SEO (strategic) | — | — | 2025-06 | Active | — |
 
 ## Arcanian Team
 
-| Name | Nickname | Role | Email | Notes |
-|------|----------|------|-------|-------|
-| [Owner Name] | [Owner] | Creator/Strategy | owner@example.com | ExampleBrand email: owner@example-ecom.com |
-| [Team Member 1] | [Team Member 1] | Research | team1@example.com | No ExampleBrand access |
-| [Team Member 2] | [Team Member 2] | Delivery | team2@example.com | No ExampleBrand access |
+| Name | Nickname | Role | Email | Active Since | Status | Notes |
+|------|----------|------|-------|-------------|--------|-------|
+| [Owner Name] | [Owner] | Creator/Strategy | owner@example.com | 2026-02 | Active | ExampleBrand email: owner@example-ecom.com |
+| [Team Member 1] | [Team Member 1] | Research | team1@example.com | 2026-02 | Active | No ExampleBrand access |
+| [Team Member 2] | [Team Member 2] | Delivery | team2@example.com | 2026-02 | Active | No ExampleBrand access |
 
 ---
 
@@ -71,6 +73,8 @@
 | **Phone** | Optional | Only if phone is a primary channel |
 | **Preferred Channel** | Recommended | Email / Slack / Phone / WhatsApp — how they prefer to be contacted |
 | **Language** | Recommended | HU / EN / both — what language to use with them |
+| **Active Since** | Yes | When this person joined the engagement (YYYY-MM). If unknown, use `TBD`. |
+| **Status** | Yes | `Active`, `Departed YYYY-MM-DD`, `Ended YYYY-MM-DD` (agency), `On Leave`, `Replaced by {name}` |
 | **Notes** | Optional | Tegező/magázó, review habits, quirks, constraints |
 
 ## How the System Uses It
