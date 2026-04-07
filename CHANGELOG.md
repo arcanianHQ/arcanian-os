@@ -6,6 +6,11 @@ All notable changes to the public repository.
 
 ---
 
+## [1.3.1] — 2026-04-07
+
+### Added
+- **CONTACT_REGISTRY_STANDARD.md v1.1** — `Active Since` and `Status` columns mandatory on all contact tables. Departed contacts stay in table with status — never delete history.
+
 ## [1.3.0] — 2026-04-07
 
 ### Added
