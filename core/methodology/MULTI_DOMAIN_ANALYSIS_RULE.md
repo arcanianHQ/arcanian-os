@@ -1,4 +1,4 @@
-> v2.0 — 2026-04-03
+> v2.1 — 2026-04-07
 
 # Multi-Domain Analysis Rule
 
@@ -98,9 +98,19 @@ RIGHT: Which domain? → example-d2c.com → property 385233609
 | **Marketplace** | Amazon, eBay storefronts | Storefront → domain/brand |
 | **Reporting** | Dashboards, Windsor, Roivenue | Dashboard → which domains included |
 
+### Temporal Awareness in Mappings (v2.1)
+
+**Mappings change over time.** Ad accounts get reassigned, campaigns move between domains, data sources are added or deprecated. Every row in `DOMAIN_CHANNEL_MAP.md` has `Active Since` and `Status` columns.
+
+When analyzing a historical period:
+1. **Check whether the mapping was valid for that period.** A Meta account that serves example-d2c.com today may have served only example-ecom.com before 2025-03.
+2. **Inactive/migrated sources** (Status ≠ Active) still matter for historical analysis — but don't query them for current state.
+3. **When a shared account changes domain coverage** (e.g., Meta account added example-ecom.com campaigns in 2026-03), the campaign patterns table must show WHEN each pattern started.
+4. **A mapping without dates is a mapping you can't trust.** If `Active Since` is blank, treat it as UNVERIFIED per `UNVERIFIED_ASSUMPTIONS_RULE.md`.
+
 ### When a new channel or tool is discovered:
 
-Add it to `DOMAIN_CHANNEL_MAP.md` immediately. An unmapped channel is an analysis blind spot.
+Add it to `DOMAIN_CHANNEL_MAP.md` immediately with `Active Since: {today}`. An unmapped channel is an analysis blind spot.
 
 ## File Location
 
