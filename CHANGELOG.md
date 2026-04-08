@@ -1,4 +1,4 @@
-> v1.1 — 2026-04-08
+> v1.7 — 2026-04-08
 
 # Arcanian OS — Changelog
 
@@ -6,19 +6,19 @@ All notable changes to the public repository.
 
 ---
 
-## [1.4.0] — 2026-04-08
+## [1.7.0] — 2026-04-08
 
 ### Added
 - **MODEL_ROUTING.md v1.0** — LLM cost optimization guardrail. 3-tier routing table (Haiku/Sonnet/Opus) mapped to 47 workflows. Decision flowchart, anti-patterns, rate limit budgeting. Verified with live A/B tests across all tier boundaries.
 
 ---
 
-## [1.3.1] — 2026-04-07
+## [1.6.0] — 2026-04-07
 
 ### Added
 - **CONTACT_REGISTRY_STANDARD.md v1.1** — `Active Since` and `Status` columns mandatory on all contact tables. Departed contacts stay in table with status — never delete history.
 
-## [1.3.0] — 2026-04-07
+## [1.5.0] — 2026-04-07
 
 ### Added
 - **DOMAIN_CHANNEL_MAP_TEMPLATE.md v1.3** — `Active Since` and `Status` columns on all 14 mapping tables. A mapping without dates is a mapping you can't trust.
@@ -27,12 +27,12 @@ All notable changes to the public repository.
 
 ---
 
-## [1.2.1] — 2026-04-05
+## [1.4.1] — 2026-04-05
 
 ### Fixed
 - Bumped file versions on 7 files that were modified after v1.0 but still showed v1.0
 
-## [1.2.0] — 2026-04-05
+## [1.4.0] — 2026-04-05
 
 ### Fixed
 - **DATABOX_SETUP.md** — Removed incorrect npx/API token configuration. Databox MCP is a remote HTTP server authenticated via `/mcp` OAuth, not an npm package with an env token.

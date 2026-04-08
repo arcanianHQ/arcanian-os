@@ -1,4 +1,4 @@
-> v1.1 — 2026-04-04 — GTM reframe, updated counts
+> v1.7 — 2026-04-08 — Model routing, temporal mappings, contact registry
 
 # Arcanian OS
 
@@ -273,6 +273,9 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.7** | 2026-04-08 | MODEL_ROUTING.md — LLM cost optimization guardrail. 3-tier routing (Haiku/Sonnet/Opus) for 47 workflows. Verified with live A/B tests. |
+| **v1.6** | 2026-04-07 | CONTACT_REGISTRY_STANDARD.md v1.1 — `Active Since` + `Status` columns mandatory. Departed contacts stay in table. |
+| **v1.5** | 2026-04-07 | DOMAIN_CHANNEL_MAP_TEMPLATE.md v1.3 — temporal mapping columns. MULTI_DOMAIN_ANALYSIS_RULE.md v2.1 — period-aware mapping validation. |
 | **v1.4** | 2026-04-06 | Temporal Awareness Rule (mandatory date/holiday/season check). Wired to all analytical skills. |
 | **v1.3** | 2026-04-06 | 6 SEO skills (diagnose, cannibalize, gaps, decay, narrative, anomaly). /verify-pmf (5-layer PMF verification). "First 5 Minutes" quickstart. 44 skills total. |
 | **v1.2** | 2026-04-04 | Data Sufficiency Check guardrail added. Business Unit Isolation v2.0. `.claude/commands/` for all skills (works on clone). `.mcp.json.example` fixed to HTTP. Demo data + Databoards documented. Drupal, Todoist, Arcflux removed. |
