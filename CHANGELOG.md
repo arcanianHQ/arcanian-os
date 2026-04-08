@@ -1,8 +1,15 @@
-> v1.1 — 2026-04-07
+> v1.1 — 2026-04-08
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.4.0] — 2026-04-08
+
+### Added
+- **MODEL_ROUTING.md v1.0** — LLM cost optimization guardrail. 3-tier routing table (Haiku/Sonnet/Opus) mapped to 47 workflows. Decision flowchart, anti-patterns, rate limit budgeting. Verified with live A/B tests across all tier boundaries.
 
 ---
 

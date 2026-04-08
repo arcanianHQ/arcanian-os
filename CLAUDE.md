@@ -169,6 +169,14 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 - "What Could Invalidate These Findings?" at end
 - Rule: `core/methodology/DATA_RELIABILITY_FRAMEWORK.md`
 
+## Model Routing (COST OPTIMIZATION)
+**Not every task needs Opus. Route by cognitive complexity.**
+- **T1 Haiku:** file routing, PII scanning, task validation, format checks, scaffold ops
+- **T2 Sonnet:** content writing, single-skill analysis, SEO, copy, channel analysis, email drafts
+- **T3 Opus:** 7-layer diagnosis, councils, complex deliverables, client strategy, ACH
+- Rule: when spawning ad-hoc agents, ALWAYS set `model:` explicitly
+- Rule: `core/methodology/MODEL_ROUTING.md`
+
 ## MCP Rate Limits
 **Never send bulk MCP operations without batching.**
 - Todoist: max 10/call + 3s delay. Databox: 5 metrics/batch + 2s. On 429: wait, halve batch, retry.
