@@ -1,4 +1,4 @@
-> v1.4 — 2026-04-06 — Temporal Awareness Rule added, wired to all analytical skills
+> v2.0 — 2026-04-09 — Updated to reflect current system state (43 skills, 14 agents, 20 SOPs, 35 methodology rules)
 
 # Arcanian OS — System Instructions
 
@@ -15,13 +15,13 @@ Marketing operations system: skills (slash commands), agents (subagents), SOPs (
 arcanian-os/
 ├── CLAUDE.md                ← YOU ARE HERE — the kernel
 ├── core/
-│   ├── skills/              ← 37 slash commands
+│   ├── skills/              ← 43 slash commands
 │   ├── agents/              ← 14 agents + 4 council configs
-│   ├── sops/                ← 20+ standard operating procedures
-│   ├── methodology/         ← Rules, standards, guardrails
+│   ├── sops/                ← 20 standard operating procedures
+│   ├── methodology/         ← 35 rules, standards, guardrails
 │   ├── templates/           ← Scaffolds for client files
-│   ├── reference-implementations/
-│   └── infrastructure/      ← DATA_RULES, SECURITY_BLOCKLIST
+│   ├── infrastructure/      ← DATA_RULES, SECURITY_BLOCKLIST
+│   └── reference-implementations/
 ├── clients/                 ← Per-client working directories
 │   └── {slug}/              ← Each client is its own workspace
 ├── docs/                    ← Getting started, Databox setup
@@ -43,6 +43,13 @@ Two session types:
 - Impact: noise → hygiene → lever → unlock → breakthrough
 - Layers: L0-L7
 
+## Ontology Layer (knowledge graph)
+Tasks are NODES with typed EDGES to other objects. All edges are bidirectional.
+- Task ↔ Finding (FND), Recommendation (REC), SOP, Goal, Layer, Meeting, Email, Lead, Person
+- `/query FND-039` — traverse the graph from any node
+- Standard: `core/methodology/ONTOLOGY_STANDARD.md`
+- **Enrichment:** `core/methodology/ONTOLOGY_ENRICHMENT_RULE.md` — auto-detect edges, auto-create backlinks
+
 ## Agents (core/agents/)
 
 14 agents:
@@ -61,16 +68,14 @@ Two session types:
 
 Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`, `councils/delivery.yaml`, `councils/discovery.yaml`
 
-## Skills (41 slash commands)
+## Skills (43 slash commands)
 
-Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency
-Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council
-
-Strategy: /build-brand, /analyze-gtm, /plan-gtm
-Content: /magyar-szoveg
-Platform: /arcos, /connect, /frontend-design, /claude-code-guide
+Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client
+Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council, /sales-pulse, /verify-pmf
+Strategy: /build-brand, /validate-idea, /analyze-gtm, /plan-gtm
 SEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly
-Other: /manage-client, /sales-pulse, /verify-pmf
+Content: /magyar-szoveg
+Platform: /arcos, /connect, /frontend-design, /okr-bluf-dokumentum, /claude-code-guide, /scheduled-workflows
 
 ## SOP Auto-Surface (ALWAYS-ON BEHAVIOR)
 **Before executing any task, check if a relevant SOP exists and LOAD it.**
@@ -83,6 +88,14 @@ Other: /manage-client, /sales-pulse, /verify-pmf
 - access/vendor → `marketing-ops/07-vendor-access.md`
 - onboard client → `arcanian/01-client-onboarding.md`
 
+## Delivery Phases (client engagement lifecycle)
+1. EXPLORE — Discovery, /7layer, First Signal
+2. PLAN — /repair-roadmap, brand intelligence
+3. ARCHITECT — Strategy, SOP adaptation, dashboards
+4. IMPLEMENT — Execute tasks, run audits, agency coordination
+5. REVIEW — Knowledge extraction, pattern checking, quality
+6. MONITOR — @monitor tasks, compliance, performance
+
 ## Temporal Awareness (SYSTEM-WIDE — MANDATORY)
 **Every analysis must identify EXACT dates, check for holidays/seasonality, and distinguish anomalies from calendar effects.**
 - Always state exact period (not "last 90 days" but "Jan 6 – Apr 6, 2026")
@@ -93,13 +106,11 @@ Other: /manage-client, /sales-pulse, /verify-pmf
 
 ## Data Sufficiency Check (SYSTEM-WIDE — MANDATORY)
 **Before ANY analysis: classify data axes as AVAILABLE / PARTIAL / MISSING.**
-- If a REQUIRED axis (traffic, conversions, prior period) is MISSING → STOP, don't analyze
+- If a REQUIRED axis is MISSING → STOP, don't analyze
 - If 3+ axes PARTIAL/MISSING → proceed with DATA SUFFICIENCY WARNING at top
 - Every finding tagged: `[DATA]`, `[INFERRED]`, or `[UNKNOWN]` — never upgrade a tag
 - "What We Don't Know" section MANDATORY in every analysis output
-- One data point ≠ pattern. Absence ≠ zero. Platform gap IS data, its cause is INFERRED.
 - Rule: `core/methodology/DATA_SUFFICIENCY_CHECK.md`
-- Applies to: ALL analytical skills and freeform data queries
 
 ## Confidence Engine (SYSTEM-WIDE — MANDATORY)
 **Every finding and recommendation gets a unified confidence score.**
@@ -113,7 +124,7 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 - Rule: `core/methodology/EVIDENCE_CLASSIFICATION_RULE.md`
 
 ## Currency Normalization (MANDATORY for multi-market)
-**Never sum HUF and EUR. Never compare USD ROAS to HUF ROAS without conversion.**
+**Never sum currencies without conversion. Never compare ROAS across currencies without normalization.**
 - Each client has a `reporting_currency` in CLIENT_CONFIG.md
 - Rule: `core/methodology/CURRENCY_NORMALIZATION.md`
 
@@ -197,7 +208,7 @@ When user references a file from outside the project:
 4. Log to CAPTAINS_LOG.md
 
 ## Templates
-- `core/templates/` — CLAUDE.md, TASKS, CLIENT_CONFIG, DOMAIN_CHANNEL_MAP, BASELINES, RECOMMENDATION_LOG, MONITOR_LOG, RECOMMENDATION_DASHBOARD, and more
+- `core/templates/` — CLAUDE.md, TASKS, CLIENT_CONFIG, DOMAIN_CHANNEL_MAP, BASELINES, RECOMMENDATION_LOG, MONITOR_LOG, and more
 - Use `/scaffold-project` to create a new client with full structure
 
 ## Getting Started
