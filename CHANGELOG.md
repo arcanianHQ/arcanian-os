@@ -1,8 +1,15 @@
-> v1.7 — 2026-04-08
+> v1.8 — 2026-04-09
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.8.0] — 2026-04-09
+
+### Changed
+- **CLAUDE.md v2.0** — Accurate skill/agent/SOP counts (43/14/20), clean structure, no stale references
 
 ---
 
