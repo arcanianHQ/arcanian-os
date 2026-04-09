@@ -1,8 +1,15 @@
-> v1.8 — 2026-04-09
+> v1.9 — 2026-04-09
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.9.0] — 2026-04-09
+
+### Added
+- **CHANGELOG_ENFORCEMENT_RULE.md v1.0** — System-wide rule: every tracked artifact (GTM, repo exports, configs, methodology, SOPs, schedules, MCP) must have a changelog entry. A change without a log entry is a change we can't debug.
 
 ---
 
