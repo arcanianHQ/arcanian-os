@@ -273,6 +273,8 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.11** | 2026-04-10 | GTM Intelligence Layer: SIGNAL_DECAY_MODEL, ENRICHMENT_WATERFALL, /output-review skill, 5 decision trees (signal-routing, lead-stage-transitions, inbox-triage, deliverable-routing, sop-selection). Updated morning-brief (Step 5b lead scores), pipeline (enrichment gate), save-deliverable (quality loop), LEAD_TRACKING_STANDARD (scoring + gates), SOP_INDEX (decision trees section). |
+| **v1.10** | 2026-04-10 | /extract-contacts and /extract-platforms skills. |
 | **v1.7** | 2026-04-08 | MODEL_ROUTING.md — LLM cost optimization guardrail. 3-tier routing (Haiku/Sonnet/Opus) for 47 workflows. Verified with live A/B tests. |
 | **v1.6** | 2026-04-07 | CONTACT_REGISTRY_STANDARD.md v1.1 — `Active Since` + `Status` columns mandatory. Departed contacts stay in table. |
 | **v1.5** | 2026-04-07 | DOMAIN_CHANNEL_MAP_TEMPLATE.md v1.3 — temporal mapping columns. MULTI_DOMAIN_ANALYSIS_RULE.md v2.1 — period-aware mapping validation. |

@@ -1,8 +1,32 @@
-> v1.10 — 2026-04-10
+> v1.11 — 2026-04-10
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.11.0] — 2026-04-10
+
+### Added
+- **GTM Intelligence Layer** — Signal-to-close pipeline with mathematical lead scoring, enrichment gates, and decision trees
+- **`SIGNAL_DECAY_MODEL.md` v1.0** — Time-weighted lead scoring formula (`score = SUM(weight × 0.5^(days/half_life))`). 7 signal types with weights and half-lives. Hot/Warm/Cold thresholds. P0/P1/P2 boost mapping. Stage gate integration (Diagnosed→Pitched: ≥15, Pitched→Negotiating: ≥20). Daily recalculation via `/morning-brief`.
+- **`ENRICHMENT_WATERFALL.md` v1.0** — Stage-gated intelligence requirements before lead advancement. Per-stage checklists (Signal→Discovery→Diagnosed→Pitched→Negotiating→Won). Formalizes 3-axis context load (TOPIC/PERSON/DOMAIN) as reusable primitive. Hard gates (score-based) vs soft gates (enrichment-based).
+- **`/output-review` skill** — Monthly deliverable quality analysis. Scans ontology blocks across all deliverable types. Classifies by input_context (signal/meeting/task/brief/freeform). Computes quality metrics and cross-tabulates context × type. Identifies enrichment effect on quality. Saves to `internal/reviews/YYYY-MM_output-review.md`.
+- **`sops/decision-trees/` directory** — 5 human-scannable Mermaid flowcharts for the most common routing decisions:
+  - `signal-routing.md` — P0/P1/P2 priority routing, competitor handling, lead file creation
+  - `lead-stage-transitions.md` — Full transition logic with score gates, follow-up timers, dormancy handling
+  - `inbox-triage.md` — File type classification, routing destinations, task extraction
+  - `deliverable-routing.md` — Save location by type and context, input_context and enrichment gate check
+  - `sop-selection.md` — Keyword-to-SOP mapping with full decision tree and quick reference table
+- **`.claude/commands/output-review.md`** — Slash command wiring for `/output-review`
+
+### Changed
+- **`LEAD_TRACKING_STANDARD.md`** — Added Scoring section (references SIGNAL_DECAY_MODEL), Signal Log template, Enrichment Gates section (references ENRICHMENT_WATERFALL). New stage: Signal (pre-Discovery).
+- **`skills/morning-brief.md`** — Added Step 5b: Lead Score Refresh (daily recalculation of all active leads, threshold crossing alerts, declining trend flags). Added Lead Pipeline section to output format.
+- **`skills/pipeline.md`** — Added Enrichment Gate check as Stage 0 of discovery pipeline. Updated `--client` example slugs to generic.
+- **`skills/save-deliverable.md`** — Added `input_context`, `quality_rating`, and `engagement` fields to ontology block. Added Step 7b: Quality Rating Prompt. Integration with `/output-review` feedback loop.
+- **`sops/SOP_INDEX.md`** — Added Decision Trees section (5 new entries). Updated stats table (31 written vs 26 previously).
 
 ---
 

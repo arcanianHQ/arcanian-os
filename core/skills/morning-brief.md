@@ -1,9 +1,12 @@
+---
+scope: shared
+---
+
 # Skill: Morning Brief (`/morning-brief`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 Daily cross-project summary for the founder. Scans all projects for urgent items, overdue tasks, stale dependencies, and quick wins — in one compact view.
 
@@ -49,6 +52,24 @@ For each project:
 1. Find open `@next` tasks where `Effort:` ≤ 1h AND `Impact:` ∈ {lever, unlock, breakthrough}
 2. Sort by effort ascending
 
+### Step 5b: Lead Score Refresh
+For each active lead in `internal/leads/*/LEAD_STATUS.md` (not Won/Lost):
+1. Read the lead's Signal Log
+2. Recalculate `lead_score` per `core/methodology/SIGNAL_DECAY_MODEL.md` formula
+3. Update `Lead Score`, `Last Scored`, and `Score Trend` fields
+4. Flag any lead whose score crossed a threshold boundary since last calculation:
+   - Hot → Warm or Warm → Cold = "going cold" warning
+   - Cold → Warm or Warm → Hot = "heating up" notification
+5. Flag leads with score declining > 5 pts/week (trend = ↓)
+6. Include in brief under `## Lead Pipeline` section
+
+```
+── LEAD PIPELINE ──────────────
+[ExampleRetail] Score: 12.3 → Warm ↓ (was 22.4) — Stage: Pitched — Next: follow-up by 04-15
+[ExamplePress] Score: 31.7 → Hot ↑ — Stage: Discovery — Next: schedule call
+[Acme Corp] Score: 4.1 → Cold ↓ — Stage: Dormant — Last signal: 68 days ago
+```
+
 ### Step 6: Format brief
 
 ## Output Format
@@ -63,19 +84,19 @@ Stale @waiting: {count} ({N} contacts)
 Quick wins: {count} available
 
 ── P0 TASKS ──────────────────
-[ExampleRetail] #53 Fix GA4 consent mode — Due: today — Owner: [Owner]
-[Arcanian] #1 Ship [Retail Lead] [Diagnostic Service] — Due: 03-25 — Owner: [Owner]
+[ExampleRetail] #53 Fix GA4 consent mode — Due: today — Owner: [Owner Name]
+[Arcanian] #1 Ship ExampleRetail Prism — Due: 03-25 — Owner: [Owner Name]
 
 ── OVERDUE ────────────────────
 [ExampleRetail] #41 Feed audit (3 days) — Owner: [Team Member 1]
-[ExampleLocal] #12 Meta pixel fix (1 day) — Owner: [Owner]
+[ExampleLocal] #12 Meta pixel fix (1 day) — Owner: [Owner Name]
 [ExampleBrand] #28 Email flow review (5 days) — Owner: [Team Member 2]
 
 ── STALE @WAITING ─────────────
-[Name] (2 tasks):
+[Contact A] (2 tasks):
   [ExampleRetail] #8 GTM access — 12 days
   [ExampleRetail] #19 Feed URL — 9 days
-ITG Jenő (1 task):
+[Contact B] (1 task):
   [ExampleLocal] #5 Server access — 14 days
 
 ── QUICK WINS ─────────────────
@@ -98,7 +119,7 @@ For each client with `data/BASELINES.md`:
 
 ```
 ── METRIC ALERTS ──────────────
-[ExampleBrand] Google Ads ROAS (example-ecom.com): 4.2 — baseline 6.8, threshold 5.6 [Confidence: MEDIUM]
+[ExampleBrand] Google Ads ROAS (example-domain.com): 4.2 — baseline 6.8, threshold 5.6 [Confidence: MEDIUM]
 [ExampleRetail] GA4 sessions: awaiting sync (Shopify lag ~48h) — not flagging yet
 ```
 
@@ -107,5 +128,5 @@ For each client with `data/BASELINES.md`:
 - This skill is **read-only**. It never modifies files.
 - Keep output scannable — the goal is a 60-second morning orientation.
 - If a project has no TASKS.md or it's empty, skip it silently.
-- Hub path: `/path/to/project/` — adjust if hub location changes.
+- Hub path: `_arcanian-ops/` — adjust if hub location changes.
 - For deeper project context, follow up with `/preflight` in the specific project directory.

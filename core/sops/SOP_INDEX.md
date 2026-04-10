@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Arcanian Ops — SOP Library Index
 
@@ -31,19 +33,19 @@ Core processes for running a client's marketing operation. Applicable to ALL cli
 
 ---
 
-## [Audit Framework] ([audit-framework]/)
+## Measurement Audit (measurement-audit/)
 
 Phase-gated audit methodology. Applied to every client's measurement stack.
 
 | # | SOP | Purpose |
 |---|---|---|
-| 01 | [Phase 0 — CLI Baseline]([audit-framework]/01-phase-0-cli-baseline.md) | Feed health, SGTM endpoints, structured data, robots.txt |
-| 02 | [Phase 1 — Browser Verification]([audit-framework]/02-phase-1-browser.md) | JS errors, tracking inventory, dataLayer, consent, network |
-| 03 | [Phase 2 — Dashboard Audit]([audit-framework]/03-phase-2-dashboards.md) | Meta EM, Google Ads, GA4, GMC, Search Console |
-| 04 | [Phase 3 — Container Audit]([audit-framework]/04-phase-3-container.md) | Tag inventory, triggers, consent gating, variables, SGTM clients |
-| 05 | [Phase 4 — Cross-Verification]([audit-framework]/05-phase-4-cross-verify.md) | 10-product end-to-end trace |
-| 06 | [Phase 5 — Diagnosis]([audit-framework]/06-phase-5-diagnosis.md) | Pattern matching, root causes, action playbooks |
-| 07 | [Knowledge Extraction]([audit-framework]/07-knowledge-extraction.md) | MANDATORY post-audit: patterns → hub, SOP improvements, scripts |
+| 01 | [Phase 0 — CLI Baseline](measurement-audit/01-phase-0-cli-baseline.md) | Feed health, SGTM endpoints, structured data, robots.txt |
+| 02 | [Phase 1 — Browser Verification](measurement-audit/02-phase-1-browser.md) | JS errors, tracking inventory, dataLayer, consent, network |
+| 03 | [Phase 2 — Dashboard Audit](measurement-audit/03-phase-2-dashboards.md) | Meta EM, Google Ads, GA4, GMC, Search Console |
+| 04 | [Phase 3 — Container Audit](measurement-audit/04-phase-3-container.md) | Tag inventory, triggers, consent gating, variables, SGTM clients |
+| 05 | [Phase 4 — Cross-Verification](measurement-audit/05-phase-4-cross-verify.md) | 10-product end-to-end trace |
+| 06 | [Phase 5 — Diagnosis](measurement-audit/06-phase-5-diagnosis.md) | Pattern matching, root causes, action playbooks |
+| 07 | [Knowledge Extraction](measurement-audit/07-knowledge-extraction.md) | MANDATORY post-audit: patterns → hub, SOP improvements, scripts |
 
 ---
 
@@ -56,17 +58,37 @@ Our own operational SOPs.
 | 01 | [Client Onboarding](arcanian/01-client-onboarding.md) | Discovery → proposal → contract → scaffold → kickoff |
 | 02 | [Discovery Call](arcanian/02-discovery-call.md) | Standard discovery call structure + scoring |
 | 03 | [Proposal Delivery](arcanian/03-proposal-delivery.md) | Proposal writing → review → send → follow-up |
-| 04 | [[Diagnostic Service] Delivery](arcanian/04-[diagnostic-service]-delivery.md) | Diagnostic → [Diagnostic Service] report → walk-through → handoff |
+| 04 | [Prism Delivery](arcanian/04-prism-delivery.md) | Diagnostic → Prism report → walk-through → handoff |
 | 05 | [Content Publishing](arcanian/05-content-publishing.md) | Wed Pattern Drop + Fri Quality Bomb + Bridge Rule |
-| 06 | [Client Intelligence Profile](arcanian/06-client-intelligence-profile.md) | 7 diagnostic files per client (7layer, constraints, repair, pattern, voice, Target Profile, positioning) |
+| 06 | [Client Intelligence Profile](arcanian/06-client-intelligence-profile.md) | 7 diagnostic files per client (7layer, constraints, repair, belief, voice, ICP, positioning) |
 | 07 | [Knowledge Sharing](arcanian/07-knowledge-sharing.md) | Team briefing, skill updates, methodology evolution |
 | 08 | [Quarterly Review](arcanian/08-quarterly-review.md) | Client engagement health check, renewal/expansion decision |
+| 09 | [Inbox Management](arcanian/09-inbox-management.md) | Weekly inbox triage, classify, route, extract tasks |
+| 10 | [Tone Discovery](arcanian/10-tone-discovery.md) | Discover client/contact communication tone + register |
+| 11 | [Memo to Tasks](arcanian/11-memo-to-tasks.md) | Extract action items from deliverables into TASKS.md |
+| 12 | [Video Production](arcanian/12-video-production.md) | Record → edit → publish walkthrough videos (Canva + Loom + Descript + Vimeo) |
+
+---
+
+## Decision Trees (decision-trees/)
+
+Human-scannable Mermaid flowcharts for the most common routing decisions. Each tree is max 1 page, designed for team members who need to quickly identify the right path without reading full SOPs.
+
+| # | Decision Tree | When to Use |
+|---|---|---|
+| 1 | [Signal Routing](decision-trees/signal-routing.md) | A signal is detected — where does it go? Comment, lead score, or ignore? |
+| 2 | [Lead Stage Transitions](decision-trees/lead-stage-transitions.md) | Should a lead advance, hold, or decay? Score gates + enrichment checks |
+| 3 | [Inbox Triage](decision-trees/inbox-triage.md) | A file lands in inbox/ — classify, route, extract tasks |
+| 4 | [Deliverable Routing](decision-trees/deliverable-routing.md) | You've written something — where does it get saved? |
+| 5 | [SOP Selection](decision-trees/sop-selection.md) | Which SOP applies to this situation? Keyword → SOP mapping |
+
+> **Rendering:** View in Typora (Mermaid plugin), GitHub preview, or any Mermaid-compatible viewer.
 
 ---
 
 ## Platform SOPs (platforms/)
 
-Platform-specific procedures. Referenced by marketing-ops and [audit-framework] SOPs.
+Platform-specific procedures. Referenced by marketing-ops and measurement-audit SOPs.
 
 | Platform | SOPs planned | Status |
 |---|---|---|
@@ -107,7 +129,7 @@ Template: `templates/SOP_TEMPLATE.md`
 | SOPs reference | In tasks as | Example |
 |---|---|---|
 | Marketing-ops SOPs | `SOP: marketing-ops/05-campaign-management` | Campaign launch task |
-| Audit SOPs | `SOP: [audit-framework]/03-phase-2-dashboards` | Dashboard audit task |
+| Audit SOPs | `SOP: measurement-audit/03-phase-2-dashboards` | Dashboard audit task |
 | Arcanian SOPs | `SOP: arcanian/01-client-onboarding` | New client setup task |
 | Platform SOPs | `SOP: platforms/ga4/event-config` | GA4 setup task |
 
@@ -127,11 +149,12 @@ Client process files reference the master SOP:
 
 | Category | Count | Status |
 |---|---|---|
-| Marketing Operations | 9 | Done (from ExampleBrand learnings) |
-| [Audit Framework] | 7 | Done (from methodology) |
-| Arcanian Internal | 8 | Done |
+| Marketing Operations | 9 | Done (from client learnings) |
+| Measurement Audit | 7 | Done (from methodology) |
+| Arcanian Internal | 12 | Done |
+| Decision Trees | 5 | Done |
 | Meta (index + template) | 2 | Done |
 | Platform SOPs | ~30-50 | Planned |
-| **Written** | **26** | 9 + 7 + 8 + index + template |
+| **Written** | **31** | 9 + 7 + 12 + 5 + index + template |
 | **Total planned** | **~55-75** | |
 | **Target** | **100+** | Growing with every client |

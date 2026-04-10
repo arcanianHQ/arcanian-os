@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Skill: Diagnostic Pipeline (`/pipeline`)
 
@@ -6,7 +8,7 @@
 
 Auto-chains diagnostic skills in sequence, passing structured data between stages. Human intervenes only at gates (ACH falsification, unverified assumptions).
 
-**Without pipeline:** You run /7layer, read the output, manually invoke , copy findings, manually invoke /repair-roadmap.
+**Without pipeline:** You run /7layer, read the output, manually invoke /identify-constraints, copy findings, manually invoke /repair-roadmap.
 
 **With pipeline:** One command runs all three, passing stage-result blocks between them, stopping at gates for your decision.
 
@@ -38,7 +40,7 @@ Stage 2: /council diagnostic (optional, if --council flag)
   │  [continue] [verify first] [stop]     │
   └───────────────────────────────────────┘
     ▼
-Stage 3: 
+Stage 3: /identify-constraints
     │ receives: broken_layers, findings from Stage 1/2
     │ produces: constraint_map, ach, ceiling
     │ output: stage-result block
@@ -72,7 +74,14 @@ Stage 3: Auto-save + Open in Typora
 
 ### `discovery` — Explore → Scaffold → Profile
 
+> **Enrichment gate:** Before proceeding past Stage 1, verify enrichment level per `core/methodology/ENRICHMENT_WATERFALL.md`. Discovery-stage enrichment (website scan, tracking inventory, social presence) must be complete before scheduling a call or sending materials.
+
 ```
+Stage 0: Enrichment Gate Check
+    │ Load ENRICHMENT_WATERFALL.md
+    │ Verify: Is this a lead (internal/leads/) or new client?
+    │ If lead: check current enrichment stage, flag gaps
+    ▼
 Stage 1: /council discovery --client {slug}
     │ client-explorer + project-architect
     ▼
@@ -86,7 +95,7 @@ Stage 3: Auto-save Digital Profile + Open in Typora
 | Input | Required | Example | Default |
 |---|---|---|---|
 | `pipeline_type` | Yes | `diagnostic`, `measurement`, `discovery` | — |
-| `--client` | Yes | `exampleretail`, `examplebrand` | Detect from cwd |
+| `--client` | Yes | `example-client`, `example-brand` | Detect from cwd |
 | `--council` | No | flag | `false` (skip council stage, just chain skills) |
 | `--peer-review` | No | flag | `false` (passed to council if --council is set) |
 | `--question` | No | `"Why is growth stalling?"` | Auto-generated from client context |
@@ -153,7 +162,7 @@ After all stages complete (or at a gate stop):
 ---
 
 ## Stage 3: Constraint Map
-[Full output from ]
+[Full output from /identify-constraints]
 
 --- GATE: Unverified Assumptions ---
 [User decision recorded here]
@@ -198,7 +207,7 @@ Open in Typora.
 
 Gates are the human-in-the-loop checkpoints. They exist because:
 
-1. **ACH Falsification Gate:** The leading hypothesis might be wrong. If verification is cheap (e.g., "pull Magento data, 2 hours"), it's worth pausing to check before building a repair plan on a potentially false premise.
+1. **ACH Falsification Gate:** The leading hypothesis might be wrong. If verification is cheap (e.g., "pull data, 2 hours"), it's worth pausing to check before building a repair plan on a potentially false premise.
 
 2. **Unverified Assumptions Gate:** Constraints based on absence of information ("not mentioned" ≠ "doesn't exist") should not drive the repair roadmap without client verification.
 
@@ -210,7 +219,7 @@ When a gate fires:
 ═══════════════════════════════════════
 GATE: ACH Falsification Check
 
-Leading hypothesis: H1 — "L0 pattern-driven promotional self-destruction"
+Leading hypothesis: H1 — "L0 belief-driven promotional self-destruction"
 Falsification: "If >60% of coupon users are first-time buyers,
 coupons are incremental, not cannibalistic."
 
@@ -229,19 +238,19 @@ Your choice: [1/2/3]
 
 ```bash
 # Full diagnostic with council (richest output):
-/pipeline diagnostic --client examplebrand --council --question "How to grow fast?"
+/pipeline diagnostic --client example-brand --council --question "How to grow fast?"
 
 # Quick diagnostic without council (faster, single-perspective):
-/pipeline diagnostic --client exampleretail
+/pipeline diagnostic --client example-client
 
 # Measurement pipeline:
-/pipeline measurement --client examplebrand
+/pipeline measurement --client example-brand
 
 # New client discovery:
-/pipeline discovery --client heavytools --question "What do we know?"
+/pipeline discovery --client new-client --question "What do we know?"
 
 # Re-run with verified data (skip gates):
-/pipeline diagnostic --client examplebrand --skip-gates
+/pipeline diagnostic --client example-brand --skip-gates
 ```
 
 ## Integration
@@ -250,12 +259,12 @@ Your choice: [1/2/3]
 STANDALONE:
 /pipeline diagnostic --client {slug}
 
-WITH SCHEDULE (#39):
-/schedule create --name "quarterly-exampleretail-diagnostic" \
+WITH SCHEDULE:
+/schedule create --name "quarterly-diagnostic" \
   --cron "0 9 1 */3 *" \
-  --prompt "/pipeline diagnostic --client exampleretail --council"
+  --prompt "/pipeline diagnostic --client {slug} --council"
 
 WITH TASK-OVERSIGHT:
-/task-oversight flags "exampleretail: no diagnostic in 90 days"
-→ suggests: /pipeline diagnostic --client exampleretail
+/task-oversight flags "{client}: no diagnostic in 90 days"
+→ suggests: /pipeline diagnostic --client {slug}
 ```

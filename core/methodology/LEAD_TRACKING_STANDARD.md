@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Lead Tracking Standard
 
@@ -59,10 +61,51 @@ internal/leads/{slug}/
 
 | Field | Value |
 |---|---|
-| **Potential** | Morsel / [Diagnostic Service] / Fractional CMO |
+| **Potential** | Morsel / Prism / Fractional CMO |
 | **Est. value** | €X/month or one-time |
 | **Probability** | Low / Medium / High |
 ```
+
+## Scoring
+
+Lead scoring uses time-weighted signal decay. See `core/methodology/SIGNAL_DECAY_MODEL.md` for the full model.
+
+**Quick reference:**
+- Formula: `lead_score = SUM(signal_weight × 0.5^(days_since / half_life))`
+- Hot > 30, Warm 10–30, Cold < 10
+- Recalculated daily by `/morning-brief` (Step 5b)
+
+**LEAD_STATUS.md template — add to Status table:**
+
+```markdown
+| **Lead Score** | {number} |
+| **Last Scored** | YYYY-MM-DD |
+| **Score Trend** | ↑ / → / ↓ |
+```
+
+**Signal Log — add as new section in LEAD_STATUS.md:**
+
+```markdown
+## Signal Log
+
+| Date | Signal Type | Weight | Detail | Expires |
+|---|---|---|---|---|
+| YYYY-MM-DD | {type} | {1-10} | {what happened} | YYYY-MM-DD |
+```
+
+**Linkage rule:** When `SIGNAL_DETECTION_RULE.md` fires on a person who has a `LEAD_STATUS.md` → append to their Signal Log + recalculate score per `SIGNAL_DECAY_MODEL.md`.
+
+## Enrichment Gates
+
+Each stage has minimum intelligence requirements before advancement. See `core/methodology/ENRICHMENT_WATERFALL.md` for full checklists.
+
+**Hard gates (score-based):**
+- Diagnosed → Pitched: lead_score ≥ 15
+- Pitched → Negotiating: lead_score ≥ 20
+
+**Soft gates (enrichment-based):**
+- Discovery → Diagnosed: website scan + tracking inventory complete
+- Negotiating → Won: 4+ of 7 CLIENT_INTELLIGENCE_PROFILE files started
 
 ## Stages
 
@@ -89,6 +132,6 @@ When stage = Won:
 ## Connection to Hub
 
 - Internal TASKS.md tracks lead follow-ups as tasks
-- Each lead task references: `Lead: retail-lead` (ontology edge)
+- Each lead task references: `Lead: example-lead` (ontology edge)
 - `/morning-brief` should surface leads with overdue follow-ups
 - CAPTAINS_LOG tracks strategic decisions about leads

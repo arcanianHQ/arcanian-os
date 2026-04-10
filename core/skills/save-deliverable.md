@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Skill: Auto-Save Deliverable
 
@@ -32,7 +34,7 @@ When the user asks for ANY of these:
 
 AND when Claude PRODUCES any of these (even without explicit save request):
 - Data analysis with tables/findings (Databox, GA4, Ads, SEO, any MCP query)
-- Diagnostic output (/7layer, /repair-roadmap, /health-check)
+- Diagnostic output (/7layer, /identify-constraints, /repair-roadmap, /health-check)
 - Audit findings or measurement reports
 - Channel/funnel/attribution analysis
 - Any output > 50 lines with structured findings
@@ -184,7 +186,21 @@ At the bottom of every deliverable:
 - Meeting: {if generated from a meeting}
 - Lead: {if related to a lead}
 - Task: {if fulfilling a specific task}
+- input_context: {what triggered this deliverable — signal type / brief / enrichment stage / meeting / task / freeform request}
+- quality_rating: [1-5, added post-delivery by author]
+- engagement: [platform metrics populated after publish — impressions: / opens: / clicks: / comments:]
 ```
+
+**input_context examples:**
+- `signal: P0 [Contact Name] LinkedIn post on measurement`
+- `brief: [Lead Name] Prism pitch, enrichment stage Diagnosed`
+- `meeting: 2026-04-08 weekly sync`
+- `task: #53 Fix GA4 consent mode`
+- `freeform: user request "write email about..."`
+
+**quality_rating:** Added after delivery when the author (or recipient) evaluates the output. 1 = missed the mark, 3 = adequate, 5 = exceptional. Used by `/output-review` to identify which input contexts produce the best deliverables.
+
+**engagement:** Populated after publication for public content (LinkedIn posts, newsletters, emails). Used by `/output-review` for feedback loop analysis.
 
 ### Step 4: Save the file
 
@@ -226,18 +242,43 @@ When user confirms "this is final" / "ok send it" / "accepted":
 
 See: `core/sops/arcanian/11-memo-to-tasks.md` for full process.
 
+### Step 7b: Quality Rating Prompt
+
+After finalization (or 24h after delivery for async), prompt:
+
+```
+How did this deliverable perform? Rate 1-5:
+  1 = missed the mark / needed major rework
+  2 = below expectations / significant edits needed
+  3 = adequate / minor tweaks
+  4 = good / used as-is or near-as-is
+  5 = exceptional / exceeded expectations
+
+Rating: [1-5]
+```
+
+Update the `quality_rating:` field in the deliverable's ontology block.
+
+For LinkedIn posts and emails, also prompt for engagement data when available:
+```
+Engagement update (leave blank if not yet available):
+  Impressions: ___  Likes: ___  Comments: ___  Clicks: ___
+```
+
+Update the `engagement:` field. This data feeds the monthly `/output-review` analysis.
+
 ## Glossary Check
 
 Before saving, check if the project has a `PROJECT_GLOSSARY.md`. If it does, verify the deliverable doesn't use banned terms. Warn if it does.
 
 ## Examples
 
-**User:** "write an email to [Name] about the tápválasztó spec"
+**User:** "write an email to [Contact Name] about the [product feature] spec"
 ```
-→ Saves to: clients/examplelocal/takeover/correspondence/[client-contact]-tapvalaszto-spec-draft.md
+→ Saves to: clients/example-client/takeover/correspondence/contact-productfeature-spec-draft.md
 → Opens in Typora
-→ Ontology: Client: examplelocal, Layer: L3, Task: (if linked)
-→ Glossary check: uses "tápválasztó" ✓ (not "Product Recommender")
+→ Ontology: Client: example-client, Layer: L3, Task: (if linked)
+→ Glossary check: uses correct term per PROJECT_GLOSSARY.md
 ```
 
 **User:** "draft a LinkedIn post about the 7-layer framework"
@@ -248,10 +289,10 @@ Before saving, check if the project has a `PROJECT_GLOSSARY.md`. If it does, ver
 → Checks: Bridge Rule (must land on marketing diagnosis)
 ```
 
-**User:** "write a memo about the [Retail Lead] follow-up plan"
+**User:** "write a memo about the ExampleRetail follow-up plan"
 ```
-→ Saves to: internal/leads/retail-lead/sent/{date}_followup-plan.md
+→ Saves to: internal/leads/example-client/sent/{date}_followup-plan.md
 → Opens in Typora
-→ Ontology: Lead: retail-lead, Layer: L6
+→ Ontology: Lead: example-client, Layer: L6
 → Updates LEAD_STATUS.md timeline
 ```
