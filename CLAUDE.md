@@ -68,9 +68,9 @@ Tasks are NODES with typed EDGES to other objects. All edges are bidirectional.
 
 Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`, `councils/delivery.yaml`, `councils/discovery.yaml`
 
-## Skills (43 slash commands)
+## Skills (45 slash commands)
 
-Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client
+Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client, /extract-contacts, /extract-platforms
 Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council, /sales-pulse, /verify-pmf
 Strategy: /build-brand, /validate-idea, /analyze-gtm, /plan-gtm
 SEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly

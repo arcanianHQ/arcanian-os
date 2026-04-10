@@ -1,8 +1,16 @@
-> v1.9 — 2026-04-09
+> v1.10 — 2026-04-10
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.10.0] — 2026-04-10
+
+### Added
+- **`/extract-contacts` skill** — Extracts contacts from emails, correspondence, and meeting transcripts into CONTACTS.md. Auto-classifies (client team / vendor / agency), deduplicates by email+name, enforces temporal columns (Active Since, Status). Integrates with `/inbox-process` and deliverable auto-save.
+- **`/extract-platforms` skill** — Extracts domains, GTM containers, GA4 properties, Google Ads IDs, Meta pixels, sGTM domains, AC instances, and all platform identifiers from correspondence. Routes to DOMAIN_CHANNEL_MAP.md and CLIENT_CONFIG.md. 3-tier extraction (always/when found/flag only). Conflict detection, cross-reference gaps (domain without GA4, etc.).
 
 ---
 
