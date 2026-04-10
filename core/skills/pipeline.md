@@ -1,5 +1,6 @@
 ---
 scope: shared
+context: fork
 ---
 
 # Skill: Diagnostic Pipeline (`/pipeline`)
@@ -95,7 +96,7 @@ Stage 3: Auto-save Digital Profile + Open in Typora
 | Input | Required | Example | Default |
 |---|---|---|---|
 | `pipeline_type` | Yes | `diagnostic`, `measurement`, `discovery` | — |
-| `--client` | Yes | `example-client`, `example-brand` | Detect from cwd |
+| `--client` | Yes | `diego`, `wellis` | Detect from cwd |
 | `--council` | No | flag | `false` (skip council stage, just chain skills) |
 | `--peer-review` | No | flag | `false` (passed to council if --council is set) |
 | `--question` | No | `"Why is growth stalling?"` | Auto-generated from client context |
@@ -207,7 +208,7 @@ Open in Typora.
 
 Gates are the human-in-the-loop checkpoints. They exist because:
 
-1. **ACH Falsification Gate:** The leading hypothesis might be wrong. If verification is cheap (e.g., "pull data, 2 hours"), it's worth pausing to check before building a repair plan on a potentially false premise.
+1. **ACH Falsification Gate:** The leading hypothesis might be wrong. If verification is cheap (e.g., "pull Magento data, 2 hours"), it's worth pausing to check before building a repair plan on a potentially false premise.
 
 2. **Unverified Assumptions Gate:** Constraints based on absence of information ("not mentioned" ≠ "doesn't exist") should not drive the repair roadmap without client verification.
 
@@ -238,19 +239,19 @@ Your choice: [1/2/3]
 
 ```bash
 # Full diagnostic with council (richest output):
-/pipeline diagnostic --client example-brand --council --question "How to grow fast?"
+/pipeline diagnostic --client wellis --council --question "How to grow fast?"
 
 # Quick diagnostic without council (faster, single-perspective):
-/pipeline diagnostic --client example-client
+/pipeline diagnostic --client diego
 
 # Measurement pipeline:
-/pipeline measurement --client example-brand
+/pipeline measurement --client wellis
 
 # New client discovery:
-/pipeline discovery --client new-client --question "What do we know?"
+/pipeline discovery --client heavytools --question "What do we know?"
 
 # Re-run with verified data (skip gates):
-/pipeline diagnostic --client example-brand --skip-gates
+/pipeline diagnostic --client wellis --skip-gates
 ```
 
 ## Integration
@@ -259,12 +260,12 @@ Your choice: [1/2/3]
 STANDALONE:
 /pipeline diagnostic --client {slug}
 
-WITH SCHEDULE:
-/schedule create --name "quarterly-diagnostic" \
+WITH SCHEDULE (#39):
+/schedule create --name "quarterly-diego-diagnostic" \
   --cron "0 9 1 */3 *" \
-  --prompt "/pipeline diagnostic --client {slug} --council"
+  --prompt "/pipeline diagnostic --client diego --council"
 
 WITH TASK-OVERSIGHT:
-/task-oversight flags "{client}: no diagnostic in 90 days"
-→ suggests: /pipeline diagnostic --client {slug}
+/task-oversight flags "diego: no diagnostic in 90 days"
+→ suggests: /pipeline diagnostic --client diego
 ```

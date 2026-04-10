@@ -1,9 +1,13 @@
+---
+scope: shared
+---
+
 > v1.0 — 2026-03-24
 
 # System Guardrail: MCP Rate Limits
 
 > **SYSTEM-WIDE RULE** — applies to ALL MCP operations.
-> Learned from: [Task Manager] 429 error (2026-03-24) — 50 assign operations sent at once, all failed.
+> Learned from: Todoist 429 error (2026-03-24) — 50 assign operations sent at once, all failed.
 
 ---
 
@@ -15,7 +19,7 @@
 
 | Platform | Max per call | Delay between batches | Notes |
 |---|---|---|---|
-| **[Task Manager]** | 10 items | 3 seconds | 429 at ~50. Safe at 10. |
+| **Todoist** | 10 items | 3 seconds | 429 at ~50. Safe at 10. |
 | **Asana** | 10 items | 2 seconds | Rate limit varies by endpoint |
 | **Fireflies** | 5 transcripts | 5 seconds | Large responses — batch small |
 | **Databox** | 5 metrics | 2 seconds | Per-metric calls are fine |
@@ -27,16 +31,25 @@
 
 ```
 WRONG:
-  [task-manager].manage-assignments(taskIds: [50 IDs])  → 429 ALL FAILED
+  todoist.manage-assignments(taskIds: [50 IDs])  → 429 ALL FAILED
 
 RIGHT:
-  Batch 1: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
-  Batch 2: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
-  Batch 3: [task-manager].manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 1: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 2: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
+  Batch 3: todoist.manage-assignments(taskIds: [10 IDs])  → wait 3s
   ...
 ```
 
-## Retry on Rate Limit
+## Error Classification (before retrying)
+
+**On ANY MCP error, classify per `core/methodology/MCP_ERROR_HANDLING.md` BEFORE deciding retry strategy.**
+- `transient` (429, 5xx, timeout) → retry with backoff
+- `validation` (400, 422) → fix input, retry once
+- `business` (404, 409) → surface to user, don't retry
+- `permission` (401, 403) → escalate, may need session restart
+Hook: `post-tool-use-mcp-error-classifier.sh` auto-classifies MCP errors in stderr.
+
+## Retry on Rate Limit (transient/429)
 
 When 429 received:
 1. Wait the `retry_after` value (usually 30-60 seconds)
@@ -49,7 +62,7 @@ When 429 received:
 
 Any skill that does bulk MCP operations must follow this:
 - `/meeting-sync` — 5 transcripts per batch (already documented)
-- `/tasks sync` — 10 tasks per batch to [Task Manager]/Asana
+- `/tasks sync` — 10 tasks per batch to Todoist/Asana
 - `/client-report` — 5 metric calls max before pause
 - `/health-check` — sequential MCP checks, not parallel
 - `/morning-brief` — read-only, safe (but still batch if many clients)

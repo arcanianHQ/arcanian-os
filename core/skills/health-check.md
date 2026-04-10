@@ -1,9 +1,13 @@
+---
+scope: shared
+context: fork
+---
+
 # Skill: System Health Check (`/health-check`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 > **Evidence classification:** Every finding MUST be tagged: `[DATA]`, `[OBSERVED]`, `[STATED]`, `[NARRATIVE]`, `[INFERRED]`, `[HEARSAY]`. Only DATA and OBSERVED can be CC in ACH. Split confidence: data ≠ causal. See `core/methodology/EVIDENCE_CLASSIFICATION_RULE.md`.
 
@@ -37,7 +41,7 @@ For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
 For each project with `.claude/settings.json` or `.mcp.json`:
 1. List configured MCP servers
 2. Attempt a minimal query per server type:
-   - [Task Manager]: `get-overview` or `user-info`
+   - Todoist: `get-overview` or `user-info`
    - Asana: `asana_list_workspaces`
    - GA4/Ads/Meta: note as configured (no simple ping available)
 3. Record: connected, auth error (401/403), not configured, or timeout
@@ -86,8 +90,8 @@ Look for the same issue appearing in 2+ client projects independently:
 CONVERGENT SIGNALS:
 | Signal | Clients Affected | Confidence | Implication |
 |--------|-----------------|------------|-------------|
-| [e.g., "GTM consent mode misconfigured"] | [exampleretail, examplebrand] | HIGH | Systemic SOP gap |
-| [e.g., "TASKS.md stale >30 days"] | [examplelocal, ExampleBuild] | MED | Process drift |
+| [e.g., "GTM consent mode misconfigured"] | [diego, wellis] | HIGH | Systemic SOP gap |
+| [e.g., "TASKS.md stale >30 days"] | [mancsbazis, deluxe] | MED | Process drift |
 ```
 
 When the same issue appears independently across clients, it points to a **systemic gap** in core/ (SOPs, templates, methodology) rather than a client-specific problem.
@@ -138,7 +142,7 @@ Symlinks: {N}/{total} resolve ✓
 Brand profiles: {N}/{total} complete ({incomplete list})
 
 ── MCP CONNECTIONS ────────────
-[Task Manager] ✓ | Asana ✗ (401) | GA4 ✓ | Meta ✗ (not configured)
+Todoist ✓ | Asana ✗ (401) | GA4 ✓ | Meta ✗ (not configured)
 
 ── GIT STATUS ─────────────────
 Clean: {N} repos

@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+context: fork
+---
 
 # Skill: Repair Roadmap (`/repair-roadmap`)
 
@@ -17,13 +20,13 @@ Builds a layer-by-layer repair plan from a completed 7-Layer diagnosis and Const
 - **Repair Framework** — `methodology/REPAIR_FRAMEWORK.md`
 - **Constrained Repair Framework** — `methodology/REPAIR_FRAMEWORK_CONSTRAINED.md`
 - **7-Layer Marketing Control Framework** — `methodology/7LAYER_SUMMARY.md`
-- **Constraint Map** — from ``
+- **Constraint Map** — from `/identify-constraints`
 
 ## Trigger
 
 Use this skill when:
 - 7-Layer diagnosis is complete and the client asks "now what?"
-- Building a [Diagnostic Service] deliverable — the repair roadmap IS the action plan
+- Building a Prism deliverable — the repair roadmap IS the action plan
 - Starting a Fixer engagement — this becomes the operating plan
 - Client has a previous diagnosis but nothing was implemented
 - Re-scoping after constraints changed (90-day review)
@@ -32,7 +35,7 @@ Use this skill when:
 
 Before running this skill, you need:
 1. **7-Layer diagnosis** (Mode 1 or Mode 2) — from `/7layer`
-2. **Constraint Map** (recommended) — from ``
+2. **Constraint Map** (recommended) — from `/identify-constraints`
 3. If no Constraint Map: assume all layers are unlocked (standard repair)
 
 ## Process
@@ -77,7 +80,7 @@ Repair sequence:
 For each broken layer, define what "fixed" means — measurable, observable, testable.
 
 **L0: Source — Exit Criteria**
-- Owner can name their own decision pattern
+- Owner can name their own belief pattern
 - Delegation test: one decision delegated and stands for 30 days
 - Owner's language shifts from "I can't" to "I haven't yet"
 - First L1 change implemented without owner reversal
@@ -113,7 +116,7 @@ For each broken layer, define what "fixed" means — measurable, observable, tes
 - Sales pitch matches marketing message (Unity Principle verified)
 
 **L6: Customer — Exit Criteria**
-- 2-4 segments defined with specific [Customer Need Framework]
+- 2-4 segments defined with specific JTBD
 - Customer identity articulated
 - L2↔L6 Identity Bridge verified
 - Segmented communication exists
@@ -125,7 +128,7 @@ For each broken layer, define what "fixed" means — measurable, observable, tes
 
 ### Step 4: Validate Repair Direction via ACH
 
-> Before committing to a repair sequence, verify the diagnosis using ACH from .
+> Before committing to a repair sequence, verify the diagnosis using ACH from /identify-constraints.
 
 If the Constraint Map includes an ACH section (competing hypotheses):
 
@@ -225,7 +228,7 @@ Monthly:   Layer status update. Any exit criteria met?
 
 ### Date: [Date]
 ### Based on: 7-Layer Diagnosis ([date]) + Constraint Map ([date])
-### Engagement: [First Signal / [Diagnostic Service] / The Fixer]
+### Engagement: [First Signal / Prism / The Fixer]
 ### Ceiling: [X]% (based on [N] locked layers)
 
 ---
@@ -316,7 +319,7 @@ Monthly:   Layer status update. Any exit criteria met?
 |-------|-----------|
 | Fix L5 first because it's "quick" | Fix deepest break first (Direction Rule) |
 | Fix everything at once | One layer at a time, prove it holds |
-| Skip L0 because "it's just patterns" | At minimum: name the pattern, delegation test |
+| Skip L0 because "it's just beliefs" | At minimum: name the pattern, delegation test |
 | Measure activity ("we sent 4 emails") | Measure outcomes ("email revenue increased") |
 | Accept "persze, persze" as commitment | Require proof: delegated decision stands 30 days |
 ```
@@ -327,23 +330,23 @@ Monthly:   Layer status update. Any exit criteria met?
 FULL ARCANIAN WORKFLOW:
 
 /7layer                  → Diagnose WHERE it's broken (L0-L7)
-    → Classify WHAT can't change (Type 1/2/3)
+/identify-constraints    → Classify WHAT can't change (Type 1/2/3)
 /repair-roadmap          → Plan HOW to fix it (this skill)
                          → EXECUTE (The Fixer engagement)
 
 REPAIR-SPECIFIC INTEGRATIONS:
 
-L0 repair needed →  + 
+L0 repair needed → /trace-belief + /belief-profile
 L2 repair needed → /build-brand
-L3 repair needed → /[customer need framework] (product differentiation via customer jobs)
-L4 repair needed →  ([Framework Author] Value Equation)
+L3 repair needed → /jtbd (product differentiation via customer jobs)
+L4 repair needed → /craft-offer (Hormozi Value Equation)
 L5 repair needed → /analyze-gtm + /plan-gtm
-L6 repair needed → /[customer need framework] (customer jobs + identity)
+L6 repair needed → /jtbd (customer jobs + identity)
 L7 repair needed → Competitive Matrix (from /7layer Mode 2)
 
-[DIAGNOSTIC_SERVICE] DELIVERABLE:
-/7layer Mode 2 →  → /repair-roadmap
-= The complete [Diagnostic Service] package (diagnosis + constraints + repair plan)
+PRISM DELIVERABLE:
+/7layer Mode 2 → /identify-constraints → /repair-roadmap
+= The complete Prism package (diagnosis + constraints + repair plan)
 
 THE FIXER OPERATING PLAN:
 /repair-roadmap output = the month-by-month operating plan

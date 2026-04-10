@@ -167,3 +167,32 @@ Flag if:
 - `sst.example.com` → NEW → sGTM domain, linked to GTM-ABC123
 - `G-XYZ789` → NEW → DOMAIN_CHANNEL_MAP `## Analytics → GA4` + CLIENT_CONFIG
 - Cross-ref: domain? → check email context or flag as unmapped
+
+### Example 1: Full website scan
+
+**Input:** Homepage of example-brand.com scanned via Chrome DevTools
+
+**Output:**
+
+| Platform | ID / Detail | Status | Source |
+|---|---|---|---|
+| Google Analytics 4 | G-EXAMPLE001 | CONFIRMED [OBSERVED] | dataLayer + network request to google-analytics.com |
+| Google Tag Manager | GTM-EXAMPLE01 | CONFIRMED [OBSERVED] | Script tag in `<head>` |
+| Meta Pixel | 123456789012345 | CONFIRMED [OBSERVED] | fbq('init') call detected |
+| Shopify | Checkout at checkout.example-brand.com | CONFIRMED [OBSERVED] | Shopify CDN assets loaded |
+| Consent Banner | CookieYes | CONFIRMED [OBSERVED] | cookieyes.js loaded, banner visible |
+
+### Example 2: Partial scan with gaps
+
+**Input:** Landing page scan — consent banner blocks most scripts
+
+**Output:**
+
+| Platform | ID / Detail | Status | Source |
+|---|---|---|---|
+| Google Analytics 4 | G-EXAMPLE001 | CONFIRMED [OBSERVED] | Loaded after consent accept |
+| Consent Banner | Unknown provider | PARTIAL [OBSERVED] | Banner visible but no identifiable script name |
+| Meta Pixel | — | NOT DETECTED [OBSERVED] | No fbq() calls found post-consent |
+| Server-side GTM | — | UNKNOWN | Cannot determine from client-side scan |
+
+**Flag:** Meta Pixel NOT DETECTED — verify: (1) is it expected? (2) check GTM container for pixel tag.

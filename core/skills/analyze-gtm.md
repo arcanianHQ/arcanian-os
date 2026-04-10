@@ -1,12 +1,13 @@
-> v1.0 — 2026-04-03
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
+---
+scope: shared
+context: fork
+---
 
 # Skill: Analyze GTM Gaps (GTM Strategist Framework)
 
 ## Purpose
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Analyzes a business's Go-To-Market strategy against the complete GTM Strategist framework to identify gaps, weaknesses, and opportunities. Provides a clear diagnosis of what's missing or underperforming before action planning.
@@ -50,7 +51,7 @@ Use this skill when:
 │     └── Beachhead segment, TAM/SAM/SOM, competition, timing             │
 │                                                                          │
 │  2. EARLY CUSTOMER  "Who do we serve FIRST?"                            │
-│     └── ECP (not Target Profile), niche down, validation                           │
+│     └── ECP (not ICP), niche down, validation                           │
 │                                                                          │
 │  3. PRODUCT         "What value do we deliver?"                         │
 │     └── MVP, value proposition, PMF signals                             │
@@ -128,9 +129,9 @@ Use this skill when:
 - You know WHERE to find them (channels, communities)
 - ECP is narrow enough to dominate, big enough to matter
 
-**ECP vs Target Profile:**
+**ECP vs ICP:**
 - **ECP (Early Customer Profile):** For GTM - who to target FIRST
-- **Target Profile ([Target Profile]):** For Growth - who to target at SCALE
+- **ICP (Ideal Customer Profile):** For Growth - who to target at SCALE
 
 ---
 
@@ -465,10 +466,10 @@ RECOMMENDED FOCUS: [Which area to address first and why]
 ───────────────────────────────────────────────────────────────
 
 BELIEFS THAT MAY BE CAUSING GAPS:
-• [Limiting pattern affecting GTM decisions]
+• [Limiting belief affecting GTM decisions]
 • [Fear or assumption blocking action]
 
-(Use  if deeper pattern work needed)
+(Use /trace-belief if deeper belief work needed)
 
 ───────────────────────────────────────────────────────────────
                     RECOMMENDED NEXT STEPS
@@ -496,11 +497,11 @@ SHORT-TERM (This Month):
        ↓
 /plan-gtm → Create action plan to close gaps
        ↓
- → Build [Premium Offer] (if offer gap)
+/craft-offer → Build Grand Slam Offer (if offer gap)
 /build-brand → Fix positioning (if positioning gap)
- → Validate assumptions (if market/ECP gap)
+/validate-idea → Validate assumptions (if market/ECP gap)
        ↓
- → Address assumptions blocking GTM
+/belief-profile → Address beliefs blocking GTM
 ```
 
 ---
@@ -524,6 +525,6 @@ SHORT-TERM (This Month):
 - This skill is for ANALYSIS - use `/plan-gtm` for action planning
 - GTM has a 3-18 month lifespan - urgency matters
 - "Beachhead Strategy" = focus on one segment before expanding
-- ECP (Early Customer Profile) ≠ Target Profile ([Target Profile])
+- ECP (Early Customer Profile) ≠ ICP (Ideal Customer Profile)
 - Good GTM requires cross-functional team alignment
 - Iterate fast, learn faster - speed is a competitive advantage

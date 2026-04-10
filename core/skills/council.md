@@ -1,12 +1,13 @@
-> v1.0 — 2026-04-03
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
+---
+scope: shared
+context: fork
+---
 
 # Skill: Council Runner (`/council`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 Orchestrates a multi-agent council deliberation. Reads a council YAML definition, spawns subagents in parallel, runs the pipeline stages (collect → peer review → warning intel → ACH → synthesis → BLUF+OODA), and auto-saves the result.
 
@@ -18,7 +19,7 @@ Use when:
 - Running a full diagnostic that benefits from multiple perspectives
 - User says `/council {type}` (e.g., `/council diagnostic`)
 - User says "run the diagnostic council", "get multiple perspectives", "council review"
-- Before a [Diagnostic Service] or Fixer deliverable (recommended)
+- Before a Prism or Fixer deliverable (recommended)
 - When a previous single-perspective analysis needs verification
 
 ## Input
@@ -26,10 +27,10 @@ Use when:
 | Input | Required | Example | Default |
 |---|---|---|---|
 | `council_type` | Yes | `diagnostic`, `measurement`, `delivery`, `discovery` | — |
-| `--client` | Yes (for client councils) | `exampleretail`, `example-wash` | Current project slug |
+| `--client` | Yes (for client councils) | `diego`, `flora-miniwash` | Current project slug |
 | `--question` | Yes | `"Why is acquisition declining?"` | — |
 | `--peer-review` | No | flag | `false` (overrides council YAML if set) |
-| `--agents` | No | `[diagnostic-analyst],channel-analyst` | All council members |
+| `--agents` | No | `belief-analyst,channel-analyst` | All council members |
 | `--skip-stages` | No | `warning_intel,ach` | None |
 
 ## Prerequisites
@@ -71,6 +72,13 @@ Include this framework summary in EVERY agent's prompt (Step 3). This ensures:
 - The synthesis step can map convergent/divergent findings by layer
 - ACH hypotheses are structured as "which layer is the primary constraint"
 
+### Step 2b: Check Arcanum (OPTIONAL)
+
+If `arcanum/wiki/index.md` exists and has pages relevant to this council's topic (check the client's industry, problem domain, or strategic question):
+- Read relevant concept/entity pages from `arcanum/wiki/`
+- Include key insights in agent prompts, cited as `[Arcanum: {slug}, compiled {date}]`
+- If no relevant pages or arcanum/ doesn't exist: skip silently — never block the council
+
 ### Step 3: Load Client Context
 
 Determine client slug from `--client` or from current working directory (detect from path: `clients/{slug}/`).
@@ -80,11 +88,11 @@ Load client files based on the context category mapping (from `core/methodology/
 | Context Category | Files to Load |
 |-----------------|---------------|
 | `brand` | `brand/VOICE.md`, `brand/POSITIONING.md` |
-| `audience` | `brand/TARGET_PROFILE.md` |
+| `audience` | `brand/ICP.md` |
 | `competition` | `brand/POSITIONING.md` (competitive sections) |
 | `offerings` | Product/service docs in `docs/` if they exist |
 | `market` | `brand/POSITIONING.md` (market sections), `brand/7LAYER_DIAGNOSTIC.md` (L7) |
-| `culture` | `brand/.md`, `brand/7LAYER_DIAGNOSTIC.md` (L0-L1) |
+| `culture` | `brand/BELIEF_PROFILE.md`, `brand/7LAYER_DIAGNOSTIC.md` (L0-L1) |
 
 For each agent, load ONLY the categories listed in the agent's `context:` frontmatter field. This keeps token usage efficient.
 
@@ -424,7 +432,7 @@ What did we get wrong? What's missing?
 
 | Council | Agents | Best For |
 |---------|--------|----------|
-| `diagnostic` | [diagnostic-analyst], channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer, [Diagnostic Service], Fixer |
+| `diagnostic` | belief-analyst, channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer, /identify-constraints, Prism, Fixer |
 | `measurement` | audit-checker, channel-analyst, data-rules-checker, knowledge-extractor | Measurement audits, GTM checks |
 | `delivery` | report-reviewer, copy-analyst, pii-scanner, data-rules-checker | Pre-delivery quality gate |
 | `discovery` | client-explorer, project-architect | New leads, onboarding |
@@ -432,10 +440,10 @@ What did we get wrong? What's missing?
 ## Examples
 
 ```
-/council diagnostic --client exampleretail --question "Why is new customer acquisition declining?"
-/council diagnostic --client example-wash --question "What's the primary constraint?" --peer-review
-/council measurement --client examplebrand --question "Is the ExampleD2C tracking reliable?"
-/council delivery --client examplelocal --question "Review the repair roadmap before sending to [Name]"
+/council diagnostic --client diego --question "Why is new customer acquisition declining?"
+/council diagnostic --client flora-miniwash --question "What's the primary constraint?" --peer-review
+/council measurement --client wellis --question "Is the BuenoSpa tracking reliable?"
+/council delivery --client mancsbazis --question "Review the repair roadmap before sending to Ricsi"
 /council discovery --client heavytools --question "What can we learn before the first call?"
 ```
 
@@ -450,19 +458,19 @@ What did we get wrong? What's missing?
 
 ```
 STANDALONE:
-/council diagnostic --client exampleretail --question "..."
+/council diagnostic --client diego --question "..."
 
 WITH PIPELINE (future #38):
-/pipeline diagnostic --client exampleretail
+/pipeline diagnostic --client diego
   → /7layer Mode 2
   → /council diagnostic (reads 7layer stage-result as input context)
-  →  (reads council stage-result)
+  → /identify-constraints (reads council stage-result)
   → /repair-roadmap (reads constraints stage-result)
 
 WITH SCHEDULE (future #39):
 /schedule create --name "weekly-measurement-council" \
   --cron "0 9 * * 1" \
-  --prompt "/council measurement --client exampleretail --question 'Weekly tracking health check'"
+  --prompt "/council measurement --client diego --question 'Weekly tracking health check'"
 ```
 
 ## Key Principles

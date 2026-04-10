@@ -1,10 +1,25 @@
-> v1.11 — 2026-04-10
+> v1.12 — 2026-04-10
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
 
 ---
+
+## [1.12.0] — 2026-04-10
+
+### Architecture Upgrade: context:fork, few-shot examples, MCP error handling, /review skill
+
+#### Added
+- **`methodology/MCP_ERROR_HANDLING.md`** — Standardized MCP error classification and retry logic. 5 error classes (transient/auth/rate/schema/fatal), retry strategies per class, backoff formula, hook template reference.
+- **`skills/review.md`** — New `/review` skill for monthly deliverable quality analysis. Scans output dirs, scores enrichment quality, cross-tabulates input_context × deliverable_type.
+- **`tools/hooks/templates/post-tool-use-mcp-error-classifier.sh`** — Hook template that auto-classifies MCP errors on post-tool-use and logs to CAPTAINS_LOG.
+- **`.claude/commands/review.md`** — Slash command wiring for `/review`.
+
+#### Updated
+- **`skills/7layer.md`, `7layer-hu.md`, `council.md`, `pipeline.md`, `analyze-gtm.md`, `health-check.md`, `client-report.md`, `repair-roadmap.md`** — Added `context: fork` to frontmatter. Skills now explicitly declare fork context for session routing.
+- **`methodology/MCP_RATE_LIMITS.md`** — Updated with error handling references and retry guidance aligned with MCP_ERROR_HANDLING.md.
+- **`skills/extract-contacts.md`, `extract-platforms.md`, `output-review.md`** — Added sanitized few-shot examples section to each skill. Example-brand.com / example-client placeholders only.
 
 ## [1.11.0] — 2026-04-10
 

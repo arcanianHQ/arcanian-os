@@ -1,12 +1,13 @@
-> v1.0 — 2026-04-03
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
+---
+scope: shared
+context: fork
+---
 
 # Skill: Marketing Diagnosis (`/7layer`)
 
 ## Purpose
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 
@@ -92,7 +93,7 @@ Use this skill when:
 │   • Diagnose the SYSTEM, not the department                     │
 │                                                                 │
 │   L0↔L1 DISTINCTION:                                            │
-│   • L0 = WHY they can't/won't change (identity, patterns)        │
+│   • L0 = WHY they can't/won't change (identity, beliefs)        │
 │   • L1 = WHAT they can't do right now (capacity, structure)      │
 │   • L0 problems make L1 problems permanent                      │
 │                                                                 │
@@ -123,7 +124,7 @@ Use this skill when:
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for [Diagnostic Service]/Fixer. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
+| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for Prism/Fixer. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
 
 When `--peer-review` is active: after the standard diagnosis completes, spawn 3 Agent subagents with different lenses (Deep Layer L0-L2, Channel/Market L4-L7, Systems/Constraint cross-layer). Anonymize outputs, synthesize without knowing which lens produced what, then reveal. Convergent findings become HIGH confidence; divergent findings feed into ACH as competing hypotheses. Full protocol: `core/methodology/PEER_REVIEW_PROTOCOL.md`.
 
@@ -172,9 +173,11 @@ This skill operates in **three modes**.
 
 ### Process
 
+**Step 0 (optional): Check Arcanum for conceptual context.** If `arcanum/wiki/index.md` exists, check for concept/entity pages relevant to this client's market or problem space. Include as background context, cited as `[Arcanum: {slug}]`. Skip silently if no relevant pages.
+
 **Step 1: Scan All Layers (L0–L7)**
 
-For each layer, look for signals of strength or weakness. Use linguistic markers, website copy, stated goals, and available data. For L0, look for language markers that reveal decision patterns (e.g., "we can't," "our market won't," "that's just how it is").
+For each layer, look for signals of strength or weakness. Use linguistic markers, website copy, stated goals, and available data. For L0, look for language markers that reveal belief patterns (e.g., "we can't," "our market won't," "that's just how it is").
 
 **Step 2: Identify Problems Per Layer**
 
@@ -328,7 +331,7 @@ L6 has two dimensions: WHO the customer is, and what IDENTITY they get (or proje
 10. Are you targeting the customer's current identity or their aspirational identity?
 
 **The Identity Principle:**
-Great brands don't sell products — they sell identity. Coca-Cola sells a feeling of belonging. Apple sells creative rebellion. [Name] Kicks sells "I'm in the tribe that knows." This runs whether you manage it or not. An identity clash blocks the sale even when offer, product, and channels are perfect. The company's Identity (L2) must align with the customer's desired identity (L6) — this is the L2↔L6 bridge.
+Great brands don't sell products — they sell identity. Coca-Cola sells a feeling of belonging. Apple sells creative rebellion. Balázs Kicks sells "I'm in the tribe that knows." This runs whether you manage it or not. An identity clash blocks the sale even when offer, product, and channels are perfect. The company's Identity (L2) must align with the customer's desired identity (L6) — this is the L2↔L6 bridge.
 
 **Patterns to Detect:**
 
@@ -449,15 +452,15 @@ L1 is about what the organization CAN do — its structure, capacity, and decisi
 
 ### Layer 0: Source (Identity & Beliefs — Deepest)
 
-L0 is the force field. The founder/owner's identity and decision patterns about business, money, markets, clients, and their own role create the environment in which the entire organization operates. L0 is often invisible — patterns experienced as "reality" rather than as patterns.
+L0 is the force field. The founder/owner's identity and belief systems about business, money, markets, clients, and their own role create the environment in which the entire organization operates. L0 is often invisible — beliefs experienced as "reality" rather than as beliefs.
 
 **Diagnostic Questions:**
 1. What does the owner believe about delegation, control, and trust?
 2. What identity would the owner need to give up to make this change?
 3. Is the organization's operating model matching its revenue level, or is KKV-origin identity holding it back?
-4. What patterns does the owner hold as "just how things are"? (transparent patterns)
-5. Is there willingness to examine patterns, or only willingness to change tactics?
-6. What would they do differently if they knew it would work? (reveals the pattern that blocks it)
+4. What beliefs does the owner hold as "just how things are"? (transparent beliefs)
+5. Is there willingness to examine beliefs, or only willingness to change tactics?
+6. What would they do differently if they knew it would work? (reveals the belief that blocks it)
 
 **Identity Patterns to Detect:**
 
@@ -466,17 +469,17 @@ L0 is the force field. The founder/owner's identity and decision patterns about 
 | Helper/Martyr | "I have to be involved in everything" | Identity = being needed |
 | Expert/Imposter | Won't delegate because "nobody does it right" | Identity = being the expert |
 | Visible/Invisible | Either over-present or hiding from the market | Identity conflict about visibility |
-| Abundant/Scarce | "We can't charge more" / "the market won't pay" | Scarcity pattern masking as market knowledge |
-| Worthy/Unworthy | Underpricing, overdelivering, can't say no | Deep pattern about not being worth more |
+| Abundant/Scarce | "We can't charge more" / "the market won't pay" | Scarcity belief masking as market knowledge |
+| Worthy/Unworthy | Underpricing, overdelivering, can't say no | Deep belief about not being worth more |
 
 **The Hungarian Pattern (KKV-origin):**
 Revenue is mid-market (1–15B Ft) but the operating model is still kisvállalkozás. The owner started small, scaled revenue, but their identity hasn't shifted. They still make every decision, distrust systems they didn't build, and treat delegation as risk rather than growth. This is L0 creating a permanent L1 problem.
 
-**L0 Shadow:** "That's just how business works." The most dangerous L0 patterns are transparent — the owner doesn't experience them as patterns at all. They experience them as reality.
+**L0 Shadow:** "That's just how business works." The most dangerous L0 patterns are transparent — the owner doesn't experience them as beliefs at all. They experience them as reality.
 
 **Tools for L0 diagnosis:**
-- `` — traces transparent patterns (patterns experienced as reality)
-- `` — maps the 5 identity patterns
+- `/trace-belief` — traces transparent beliefs (beliefs experienced as reality)
+- `/belief-profile` — maps the 5 identity patterns
 - SFM Person Map — Neurological Levels assessment
 - COACH/CRASH state check — readiness to receive diagnosis
 
@@ -525,12 +528,12 @@ PRIMARY BLOCKAGE: Layer [X]
 ### Layer 0: Source
 **Status:** [Strong / Needs Attention / Constraint / Insufficient Data]
 **Findings:**
-- [Identity patterns observed, pattern markers, delegation behavior]
+- [Identity patterns observed, belief markers, delegation behavior]
 **Identity Pattern:** [Helper/Martyr, Expert/Imposter, etc. — if identifiable]
 **Shadow (Hidden Assumption):**
-- [Transparent patterns — what they experience as "reality"]
+- [Transparent beliefs — what they experience as "reality"]
 **L0→L1 Connection:**
-- [How L0 patterns create or perpetuate L1 problems]
+- [How L0 beliefs create or perpetuate L1 problems]
 
 ---
 
@@ -543,7 +546,7 @@ PRIMARY BLOCKAGE: Layer [X]
 ### PRIMARY CONSTRAINT
 **Layer:** [X] — [Name]
 **Why this layer:** [How fixing it unlocks everything above]
-**L0 Root (if applicable):** [The identity pattern underneath]
+**L0 Root (if applicable):** [The belief/identity pattern underneath]
 
 ### SECONDARY CONSTRAINTS
 [Other layers needing attention, in priority order]
@@ -650,7 +653,7 @@ Your company's Identity (L2) must align with your customer's desired Identity (L
 Competitor analysis is NOT part of L7. L7 is macro market forces. Competitors are analyzed in a parallel matrix across L2–L6 — one column per competitor, one row per layer. L0 and L1 are internal — competitors' L0/L1 can only be inferred from language markers.
 
 ### 9. The Shadow
-Every layer has a "shadow" — a hidden assumption the client holds that prevents them from seeing the real problem. Part of the diagnosis is making the shadow visible. L0's shadow is the most dangerous: transparent patterns that the owner doesn't experience as patterns at all.
+Every layer has a "shadow" — a hidden assumption the client holds that prevents them from seeing the real problem. Part of the diagnosis is making the shadow visible. L0's shadow is the most dangerous: transparent beliefs that the owner doesn't experience as beliefs at all.
 
 ### 10. The L0→L1 Cascade
 L0 (Source) problems make L1 (Core) problems permanent. You can recommend hiring a marketing director (L1 fix), but if the owner's identity prevents delegation (L0), they'll hire one and override every decision. Always check: is this L1 problem structural, or is L0 creating it?
@@ -688,7 +691,7 @@ L0 (Source) and L1 (Core) are internal — competitors' L0/L1 can only be inferr
 
 - **Mode 2 (Pattern Map):** Always include a Competitive Matrix for 3–6 major competitors. For large markets (retail, e-commerce), map 5–10+ including small emerging players.
 - **Mode 3 (Constraint Drill):** When the constraint is at L3-L5, the matrix reveals whether it's a company problem or a market-wide pattern.
-- **Strategic engagements ([Client Example], ExampleRetail, [Retail Lead] scale):** The matrix IS the strategic tool — it shows where the client can win and where they're structurally blocked.
+- **Strategic engagements (Wallis, Diego, Euronics scale):** The matrix IS the strategic tool — it shows where the client can win and where they're structurally blocked.
 
 ### Key Insight
 
@@ -721,7 +724,7 @@ SYMPTOM: "Third agency, same results"
 ### "We Can't Grow" Cascade
 ```
 L0: Worthy/Unworthy identity pattern (Source)
-    "I'm not worth more" → transparent pattern
+    "I'm not worth more" → transparent belief
         │
         ▼
 L2: Identity unclear, value not communicated (Identity)
@@ -750,7 +753,7 @@ SYMPTOM: "Ads aren't working, ROAS declining"
 ### "Great Report, Nothing Changed" Cascade
 ```
 L0: CRASH state — identity-level resistance (Source)
-    Owner cannot SEE their patterns as patterns (transparent pattern)
+    Owner cannot SEE their beliefs as beliefs (transparent belief)
         │
         ▼
 L1: Recommendations accepted but not executed (Core)
@@ -762,7 +765,7 @@ SYMPTOM: "Client got the diagnosis, nothing changed"
 
 ### "Brand Doesn't Connect" Cascade
 ```
-L0: "We're for everyone" pattern (Source)
+L0: "We're for everyone" belief (Source)
         │
         ▼
 L6: No specific customer definition (Customer)
@@ -781,11 +784,11 @@ SYMPTOM: "Brand doesn't resonate"
 
 ## Real Examples
 
-### ExampleBox
+### Feldobox
 **Client question:** "Can we scale spending outside Christmas?"
 
 ```
-L7: "Christmas = gift season" (assumption)
+L7: "Christmas = gift season" (belief)
         │
         ▼
 L6: Christmas-only customer focus ◄── PRIMARY BLOCKAGE
@@ -803,7 +806,7 @@ L4: No urgency in offer (Offer)
 SYMPTOM: "Can't scale outside Christmas"
 ```
 
-### [Retail Lead]
+### Euronics
 **Client question:** "CPC rising, can't scale with ROAS"
 
 ```
@@ -832,28 +835,28 @@ SYMPTOM: "Can't scale profitably"
 /7layer (Mode 3)  →  Drill into specific constraint layer.
 
 AFTER DIAGNOSIS → REPAIR PLANNING:
-/7layer →    Classify what can't change (Type 1/2/3), calculate ceiling
+/7layer → /identify-constraints   Classify what can't change (Type 1/2/3), calculate ceiling
 /7layer → /repair-roadmap         Build layer-by-layer repair plan with exit criteria
 
 REPAIR-SPECIFIC:
-/7layer →    Find the L0 transparent pattern creating the constraint
-/7layer →  Map the L0 identity pattern (Helper/Martyr, etc.)
-/7layer → /[customer need framework]           Map the customer's actual job (if L6 is constraint)
+/7layer → /trace-belief   Find the L0 transparent belief creating the constraint
+/7layer → /belief-profile Map the L0 identity pattern (Helper/Martyr, etc.)
+/7layer → /jtbd           Map the customer's actual job (if L6 is constraint)
 /7layer → /build-brand    Rebuild identity and positioning (if L2 is constraint)
-/7layer →     Rebuild the offer (if L4 is constraint)
+/7layer → /craft-offer    Rebuild the offer (if L4 is constraint)
 /7layer → /analyze-gtm    Check GTM alignment against Pattern Map
 /7layer → /plan-gtm       Build execution plan from diagnosis
-/7layer →    Check if messaging reflects the fix
+/7layer → /analyze-copy   Check if messaging reflects the fix
 
 L0 DIAGNOSTIC TOOLS:
 /7layer finds WHERE the problem is (L0–L7)
- finds the L0 pattern creating it
- maps the identity pattern at L0
+/trace-belief finds the L0 belief creating it
+/belief-profile maps the identity pattern at L0
 COACH/CRASH state check = L0 readiness assessment before presenting findings
 
-COMBINING WITH [Customer Need Framework]:
+COMBINING WITH JTBD:
 Job 1 = diagnosis (WHERE) — /7layer
-Job 2 = fix it (requires L0 shift if assumptions block implementation)
+Job 2 = fix it (requires L0 shift if beliefs block implementation)
 Job 3 = become capable (L0→L1 transformation — identity shift enables capability)
 ```
 
@@ -865,7 +868,7 @@ Job 3 = become capable (L0→L1 transformation — identity shift enables capabi
 Run `/7layer` Mode 1 (Röntgen) first. Then Mode 2 (Pattern Map) for the full L0–L7 picture. This IS the Térkép phase — making visible what's invisible. L0 often only surfaces during deeper engagement.
 
 ### Rendszer (System) — Months 2-4
-Run `` to classify what can and can't change. Then `/repair-roadmap` to build the layer-by-layer plan with exit criteria. Use Mode 3 (Constraint Drill) on each layer that needs fixing, in order of depth. Each layer fix is measured and validated before moving to the next. If L0 is the root, system work includes coaching through pattern shifts. If layers are locked, apply constrained repair strategies (see `REPAIR_FRAMEWORK_CONSTRAINED.md`).
+Run `/identify-constraints` to classify what can and can't change. Then `/repair-roadmap` to build the layer-by-layer plan with exit criteria. Use Mode 3 (Constraint Drill) on each layer that needs fixing, in order of depth. Each layer fix is measured and validated before moving to the next. If L0 is the root, system work includes coaching through belief shifts. If layers are locked, apply constrained repair strategies (see `REPAIR_FRAMEWORK_CONSTRAINED.md`).
 
 ### Változás (Change) — Ongoing
 The Pattern Map + Repair Roadmap become the operating system. Weekly: "Which layer are we working on? What proof do we have? What's the next constraint?" Every 90 days: review the Constraint Map — walls move, sacred cows die, L0 blocks soften. Marketing becomes controllable, not chaotic.

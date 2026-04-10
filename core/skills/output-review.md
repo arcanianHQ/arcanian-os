@@ -155,6 +155,34 @@ What did we get wrong? What patterns are we missing?
 - `ENRICHMENT_WATERFALL.md` → output-review validates whether deeper enrichment produces better deliverables
 - `RECOMMENDATION_LOG.md` → if output-review generates RECs, they go into the log
 
+## Examples
+
+### Example: Monthly scan with mixed data
+
+**Input:** 3 deliverables scanned from `internal/content/linkedin/posts/`:
+
+| File | input_context | quality_rating | engagement |
+|---|---|---|---|
+| LINKEDIN_POST_12_MEASUREMENT.md | signal: P0 partner post | 4 | impressions: 2,340, comments: 18 |
+| LINKEDIN_POST_13_FRAMEWORK.md | freeform: user request | 3 | impressions: 890, comments: 4 |
+| LINKEDIN_POST_14_CASESTUDY.md | meeting: weekly sync | — | — |
+
+**Output:**
+
+```
+── QUALITY BY CONTEXT ─────────────────
+| Input Context | Count | Avg Rating | Best Type |
+|---|---|---|---|
+| Signal-triggered | 1 | 4.0 | LinkedIn Post |
+| Freeform | 1 | 3.0 | LinkedIn Post |
+| Meeting-triggered | 1 | — (unrated) | — |
+
+── GAPS ───────────────────────────────
+- 1 deliverable missing quality_rating → backfill: LINKEDIN_POST_14_CASESTUDY.md
+- 1 deliverable missing engagement data → check: LINKEDIN_POST_14_CASESTUDY.md
+- N < 10 for all categories → insufficient data, wait for next cycle
+```
+
 ## Notes
 
 - First run will likely have sparse data. That's expected — the loop needs 2-3 months to accumulate meaningful patterns.

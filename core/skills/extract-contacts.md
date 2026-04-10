@@ -125,3 +125,47 @@ Flag if any extracted person:
 **Input:** Meeting transcript mentioning "Kata mondta, hogy..." + no email
 **Output:**
 - Kata → NEW → Client Team, email: `—`, Notes: "Mentioned in meeting {date}, role TBD"
+
+### Example 1: Email thread with 2 contacts
+
+**Input:**
+```
+From: Anna Kovács <anna.k@example-brand.com>
+To: team@example.com
+CC: Tamás Molnár <t.molnar@example-agency.com>
+
+Hi team,
+
+Please find attached the Q1 report. Our developer Béla (bela@example-brand.com) 
+will handle the GTM changes next week.
+
+Best,
+Anna Kovács
+Head of Marketing
+Example Brand Kft.
++36 30 123 4567
+```
+
+**Output (3 rows added to CONTACTS.md):**
+
+| Name | Nickname | Email | Phone | Role | Company | Language | Active Since | Status |
+|---|---|---|---|---|---|---|---|---|
+| Kovács Anna | Anna | anna.k@example-brand.com | +36 30 123 4567 | Head of Marketing | Example Brand | HU | 2026-04 | Active |
+| Molnár Tamás | Tamás | t.molnar@example-agency.com | — | Agency contact | Example Agency | HU | 2026-04 | Active |
+| Béla | Béla | bela@example-brand.com | — | Developer [INFERRED from context] | Example Brand | HU | 2026-04 | Active |
+
+### Example 2: Meeting transcript with unknown person
+
+**Input:**
+```
+"...and then Gábor mentioned they switched to Shopify Plus last month.
+He's handling the migration."
+```
+
+**Output (1 row added):**
+
+| Name | Nickname | Email | Phone | Role | Company | Language | Active Since | Status |
+|---|---|---|---|---|---|---|---|---|
+| Gábor | Gábor | — | — | Migration lead [INFERRED] | — | HU | 2026-04 | Active |
+
+Note: `[INFERRED]` tag on role — verify at next meeting.
