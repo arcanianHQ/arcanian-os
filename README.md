@@ -1,4 +1,4 @@
-> v1.7 — 2026-04-08 — Model routing, temporal mappings, contact registry
+> v1.13.1 — 2026-04-11 — Portable hooks, renamed demo clients, tool scoping
 
 # Arcanian OS
 
@@ -273,7 +273,11 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
-| **v1.11** | 2026-04-10 | GTM Intelligence Layer: SIGNAL_DECAY_MODEL, ENRICHMENT_WATERFALL, /output-review skill, 5 decision trees (signal-routing, lead-stage-transitions, inbox-triage, deliverable-routing, sop-selection). Updated morning-brief (Step 5b lead scores), pipeline (enrichment gate), save-deliverable (quality loop), LEAD_TRACKING_STANDARD (scoring + gates), SOP_INDEX (decision trees section). |
+| **v1.13.1** | 2026-04-11 | `.claude/settings.json` — hook configuration using `$CLAUDE_PROJECT_DIR` for portable paths. `.gitignore` exception for settings.json. |
+| **v1.13.0** | 2026-04-11 | Demo client rename: AquaLux → SolarNook, CloudMetrics → LoopForge, GreenScape → MossTrail. All domains, industry descriptions, and references updated. |
+| **v1.12.1** | 2026-04-11 | Tool scoping (`allowed-tools` + `argument-hint`) on 8 skills. Per-finding confidence in review skill. Blocker hooks. |
+| **v1.12** | 2026-04-10 | /review skill, path-scoped rules (`.claude/rules/`), confidence v2.1 per-finding tags, lead signal decay, 51 skills total. |
+| **v1.11** | 2026-04-10 | GTM Intelligence Layer: SIGNAL_DECAY_MODEL, ENRICHMENT_WATERFALL, /output-review skill, 5 decision trees. Updated morning-brief, pipeline, save-deliverable, LEAD_TRACKING_STANDARD, SOP_INDEX. |
 | **v1.10** | 2026-04-10 | /extract-contacts and /extract-platforms skills. |
 | **v1.7** | 2026-04-08 | MODEL_ROUTING.md — LLM cost optimization guardrail. 3-tier routing (Haiku/Sonnet/Opus) for 47 workflows. Verified with live A/B tests. |
 | **v1.6** | 2026-04-07 | CONTACT_REGISTRY_STANDARD.md v1.1 — `Active Since` + `Status` columns mandatory. Departed contacts stay in table. |
