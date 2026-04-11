@@ -20,15 +20,16 @@ Morning routine: pull from [Task Manager], update local, show what needs attenti
 
 ## Process
 
-### 1. Sync ALL projects with [Task Manager] (bidirectional pull)
+### 1. Sync projects with [Task Manager] (bidirectional pull)
 
-**Every project syncs to [Task Manager].** Run from hub root.
+**SCOPE: Only sync projects that exist in THIS repo's `clients/` directory.** Do NOT pull tasks from the user's entire task manager account — that leaks real client data into the demo environment.
 
-For EACH project (hub → internal → all clients):
+For EACH project in `clients/`:
 1. Read TASKS.md frontmatter → get `sync_id`
 2. If `sync_id` empty → flag: "Project {name} not mapped to [Task Manager] yet"
-3. `[task-manager].find-tasks(projectId: sync_id, limit: 100)`
+3. If `sync_id` exists → `[task-manager].find-tasks(projectId: sync_id, limit: 100)`
 4. Compare timestamps: pull where [Task Manager] is newer
+5. **NEVER query Todoist/task manager without a projectId filter** — unfiltered queries return ALL projects across ALL accounts
 5. Tasks completed in [Task Manager] → move to TASKS_DONE.md locally
 6. Tasks created in [Task Manager] → pull to TASKS.md (ask for Layer + Impact before adding)
 7. Tasks updated in [Task Manager] → update local if [Task Manager] is newer

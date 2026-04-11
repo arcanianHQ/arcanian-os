@@ -196,6 +196,12 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 - Every metric claim MUST come from a live Databox query, not from memory or local markdown files
 - Rule: `core/methodology/DATABOX_MANDATORY_RULE.md`
 
+## MCP Scope Isolation (GUARDRAIL)
+**NEVER query external services without a project scope filter.**
+- Task manager queries MUST include `projectId` — unfiltered queries return ALL projects across ALL accounts, leaking real client data into the wrong environment.
+- Only sync projects that exist in THIS repo's `clients/` directory.
+- If a client's `sync_id` is empty → read local TASKS.md only, do NOT query the task manager for that project.
+
 ## MCP Rate Limits
 **Never send bulk MCP operations without batching.**
 - Task manager: max 10/call + 3s delay. Databox: 5 metrics/batch + 2s. On 429: wait, halve batch, retry.
