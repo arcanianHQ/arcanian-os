@@ -2,9 +2,10 @@
 .DS_Store
 Thumbs.db
 
-# Claude Code (keep .claude/commands/ for skill registration)
+# Claude Code (keep commands + settings for hooks)
 .claude/*
 !.claude/commands/
+!.claude/settings.json
 *.output
 
 # MCP (real config has API keys)

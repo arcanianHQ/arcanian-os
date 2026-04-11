@@ -1,4 +1,4 @@
-> v1.13.0 — 2026-04-11
+> v1.13.1 — 2026-04-11
 
 # Arcanian OS — Changelog
 
@@ -166,3 +166,12 @@ All notable changes to the public repository.
 - docs/GETTING_STARTED.md + docs/DATABOX_SETUP.md
 - .mcp.json.example for Databox connection
 - MIT license
+
+## [1.13.1] — 2026-04-11
+
+### Add hook settings with portable paths
+
+#### Added
+- `.claude/settings.json` — hook configuration using `$CLAUDE_PROJECT_DIR` for portable paths
+- `.gitignore` — exception for `.claude/settings.json` so hooks ship with the repo
+

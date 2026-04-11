@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/pre-tool-use-enrichment-gate.sh\"" },
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/pre-tool-use-deliverable-tone-check.sh\"" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/post-tool-use-mcp-error-classifier.sh\"" },
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/post-tool-use-data-normalizer.sh\"" }
+        ]
+      }
+    ]
+  }
+}
