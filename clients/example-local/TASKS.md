@@ -6,7 +6,7 @@ updated: 2026-04-03T00:00
 ---
 > v1.0 — 2026-04-03
 
-# GreenScape — Tasks
+# MossTrail — Tasks
 
 > Simple local services example. Lead gen, not e-commerce.
 

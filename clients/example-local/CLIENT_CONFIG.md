@@ -1,5 +1,5 @@
 ---
-client: "GreenScape"
+client: "MossTrail"
 slug: "example-local"
 created: "2026-04-03"
 last_updated: "2026-04-03"
@@ -7,13 +7,13 @@ status: "active"
 ---
 > v1.0 — 2026-04-03
 
-# GreenScape — Configuration
+# MossTrail — Configuration
 
 ## Company
 
 | Field | Value |
 |---|---|
-| **Legal name** | GreenScape Landscaping LLC |
+| **Legal name** | MossTrail Landscaping LLC |
 | **Industry** | Local services — landscaping, hardscaping |
 | **Market** | Denver metro area, CO |
 | **Currency** | USD |
@@ -29,7 +29,7 @@ status: "active"
 
 | Domain | Platform | Status |
 |---|---|---|
-| greenscape-example.com | WordPress | Active |
+| mosstrail-example.com | WordPress | Active |
 
 ## Tracking IDs
 

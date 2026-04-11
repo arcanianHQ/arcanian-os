@@ -1,8 +1,24 @@
-> v1.12.1 — 2026-04-11
+> v1.13.0 — 2026-04-11
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.13.0] — 2026-04-11
+
+### Rename demo clients — avoid real company names
+
+#### Changed
+- **Demo client `example-ecom`:** AquaLux → **SolarNook** (premium outdoor living, pergolas/shading)
+- **Demo client `example-saas`:** CloudMetrics → **LoopForge** (B2B SaaS analytics)
+- **Demo client `example-local`:** GreenScape → **MossTrail** (local landscaping, Denver)
+- All domain references updated (`solarnook-us.com`, `loopforge.io`, `mosstrail-example.com`)
+- Industry description updated: "wellness (hot tubs)" → "outdoor living (pergolas, shading systems)"
+- Updated across: CLIENT_CONFIG, CONTACTS, TASKS, CLAUDE.md, DOMAIN_CHANNEL_MAP, CAPTAINS_LOG, README
+- `core/methodology/TEMPORAL_AWARENESS_RULE.md` — example reference updated
+- `core/skills/seo-narrative.md` — example query updated
 
 ---
 

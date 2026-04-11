@@ -1,6 +1,6 @@
 > v1.0 — 2026-04-03
 
-# CloudMetrics — Project Instructions
+# LoopForge — Project Instructions
 
 ## What This Is
 Example SaaS client — single-domain B2B analytics platform.

@@ -6,7 +6,7 @@ updated: 2026-04-03T00:00
 ---
 > v1.0 — 2026-04-03
 
-# AquaLux — Tasks
+# SolarNook — Tasks
 
 > Multi-domain example. Note Domain: field on every task.
 
@@ -19,7 +19,7 @@ updated: 2026-04-03T00:00
   - P0 | Owner: You | Due: 2026-04-07 | Effort: 2h | Impact: unlock
   - Created: 2026-04-03
   - Layer: L5
-  - Domain: aqualux.eu
+  - Domain: solarnook.eu
   - FND: EU Google Ads showing near-zero conversions despite Shopify orders stable
   - SOP: marketing-ops/04-measurement-reporting
 
@@ -35,12 +35,12 @@ updated: 2026-04-03T00:00
 
 ## P1 — This Week
 
-- [ ] #3 AquaLux US — Meta creative refresh (frequency >4x on top 3 creatives)
+- [ ] #3 SolarNook US — Meta creative refresh (frequency >4x on top 3 creatives)
   - @next
   - P1 | Owner: You | Due: 2026-04-11 | Effort: 2h | Impact: lever
   - Created: 2026-04-03
   - Layer: L5
-  - Domain: aqualux-us.com
+  - Domain: solarnook-us.com
   - FND: channel-analyst-meta flagged CTR decay on 3 creatives running >21 days
 
 - [ ] #4 Dealer pipeline review — 15 leads @waiting >14 days
@@ -51,4 +51,4 @@ updated: 2026-04-03T00:00
   - Follow-up: 2026-04-10 — escalate stale leads
   - Created: 2026-04-03
   - Layer: L4
-  - Domain: dealers.aqualux.com
+  - Domain: dealers.solarnook.com

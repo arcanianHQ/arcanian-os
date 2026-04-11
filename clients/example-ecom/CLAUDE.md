@@ -1,9 +1,9 @@
 > v1.1 — 2026-04-04 — added Databox demo connection + dataset IDs
 
-# AquaLux — Project Instructions
+# SolarNook — Project Instructions
 
 ## What This Is
-Example multi-domain e-commerce client — premium wellness products (hot tubs, swim spas).
+Example multi-domain e-commerce client — premium outdoor living products (pergolas, shading systems).
 3 business units, 5 domains, 2 currencies, shared ad accounts.
 **Owner:** You | **Team:** You | **Created:** 2026-04-03
 
@@ -14,9 +14,9 @@ This is a demo project showing how Arcanian OS handles multi-domain, multi-curre
 
 | Unit | Domain | Market | Model | Currency |
 |---|---|---|---|---|
-| **AquaLux US** | aqualux-us.com | US D2C | Shopify, $3K-$7K products | USD |
-| **AquaLux EU** | aqualux.eu, aqualux.de | EU B2C | WooCommerce | EUR |
-| **AquaLux Dealers** | dealers.aqualux.com | US B2B | WordPress, lead gen | USD |
+| **SolarNook US** | solarnook-us.com | US D2C | Shopify, $3K-$7K products | USD |
+| **SolarNook EU** | solarnook.eu, solarnook.de | EU B2C | WooCommerce | EUR |
+| **SolarNook Dealers** | dealers.solarnook.com | US B2B | WordPress, lead gen | USD |
 
 ## Multi-Domain
 **Before ANY analysis:** load `DOMAIN_CHANNEL_MAP.md` and filter by domain AND business unit.
@@ -55,7 +55,7 @@ This demo uses **synthetic data pushed to Databox** via the ingestion API. In a 
 
 In production: connect GA4 in Databox → `load_metric_data(data_source_id=X, metric_key="GoogleAnalytics4@sessions")` works immediately.
 
-### Quick Reference — AquaLux US Dataset IDs
+### Quick Reference — SolarNook US Dataset IDs
 
 Query these with `ask_genie(dataset_id="...", question="...")`:
 

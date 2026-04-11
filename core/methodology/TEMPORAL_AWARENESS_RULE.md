@@ -83,7 +83,7 @@ MINDEN skill ami adatot elemez. Különösen:
 
 ### Szezonalitási minták (iparágtól függő)
 
-**E-commerce (wellness/hot tubs — BuenoSpa):**
+**E-commerce (outdoor living — SolarNook):**
 - Csúcs: Máj-Jún (nyári felkészülés) + Nov (Black Friday)
 - Mélypont: Okt (pre-holiday csend) + Jan post-holiday
 

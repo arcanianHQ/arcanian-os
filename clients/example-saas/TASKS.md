@@ -6,7 +6,7 @@ updated: 2026-04-03T00:00
 ---
 > v1.0 — 2026-04-03
 
-# CloudMetrics — Tasks
+# LoopForge — Tasks
 
 > Example task board for a SaaS client. Shows task format with ontology edges.
 

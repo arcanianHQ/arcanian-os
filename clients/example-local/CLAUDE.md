@@ -1,6 +1,6 @@
 > v1.0 — 2026-04-03
 
-# GreenScape — Project Instructions
+# MossTrail — Project Instructions
 
 ## What This Is
 Example local services client — landscaping company, single location, lead gen model.

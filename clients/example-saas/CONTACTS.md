@@ -1,6 +1,6 @@
 > v1.0 — 2026-04-03
 
-# CloudMetrics — Contacts
+# LoopForge — Contacts
 
 | Name | Role | Email | Preferred Channel | Language | Tone |
 |---|---|---|---|---|---|

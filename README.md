@@ -73,7 +73,7 @@ Claude Code starts. Authenticate with Databox when prompted (`/mcp`). Then:
 /sales-pulse
 ```
 
-Select `example-ecom` → select `AquaLux US`. Wait 30 seconds.
+Select `example-ecom` → select `SolarNook US`. Wait 30 seconds.
 
 Read the output. That's what it does.
 
@@ -198,7 +198,7 @@ This repo includes a demo dataset (`demo-data/`) and a pre-configured example cl
 
 1. Copy `.mcp.json.example` to `.mcp.json`
 2. Run `claude` and authenticate with Databox when prompted
-3. Type `/sales-pulse` → select `example-ecom` → select `AquaLux US`
+3. Type `/sales-pulse` → select `example-ecom` → select `SolarNook US`
 4. The system queries the demo data and produces an analysis with planted anomalies
 
 ### To connect your own data:

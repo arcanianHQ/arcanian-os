@@ -1,5 +1,5 @@
 ---
-client: "CloudMetrics"
+client: "LoopForge"
 slug: "example-saas"
 created: "2026-04-03"
 last_updated: "2026-04-03"
@@ -7,13 +7,13 @@ status: "active"
 ---
 > v1.0 — 2026-04-03
 
-# CloudMetrics — Configuration
+# LoopForge — Configuration
 
 ## Company
 
 | Field | Value |
 |---|---|
-| **Legal name** | CloudMetrics Inc. |
+| **Legal name** | LoopForge Inc. |
 | **Industry** | B2B SaaS — analytics platform |
 | **Market** | US, Global |
 | **Currency** | USD |
@@ -29,7 +29,7 @@ status: "active"
 
 | Domain | Platform | Country | Status |
 |---|---|---|---|
-| cloudmetrics.io | Custom (React + Node) | US | Active |
+| loopforge.io | Custom (React + Node) | US | Active |
 
 ## Tracking IDs
 
