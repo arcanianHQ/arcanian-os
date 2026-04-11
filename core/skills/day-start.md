@@ -52,14 +52,47 @@ Cross-project summary (uses task-oversight data):
 - Overdue tasks (grouped by project)
 - Quick wins available (effort ≤ 1h, impact ≥ lever)
 
-### 4. Check inboxes
+### 4. Databox Anomaly Detection
+
+**Requires Databox MCP.** If not connected → skip this step entirely (see prerequisite 0).
+
+For EACH project in `clients/`:
+1. Read `DOMAIN_CHANNEL_MAP.md` → extract Databox data source IDs and dataset IDs
+2. If no Databox mapping → skip this client
+3. For each data source, query the last 30 days vs prior 30 days using `ask_genie`:
+   - **Sessions by channel** → flag any channel with >30% drop (especially Email, Paid, Organic)
+   - **Conversions** → compare GA4 conversions vs e-commerce platform orders → flag tracking gap >10%
+   - **Ad spend & ROAS** → flag any single-day conversion value drop >50%
+   - **Pipeline** → flag leads with `days_in_stage` > average deal cycle
+4. For each anomaly found, output:
+
+```
+⚠ ANOMALY: {client} — {metric} {direction} {percent}%
+  Period: {date range}
+  Source: [DATA: Databox ds:{data_source_id}, {date}]
+  Baseline: {previous period value}
+  Current: {current value}
+  Possible cause: {check PLATFORM_CHANGELOG.md if exists}
+```
+
+5. Cross-verify anomalies:
+   - If conversion drop in ads BUT e-commerce orders stable → flag as **measurement break** (not performance)
+   - If session drop in one channel BUT total sessions stable → flag as **channel shift** (not traffic loss)
+   - If tracking gap >10% between platforms → flag as **data quality issue** (investigate before acting)
+
+6. **Thresholds** (configurable per client in DOMAIN_CHANNEL_MAP.md):
+   - Small business (e.g., MossTrail): alert on >15% change (every lead counts)
+   - Mid-market (e.g., LoopForge): alert on >25% change
+   - Enterprise/multi-domain (e.g., SolarNook): alert on >30% change (higher variance is normal)
+
+### 5. Check inboxes
 
 For each project:
 - Count inbox/ files
 - Count upd/ unprocessed items
 - Flag aging items (>7 days)
 
-### 5. Check meetings
+### 6. Check meetings
 
 Pull today's meetings from meeting transcript tool (if configured and any recorded since yesterday):
 ```
@@ -69,11 +102,11 @@ Pull today's meetings from meeting transcript tool (if configured and any record
 - New meetings → route to client meetings/ (or flag for classification)
 - Extract action items → show for confirmation
 
-### 6. Check .registry-updates
+### 7. Check .registry-updates
 
 Read `.registry-updates` file — any stale registries flagged by hooks?
 
-### 7. Show Day Start Summary
+### 8. Show Day Start Summary
 
 ```
 ☀️ DAY START — 2026-03-25
@@ -97,11 +130,18 @@ OVERDUE: 3
   [Contact Person] ([Retail Lead]): 1 task (follow-up)
 
 QUICK WINS: 3
-  ExampleBrand #49: Wire Enhanced Conversions (15m, lever)
-  ExampleLocal #20: Fix GAds priorities (15m, lever)
-  ExampleBrand #22: Add SGTM to referral exclusion (15m, hygiene)
+  SolarNook #49: Wire Enhanced Conversions (15m, lever)
+  MossTrail #20: Fix GAds priorities (15m, lever)
+  SolarNook #22: Add SGTM to referral exclusion (15m, hygiene)
 
-INBOX: 57 files in ExampleRetail, 4 in internal
+DATABOX ANOMALIES:
+  ⚠ SolarNook — Email sessions -63% (30-day vs prior 30-day) [DATA: Databox]
+  ⚠ SolarNook — Shopify vs GA4 tracking gap: 12.5% (296 orders vs 259 conversions) [DATA: Databox]
+  ⚠ SolarNook — Google Ads conversion value -75% on Mar 18 (€9,652→€2,420) [DATA: Databox]
+    → Cross-check: Shopify orders stable → likely MEASUREMENT BREAK, not performance
+  ⚠ LoopForge — 5 leads in pipeline >20 days (exceeds 21-day avg deal cycle) [DATA: Databox]
+
+INBOX: 57 files in SolarNook, 4 in internal
 UPD: nothing new
 MEETINGS: 1 new transcript from yesterday
 
@@ -110,7 +150,7 @@ REGISTRIES: BRAND_INDEX needs update (brand/ changed in ExampleLocal)
 What would you like to tackle first?
 ```
 
-### 8. Log
+### 9. Log
 
 Append to hub CAPTAINS_LOG:
 ```
