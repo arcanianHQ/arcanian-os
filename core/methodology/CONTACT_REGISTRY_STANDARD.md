@@ -31,9 +31,9 @@
 
 | Name | Nickname | Role | Email | Phone | Preferred Channel | Language | Active Since | Status | Notes |
 |------|----------|------|-------|-------|-------------------|----------|-------------|--------|-------|
-| [Client Contact] | [Client Contact] | US CEO | client-contact@example-ecom.com | — | Email (HU) | HU | 2024-01 | Active | Micro-manages, needs proof. Tegező. |
+| [Client Contact] | [Client Contact] | US CEO | client-contact@solarnook.com | — | Email (HU) | HU | 2024-01 | Active | Micro-manages, needs proof. Tegező. |
 | [Client MD] | [Name] | Marketing Dir HU | — | — | Email / Slack | HU | 2024-01 | Active | Day-to-day coord. Tegező. |
-| [Client Contact 2] | [Client Contact 2] | Online Sales Mgr US | contact@example-ecom.com | — | Email (EN) | EN | 2024-01 | Active | Manages 14 US reps. |
+| [Client Contact 2] | [Client Contact 2] | Online Sales Mgr US | contact@solarnook.com | — | Email (EN) | EN | 2024-01 | Active | Manages 14 US reps. |
 | [Former Contact] | [Former Contact] | Marketing Coordinator | — | — | — | HU | 2024-01 | **Departed 2026-03-11** | Replaced by [Replacement] |
 
 ## Agencies & Partners
@@ -48,7 +48,7 @@
 
 | Name | Nickname | Role | Email | Active Since | Status | Notes |
 |------|----------|------|-------|-------------|--------|-------|
-| [Owner Name] | [Owner] | Creator/Strategy | owner@example.com | 2026-02 | Active | ExampleBrand email: owner@example-ecom.com |
+| [Owner Name] | [Owner] | Creator/Strategy | owner@example.com | 2026-02 | Active | ExampleBrand email: owner@solarnook.com |
 | [Team Member 1] | [Team Member 1] | Research | team1@example.com | 2026-02 | Active | No ExampleBrand access |
 | [Team Member 2] | [Team Member 2] | Delivery | team2@example.com | 2026-02 | Active | No ExampleBrand access |
 

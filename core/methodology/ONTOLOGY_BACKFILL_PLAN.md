@@ -89,7 +89,7 @@ claude
 
 ### Per-client session (for focused backfill):
 ```bash
-cd ~/Sites/_arcanian-ops/clients/example-ecom
+cd ~/Sites/_arcanian-ops/clients/solarnook
 claude
 
 # "Backfill all @waiting tasks with Waiting on/since/Follow-up"

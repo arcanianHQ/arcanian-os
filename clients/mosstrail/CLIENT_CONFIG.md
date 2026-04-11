@@ -1,6 +1,6 @@
 ---
 client: "MossTrail"
-slug: "example-local"
+slug: "mosstrail"
 created: "2026-04-03"
 last_updated: "2026-04-03"
 status: "active"

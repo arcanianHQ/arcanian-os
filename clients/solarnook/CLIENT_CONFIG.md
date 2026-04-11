@@ -1,6 +1,6 @@
 ---
 client: "SolarNook"
-slug: "example-ecom"
+slug: "solarnook"
 created: "2026-04-03"
 last_updated: "2026-04-03"
 status: "active"

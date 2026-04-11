@@ -116,7 +116,7 @@ Append to CAPTAINS_LOG.md:
 **User:** "look at this file ~/Downloads/examplebrand-gabor-meeting-2026-03-25.pdf"
 ```
 ✓ Filed: examplebrand-gabor-meeting-2026-03-25.pdf
-  → clients/example-ecom/presentations/2026-03-25_gabor-meeting.pdf
+  → clients/solarnook/presentations/2026-03-25_gabor-meeting.pdf
   Type: meeting-notes (PDF) | Client: examplebrand | Domain: all
   Tasks extracted: 0 (PDF — manual review needed)
   Logged to CAPTAINS_LOG.md
@@ -125,7 +125,7 @@ Append to CAPTAINS_LOG.md:
 **User:** "I got this GTM export" + pastes path to ~/Downloads/GTM-XXXXX_workspace12.json
 ```
 ✓ Filed: GTM-XXXXX_workspace12.json
-  → clients/example-ecom/data/gtm-exports/GTM-XXXXX_workspace12.json
+  → clients/solarnook/data/gtm-exports/GTM-XXXXX_workspace12.json
   Type: GTM export | Client: examplebrand | Domain: example-d2c.com
   Updated GTM_CHANGELOG.md
   Tasks extracted: 0
@@ -135,7 +135,7 @@ Append to CAPTAINS_LOG.md:
 **User:** "[Team Member] sent this Shopify report" + path to ~/Documents/shopify-export-march.csv
 ```
 ✓ Filed: shopify-export-march.csv
-  → clients/example-ecom/data/shopify-export-2026-03.csv
+  → clients/solarnook/data/shopify-export-2026-03.csv
   Type: data export | Client: examplebrand | Domain: example-d2c.com
   Tasks extracted: 1
     #193 Review Shopify March export — P2 | Owner: [Owner]

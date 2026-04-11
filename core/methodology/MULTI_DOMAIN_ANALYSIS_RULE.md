@@ -45,11 +45,11 @@ Example: A brand has a US D2C store (USD) and a EU wholesale operation (EUR). Bl
 
 | Tool / MCP | Domain question to answer FIRST | Example mistake |
 |------------|--------------------------------|-----------------|
-| **Databox** | Which data source ID? Is it shared? | Querying Google Ads source without campaign filter mixes example-d2c.com + example-ecom.com |
-| **ActiveCampaign MCP** | Which AC instance? (`exampled2c.api-us1.com` vs `example-eu`) | Querying contact count on US instance when the question is about example-ecom.com contacts |
-| **GA4** (Databox or direct) | Which GA4 property ID? | Using `385233609` (example-d2c.com) when analyzing example-ecom.com traffic |
+| **Databox** | Which data source ID? Is it shared? | Querying Google Ads source without campaign filter mixes example-d2c.com + solarnook.com |
+| **ActiveCampaign MCP** | Which AC instance? (`exampled2c.api-us1.com` vs `example-eu`) | Querying contact count on US instance when the question is about solarnook.com contacts |
+| **GA4** (Databox or direct) | Which GA4 property ID? | Using `385233609` (example-d2c.com) when analyzing solarnook.com traffic |
 | **Google Ads** (Databox) | Which account? Which campaign name patterns? | Account `695-132-7421` contains 3 domains — must filter by `domain_*` prefix |
-| **Meta Ads** (Databox) | Which ad account? | "ExampleBrand" account = example-ecom.com, "ExampleBrand - ExampleD2C 2." = example-d2c.com |
+| **Meta Ads** (Databox) | Which ad account? | "ExampleBrand" account = solarnook.com, "ExampleBrand - ExampleD2C 2." = example-d2c.com |
 | **Search Console** | Which property? | Each domain has its own SC property — never mix |
 | **Shopify** | Which store? | ExampleD2C store ≠ Factory Store |
 | **Google Merchant Center** | Which MC account? | ExampleD2C has TWO MC IDs (`646843372` US, `280763264` legacy HU) |
@@ -62,7 +62,7 @@ User asks: "How many AC contacts do we have?"
                                     ↓
 WRONG: list_contacts → get total count
 RIGHT: Which domain? → example-d2c.com → use exampled2c.api-us1.com instance
-       Which domain? → example-ecom.com → use example-eu instance
+       Which domain? → solarnook.com → use example-eu instance
        Which domain? → "all" → query BOTH, report separately, then sum
 ```
 
@@ -71,7 +71,7 @@ User asks: "What's our Google Ads ROAS?"
                                     ↓
 WRONG: load_metric_data(source: EXAMPLE_SOURCE_ID, metric: cost) → account total
 RIGHT: Which domain? → example-d2c.com → source EXAMPLE_SOURCE_ID + dimension: campaign + filter example-d2c.com_*
-       Which domain? → example-ecom.com → source EXAMPLE_SOURCE_ID + dimension: campaign + filter example-ecom.com_*
+       Which domain? → solarnook.com → source EXAMPLE_SOURCE_ID + dimension: campaign + filter solarnook.com_*
        Which domain? → "all" → break down by domain in output, show each separately
 ```
 
@@ -80,7 +80,7 @@ User asks: "Show me GA4 sessions"
                                     ↓
 WRONG: Pick any GA4 property
 RIGHT: Which domain? → example-d2c.com → property 385233609
-       Which domain? → example-ecom.com → property 313221683
+       Which domain? → solarnook.com → property 313221683
 ```
 
 ### What gets mapped (ALL of these):
@@ -88,7 +88,7 @@ RIGHT: Which domain? → example-d2c.com → property 385233609
 | Layer | What to map | Example |
 |-------|-------------|---------|
 | **Ad accounts** | Google Ads, Meta, Bing, Criteo, Amazon | Account ID → which domains' campaigns run here |
-| **Campaign patterns** | Name prefixes/patterns per domain | `example-d2c.com_*` → example-d2c.com, `example-ecom.com_*` → example-ecom.com |
+| **Campaign patterns** | Name prefixes/patterns per domain | `example-d2c.com_*` → example-d2c.com, `solarnook.com_*` → solarnook.com |
 | **Analytics** | GA4 properties, GTM containers | Property ID → domain |
 | **E-commerce** | Shopify stores, WooCommerce sites | Store → domain |
 | **CRM** | ActiveCampaign, HubSpot, GoHighLevel | Instance → which domain's contacts |
@@ -103,9 +103,9 @@ RIGHT: Which domain? → example-d2c.com → property 385233609
 **Mappings change over time.** Ad accounts get reassigned, campaigns move between domains, data sources are added or deprecated. Every row in `DOMAIN_CHANNEL_MAP.md` has `Active Since` and `Status` columns.
 
 When analyzing a historical period:
-1. **Check whether the mapping was valid for that period.** A Meta account that serves example-d2c.com today may have served only example-ecom.com before 2025-03.
+1. **Check whether the mapping was valid for that period.** A Meta account that serves example-d2c.com today may have served only solarnook.com before 2025-03.
 2. **Inactive/migrated sources** (Status ≠ Active) still matter for historical analysis — but don't query them for current state.
-3. **When a shared account changes domain coverage** (e.g., Meta account added example-ecom.com campaigns in 2026-03), the campaign patterns table must show WHEN each pattern started.
+3. **When a shared account changes domain coverage** (e.g., Meta account added solarnook.com campaigns in 2026-03), the campaign patterns table must show WHEN each pattern started.
 4. **A mapping without dates is a mapping you can't trust.** If `Active Since` is blank, treat it as UNVERIFIED per `UNVERIFIED_ASSUMPTIONS_RULE.md`.
 
 ### When a new channel or tool is discovered:
@@ -149,11 +149,11 @@ Single-domain clients (e.g., ExampleLocal, ExampleOrg) do NOT need this file.
 
 ## Domain Isolation in Analysis (v2.0 — 2026-03-31)
 
-> Learned from: ExampleD2C Session Drop Analysis v4.0 — example-ecom.com campaign data was flagged "nem exampled2c" but remained in totals, ORIENT causal chain, and ACH table. Flagging is not isolating.
+> Learned from: ExampleD2C Session Drop Analysis v4.0 — solarnook.com campaign data was flagged "nem exampled2c" but remained in totals, ORIENT causal chain, and ACH table. Flagging is not isolating.
 
 ### The Problem
 
-When analyzing a SHARED account (e.g., "Client - ExampleBrand (example-d2c.com)" Meta account contains both example-d2c.com AND example-ecom.com campaigns), other-domain data may appear in the query results. The v1.0 rule said "flag cross-domain contamination." This is insufficient.
+When analyzing a SHARED account (e.g., "Client - ExampleBrand (example-d2c.com)" Meta account contains both example-d2c.com AND solarnook.com campaigns), other-domain data may appear in the query results. The v1.0 rule said "flag cross-domain contamination." This is insufficient.
 
 **Flagging ≠ Isolating.** Writing "nem exampled2c" next to a row and keeping it in the analysis is like labeling poison and leaving it on the dinner table.
 
@@ -164,32 +164,32 @@ When an analysis has `Domain: X` in its header:
 **1. EXCLUDE non-target domain data from all calculations**
 ```markdown
 ❌ "Összesen: $29,017 → $20,391 (-30% spend)"
-   — includes example-ecom.com $3,599 in the Feb total
+   — includes solarnook.com $3,599 in the Feb total
 
 ✓ "example-d2c.com összesen: $29,017 → $16,792 (-42% spend)"
-   — example-ecom.com $3,599 excluded from total
-   Note: example-ecom.com campaigns ($3,599 Feb) run in same account — see example-ecom.com analysis separately
+   — solarnook.com $3,599 excluded from total
+   Note: solarnook.com campaigns ($3,599 Feb) run in same account — see solarnook.com analysis separately
 ```
 
 **2. EXCLUDE non-target domain events from ORIENT / causal reasoning**
 ```markdown
-❌ "Feb 4: example-ecom.com kampány indult — egyetlen döntés eredménye"
-   — example-ecom.com campaign start is NOT a cause of example-d2c.com session drop
+❌ "Feb 4: solarnook.com kampány indult — egyetlen döntés eredménye"
+   — solarnook.com campaign start is NOT a cause of example-d2c.com session drop
 
 ✓ If relevant as CONTEXT (budget was reallocated):
-   "Context: $3.6K budget was redirected to example-ecom.com campaigns in Feb [DATA] —
-   this may explain part of the example-d2c.com spend reduction, but the example-ecom.com
+   "Context: $3.6K budget was redirected to solarnook.com campaigns in Feb [DATA] —
+   this may explain part of the example-d2c.com spend reduction, but the solarnook.com
    campaign performance is NOT part of this analysis"
 ```
 
 **3. EXCLUDE non-target domain rows from ACH evidence table**
 ```markdown
-❌ | example-ecom.com campaigns appeared ($3.6K) | [DATA] | CC | — example-ecom.com data scoring example-d2c.com hypotheses
+❌ | solarnook.com campaigns appeared ($3.6K) | [DATA] | CC | — solarnook.com data scoring example-d2c.com hypotheses
 
-✓ example-ecom.com campaign data does not appear in ACH table at all.
+✓ solarnook.com campaign data does not appear in ACH table at all.
    If budget reallocation is relevant, the EVIDENCE is:
    | example-d2c.com traffic spend dropped $8.5K→$3K (-65%) | [DATA] | CC |
-   — the cause is the ExampleD2C spend drop, not the example-ecom.com campaign start
+   — the cause is the ExampleD2C spend drop, not the solarnook.com campaign start
 ```
 
 **4. SEPARATE domain data into clearly labeled sections if both must appear**
@@ -203,7 +203,7 @@ When an analysis has `Domain: X` in its header:
 
    ### Other domains in same account (CONTEXT ONLY — excluded from analysis)
    | Campaign | Jan | Feb | ... |
-   [example-ecom.com, example-pool.com rows]
+   [solarnook.com, example-pool.com rows]
    Note: These are shown for account-level context only.
    They are NOT included in totals, ORIENT, or ACH above.
 ```
@@ -220,7 +220,7 @@ Before delivering a domain-specific analysis:
 3. **Read the ACH table.** Does any evidence row contain another domain's data? If yes, remove it.
 4. **Check the BLUF.** Does the conclusion depend on what happened on another domain? If yes, the conclusion is about the account, not the domain.
 
-**"An analysis of example-d2c.com that includes example-ecom.com data is an analysis of the Meta account, not example-d2c.com."**
+**"An analysis of example-d2c.com that includes solarnook.com data is an analysis of the Meta account, not example-d2c.com."**
 
 ---
 
@@ -238,6 +238,6 @@ Another failure mode (v2.0):
 > "ExampleD2C Meta spend dropped 30% ($29K → $20K)"
 
 When the real story is:
-> "example-d2c.com Meta spend dropped 42% ($29K → $16.8K) — $3.6K was reallocated to example-ecom.com campaigns in the same account"
+> "example-d2c.com Meta spend dropped 42% ($29K → $16.8K) — $3.6K was reallocated to solarnook.com campaigns in the same account"
 
 The first understates the drop. The second isolates the domain impact.

@@ -73,7 +73,7 @@ Claude Code starts. Authenticate with Databox when prompted (`/mcp`). Then:
 /sales-pulse
 ```
 
-Select `example-ecom` → select `SolarNook US`. Wait 30 seconds.
+Select `solarnook` → select `SolarNook US`. Wait 30 seconds.
 
 Read the output. That's what it does.
 
@@ -149,9 +149,9 @@ arcanian-os/
 │   ├── reference-implementations/     <- Gold standards and benchmarks
 │   └── infrastructure/                <- Data rules
 ├── clients/
-│   ├── example-ecom/                  <- Multi-domain e-commerce example
-│   ├── example-saas/                  <- Single-domain SaaS example
-│   └── example-local/                 <- Local services example
+│   ├── solarnook/                     <- Multi-domain e-commerce example
+│   ├── loopforge/                     <- Single-domain SaaS example
+│   └── mosstrail/                     <- Local services example
 └── docs/
     ├── GETTING_STARTED.md
     └── DATABOX_SETUP.md
@@ -183,7 +183,7 @@ Not every metric drop is a crisis. Each client has a sensitivity setting (low/no
 
 ## Demo Data vs Production
 
-This repo includes a demo dataset (`demo-data/`) and a pre-configured example client (`clients/example-ecom/`) with synthetic data loaded into a Databox demo account.
+This repo includes a demo dataset (`demo-data/`) and a pre-configured example client (`clients/solarnook/`) with synthetic data loaded into a Databox demo account.
 
 ### How data flows differently:
 
@@ -198,7 +198,7 @@ This repo includes a demo dataset (`demo-data/`) and a pre-configured example cl
 
 1. Copy `.mcp.json.example` to `.mcp.json`
 2. Run `claude` and authenticate with Databox when prompted
-3. Type `/sales-pulse` → select `example-ecom` → select `SolarNook US`
+3. Type `/sales-pulse` → select `solarnook` → select `SolarNook US`
 4. The system queries the demo data and produces an analysis with planted anomalies
 
 ### To connect your own data:

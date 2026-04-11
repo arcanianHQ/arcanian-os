@@ -2,7 +2,7 @@
 
 # Task Format Standard
 
-> Gold standard: `clients/example-ecom/TASKS.md`
+> Gold standard: `clients/solarnook/TASKS.md`
 > Every task across every project MUST follow this format.
 > Added: 2026-03-26
 
@@ -193,7 +193,7 @@ Examples:
   - P1 | Owner: [Owner] | Due: 2026-03-29 | Effort: 1h | Impact: lever
   - Created: 2026-03-24 | Updated: 2026-03-26
   - Layer: L5
-  - Domain: example-d2c.com, example-b2b.com, example-ecom.com, examplebrand.fr, examplebrand.nl, examplebrand.com, examplebrandfactorystore.com
+  - Domain: example-d2c.com, example-b2b.com, solarnook.com, examplebrand.fr, examplebrand.nl, examplebrand.com, examplebrandfactorystore.com
   - SOP: 07-VENDOR-ACCESS
 
 - [ ] #175 example-pool.com form csere → Jotform + AC integráció

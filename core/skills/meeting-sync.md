@@ -85,7 +85,7 @@ Match meeting to a client using:
 
 | Signal | How to match |
 |---|---|
-| Participant email domain | `@example-ecom.com` → examplebrand, `@example-retail.com` → exampleretail |
+| Participant email domain | `@solarnook.com` → solarnook, `@example-retail.com` → exampleretail |
 | Participant name | "[Name]" → examplelocal, "[Developer]" → example-auto-examplehome, "[Builder Contact]" → ExampleBuild |
 | Meeting title | "ExampleBrand weekly" → examplebrand, "ExampleRetail GTM review" → exampleretail |
 | Calendar event | If linked to Google Calendar |
@@ -265,7 +265,7 @@ After sync, update `internal/MEETING_CATALOGUE.md`:
 
 | Date | Title | Client | Duration | Tasks | File |
 |---|---|---|---|---|---|
-| 2026-03-24 | ExampleBrand Weekly | examplebrand | 45 min | 3 | clients/example-ecom/meetings/... |
+| 2026-03-24 | SolarNook Weekly | solarnook | 45 min | 3 | clients/solarnook/meetings/... |
 | 2026-03-24 | [Team Member 2]-[Team Member 1] standup | internal | 15 min | 1 | internal/meetings/... |
 ```
 

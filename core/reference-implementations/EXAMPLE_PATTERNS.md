@@ -76,7 +76,7 @@ takeover/
 - `skills/` — 27 Arcanian skills imported
 
 ## Key ExampleBrand-Specific Rules (from CLAUDE.md)
-1. [Owner] = ExampleBrand employee (use example-ecom.com email, NEVER Arcanian)
+1. [Owner] = SolarNook employee (use solarnook.com email, NEVER Arcanian)
 2. Single source of truth: TASKS.md (syncs to Asana)
 3. No financial data in client-facing docs
 4. All data under NDA

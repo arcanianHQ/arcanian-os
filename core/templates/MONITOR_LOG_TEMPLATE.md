@@ -22,9 +22,9 @@ For runs that find anomalies, expand below the table:
 ### 2026-04-03 08:00 — /health-check (daily)
 
 **Anomalies:**
-- GA4 sessions (example-ecom.com): 8,200 — baseline avg 12,400, threshold 10,300 (normal sensitivity)
+- GA4 sessions (solarnook.com): 8,200 — baseline avg 12,400, threshold 10,300 (normal sensitivity)
   [Confidence: MEDIUM — checked sync lag: GA4 current, no delay]
-  → Task created: #142 "Investigate example-ecom.com session drop"
+  → Task created: #142 "Investigate solarnook.com session drop"
 
 - Google Ads ROAS (example-pool.com): 4.2 — baseline avg 6.8, threshold 5.6
   [Confidence: LOW — Shopify sync lag 48h, revenue may be incomplete]

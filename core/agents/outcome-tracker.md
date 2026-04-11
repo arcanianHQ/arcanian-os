@@ -76,7 +76,7 @@ Output per client:
 |---|---|---|---|---|---|---|
 | REC-034 | Google Ads ROAS | 6.2 | 8.1 | +30% | confirmed | HIGH |
 | REC-041 | Meta CPA | €18.40 | €17.90 | -3% | no effect | MEDIUM |
-| REC-045 | Sessions (example-ecom.com) | 11,200 | 9,800 | -12% | too early | LOW (sync lag) |
+| REC-045 | Sessions (solarnook.com) | 11,200 | 9,800 | -12% | too early | LOW (sync lag) |
 
 **Hit rate this period:** 1/3 (33%)
 **Cumulative hit rate:** 12/28 (43%)

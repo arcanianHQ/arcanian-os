@@ -37,7 +37,7 @@ Each data source's native currency is documented in `DOMAIN_CHANNEL_MAP.md` in t
 ```markdown
 | Source | Domain | Currency |
 |---|---|---|
-| Google Ads (HU) | example-ecom.com | HUF |
+| Google Ads (HU) | solarnook.com | HUF |
 | Google Ads (EU) | examplebrand.eu | EUR |
 | Shopify (ExampleD2C) | example-d2c.com | USD |
 | Meta (US) | example-d2c.com | USD |
@@ -55,7 +55,7 @@ Each data source's native currency is documented in `DOMAIN_CHANNEL_MAP.md` in t
 
 ## When NOT to Convert
 
-- **Single-domain analysis:** If analyzing only example-ecom.com, keep HUF. No conversion needed.
+- **Single-domain analysis:** If analyzing only solarnook.com, keep HUF. No conversion needed.
 - **Platform-internal ROAS:** Google Ads ROAS for a single-currency campaign is already internally consistent. Don't convert and reconvert.
 - **When the client thinks in local currency:** Present both. "Campaign ROAS: 8.2x (in HUF) / 7.9x (in EUR at today's rate)"
 
@@ -70,7 +70,7 @@ Each data source's native currency is documented in `DOMAIN_CHANNEL_MAP.md` in t
 
 ```markdown
 Total ad spend: €47,200 (reporting currency: EUR)
-- example-ecom.com: €12,400 (converted from 5,084,000 HUF at 1 EUR = 410 HUF, ECB 2026-04-01)
+- solarnook.com: €12,400 (converted from 5,084,000 HUF at 1 EUR = 410 HUF, ECB 2026-04-01)
 - examplebrand.eu: €18,300 (native EUR)
 - example-d2c.com: €16,500 (converted from $17,800 USD at 1 EUR = 1.08 USD, ECB 2026-04-01)
 ```

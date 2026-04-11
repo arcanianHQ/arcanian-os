@@ -48,8 +48,8 @@ Per-client SOPs in `clients/{slug}/processes/` are numbered and often more speci
 
 Example: "send newsletter for ExampleBrand" →
 1. Load `core/sops/marketing-ops/06-email-automation.md` (generic)
-2. Load `clients/example-ecom/processes/06-EMAIL-AUTOMATION.md` (client-specific)
-3. Load `clients/example-ecom/newsletter/EMAIL-BEST-PRACTICES.md` (CSS rules)
+2. Load `clients/solarnook/processes/06-EMAIL-AUTOMATION.md` (client-specific)
+3. Load `clients/solarnook/newsletter/EMAIL-BEST-PRACTICES.md` (CSS rules)
 4. Follow all three
 
 ### When NO SOP matches:
