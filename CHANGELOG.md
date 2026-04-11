@@ -1,8 +1,19 @@
-> v1.13.1 — 2026-04-11
+> v1.14.0 — 2026-04-11
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.14.0] — 2026-04-11
+
+### Auto-update system
+
+#### Added
+- **`/update` skill** — one-command system update. Pulls latest skills, agents, SOPs, guardrails from GitHub. Never touches client data, tasks, contacts, or `.mcp.json`.
+- **Session-start update check** — automatically checks for new versions on every session start. Shows banner if updates available. Never blocks.
+- **`core/tools/hooks/templates/session-start-update-check.sh`** — lightweight fetch + version compare hook
 
 ---
 

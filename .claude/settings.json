@@ -17,6 +17,13 @@
           { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/post-tool-use-data-normalizer.sh\"" }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/session-start-update-check.sh\"" }
+        ]
+      }
     ]
   }
 }
