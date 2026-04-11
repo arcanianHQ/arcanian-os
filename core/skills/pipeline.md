@@ -1,6 +1,14 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Write
+  - Edit
+  - Agent
+argument-hint: "type --client — Pipeline type and client (e.g., diagnostic --client wellis)"
 ---
 
 # Skill: Diagnostic Pipeline (`/pipeline`)

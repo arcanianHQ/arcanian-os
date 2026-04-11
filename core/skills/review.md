@@ -1,6 +1,11 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+argument-hint: "file_path — Path to the file to review"
 ---
 
 # Skill: Independent Review (`/review`)

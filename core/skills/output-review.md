@@ -89,6 +89,27 @@ Look for:
 4. **Rating gaps:** Which categories have no ratings? (→ prompt to backfill)
 5. **Enrichment effect:** Do deliverables created after Stage 2+ enrichment (per ENRICHMENT_WATERFALL.md) outperform those from Stage 0-1?
 
+### Step 5b: Dismissed Pattern Analysis (Learning Loop)
+
+Scan `clients/*/RECOMMENDATION_LOG.md` for dismissed RECs (status = `no effect` or `invalidated`):
+1. Extract all `detected_pattern` + `dismissed_reason` pairs
+2. Group by `detected_pattern` across all clients
+3. If the same pattern has been dismissed **3+ times** across different clients:
+   - Flag as **systematic false positive**
+   - Identify which agent/skill generates this pattern (from `Created By` column)
+   - Recommend prompt improvement for that agent/skill
+4. Include in output under `── FALSE POSITIVE PATTERNS ──`
+
+```
+── FALSE POSITIVE PATTERNS ────────────
+| Pattern | Dismissed Count | Clients | Agent/Skill | Action |
+|---|---|---|---|---|
+| "missing enhanced conversions" | 4 | wellis, diego, mancsbazis, deluxe | audit-checker | Improve: check if EC is applicable before flagging |
+| "ROAS below threshold" | 3 | wellis (3 domains) | channel-analyst | Improve: account for seasonal baselines |
+```
+
+**Why this matters:** A pattern dismissed 3+ times is a prompt defect, not a client issue. Fix the prompt, not the recommendation.
+
 ### Step 6: Generate Recommendations
 
 Based on patterns, generate 3 actionable changes:

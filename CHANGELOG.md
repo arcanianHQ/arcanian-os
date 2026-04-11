@@ -1,8 +1,26 @@
-> v1.12 — 2026-04-10
+> v1.12.1 — 2026-04-11
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.12.1] — 2026-04-11
+
+### Second Pass: tool scoping, per-finding confidence, blocker hooks
+
+#### Updated
+- **`skills/review.md`** — Added `allowed-tools` + `argument-hint` to frontmatter.
+- **`skills/7layer.md`, `7layer-hu.md`, `council.md`, `pipeline.md`, `analyze-gtm.md`, `health-check.md`, `client-report.md`, `repair-roadmap.md`** — Added `allowed-tools` + `argument-hint` to frontmatter for tool scoping.
+- **`skills/output-review.md`** — Added Step 5b dismissed pattern analysis.
+- **`templates/RECOMMENDATION_LOG_TEMPLATE.md`** — Added `detected_pattern` + `dismissed_reason` columns for systematic false positive tracking.
+- **`methodology/RECOMMENDATION_DEDUP_RULE.md`** — Added dismissal tracking section; feeds `/output-review` Step 5b pattern detection.
+
+#### Added
+- **`tools/hooks/templates/pre-tool-use-enrichment-gate.sh`** — Blocker hook: gates writes on enrichment completeness before deliverable save.
+- **`tools/hooks/templates/pre-tool-use-deliverable-tone-check.sh`** — Blocker hook: validates tone register against CONTACTS.md before writing deliverables.
+- **`tools/hooks/templates/post-tool-use-data-normalizer.sh`** — Post-write hook: normalizes currency and attribution window metadata in analysis files.
 
 ---
 

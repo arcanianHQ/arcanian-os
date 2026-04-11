@@ -1,6 +1,12 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Write
+  - Edit
 ---
 
 # Skill: Repair Roadmap (`/repair-roadmap`)

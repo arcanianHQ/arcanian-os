@@ -1,6 +1,11 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+argument-hint: "client — Client slug (e.g., wellis, diego)"
 ---
 
 # Skill: Analyze GTM Gaps (GTM Strategist Framework)

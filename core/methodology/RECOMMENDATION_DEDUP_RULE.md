@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 > v1.0 — 2026-04-03
 
 # System Rule: Recommendation Deduplication
@@ -42,6 +46,16 @@ Any skill or agent that outputs RECs:
 - Council deliberations
 - `channel-analyst-*.md` agents
 - `outcome-tracker.md` agent
+
+## Dismissal Tracking (MANDATORY for no_effect/invalidated)
+
+When marking a REC as `no effect` or `invalidated`:
+1. **`Detected Pattern` field is MANDATORY** — what triggered this REC (e.g., "missing consent mode", "ROAS below threshold")
+2. **`Dismissed Reason` field is MANDATORY** — why it didn't work (e.g., "already handled by agency", "false positive — seasonal effect")
+3. These fields feed `/output-review` Step 5b — systematic false positive detection
+4. If the same `detected_pattern` appears dismissed 3+ times across clients → the detecting agent/skill prompt needs improvement
+
+**Anti-pattern:** "no effect" with empty `dismissed_reason` = lost learning. Every dismissal is data.
 
 ## References
 - Per-client `RECOMMENDATION_LOG.md`

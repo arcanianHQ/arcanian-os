@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 > v1.0 — 2026-04-03
 > Per-client file location: `clients/{slug}/RECOMMENDATION_LOG.md`
 
@@ -11,9 +15,9 @@
 
 ## Log
 
-| REC ID | Date | Metric Targeted | Expected Impact | Created By | Executed By Task | Status | Outcome Date | Notes |
-|---|---|---|---|---|---|---|---|---|
-| REC-001 | YYYY-MM-DD | metric name | what we expected | skill/agent | #task-id | open | — | |
+| REC ID | Date | Metric Targeted | Expected Impact | Created By | Executed By Task | Status | Outcome Date | Detected Pattern | Dismissed Reason | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| REC-001 | YYYY-MM-DD | metric name | what we expected | skill/agent | #task-id | open | — | pattern that triggered this REC | — | |
 
 ## Status Values
 
@@ -34,6 +38,17 @@ The `outcome-tracker` agent (weekly):
 2. Compares against baseline (from `data/BASELINES.md`) and expected impact
 3. Updates status: `confirmed` / `no effect` / `too early` / `invalidated`
 4. Links outcome date and notes
+
+## Dismissal Tracking (Learning Loop)
+
+When a REC is marked `no effect` or `invalidated`, two fields are **MANDATORY**:
+
+| Field | Purpose | Example |
+|---|---|---|
+| **Detected Pattern** | What triggered this REC — the pattern or signal the agent/skill identified | "missing consent mode v2", "ROAS < 8x threshold", "no enhanced conversions" |
+| **Dismissed Reason** | Why it didn't work or was wrong | "already handled by agency", "false positive — tag fires on different trigger", "seasonal effect, not structural" |
+
+**Why this matters:** `/output-review` scans dismissed patterns across clients. If the same `detected_pattern` is dismissed 3+ times, it's a systematic false positive — the detecting prompt needs improvement, not another recommendation.
 
 ## References
 - `core/methodology/RECOMMENDATION_DEDUP_RULE.md`

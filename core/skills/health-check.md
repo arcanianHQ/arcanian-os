@@ -1,6 +1,10 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Skill: System Health Check (`/health-check`)

@@ -1,6 +1,13 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Write
+  - Edit
+argument-hint: "client — Client slug (e.g., wellis, diego)"
 ---
 
 # Skill: Client Report (`/client-report`)

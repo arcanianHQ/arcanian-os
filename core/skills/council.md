@@ -1,6 +1,11 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Agent
 ---
 
 # Skill: Council Runner (`/council`)

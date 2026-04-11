@@ -1,6 +1,12 @@
 ---
 scope: shared
 context: fork
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Agent
+argument-hint: "client — Kliens slug (pl. wellis, diego)"
 ---
 
 # Skill: 7 Rétegű Marketing Diagnózis (`/7layer`)
