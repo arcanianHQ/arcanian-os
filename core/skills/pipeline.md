@@ -124,6 +124,23 @@ For each stage in the pipeline:
    - If yes: parse YAML, pass structured data to current stage
    - If no: pass full prose output as context (backward compatible)
 
+   **Stage-Result Validation:**
+   After each stage produces its `stage-result` block, verify required fields:
+
+   | Stage | Required Fields |
+   |---|---|
+   | /7layer | `broken_layers`, `primary_constraint`, `findings` |
+   | /council | `perspectives`, `grabo_signals`, `ach_table` |
+   | /identify-constraints | `constraint_map`, `ceiling`, `ach` |
+   | /repair-roadmap | `repair_cards`, `timeline`, `milestones` |
+
+   If required fields are missing:
+   1. Log: "Stage {N} output incomplete. Missing: {fields}"
+   2. Ask user: "Stage output is incomplete. Re-run stage, skip, or proceed with partial data? [rerun/skip/proceed]"
+   3. If rerun → execute the same stage again with the prior stage's context
+   4. If skip → mark stage as `incomplete` in final document
+   5. If proceed → continue but flag missing data in the BLUF
+
 2. **Run the skill/council for this stage**
    - Skill reads prior stage-result block for structured input
    - Skill produces its own output + stage-result block

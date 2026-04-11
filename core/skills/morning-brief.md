@@ -70,6 +70,15 @@ For each active lead in `internal/leads/*/LEAD_STATUS.md` (not Won/Lost):
 [Acme Corp] Score: 4.1 → Cold ↓ — Stage: Dormant — Last signal: 68 days ago
 ```
 
+### Step 5c: Signal Detection
+1. Check if AuthoredUp API is connected in this session
+2. Follow the priority chain in `core/methodology/SIGNAL_DETECTION_RULE.md`:
+   - AuthoredUp available → pull saved posts, check for tracked profile activity
+   - AuthoredUp unavailable → WebFetch LinkedIn profiles of P0 contacts
+   - WebFetch fails → ask user about tracked profile posts
+3. For any detected signals: run signal routing per `core/sops/decision-trees/signal-routing.md`
+4. If signals match a lead → update Signal Log + recalculate score (Step 5b)
+
 ### Step 6: Format brief
 
 ## Output Format
@@ -84,26 +93,26 @@ Stale @waiting: {count} ({N} contacts)
 Quick wins: {count} available
 
 ── P0 TASKS ──────────────────
-[ExampleRetail] #53 Fix GA4 consent mode — Due: today — Owner: [Owner Name]
-[Arcanian] #1 Ship ExampleRetail Prism — Due: 03-25 — Owner: [Owner Name]
+[Diego] #53 Fix GA4 consent mode — Due: today — Owner: László
+[Arcanian] #1 Ship ExampleRetail Prism — Due: 03-25 — Owner: László
 
 ── OVERDUE ────────────────────
-[ExampleRetail] #41 Feed audit (3 days) — Owner: [Team Member 1]
-[ExampleLocal] #12 Meta pixel fix (1 day) — Owner: [Owner Name]
-[ExampleBrand] #28 Email flow review (5 days) — Owner: [Team Member 2]
+[Diego] #41 Feed audit (3 days) — Owner: Éva
+[Mancsbázis] #12 Meta pixel fix (1 day) — Owner: László
+[Wellis] #28 Email flow review (5 days) — Owner: Dóra
 
 ── STALE @WAITING ─────────────
-[Contact A] (2 tasks):
-  [ExampleRetail] #8 GTM access — 12 days
-  [ExampleRetail] #19 Feed URL — 9 days
-[Contact B] (1 task):
-  [ExampleLocal] #5 Server access — 14 days
+Bacsa Gábor (2 tasks):
+  [Diego] #8 GTM access — 12 days
+  [Diego] #19 Feed URL — 9 days
+ITG Jenő (1 task):
+  [Mancsbázis] #5 Server access — 14 days
 
 ── QUICK WINS ─────────────────
-[ExampleBuild] #7 Update .gitignore (15m, lever)
-[ExampleRetail] #44 Tag audit export (30m, unlock)
+[Deluxe] #7 Update .gitignore (15m, lever)
+[Diego] #44 Tag audit export (30m, unlock)
 [Arcanian] #22 LinkedIn post draft (45m, lever)
-[ExampleBrand] #31 CRM field cleanup (1h, lever)
+[Wellis] #31 CRM field cleanup (1h, lever)
 
 ═══════════════════════════════
 ```
@@ -119,8 +128,8 @@ For each client with `data/BASELINES.md`:
 
 ```
 ── METRIC ALERTS ──────────────
-[ExampleBrand] Google Ads ROAS (example-domain.com): 4.2 — baseline 6.8, threshold 5.6 [Confidence: MEDIUM]
-[ExampleRetail] GA4 sessions: awaiting sync (Shopify lag ~48h) — not flagging yet
+[Wellis] Google Ads ROAS (wellis.hu): 4.2 — baseline 6.8, threshold 5.6 [Confidence: MEDIUM]
+[Diego] GA4 sessions: awaiting sync (Shopify lag ~48h) — not flagging yet
 ```
 
 ## Notes
@@ -128,5 +137,5 @@ For each client with `data/BASELINES.md`:
 - This skill is **read-only**. It never modifies files.
 - Keep output scannable — the goal is a 60-second morning orientation.
 - If a project has no TASKS.md or it's empty, skip it silently.
-- Hub path: `_arcanian-ops/` — adjust if hub location changes.
+- Hub path: `/Users/endre/Sites/_arcanian-ops/` — adjust if hub location changes.
 - For deeper project context, follow up with `/preflight` in the specific project directory.

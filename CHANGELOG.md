@@ -1,8 +1,26 @@
-> v1.14.0 — 2026-04-11
+> v1.15.0 — 2026-04-10
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.15.0] — 2026-04-10
+
+### Close aspirational gaps: auto day-start/end, knowledge enforcement, stage validation, auto-sync
+
+#### Added
+- **`session-start-day-start.sh`** (`core/tools/hooks/templates/`) — auto-triggers `/day-start` on first session of the day. Uses `.claude/last-session-date.local` to prevent duplicate runs.
+- **`stop-hook.sh`** (`core/tools/hooks/templates/`) — unified Stop hook: handles Ralph loop continuation OR auto-triggers `/day-end` after 17:00 (once per day). Replaces two separate stop hooks.
+- **`post-tool-use-knowledge-extraction-reminder.sh`** (`core/tools/hooks/templates/`) — reminds to run Phase 5 knowledge extraction after writing audit deliverables to `clients/*/audit/`. Checks KNOWN_PATTERNS.md freshness (7-day threshold).
+
+#### Updated
+- **`/council` skill** — Agent Output Validation: after each agent completes, coordinator verifies required sections (PRIMARY FINDING, OBSERVATIONS, confidence suffix, OVERALL CONFIDENCE). Re-invokes once if malformed. Passes `[AGENT FAILED]` rather than hallucinated output. Appends machine-readable `stage-result` block.
+- **`/pipeline` skill** — Stage-Result Validation: after each stage, verifies required fields per stage type. User chooses rerun/skip/proceed on incomplete output. Missing data flagged in BLUF.
+- **`/task-sync` skill** — Single Task Auto-Push: 1-4 tasks auto-push to Todoist immediately after creation (no confirmation prompt). 5+ tasks use existing plan-and-confirm flow. Determines correct projectId from TODOIST_ROUTING_MAP.md.
+- **`/morning-brief` skill** — Step 5c Signal Detection: priority chain (AuthoredUp API → WebFetch LinkedIn → ask user → skip with note). Detected signals route to signal-routing SOP and update lead score in LEAD_STATUS.md.
+- **`/save-deliverable` skill** — Step 7 streamlined: auto-extract tasks, auto-sync to Todoist, rename draft→sent, update ontology backlinks, one summary line. Quality rating prompt added post-finalization.
 
 ---
 

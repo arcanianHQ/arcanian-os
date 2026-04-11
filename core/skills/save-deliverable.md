@@ -192,9 +192,9 @@ At the bottom of every deliverable:
 ```
 
 **input_context examples:**
-- `signal: P0 [Contact Name] LinkedIn post on measurement`
-- `brief: [Lead Name] Prism pitch, enrichment stage Diagnosed`
-- `meeting: 2026-04-08 weekly sync`
+- `signal: P0 Pete Caputa LinkedIn post on measurement`
+- `brief: Euronics Prism pitch, enrichment stage Diagnosed`
+- `meeting: 2026-04-08 Wellis weekly sync`
 - `task: #53 Fix GA4 consent mode`
 - `freeform: user request "write email about..."`
 
@@ -224,21 +224,19 @@ Is this a draft or final version?
 - Final / Send → I'll extract tasks, rename to -sent.md, update ontology
 ```
 
-### Step 7: If Finalized — Extract Tasks (SOP 11)
+### Step 7: If Finalized — Auto-Extract + Auto-Sync Tasks
 
 When user confirms "this is final" / "ok send it" / "accepted":
-1. Scan deliverable for action items (commitments, promises, deadlines)
-2. Show extracted tasks for confirmation
-3. Add to client TASKS.md with full ontology (Layer, Meeting, Email, Lead edges)
-   - Auto-populate `From:` on each extracted task:
-     - If from a BLUF+OODA ACT table: `From: /council {type} {date}` or `From: {skill} {date}`
-     - If from a meeting deliverable: `From: meeting {date}`
-     - Otherwise: `From: {deliverable type} {date}` (e.g., "From: memo 2026-03-26")
-   - Auto-populate `Inform:` = the deliverable's `For:` header recipient(s)
+1. Scan deliverable for action items (commitments, promises, deadlines, verbs: "will", "should", "needs to", "by [date]")
+2. Auto-add ALL extracted tasks to client TASKS.md with full ontology (Layer, Meeting, Email, Lead edges)
+   - Auto-populate `From:` from deliverable type + date
+   - Auto-populate `Inform:` from deliverable's `For:` header
+3. Auto-sync each task to Todoist (single-task auto-push per task-sync.md)
 4. Add `## Tasks Extracted` section to the deliverable
 5. Rename: `{name}-draft.md` → `{name}-sent.md`
-6. Update ontology backlinks (meeting files, lead status, findings)
-7. Bump version: `v1.0 → v1.1 — finalized, tasks extracted`
+6. Update ontology backlinks
+7. Bump version: `v1.0 → v1.1 — finalized, {N} tasks extracted and synced`
+8. Show ONE summary: "{N} tasks extracted and synced to Todoist. Review in TASKS.md if needed."
 
 See: `core/sops/arcanian/11-memo-to-tasks.md` for full process.
 
@@ -273,12 +271,12 @@ Before saving, check if the project has a `PROJECT_GLOSSARY.md`. If it does, ver
 
 ## Examples
 
-**User:** "write an email to [Contact Name] about the [product feature] spec"
+**User:** "write an email to Ricsi about the tápválasztó spec"
 ```
-→ Saves to: clients/example-client/takeover/correspondence/contact-productfeature-spec-draft.md
+→ Saves to: clients/mancsbazis/takeover/correspondence/ricsi-tapvalaszto-spec-draft.md
 → Opens in Typora
-→ Ontology: Client: example-client, Layer: L3, Task: (if linked)
-→ Glossary check: uses correct term per PROJECT_GLOSSARY.md
+→ Ontology: Client: mancsbazis, Layer: L3, Task: (if linked)
+→ Glossary check: uses "tápválasztó" ✓ (not "Product Recommender")
 ```
 
 **User:** "draft a LinkedIn post about the 7-layer framework"
@@ -289,10 +287,10 @@ Before saving, check if the project has a `PROJECT_GLOSSARY.md`. If it does, ver
 → Checks: Bridge Rule (must land on marketing diagnosis)
 ```
 
-**User:** "write a memo about the ExampleRetail follow-up plan"
+**User:** "write a memo about the Euronics follow-up plan"
 ```
-→ Saves to: internal/leads/example-client/sent/{date}_followup-plan.md
+→ Saves to: internal/leads/euronics/sent/{date}_followup-plan.md
 → Opens in Typora
-→ Ontology: Lead: example-client, Layer: L6
+→ Ontology: Lead: euronics, Layer: L6
 → Updates LEAD_STATUS.md timeline
 ```

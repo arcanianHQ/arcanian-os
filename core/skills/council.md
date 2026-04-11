@@ -134,6 +134,21 @@ For each agent_id in council.agents:
 
 Collect all responses. If an agent fails or times out, note it and continue with remaining responses.
 
+### Agent Output Validation (MANDATORY)
+
+After each agent completes, the coordinator MUST verify:
+1. Output contains `PRIMARY FINDING:` section
+2. Output contains `OBSERVATIONS:` section with numbered findings
+3. Each observation has `— Confidence: X% [TAG]` suffix
+4. Output ends with `OVERALL CONFIDENCE: X% | MOST UNCERTAIN: ... | WOULD CHANGE IF: ...`
+
+**If any agent returns empty or malformed output:**
+1. Log: "Agent {name} output validation FAILED — missing: {sections}"
+2. Re-invoke the agent ONCE with feedback: "Your output was incomplete. Missing sections: {list}. Please provide all required sections."
+3. If second attempt also fails → note "[AGENT FAILED]" and proceed with remaining agents
+
+**Do not pass malformed agent output to the Grabo or synthesis steps.** A missing agent is better than a hallucinated one.
+
 ### Step 4: Stage — PEER REVIEW (optional, if enabled)
 
 Only runs if `peer_review` stage is enabled (via YAML or `--peer-review` flag).
