@@ -1,4 +1,4 @@
-> v2.0 — 2026-04-09 — Updated to reflect current system state (43 skills, 14 agents, 20 SOPs, 35 methodology rules)
+> v2.1 — 2026-04-11 — Updated counts (46 skills, 13 agents, 25 SOPs, 40 methodology rules)
 
 # Arcanian OS — System Instructions
 
