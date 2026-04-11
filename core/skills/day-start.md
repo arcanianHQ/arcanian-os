@@ -14,6 +14,10 @@ Morning routine: pull from [Task Manager], update local, show what needs attenti
 - Session-start hook (auto-run when first session of the day opens)
 - Scheduled: 8:00 AM on Mac mini
 
+## Prerequisites
+
+0. **HARD BLOCK — Databox MCP must be connected** for the anomaly detection steps. If not → WARN the user before proceeding. Task sync can proceed without Databox, but anomaly/metric sections must be SKIPPED. See `core/methodology/DATABOX_MANDATORY_RULE.md`.
+
 ## Process
 
 ### 1. Sync ALL projects with [Task Manager] (bidirectional pull)

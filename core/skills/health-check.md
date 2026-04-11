@@ -17,6 +17,10 @@ allowed-tools:
 
 Verifies system-wide health — project integrity, MCP connections, symlinks, git status, and core methodology files. Catches drift before it causes problems.
 
+## Prerequisites
+
+0. **Databox MCP check:** If connected → include metric health in report. If not → flag as "Databox not connected — metric health SKIPPED" in output. See `core/methodology/DATABOX_MANDATORY_RULE.md`.
+
 ## Trigger
 
 Use when: user says `/health-check`, "check system health", "is everything working", or as a periodic maintenance check.

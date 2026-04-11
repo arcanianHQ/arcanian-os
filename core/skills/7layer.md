@@ -47,6 +47,10 @@ Diagnoses a business's marketing using the Arcanian Marketing Control Framework 
 - **SFM × 7-Layer Integration** — Success Factor Modeling overlay
 - 22 years of marketing pattern recognition, systematized
 
+## Prerequisites
+
+0. **HARD BLOCK — Databox MCP must be connected.** Verify before proceeding. If not → STOP. "Databox MCP is not connected. /7layer cannot run without live data." See `core/methodology/DATABOX_MANDATORY_RULE.md`.
+
 ## Trigger
 Use this skill when:
 - Client says "marketing isn't working" but can't say why
