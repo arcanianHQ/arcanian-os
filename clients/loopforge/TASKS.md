@@ -53,3 +53,14 @@ updated: 2026-04-03T00:00
   - Created: 2026-04-03
   - Layer: L5
   - SOP: marketing-ops/01-agency-coordination
+
+- [ ] #5 Pipeline decay — 15 qualified leads in HubSpot with no follow-up >14 days
+  - @waiting
+  - P1 | Owner: You | Due: 2026-04-08 | Effort: 2h | Impact: unlock
+  - Waiting on: Sales team — need owner assignment for 15 stale leads
+  - Waiting since: 2026-03-25
+  - Follow-up: 2026-04-08 — escalate if no action, leads are decaying
+  - Created: 2026-03-25
+  - Layer: L6
+  - FND: 15 MQLs entered pipeline Mar 1-25, zero follow-up activity in HubSpot. Average deal cycle is 21 days — these leads are past the engagement window.
+  - SOP: marketing-ops/02-lead-lifecycle
