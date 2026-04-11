@@ -188,6 +188,14 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 - Rule: when spawning ad-hoc agents, ALWAYS set `model:` explicitly
 - Rule: `core/methodology/MODEL_ROUTING.md`
 
+## Databox is Mandatory for Data Analysis (HARD BLOCK)
+**Without a live Databox MCP connection, NEVER analyze data. This is a show-stopper.**
+- If Databox MCP is not connected → STOP. Tell the user: "Databox MCP is not connected. I cannot analyze data without it. Please connect Databox before proceeding."
+- Do NOT fall back to local files, cached data, or guessing from file contents
+- Do NOT say "Databox isn't available, let me check local files" — that silently degrades analysis quality
+- Every metric claim MUST come from a live Databox query, not from memory or local markdown files
+- Rule: `core/methodology/DATABOX_MANDATORY_RULE.md`
+
 ## MCP Rate Limits
 **Never send bulk MCP operations without batching.**
 - Task manager: max 10/call + 3s delay. Databox: 5 metrics/batch + 2s. On 429: wait, halve batch, retry.
