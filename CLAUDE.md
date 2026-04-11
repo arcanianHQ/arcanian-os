@@ -25,7 +25,7 @@ arcanian-os/
 ├── clients/                 ← Per-client working directories
 │   └── {slug}/              ← Each client is its own workspace
 ├── docs/                    ← Getting started, Databox setup
-└── .mcp.json                ← MCP connections (Databox, Todoist, etc.)
+└── .mcp.json                ← MCP connections (Databox, task manager, etc.)
 ```
 
 ## Session Model
@@ -190,7 +190,7 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 
 ## MCP Rate Limits
 **Never send bulk MCP operations without batching.**
-- Todoist: max 10/call + 3s delay. Databox: 5 metrics/batch + 2s. On 429: wait, halve batch, retry.
+- Task manager: max 10/call + 3s delay. Databox: 5 metrics/batch + 2s. On 429: wait, halve batch, retry.
 - Rule: `core/methodology/MCP_RATE_LIMITS.md`
 
 ## Auto-Save Deliverables (ALWAYS-ON)

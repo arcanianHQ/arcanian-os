@@ -56,9 +56,10 @@ For each project:
 
 ### 5. Check meetings
 
-Pull today's meetings from Fireflies (if any recorded since yesterday):
+Pull today's meetings from meeting transcript tool (if configured and any recorded since yesterday):
 ```
-fireflies.get_transcripts(fromDate: yesterday, limit: 5)
+# Example: fireflies.get_transcripts(fromDate: yesterday, limit: 5)
+# Adapt to your meeting tool (Fireflies, Otter, Read.ai, etc.)
 ```
 - New meetings → route to client meetings/ (or flag for classification)
 - Extract action items → show for confirmation
