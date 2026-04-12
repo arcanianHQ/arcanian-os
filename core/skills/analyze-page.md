@@ -8,11 +8,17 @@ allowed-tools:
   - Bash
   - Write
   - Edit
+  - Agent
   - mcp__chrome-devtools__navigate_page
   - mcp__chrome-devtools__evaluate_script
   - mcp__chrome-devtools__take_snapshot
   - mcp__chrome-devtools__wait_for
   - mcp__chrome-devtools__take_screenshot
+  - mcp__firecrawl__firecrawl_scrape
+  - mcp__firecrawl__firecrawl_batch
+  - mcp__firecrawl__firecrawl_batch_status
+  - mcp__firecrawl__firecrawl_extract
+  - mcp__firecrawl__firecrawl_map
 ---
 
 > v2.0 — 2026-04-12
@@ -67,18 +73,40 @@ Scoring rubrics: `core/methodology/PAGE_ANALYSIS_SCORING.md`
 
 ## Process
 
-### Step 1: Navigate & Load Page
+### Step 1: Extract Page Data (with fallback)
 
+Uses the `page-crawler` agent's fallback chain:
+
+**Try Chrome DevTools first:**
 ```
 navigate_page(type: "url", url: "<URL>")
 wait_for(event: "networkIdle", timeout: 15000)
+evaluate_script(extraction function from page-crawler agent)
 ```
 
-If navigation fails → report error, suggest checking URL validity.
+**Check for bot-block signals:**
+- Title is "Just a moment..." or contains "verify"
+- Word count < 50
+- No schema or meta tags extracted
 
-### Step 2: Extract Page Data
+**If bot-blocked → use Firecrawl MCP:**
+```
+firecrawl_scrape(url: "<URL>", formats: ["html", "markdown"])
+```
+Parse the returned HTML for schema, meta, headings, images, links. Use markdown for word count.
 
-Run all 6 extraction scripts from the agents via `evaluate_script`. Each agent definition contains its extraction script. Run them in parallel — they're independent.
+**For bulk analysis (multiple pages):**
+```
+firecrawl_map(url: "https://example.com")  → discover all URLs
+firecrawl_batch(urls: [...], formats: ["html", "markdown"])  → scrape all at once
+firecrawl_batch_status(id: "...")  → poll until complete
+```
+
+**If neither available → curl (last resort).**
+
+### Step 2: Parse Extracted Data
+
+Whether from Chrome DevTools or Firecrawl, parse into the unified extraction structure that all page-*-checker agents consume. See `page-crawler` agent for the extraction function and parsing logic.
 
 #### 2a. Schema / JSON-LD
 

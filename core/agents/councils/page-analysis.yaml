@@ -1,9 +1,10 @@
 id: page-analysis
 name: "Page Analysis Council"
-description: "Multi-dimension page content and technical analysis. Navigates to a URL, extracts page data via Chrome DevTools, spawns 6 specialist agents in parallel, and synthesizes scores into a unified report."
+description: "Multi-dimension page content and technical analysis. Extracts page data via Chrome DevTools (primary) or Firecrawl MCP (fallback for bot-protected sites), spawns 6 specialist agents in parallel, and synthesizes scores."
 
 agents:
   council:
+    - page-crawler
     - page-schema-checker
     - page-meta-checker
     - page-heading-checker
@@ -17,7 +18,8 @@ pipeline:
   stages:
     - id: extract
       enabled: true
-      description: "Navigate to URL via Chrome DevTools MCP, wait for page load, run all 6 extraction scripts"
+      description: "page-crawler extracts page data: Chrome DevTools → Firecrawl MCP → curl (fallback chain)"
+      agent: page-crawler
     - id: collect
       enabled: true
       parallel: true
