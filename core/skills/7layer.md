@@ -47,9 +47,22 @@ Diagnoses a business's marketing using the Arcanian Marketing Control Framework 
 - **SFM × 7-Layer Integration** — Success Factor Modeling overlay
 - 22 years of marketing pattern recognition, systematized
 
-## Prerequisites
+## Architecture
 
-0. **HARD BLOCK — Databox MCP must be connected.** Verify before proceeding. If not → STOP. "Databox MCP is not connected. /7layer cannot run without live data." See `core/methodology/DATABOX_MANDATORY_RULE.md`.
+> v2.0 — 2026-04-12 — Refactored to agent-council architecture.
+
+This skill uses the **7layer council** (`core/agents/councils/7layer.yaml`):
+
+| Agent | Layers | Weight | Focus |
+|---|---|---|---|
+| `layer-foundation` | L0 + L1 | 30% | Beliefs, identity, capability, process |
+| `layer-value` | L2 + L3 | 25% | Brand identity, positioning, product, PMF |
+| `layer-delivery` | L4 + L5 | 25% | Offer, pricing, channels, measurement |
+| `layer-market` | L6 + L7 | 20% | Customer journey, market forces, competition |
+| `layer-synthesizer` | All | — | PRIMARY CONSTRAINT + cascade map (chairman) |
+
+Pipeline: 4 agents parallel → synthesis (constraint identification)
+Scoring: `core/methodology/SEVEN_LAYER_SCORING.md`
 
 ## Trigger
 Use this skill when:

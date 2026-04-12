@@ -1,0 +1,79 @@
+id: 7layer
+name: "7-Layer Diagnostic Council"
+description: "Full L0-L7 marketing diagnosis. 4 layer agents analyze in parallel, synthesizer identifies the PRIMARY CONSTRAINT and maps the cascade pattern."
+
+agents:
+  council:
+    - layer-foundation
+    - layer-value
+    - layer-delivery
+    - layer-market
+    - layer-synthesizer
+  chairman: layer-synthesizer
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+      description: "All 4 layer agents run in parallel — each diagnoses its layer pair"
+      agents:
+        - layer-foundation
+        - layer-value
+        - layer-delivery
+        - layer-market
+
+    - id: synthesis
+      enabled: true
+      description: "Synthesizer identifies PRIMARY CONSTRAINT, maps cascade, validates Direction Rule"
+      agent: layer-synthesizer
+
+scoring:
+  method: "Layer health table + PRIMARY CONSTRAINT identification"
+  weights:
+    layer-foundation: 0.30
+    layer-value: 0.25
+    layer-delivery: 0.25
+    layer-market: 0.20
+  constraint_rule: "Deepest layer with score <60 = PRIMARY CONSTRAINT"
+  direction_rule: "Fix inside first — L0 before L5"
+  notes:
+    - "This council finds the CONSTRAINT, not an overall health score"
+    - "Layer scores are diagnostic, not grades"
+    - "Low score at L0-L1 usually means L4-L7 problems are symptoms"
+
+context:
+  categories:
+    - brand
+    - audience
+    - offerings
+    - competition
+    - market
+    - culture
+
+data:
+  categories:
+    - databox
+    - filesystem
+
+prerequisites:
+  - "Client intelligence profile (brand/ directory) — at least partial"
+  - "Databox MCP for L5 channel data"
+  - "DOMAIN_CHANNEL_MAP.md if multi-domain"
+
+use_when:
+  - "/7layer"
+  - "Marketing isn't working"
+  - "Full marketing diagnosis"
+  - "Find the primary constraint"
+  - "Marketing Röntgen"
+
+output:
+  format: "clients/{slug}/docs/7LAYER_DIAGNOSTIC_{date}.md"
+  includes:
+    - Layer health table (8 layers scored 0-100)
+    - PRIMARY CONSTRAINT identification
+    - CASCADE MAP (how constraint affects higher layers)
+    - THE EXPENSIVE MISTAKE (what they're wasting money on)
+    - WHAT TO DO FIRST (one action at the constraint layer)
+    - "What did we get wrong? What's missing?"
