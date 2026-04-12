@@ -1,0 +1,76 @@
+id: page-analysis
+name: "Page Analysis Council"
+description: "Multi-dimension page content and technical analysis. Navigates to a URL, extracts page data via Chrome DevTools, spawns 6 specialist agents in parallel, and synthesizes scores into a unified report."
+
+agents:
+  council:
+    - page-schema-checker
+    - page-meta-checker
+    - page-heading-checker
+    - page-content-checker
+    - page-readability-checker
+    - page-html-checker
+  chairman: page-content-checker
+  available: []
+
+pipeline:
+  stages:
+    - id: extract
+      enabled: true
+      description: "Navigate to URL via Chrome DevTools MCP, wait for page load, run all 6 extraction scripts"
+    - id: collect
+      enabled: true
+      parallel: true
+      description: "All 6 agents score their dimension in parallel using extracted data"
+    - id: synthesis
+      enabled: true
+      agent: page-content-checker
+      description: "Chairman aggregates scores using weighted formula, generates BLUF and unified recommendations"
+
+scoring:
+  weights:
+    technical: 0.40
+    content: 0.35
+    semantic: 0.25
+  category_agents:
+    technical:
+      - page-schema-checker
+      - page-meta-checker
+      - page-html-checker
+    content:
+      - page-content-checker
+      - page-readability-checker
+    semantic:
+      - page-heading-checker
+  aggregation: "overall = avg(technical) * 0.40 + avg(content) * 0.35 + avg(semantic) * 0.25"
+  readability_na_redistribution: "If readability is N/A (non-English), redistribute 10% weight proportionally across other dimensions"
+
+context:
+  categories:
+    - technical
+
+data:
+  categories:
+    - chrome-devtools
+
+prerequisites:
+  - "Chrome DevTools MCP must be connected"
+  - "Page must be navigable (public URL, no auth wall)"
+
+use_when:
+  - "/analyze-page URL"
+  - "SEO page audit"
+  - "Content quality check on specific URL"
+  - "Schema validation"
+  - "Pre-launch page review"
+  - "Competitor page analysis"
+
+output:
+  format: "clients/{slug}/docs/PAGE_ANALYSIS_{url-slug}_{date}.md"
+  includes:
+    - BLUF (1-2 sentence summary)
+    - Score table (6 dimensions + overall)
+    - Per-dimension detailed analysis
+    - Prioritized recommendations (P0/P1/P2/P3)
+    - Evidence tags on all findings
+    - Ontology block

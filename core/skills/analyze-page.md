@@ -15,8 +15,9 @@ allowed-tools:
   - mcp__chrome-devtools__take_screenshot
 ---
 
-> v1.0 — 2026-04-12
-> Derived from AI Content Analyzer (ArcanianAi/ai-content-analyzer) extraction + scoring patterns
+> v2.0 — 2026-04-12
+> Plugin architecture: 6 agents + page-analysis council. Derived from AI Content Analyzer patterns.
+> v1.0 was monolithic — v2.0 uses composable agents via council runner.
 
 # Skill: Analyze Page (`/analyze-page`)
 
@@ -49,6 +50,21 @@ Use when:
 1. **Chrome DevTools MCP must be connected.** If not → STOP. Tell the user.
 2. If `--client` specified, load `CLIENT_CONFIG.md` and `DOMAIN_CHANNEL_MAP.md` for context.
 
+## Architecture
+
+This skill uses the **page-analysis council** (`core/agents/councils/page-analysis.yaml`) which orchestrates 6 specialized agents:
+
+| Agent | Category | Weight | What it checks |
+|---|---|---|---|
+| `page-schema-checker` | technical | 15% | JSON-LD, structured data completeness |
+| `page-meta-checker` | technical | 25% | Title, description, OG, Twitter Cards |
+| `page-heading-checker` | semantic | 15% | H1-H6 hierarchy, nesting |
+| `page-content-checker` | content | 20% | Word count, paragraph structure (also chairman) |
+| `page-readability-checker` | content | 10% | Flesch-Kincaid, sentence length |
+| `page-html-checker` | technical | 15% | Semantic HTML, images, links |
+
+Scoring rubrics: `core/methodology/PAGE_ANALYSIS_SCORING.md`
+
 ## Process
 
 ### Step 1: Navigate & Load Page
@@ -62,7 +78,7 @@ If navigation fails → report error, suggest checking URL validity.
 
 ### Step 2: Extract Page Data
 
-Run all extractions via `evaluate_script`. Each extraction is a single JavaScript expression.
+Run all 6 extraction scripts from the agents via `evaluate_script`. Each agent definition contains its extraction script. Run them in parallel — they're independent.
 
 #### 2a. Schema / JSON-LD
 
@@ -199,81 +215,46 @@ evaluate_script: `
 `
 ```
 
-### Step 3: Score Each Dimension
+### Step 3: Run Page Analysis Council
 
-#### Schema Score (0-100)
-Based on AI Content Analyzer `schema-plugin-v2.ts` scoring:
-- **No schemas found:** 20/100
-- **Base:** 50 + (schema_count × 5, max 25)
-- **Type diversity bonus:** 3+ types = +10, 2+ types = +5
-- **Required types for page context:**
-  - Product page → needs `Product` schema
-  - Article/blog → needs `Article` or `BlogPosting`
-  - FAQ page → needs `FAQPage`
-  - Homepage → needs `Organization` or `WebSite`
-  - Any page → `BreadcrumbList` is a bonus
-- **Deductions:** Invalid JSON-LD = -15, missing `@context` = -10
+Spawn all 6 agents in parallel (single message, multiple Agent tool calls). Each agent:
+1. Receives the extracted data relevant to its dimension
+2. Scores using rubrics from `core/methodology/PAGE_ANALYSIS_SCORING.md`
+3. Returns: score (0-100), issues found, recommendations
 
-#### Meta Tags Score (0-100)
-Based on AI Content Analyzer `meta-tags-plugin-v2.ts` scoring:
-- **Title (0-25):** exists = +15, length 50-60 chars = +10
-- **Description (0-20):** exists = +10, length 150-160 chars = +10
-- **OpenGraph (0-20):** og:title + og:description + og:image = full score
-- **Twitter Card (0-15):** twitter:card + twitter:title = full score
-- **Canonical (0-5):** exists = +5
-- **Language (0-3):** exists + valid = +3
-- **Robots (0-2):** exists = +2
-- **Viewport (0-5):** exists = +5
-- **Charset (0-5):** exists = +5
+```
+Agent(page-schema-checker, data: schema extraction)
+Agent(page-meta-checker, data: meta extraction)
+Agent(page-heading-checker, data: heading extraction)
+Agent(page-content-checker, data: content extraction)  ← also chairman
+Agent(page-readability-checker, data: content extraction)
+Agent(page-html-checker, data: images + links + semantic extraction)
+```
 
-#### Heading Hierarchy Score (0-100)
-- **Single H1:** exactly 1 = +30, 0 = 0, >1 = +10 (penalty)
-- **H1 content quality:** >3 words = +10, contains likely keyword = +5
-- **Logical nesting:** no skipped levels (H1→H3 without H2) = +20, each skip = -10
-- **Heading count:** 3-15 = +15, too few (<3) = +5, too many (>20) = +5
-- **Heading depth:** uses H2+H3 = +10, only H1+H2 = +5
-- **No empty headings:** all have text = +10
+All 6 run in parallel. When done, the chairman (page-content-checker) synthesizes.
 
-#### Content Quality Score (0-100)
-- **Word count:**
-  - Product page: 300-1000 = optimal (+30)
-  - Blog/article: 800-2500 = optimal (+30)
-  - Landing page: 500-1500 = optimal (+30)
-  - Too thin (<200): +5
-  - Too long (>5000): +20
-- **Paragraph structure:** >5 paragraphs = +15, >10 = +20
-- **Content-to-code ratio:** estimated from word count vs page weight
+### Step 4: Synthesize (Chairman)
 
-#### Readability Score (0-100)
-Based on Flesch-Kincaid:
-- **FK 60-80 (easy to read):** 90-100
-- **FK 50-60 (fairly easy):** 70-90
-- **FK 30-50 (difficult):** 50-70
-- **FK <30 (very difficult):** 30-50
-- **Sentence length adjustment:** avg <20 words = +5, >25 words = -10
-- **Reading time:** shown but not scored
-
-#### Technical HTML Score (0-100)
-- **Semantic elements:** uses `<main>`, `<nav>`, `<article>`, `<section>`, `<header>`, `<footer>` = +5 each (max 30)
-- **Image alt coverage:** 100% = +20, >80% = +15, >50% = +10
-- **Lazy loading:** images use `loading="lazy"` = +10
-- **Link health:** no empty hrefs = +10, reasonable internal/external ratio = +10
-- **Viewport meta:** exists = +10
-- **Charset:** defined = +10
-
-### Step 4: Generate Findings
-
-For each dimension scoring below 70, generate a finding with:
-- Evidence tag: `[OBSERVED: Chrome DevTools, {date}]`
-- Specific issue description
-- Recommended fix
-- Priority: P0 (score <30), P1 (score <50), P2 (score <70)
+The chairman agent:
+1. Collects all 6 scores
+2. Applies weighted aggregation: `overall = technical(40%) + content(35%) + semantic(25%)`
+3. If readability is N/A (non-English): redistributes weight proportionally
+4. Generates BLUF (1-2 sentences: what's strong, what needs attention)
+5. Compiles unified recommendation list sorted by priority (P0 → P3)
+6. For each dimension scoring <70: generates a finding with evidence tag
 
 ### Step 5: Save Output
 
 Auto-save to `clients/{slug}/docs/PAGE_ANALYSIS_{url-slug}_{date}.md`
 
 If no `--client` specified, save to current project docs/ or print to conversation.
+
+### Calling Individual Agents
+
+Other skills can call a single agent without running the full council:
+- `/seo-diagnose` → call `page-schema-checker` on affected URLs
+- `/seo-decay` → call `page-content-checker` on decaying pages
+- `/analyze-copy` → call `page-readability-checker` for metrics
 
 ## Output Format
 
