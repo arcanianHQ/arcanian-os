@@ -1,4 +1,3 @@
-> v1.0 — 2026-04-03
 ---
 id: audit-checker
 name: Audit Checker
@@ -8,8 +7,8 @@ data: [analytics, google_ads, meta_ads]
 active: true
 confidence_scoring: true
 recommendation_log: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Audit Checker
 

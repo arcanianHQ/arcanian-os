@@ -1,0 +1,103 @@
+id: measurement-audit
+name: "Measurement Audit Council"
+description: "Progressive 6-phase measurement health audit. Validates feed, sGTM, consent, GTM container, cross-system consistency, and matches findings against known patterns."
+
+agents:
+  council:
+    - audit-feed
+    - audit-sgtm
+    - audit-consent
+    - audit-gtm
+    - audit-gtm-architect
+    - audit-cross-verifier
+    - audit-pattern-matcher
+  chairman: audit-pattern-matcher
+
+pipeline:
+  stages:
+    - id: phase0_cli
+      enabled: true
+      parallel: true
+      description: "CLI baseline — feed + sGTM health checks run in parallel"
+      agents:
+        - audit-feed
+        - audit-sgtm
+
+    - id: phase1_browser
+      enabled: true
+      parallel: true
+      description: "Browser-side verification — consent + tracking validation"
+      agents:
+        - audit-consent
+
+    - id: phase3_container
+      enabled: true
+      parallel: false
+      description: "Container audit — GTM inventory first, then architecture analysis"
+      agents:
+        - audit-gtm
+        - audit-gtm-architect
+
+    - id: phase4_cross_verify
+      enabled: true
+      description: "Cross-verification — traces test products through full pipeline"
+      agents:
+        - audit-cross-verifier
+
+    - id: phase5_diagnosis
+      enabled: true
+      methodology: pattern_matching
+      description: "Pattern matching against KNOWN_PATTERNS + recommendation generation"
+      agent: audit-pattern-matcher
+
+  notes:
+    - "Phase 2 (Platform Dashboards) is MANUAL — requires login to GA4, Meta, Google Ads. Not automated."
+    - "Phase 3 requires GTM JSON exports in clients/{slug}/data/gtm-exports/"
+    - "Phase 4 requires test product IDs in CLIENT_CONFIG.md"
+
+scoring:
+  weights:
+    audit-feed: 0.10
+    audit-sgtm: 0.20
+    audit-consent: 0.25
+    audit-gtm: 0.15
+    audit-gtm-architect: 0.10
+    audit-cross-verifier: 0.20
+    audit-pattern-matcher: 0.00
+  aggregation: "overall = sum(agent_score × agent_weight)"
+  critical_override: "If consent tests 1/2/6 fail → overall capped at 30"
+
+context:
+  categories:
+    - measurement
+    - compliance
+
+data:
+  categories:
+    - cli
+    - chrome-devtools
+    - filesystem
+
+prerequisites:
+  - "CLIENT_CONFIG.md with domain, tracking IDs, feed URLs, test product IDs"
+  - "DOMAIN_CHANNEL_MAP.md if multi-domain client"
+  - "GTM JSON exports in data/gtm-exports/ for Phase 3"
+  - "Chrome DevTools MCP for Phase 1 and Phase 4"
+  - "Live website accessible"
+
+use_when:
+  - "/measurement-audit"
+  - "Run measurement audit"
+  - "Check tracking health"
+  - "Audit client measurement stack"
+  - "New client onboarding Phase 2 (ARCHITECT)"
+
+output:
+  format: "clients/{slug}/audit/AUDIT_REPORT_{date}.md"
+  includes:
+    - Overall score (0-100)
+    - Per-phase results with agent scores
+    - All findings (FND-xxx) with severity and evidence
+    - All recommendations (REC-xxx) with priority
+    - Pattern matches (PAT-xxx)
+    - Executive summary with top 3 actions
