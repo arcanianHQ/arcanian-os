@@ -1,4 +1,26 @@
+---
+scope: shared
+---
+
 # Skill: SEO Traffic Drop Diagnostics (`/seo-diagnose`)
+
+## Architecture
+
+> v2.0 — 2026-04-12 — Refactored to agent-council architecture.
+
+This skill uses the **seo-diagnostic council** (`core/agents/councils/seo-diagnostic.yaml`):
+
+| Agent | What it tests | Hypothesis |
+|---|---|---|
+| `seo-traffic-analyzer` | GSC/GA4 data baseline | H1 (algorithm), H5 (seasonal) |
+| `seo-decay-detector` | Content age + position bleed | H2 (content decay) |
+| `seo-cannibalization-detector` | Multi-page query conflicts | H6 (cannibalization) |
+| `seo-technical-checker` | Indexation, robots, schema, meta | H3 (technical) |
+| `seo-competitor-analyzer` | Competitor visibility + SERP changes | H4 (competitor gain) |
+| `seo-diagnosis-synthesizer` | ACH synthesis (chairman) | All 6 hypotheses |
+
+Pipeline: data collection → 4 agents parallel → ACH synthesis
+Scoring: `core/methodology/SEO_DIAGNOSTIC_SCORING.md` (ACH, not weighted average)
 
 ## Purpose
 
@@ -52,7 +74,6 @@ Additionally pull from Semrush MCP:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC data available for both periods. Log gaps as `[UNKNOWN]`. If no GSC: STOP, explain what data is needed.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Pull GSC totals** — Current vs prior period: clicks, impressions, CTR, avg position. Tag all numbers `[DATA]`.
 

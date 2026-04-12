@@ -1,0 +1,97 @@
+id: seo-diagnostic
+name: "SEO Diagnostic Council"
+description: "Multi-hypothesis organic traffic drop diagnosis. 6 agents test 6 hypotheses in parallel, synthesizer runs ACH to identify the most likely cause."
+
+agents:
+  council:
+    - seo-traffic-analyzer
+    - seo-decay-detector
+    - seo-cannibalization-detector
+    - seo-technical-checker
+    - seo-competitor-analyzer
+    - seo-diagnosis-synthesizer
+  chairman: seo-diagnosis-synthesizer
+
+pipeline:
+  stages:
+    - id: data_collection
+      enabled: true
+      description: "Traffic analyzer pulls baseline data from Databox (GSC + GA4)"
+      agents:
+        - seo-traffic-analyzer
+
+    - id: analysis
+      enabled: true
+      parallel: true
+      description: "4 analysis agents run in parallel, each testing one hypothesis dimension"
+      agents:
+        - seo-decay-detector
+        - seo-cannibalization-detector
+        - seo-technical-checker
+        - seo-competitor-analyzer
+
+    - id: synthesis
+      enabled: true
+      methodology: heuer
+      description: "Synthesizer runs ACH on all 6 hypotheses, produces BLUF + action items"
+      agent: seo-diagnosis-synthesizer
+
+scoring:
+  method: "ACH — Analysis of Competing Hypotheses (not weighted average)"
+  hypotheses:
+    - id: H1
+      name: "Algorithm update"
+      agent: seo-traffic-analyzer
+    - id: H2
+      name: "Content decay"
+      agent: seo-decay-detector
+    - id: H3
+      name: "Technical issue"
+      agent: seo-technical-checker
+    - id: H4
+      name: "Competitor gain"
+      agent: seo-competitor-analyzer
+    - id: H5
+      name: "Seasonal decline"
+      agent: seo-traffic-analyzer
+    - id: H6
+      name: "Cannibalization"
+      agent: seo-cannibalization-detector
+  notes:
+    - "This council uses ACH, not weighted scoring"
+    - "Leading hypothesis = fewest inconsistencies"
+    - "Without Semrush, H4 (competitor) is marked [UNKNOWN]"
+
+context:
+  categories:
+    - seo
+    - market
+
+data:
+  categories:
+    - databox
+    - chrome-devtools
+
+prerequisites:
+  - "Databox MCP connected with GSC data source"
+  - "DOMAIN_CHANNEL_MAP.md if multi-domain"
+  - "Semrush MCP optional (enriches competitor analysis)"
+  - "Chrome DevTools MCP for technical checks"
+
+use_when:
+  - "/seo-diagnose"
+  - "Why did organic traffic drop?"
+  - "SEO traffic decline investigation"
+  - "Rankings dropped — why?"
+
+output:
+  format: "clients/{slug}/data/seo/seo-diagnose-{date}.md"
+  includes:
+    - BLUF (2-3 sentences)
+    - Data reliability table
+    - Traffic change summary
+    - ACH table (6 hypotheses vs evidence)
+    - Leading hypothesis with confidence
+    - Unknowns and blind spots
+    - Prioritized action items
+    - Falsification indicators
