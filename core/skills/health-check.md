@@ -17,9 +17,24 @@ allowed-tools:
 
 Verifies system-wide health — project integrity, MCP connections, symlinks, git status, and core methodology files. Catches drift before it causes problems.
 
-## Prerequisites
+## Architecture
 
-0. **Databox MCP check:** If connected → include metric health in report. If not → flag as "Databox not connected — metric health SKIPPED" in output. See `core/methodology/DATABOX_MANDATORY_RULE.md`.
+> v2.0 — 2026-04-12 — Refactored from monolithic to council pattern.
+
+This skill uses the **health-check council** (`core/agents/councils/health-check.yaml`) which orchestrates 6 agents:
+
+| Agent | Weight | What it checks |
+|---|---|---|
+| `health-project-checker` | 25% | CLAUDE.md, TASKS.md, CONTACTS.md, symlinks, brand files |
+| `health-mcp-checker` | 20% | MCP connectivity, Databox mandatory check |
+| `health-git-checker` | 15% | Uncommitted changes, unpushed commits, submodules |
+| `health-hooks-checker` | 10% | Claude Code hooks configuration |
+| `health-core-checker` | 15% | Methodology rules, SOPs, skills, templates |
+| `health-warning-intel` | 15% | Cross-client patterns, blind spots (Grabo method) |
+
+Scoring rubrics: `core/methodology/HEALTH_CHECK_SCORING.md`
+
+Pipeline: collect (5 agents parallel) → warning intel → synthesis
 
 ## Trigger
 
@@ -33,7 +48,10 @@ Use when: user says `/health-check`, "check system health", "is everything worki
 
 ## Execution Steps
 
-### Step 1: Project integrity (scope: all, clients)
+> Each step maps to an agent. Steps 1-5 run in parallel. Step 6 runs after, consuming their output.
+> Individual agents can be called standalone by other skills (e.g., `/validate` calls only `health-project-checker`).
+
+### Step 1: Project integrity (scope: all, clients) → `health-project-checker`
 For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
 1. Check `CLAUDE.md` exists and is under 80 lines
 2. Check `TASKS.md` exists with YAML frontmatter and priority sections
@@ -45,7 +63,7 @@ For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
 8. Check `.gitignore` exists and blocks `.env`
 9. **Multi-domain check:** If `CLIENT_CONFIG.md` lists 2+ domains, check `DOMAIN_CHANNEL_MAP.md` exists (MANDATORY — see `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`). Flag as **CRITICAL** if missing — any analysis on this client risks cross-domain data contamination.
 
-### Step 2: MCP connections (scope: all, mcp)
+### Step 2: MCP connections (scope: all, mcp) → `health-mcp-checker`
 For each project with `.claude/settings.json` or `.mcp.json`:
 1. List configured MCP servers
 2. Attempt a minimal query per server type:
@@ -54,13 +72,13 @@ For each project with `.claude/settings.json` or `.mcp.json`:
    - GA4/Ads/Meta: note as configured (no simple ping available)
 3. Record: connected, auth error (401/403), not configured, or timeout
 
-### Step 3: Git status (scope: all, git)
+### Step 3: Git status (scope: all, git) → `health-git-checker`
 For each project directory that contains `.git/`:
 1. Run `git status --porcelain`
 2. Flag repos with uncommitted changes
 3. Flag repos with unpushed commits (`git log @{u}..HEAD` if upstream exists)
 
-### Step 4: Hooks (scope: all, clients)
+### Step 4: Hooks (scope: all, clients) → `health-hooks-checker`
 For each project:
 1. Check `.claude/settings.json` exists
 2. Check if hooks are configured (preflight, session start, etc.)
@@ -76,7 +94,7 @@ For each client project:
 7. Score anomaly confidence via `core/methodology/CONFIDENCE_ENGINE.md`
 8. Only create task if confidence ≥ 0.4 AND metric is outside threshold
 
-### Step 5: Core methodology (scope: all, core)
+### Step 5: Core methodology (scope: all, core) → `health-core-checker`
 Check `_arcanian-ops/core/` for required files:
 1. `methodology/TASK_SYSTEM_RULES.md` exists
 2. `methodology/KNOWN_PATTERNS.md` exists
@@ -84,7 +102,7 @@ Check `_arcanian-ops/core/` for required files:
 4. `sops/SOP_INDEX.md` exists (or equivalent)
 5. `skills/` contains expected skill files
 
-### Step 6: Warning Intelligence — Cross-Client Pattern Detection (scope: all, clients)
+### Step 6: Warning Intelligence — Cross-Client Pattern Detection (scope: all, clients) → `health-warning-intel`
 
 > Source: Cynthia Grabo / Pentagon warning intelligence framework.
 > Adapted from Marketing Council v12.

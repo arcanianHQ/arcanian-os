@@ -1,0 +1,77 @@
+id: health-check
+name: "System Health Check Council"
+description: "Multi-dimension system health verification. Checks project integrity, MCP connections, git status, hooks, core files, and cross-client patterns."
+
+agents:
+  council:
+    - health-project-checker
+    - health-mcp-checker
+    - health-git-checker
+    - health-hooks-checker
+    - health-core-checker
+    - health-warning-intel
+  chairman: health-warning-intel
+
+pipeline:
+  stages:
+    - id: collect
+      enabled: true
+      parallel: true
+      description: "First 5 agents run in parallel — they check independent dimensions"
+      agents:
+        - health-project-checker
+        - health-mcp-checker
+        - health-git-checker
+        - health-hooks-checker
+        - health-core-checker
+    - id: warning_intel
+      enabled: true
+      methodology: grabo
+      description: "Warning Intel agent analyzes findings from all 5 agents for cross-client patterns"
+      agent: health-warning-intel
+    - id: synthesis
+      enabled: true
+      agent: health-warning-intel
+      description: "Chairman compiles overall score, identifies critical items, generates action list"
+
+scoring:
+  weights:
+    infrastructure:
+      health-project-checker: 0.25
+      health-mcp-checker: 0.20
+      health-git-checker: 0.15
+      health-hooks-checker: 0.10
+      health-core-checker: 0.15
+    intelligence:
+      health-warning-intel: 0.15
+  aggregation: "overall = sum(agent_score × agent_weight)"
+
+context:
+  categories:
+    - infrastructure
+
+data:
+  categories:
+    - filesystem
+    - mcp
+    - git
+
+prerequisites:
+  - "Run from hub root (_arcanian-ops/)"
+  - "Git available in PATH"
+
+use_when:
+  - "/health-check"
+  - "Check system health"
+  - "Is everything working?"
+  - "Weekly maintenance check"
+  - "After new client onboarded"
+  - "After MCP reconfiguration"
+
+output:
+  format: "printed to conversation (not saved to file)"
+  includes:
+    - Per-dimension score table
+    - Critical/Warning/Info flags
+    - Warning intelligence (convergent signals, blind spots)
+    - Action items sorted by severity
