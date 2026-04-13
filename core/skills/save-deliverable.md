@@ -206,10 +206,10 @@ At the bottom of every deliverable:
 
 Use the Write tool to save to the determined location.
 
-### Step 5: Open in Typora
+### Step 5: Open file
 
 ```bash
-open -a Typora "{saved_file_path}"
+core/scripts/ops/open-file.sh "{saved_file_path}"
 ```
 
 ### Step 6: Confirm + Ask About Finalization

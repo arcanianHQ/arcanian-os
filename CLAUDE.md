@@ -221,6 +221,11 @@ When user references a file from outside the project:
 3. Extract tasks → create in TASKS.md
 4. Log to CAPTAINS_LOG.md
 
+## App Preferences (ALWAYS-ON)
+- **Config:** `core/infrastructure/APP_DEFAULTS.md` — single source of truth for file extension → app mapping
+- **Script:** `core/scripts/ops/open-file.sh "{path}"` — resolves app from config, use everywhere
+- Never hardcode app names in skills or rules. Change the app? Edit one config file.
+
 ## Templates
 - `core/templates/` — CLAUDE.md, TASKS, CLIENT_CONFIG, DOMAIN_CHANNEL_MAP, BASELINES, RECOMMENDATION_LOG, MONITOR_LOG, and more
 - Use `/scaffold-project` to create a new client with full structure

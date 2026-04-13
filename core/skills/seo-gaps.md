@@ -151,7 +151,7 @@ v1.0 — {DATE}
 ## Auto-Save
 
 Save output to: `clients/{slug}/data/seo/seo-gaps-{YYYY-MM-DD}.md`
-Open in Typora: `open -a Typora "{path}"`
+Open file: `core/scripts/ops/open-file.sh "{path}"`
 
 ## Notes
 

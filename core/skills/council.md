@@ -321,7 +321,7 @@ metadata:
    - Client council: `clients/{slug}/docs/{CLIENT}_COUNCIL_{TYPE}_{DATE}.md`
    - Hub council: `internal/analyses/COUNCIL_{TYPE}_{DATE}.md`
 2. Save with Write tool
-3. Open in Typora: `open -a Typora "{path}"`
+3. Open file: `core/scripts/ops/open-file.sh "{path}"`
 4. Report summary to user
 
 ### Step 11: Show Peer Review Details (if ran)
