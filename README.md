@@ -1,4 +1,4 @@
-> v1.14.0 — 2026-04-11 — Auto-update, portable hooks, renamed demo clients
+> v1.16.0 — 2026-04-13 — Hungarian Grammar Checker agent
 
 # Arcanian OS
 
@@ -273,6 +273,7 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.16.0** | 2026-04-13 | Hungarian Grammar Checker agent — 10-point HU text quality review (accents, vowel harmony, case endings, AI-magyar patterns). |
 | **v1.14.0** | 2026-04-11 | `/update` skill — one-command auto-update. Session-start version check. Pulls system changes from GitHub, never touches client data. |
 | **v1.13.1** | 2026-04-11 | `.claude/settings.json` — hook configuration using `$CLAUDE_PROJECT_DIR` for portable paths. `.gitignore` exception for settings.json. |
 | **v1.13.0** | 2026-04-11 | Demo client rename: AquaLux → SolarNook, CloudMetrics → LoopForge, GreenScape → MossTrail. All domains, industry descriptions, and references updated. |

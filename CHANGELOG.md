@@ -1,8 +1,17 @@
-> v1.15.0 — 2026-04-10
+> v1.16.0 — 2026-04-13
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.16.0] — 2026-04-13
+
+### Hungarian Grammar Checker agent
+
+#### Added
+- **`core/agents/hu-grammar-checker.md`** — Sonnet-tier agent for thorough Hungarian text quality review. 10-point checklist: accents (ékezetek), vowel harmony, case endings (vonzatok), sentence fragments, compound words, verb conjugation, AI-magyar patterns (from `/magyar-szoveg`), dangling references, keyword stuffing, consistency. Returns structured find→replace table with WHY explanations. Pairs with `/magyar-szoveg` skill.
 
 ---
 
