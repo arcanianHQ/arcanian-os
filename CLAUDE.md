@@ -1,4 +1,4 @@
-> v2.1 — 2026-04-11 — Updated counts (46 skills, 13 agents, 25 SOPs, 40 methodology rules)
+> v2.2 — 2026-04-14 — Updated counts (50 skills, 13 agents, 25 SOPs, 41 methodology rules)
 
 # Arcanian OS — System Instructions
 
@@ -15,7 +15,7 @@ Marketing operations system: skills (slash commands), agents (subagents), SOPs (
 arcanian-os/
 ├── CLAUDE.md                ← YOU ARE HERE — the kernel
 ├── core/
-│   ├── skills/              ← 43 slash commands
+│   ├── skills/              ← 48 slash commands
 │   ├── agents/              ← 14 agents + 4 council configs
 │   ├── sops/                ← 20 standard operating procedures
 │   ├── methodology/         ← 35 rules, standards, guardrails
@@ -68,12 +68,12 @@ Tasks are NODES with typed EDGES to other objects. All edges are bidirectional.
 
 Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`, `councils/delivery.yaml`, `councils/discovery.yaml`
 
-## Skills (45 slash commands)
+## Skills (50 slash commands)
 
 Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client, /extract-contacts, /extract-platforms
 Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council, /sales-pulse, /verify-pmf
 Strategy: /build-brand, /validate-idea, /analyze-gtm, /plan-gtm
-SEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly
+SEO & GEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly, /seo-cluster, /seo-schema, /geo-audit, /geo-visibility, /geo-optimize
 Content: /magyar-szoveg
 Platform: /arcos, /connect, /frontend-design, /okr-bluf-dokumentum, /claude-code-guide, /scheduled-workflows
 
@@ -226,8 +226,13 @@ When user references a file from outside the project:
 - **Script:** `core/scripts/ops/open-file.sh "{path}"` — resolves app from config, use everywhere
 - Never hardcode app names in skills or rules. Change the app? Edit one config file.
 
+## Ad Account Registry
+- Standard: `core/methodology/AD_ACCOUNT_REGISTRY_STANDARD.md`
+- Template: `core/templates/AD_ACCOUNT_REGISTRY_TEMPLATE.md`
+- Every client with paid media MUST have `AD_ACCOUNT_REGISTRY.md`. 5-step pre-flight before any paid analysis.
+
 ## Templates
-- `core/templates/` — CLAUDE.md, TASKS, CLIENT_CONFIG, DOMAIN_CHANNEL_MAP, BASELINES, RECOMMENDATION_LOG, MONITOR_LOG, and more
+- `core/templates/` — CLAUDE.md, TASKS, CLIENT_CONFIG, DOMAIN_CHANNEL_MAP, BASELINES, RECOMMENDATION_LOG, MONITOR_LOG, AD_ACCOUNT_REGISTRY, and more
 - Use `/scaffold-project` to create a new client with full structure
 
 ## Getting Started

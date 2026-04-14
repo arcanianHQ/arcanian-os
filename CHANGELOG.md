@@ -1,8 +1,18 @@
-> v1.18.0 — 2026-04-14
+> v1.19.0 — 2026-04-14
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.19.0] — 2026-04-14
+
+### Added
+- **5 GEO/SEO skills** — `/geo-audit` (AI search readiness audit), `/geo-visibility` (AI brand perception check), `/geo-optimize` (GEO content optimization), `/seo-cluster` (content performance clustering), `/seo-schema` (schema & structured data analyzer)
+- **AD_ACCOUNT_REGISTRY_STANDARD.md** — mandatory per-client ad account registry with 5-step pre-flight, 2-year lookback, currency handling, shared account isolation rules
+- **AD_ACCOUNT_REGISTRY_TEMPLATE.md** — full template with account inventory, campaign prefix mapping, monthly spend history, data gaps table
+- `.claude/commands/` entries for all 5 new skills
 
 ---
 
