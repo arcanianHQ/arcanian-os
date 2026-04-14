@@ -80,6 +80,14 @@ Changes happen fast. Memory doesn't keep up. The changelog is the only thing tha
 - **Export Skills:** `/share-to-os`, `/share-to-company`, `/share-to-advanced` BLOCK push if CHANGELOG.md was not updated in the same commit
 - **Audit:** `/health-check` includes a changelog freshness check — are there recent file modifications without matching log entries?
 
+### 8. Operational Events (Budget, Agency, Platform, Tracking Changes)
+- **Where:** `clients/{slug}/EVENT_LOG.md`
+- **When:** Any external operational change that affects data interpretation — budget changes, agency handovers, platform migrations, tracking deployments, campaign launches/kills, personnel changes
+- **What to log:** EVT ID, date, type, what happened, observed impact, evidence source, layer, related FND/REC/Task
+- **Template:** `core/templates/EVENT_LOG_TEMPLATE.md`
+- **Rule:** An analysis that discovers a dated inflection point without logging it to EVENT_LOG.md is a knowledge leak. The same event will be re-derived next session.
+- **Enforcement:** Analysis skills auto-extract events (EVENT_LOG_RULE.md). `/meeting-sync` and `/inbox-process` scan for operational events in transcripts and emails.
+
 ## What NOT to Log
 
 - Reading files (no state change)

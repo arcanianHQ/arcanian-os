@@ -66,7 +66,38 @@ When `/tasks complete #N` runs:
 - If task has `Inform:` → show notification reminder.
 - If task has `Blocks:` → check: are blocked tasks now unblocked? Suggest moving to @next.
 
-### 5. On Council / Pipeline Output
+### 5. On Data Analysis Completion (Auto-Extract Events)
+
+When any analysis skill (`/7layer`, `/map-results`, `/analyze-gtm`, `/council`, `/measurement-audit`, channel-analyst agents) completes:
+
+**Scan output for dated inflection points and auto-append to EVENT_LOG.md:**
+
+| If the analysis discovers... | Auto-create | Source tag |
+|------------------------------|-------------|------------|
+| Budget change with date (from spend data) | EVT row: type=`budget` | `[DATA: Databox]` |
+| Account/property start/stop date | EVT row: type=`platform` | `[DATA: Databox]` or `[OBSERVED: {platform}]` |
+| Campaign launch/kill date | EVT row: type=`campaign` | `[DATA: Databox]` or `[OBSERVED: {platform}]` |
+| Tracking deployment date (GTM version, sGTM change) | EVT row: type=`tracking` | `[OBSERVED: GTM]` |
+| Agency handover date (from meeting/email) | EVT row: type=`agency` | `[STATED: {person}]` |
+| Unexplained inflection point (>15% change, cause unknown) | EVT row: type=inferred from data | `[INFERRED]` + create verification task |
+
+**Dedup check:** Before appending, scan EVENT_LOG.md for existing entries with same date + type. If found, update Impact column instead of creating duplicate.
+
+**Backlink:** If the analysis produced a Finding (FND-NNN), add `Events: EVT-YYYY-MM-DD-NNN` to the finding's Links section.
+
+### 6. On Meeting Sync / Inbox Process (Auto-Extract Events)
+
+When `/meeting-sync` or `/inbox-process` processes content:
+
+**Scan for operational event statements:**
+- "We changed the budget" → EVT type=`budget`, source=`[STATED: {speaker}]`
+- "The new agency starts" → EVT type=`agency`, source=`[STATED: {speaker}]`
+- "We launched the campaign" → EVT type=`campaign`, source=`[STATED: {speaker}]`
+- "We migrated to..." → EVT type=`migration`, source=`[STATED: {speaker}]`
+
+**Convert relative dates to absolute** (per TEMPORAL_AWARENESS_RULE.md) before saving.
+
+### 7. On Council / Pipeline Output
 
 Council and pipeline outputs auto-include:
 - `stage-result` block with structured data (already implemented)

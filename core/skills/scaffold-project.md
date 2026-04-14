@@ -61,6 +61,15 @@ If single-domain or domains unknown: skip this step. Add a note in NEXT STEPS to
 
 Rule: `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`
 
+### Step 3d: Generate EVENT_LOG.md
+
+Use template from `core/templates/EVENT_LOG_TEMPLATE.md`.
+- Replace `{Display Name}` and `{date}` with project values
+- Table starts empty — populated during onboarding, audits, and ongoing analysis
+- Add task to TASKS.md: "Populate EVENT_LOG.md with known historical events (budget changes, agency switches, platform migrations)"
+
+**This file is MANDATORY for all project types.** Every analysis skill loads it before querying data.
+
 ### Step 4: Generate TASKS.md + TASKS_DONE.md
 Use template from `core/templates/TASKS.md` (v2.0 — ExampleBrand gold standard format).
 Task format standard: `core/methodology/TASK_FORMAT_STANDARD.md`.

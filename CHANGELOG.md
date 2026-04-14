@@ -1,8 +1,21 @@
-> v1.17.0 — 2026-04-14
+> v1.18.0 — 2026-04-14
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.18.0] — 2026-04-14
+
+### Added
+- **EVENT_LOG system** — per-client operational event timeline (EVENT_LOG_RULE.md, EVENT_LOG_TEMPLATE.md)
+- **EVT ontology node** — first-class Event object in ONTOLOGY_STANDARD.md with bidirectional edges
+- **Path-scoped rule** — .claude/rules/event-log.md enforces pre-load before analysis, auto-extract after
+- **Analysis pre-load** — analysis-frameworks.md Step 0b mandates EVENT_LOG.md load before any data query
+- **Auto-extraction** — ONTOLOGY_ENRICHMENT_RULE.md sections 5-6: extract events from analysis + meetings
+- **Scaffold integration** — scaffold-project Step 3d creates EVENT_LOG.md for every new project
+- **Changelog enforcement** — CHANGELOG_ENFORCEMENT_RULE.md section 8 covers operational events
 
 ---
 

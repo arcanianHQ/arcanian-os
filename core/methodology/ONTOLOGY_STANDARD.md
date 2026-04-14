@@ -20,6 +20,7 @@
 | **Email** | name + date | task inline | `[Client Contact] 2026-03-04` |
 | **Lead** | slug | `core/leads/LEAD_STATUS.md` | `retail-lead` |
 | **Person** | name | contacts / inline | `[Client Contact]` |
+| **Event** | `EVT-YYYY-MM-DD-NNN` | `clients/<slug>/EVENT_LOG.md` | `EVT-2026-03-09-001 Meta Account 2 launched` |
 | **Client** | slug | `clients/<slug>/` | `exampleretail`, `examplebrand` |
 
 ---
@@ -40,6 +41,16 @@ All edges SHOULD be bidirectional. Forward = where you write it first. Backward 
 | Task -> Meeting | `Meeting: 2026-03-10 IT` in task line | _(text reference)_ | One-way |
 | Task -> Email | `Email: [Client Contact] 2026-03-04` in task line | _(text reference)_ | One-way |
 | Task -> Lead | `Lead: retail-lead` in task line | `Tasks:` section in LEAD_STATUS.md | YES - required |
+
+### Event Edges
+
+| Edge | Forward (in Event Log) | Backward | Bidirectional? |
+|------|----------------------|----------|----------------|
+| Event -> Finding | `Related: FND-039` in event row | `Events: EVT-2026-03-09-001` in finding file | YES - required |
+| Event -> Recommendation | `Related: REC-039` in event row | `Events: EVT-2026-03-09-001` in rec file | Soft |
+| Event -> Task | `Related: #53` in event row | `EVT: EVT-2026-03-09-001` in task line | Soft |
+| Event -> Layer | `Layer: L5` in event row | _(queryable via grep)_ | Queryable |
+| Event -> Client | Inferred from file path | _(queryable)_ | Queryable |
 
 ### Finding / Recommendation / Pattern Edges
 
@@ -90,6 +101,17 @@ Status: analysis-complete
 Tasks: #12, #14, #15, #22
 ```
 
+### In EVENT_LOG.md
+```
+| EVT-2026-03-09-001 | 2026-03-09 | platform | Meta Account 2 (HUF) launched, 50x budget jump | Account migration start | [DATA: Databox] | L5 | FND-012 |
+```
+
+### In a Finding file (referencing events)
+```
+## Links
+- Events: EVT-2026-01-26-001, EVT-2026-03-09-001
+```
+
 ---
 
 ## Rules
@@ -99,6 +121,7 @@ Tasks: #12, #14, #15, #22
 3. **When creating a finding**, always include a `Tasks:` section -- even if empty (`Tasks: (none yet)`).
 4. **When a task mentions a lead name** (retail-lead, heavy-tools, etc.), add a `Lead:` edge to the task.
 5. **The `/query` skill can traverse these edges** -- correct linking makes querying possible.
+8. **Every analysis that discovers a dated inflection point MUST create an EVT entry** in EVENT_LOG.md. If a finding references an external event, link the FND to the EVT.
 6. **IDs are globally unique per type.** FND-039 exists once across all clients. The client is inferred from the file path.
 7. **Soft edges** (Goal, Meeting, Email, SOP) are informational -- no backlink enforcement. They exist for context.
 

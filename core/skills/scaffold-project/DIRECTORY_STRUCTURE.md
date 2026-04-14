@@ -14,6 +14,7 @@
 ├── CAPTAINS_LOG.md
 ├── TASKS.md
 ├── TASKS_DONE.md
+├── EVENT_LOG.md
 ├── .gitignore
 ├── .claude/
 │   ├── commands/
