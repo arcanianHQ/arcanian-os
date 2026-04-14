@@ -1,4 +1,4 @@
-> v1.19.0 — 2026-04-14 — 5 GEO/SEO skills + ad-account-registry system
+> v1.20.0 — 2026-04-14 — Web tool routing guardrail (Firecrawl vs WebSearch)
 
 # Arcanian OS
 
@@ -273,6 +273,7 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.20** | 2026-04-14 | Web tool routing guardrail — Firecrawl for scraping, WebSearch/WebFetch for search |
 | **v1.19** | 2026-04-14 | 5 GEO/SEO skills (/geo-audit, /geo-visibility, /geo-optimize, /seo-cluster, /seo-schema) + AD_ACCOUNT_REGISTRY system (standard + template) |
 | **v1.18** | 2026-04-14 | EVENT_LOG system: per-client operational event timeline with enforcement |
 | **v1.16.0** | 2026-04-13 | Hungarian Grammar Checker agent — 10-point HU text quality review (accents, vowel harmony, case endings, AI-magyar patterns). |

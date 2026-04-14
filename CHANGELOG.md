@@ -1,8 +1,16 @@
-> v1.19.0 — 2026-04-14
+> v1.20.0 — 2026-04-14
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.20.0] — 2026-04-14
+
+### Added
+- **WEB_TOOL_ROUTING_RULE.md** — system guardrail: Firecrawl for scraping only, built-in WebSearch/WebFetch for web search — hard routing rule with agent instructions
+- `.claude/rules/web-tool-routing.md` — path-scoped enforcement rule for web tool routing
 
 ---
 

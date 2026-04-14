@@ -196,6 +196,13 @@ Every evidence item must be tagged: `[DATA]` (system number), `[OBSERVED]` (we v
 - Every metric claim MUST come from a live Databox query, not from memory or local markdown files
 - Rule: `core/methodology/DATABOX_MANDATORY_RULE.md`
 
+## Web Tool Routing (GUARDRAIL — HARD RULE)
+**Firecrawl = scraping. Built-in WebSearch/WebFetch = searching. No crossover.**
+- Web search/research/discovery → `WebSearch`, `WebFetch`. NEVER `firecrawl_search`.
+- Scraping known URLs / extracting content → `firecrawl_scrape`, `firecrawl_crawl`, `firecrawl_extract`, `firecrawl_map`.
+- When spawning agents: always specify which tools in the prompt — research agents get WebSearch, site-analysis agents get Firecrawl.
+- Rule: `core/methodology/WEB_TOOL_ROUTING_RULE.md`
+
 ## MCP Scope Isolation (GUARDRAIL)
 **NEVER query external services without a project scope filter.**
 - Task manager queries MUST include `projectId` — unfiltered queries return ALL projects across ALL accounts, leaking real client data into the wrong environment.
