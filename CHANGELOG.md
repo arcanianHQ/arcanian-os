@@ -1,8 +1,21 @@
-> v1.16.0 — 2026-04-13
+> v1.17.0 — 2026-04-14
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.17.0] — 2026-04-14
+
+### Date context hook — prevent day-of-week errors
+
+#### Added
+- **`core/scripts/ops/date-context.sh`** — Single source of truth for current date context. Outputs date, day-of-week, week number, quarter, working day status. Formats: `json`, `oneliner`, `summary`. Used by hooks, `/day-start`, `/day-end`, any date-aware skill.
+- **`core/tools/hooks/templates/user-prompt-submit-date-context.sh`** — UserPromptSubmit hook that detects date-related keywords (EN + HU) and injects accurate date context (day-of-week, week, quarter). Prevents day name guessing errors in summaries and logs.
+
+#### Updated
+- **`.claude/settings.json`** — Wired `user-prompt-submit-date-context.sh` into UserPromptSubmit hooks.
 
 ---
 
