@@ -21,6 +21,7 @@
     "SessionStart": [
       {
         "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/session-start-connection-check.sh\"" },
           { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/core/tools/hooks/templates/session-start-update-check.sh\"" }
         ]
       }
