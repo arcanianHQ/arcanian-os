@@ -9,9 +9,9 @@ All notable changes to the public repository.
 ## [1.22.0] — 2026-04-16
 
 ### Changed
-- **Health check v2.1** — fix commands, context freshness, data bloat, CLI version drift, CHANGELOG freshness
-- **All skills** — `argument-hint` added to frontmatter for slash autocomplete
-- **PII cleanup** — removed client names from HOOKS_GUIDE and EVENT_LOG_RULE
+- **Health check v2.1** — fix commands on every check, context freshness (stale logs/tasks/inbox), data bloat thresholds, CLI version drift, CHANGELOG freshness
+- **96 skills** — `argument-hint` added to all skill frontmatter for slash autocomplete
+- **PII cleanup** — removed client names from HOOKS_GUIDE example block and EVENT_LOG_RULE
 
 ---
 

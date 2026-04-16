@@ -1,4 +1,4 @@
-> v1.21.0 — 2026-04-16 — Version manifest, /update-aos skill, health-check deltas, constraint cascade
+> v1.22.0 — 2026-04-16 — Health check v2.1, argument-hint sweep, PII cleanup
 
 # Arcanian OS
 
@@ -273,6 +273,7 @@ Questions? Open an issue or reach out at https://arcanian.com/os
 
 | Version | Date | Changes |
 |---|---|---|
+| **v1.22** | 2026-04-16 | Health check v2.1 (fix commands, context freshness, data bloat, CLI drift), argument-hint on all skills, PII cleanup |
 | **v1.21** | 2026-04-16 | Version manifest, /update-aos skill, health-check deltas, EVENT_LOG before/after columns, constraint cascade pattern, hook portability |
 | **v1.20** | 2026-04-14 | Web tool routing guardrail — Firecrawl for scraping, WebSearch/WebFetch for search |
 | **v1.19** | 2026-04-14 | 5 GEO/SEO skills (/geo-audit, /geo-visibility, /geo-optimize, /seo-cluster, /seo-schema) + AD_ACCOUNT_REGISTRY system (standard + template) |
