@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: "client slug — client operations"
+---
+
 # Skill: Manage Client Projects
 
 ## Purpose
@@ -42,7 +47,7 @@ Switch to work on a specific client
 1. Load client context from CLIENT.md
 2. Show current status and progress
 3. Identify recommended next actions
-4. Display relevant [diagnostic profile] summary
+4. Display relevant belief profile summary
 
 **Example:**
 ```
@@ -58,8 +63,8 @@ Show all clients with status
 **Output:**
 ```
 ACTIVE CLIENTS:
-• acme-coaching - Scaling -  in progress
-• smith-fitness - Pre-launch -  complete
+• acme-coaching - Scaling - /craft-offer in progress
+• smith-fitness - Pre-launch - /validate-idea complete
 
 ON HOLD:
 • jones-consulting - since 2024-01-15
@@ -125,10 +130,10 @@ PRIMARY PATTERN: [Pattern]
 ───────────────────────────────────────────────────────────────
 
 MINDSET:
-□ : [Status]
+□ trace-belief: [Status]
 □ analyze-copy: [Status]
 □ map-results: [Status]
-□ : [Status]
+□ belief-profile: [Status]
 
 STRATEGY:
 □ validate-idea: [Status]
@@ -178,9 +183,9 @@ When creating new client:
 □ Add to DASHBOARD.md
 □ Schedule first session
 □ Determine starting point:
-  □ Have marketing copy? →  first
-  □ Have business data? →  first
-  □ Neither? →  from stated challenge
+  □ Have marketing copy? → /analyze-copy first
+  □ Have business data? → /map-results first
+  □ Neither? → /trace-belief from stated challenge
 ```
 
 ---

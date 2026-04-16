@@ -5,6 +5,7 @@ allowed-tools:
   - Read
   - Grep
   - Glob
+argument-hint: [scope] — all, clients, mcp, git, core
 ---
 
 # Skill: System Health Check (`/health-check`)
@@ -19,7 +20,7 @@ Verifies system-wide health — project integrity, MCP connections, symlinks, gi
 
 ## Architecture
 
-> v2.0 — 2026-04-12 — Refactored from monolithic to council pattern.
+> v2.1 — 2026-04-16 — Added: fix commands, context freshness, data bloat, CLI version drift, CHANGELOG freshness.
 
 This skill uses the **health-check council** (`core/agents/councils/health-check.yaml`) which orchestrates 6 agents:
 
@@ -63,15 +64,30 @@ This step is read-only and fast. Do not block on it.
 
 ### Step 1: Project integrity (scope: all, clients) → `health-project-checker`
 For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
-1. Check `CLAUDE.md` exists and is under 80 lines
-2. Check `TASKS.md` exists with YAML frontmatter and priority sections
-3. Check `CAPTAINS_LOG.md` exists with at least one dated entry
-4. Check `CONTACTS.md` exists (MANDATORY for all clients — see `core/methodology/CONTACT_REGISTRY_STANDARD.md`)
-5. Check `brand/` directory — count how many of the 7 standard files exist
-6. Check `skills/` symlink exists and resolves to `core/skills/`
-7. Check `sops/` symlink exists and resolves to `core/sops/`
-8. Check `.gitignore` exists and blocks `.env`
-9. **Multi-domain check:** If `CLIENT_CONFIG.md` lists 2+ domains, check `DOMAIN_CHANNEL_MAP.md` exists (MANDATORY — see `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`). Flag as **CRITICAL** if missing — any analysis on this client risks cross-domain data contamination.
+1. Check `CLAUDE.md` exists and is under 80 lines → Fix: `/scaffold-project {slug}`
+2. Check `TASKS.md` exists with YAML frontmatter and priority sections → Fix: `/scaffold-project {slug}`
+3. Check `CAPTAINS_LOG.md` exists with at least one dated entry → Fix: `/scaffold-project {slug}`
+4. Check `CONTACTS.md` exists (MANDATORY — see `core/methodology/CONTACT_REGISTRY_STANDARD.md`) → Fix: `/extract-contacts {slug}`
+5. Check `brand/` directory — count how many of the 7 standard files exist → Fix: `/build-brand {slug}`
+6. Check `skills/` symlink exists and resolves to `core/skills/` → Fix: `ln -s ../../core/skills/ clients/{slug}/skills`
+7. Check `sops/` symlink exists and resolves to `core/sops/` → Fix: `ln -s ../../core/sops/ clients/{slug}/sops`
+8. Check `.gitignore` exists and blocks `.env` → Fix: `/scaffold-project {slug}`
+9. **Multi-domain check:** If `CLIENT_CONFIG.md` lists 2+ domains, check `DOMAIN_CHANNEL_MAP.md` exists (MANDATORY). Flag as **CRITICAL**. → Fix: create `DOMAIN_CHANNEL_MAP.md` per `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`
+
+### Step 1b: Context freshness (scope: all, clients) → `health-project-checker`
+For each client project, check for stale context:
+1. **CAPTAINS_LOG.md** — parse the most recent `## YYYY-MM-DD` header. If >14 days old → WARN ("stale — no logged activity in {N} days"). If >30 days → CRITICAL. → Fix: open a client session and log recent work
+2. **TASKS.md** — check `updated:` field in frontmatter. If >30 days old → WARN ("task list may be outdated"). → Fix: `/task-sync`
+3. **inbox/** — count files. If any file >7 days old → WARN. >14 days → flag. >30 days → CRITICAL ("archive or process"). → Fix: `/inbox-process`
+4. **memory/ files** — in hub `memory/` directory, check file modification dates. Files >90 days old → INFO ("may be stale — verify still accurate")
+
+### Step 1c: Data bloat (scope: all, clients) → `health-project-checker`
+For each client project, check directory sizes:
+1. `audit/evidence/` — if >500MB → WARN ("evidence directory growing large — consider archiving old audits")
+2. `data/` — if >200MB → WARN ("data directory bloated — check for stale exports")
+3. `data/gtm-exports/` — if >10 JSON files → INFO ("consider archiving old GTM exports")
+4. Total project directory — if >1GB → WARN ("project exceeding 1GB threshold")
+Use `du -sh` for size checks. These are advisory thresholds, not blocks.
 
 ### Step 2: MCP connections (scope: all, mcp) → `health-mcp-checker`
 For each project with `.claude/settings.json` or `.mcp.json`:
@@ -81,6 +97,10 @@ For each project with `.claude/settings.json` or `.mcp.json`:
    - Asana: `asana_list_workspaces`
    - GA4/Ads/Meta: note as configured (no simple ping available)
 3. Record: connected, auth error (401/403), not configured, or timeout
+4. Fix commands per failure type:
+   - Auth error → "Rotate token in ~/.claude.json, then restart ALL sessions"
+   - Not configured → "Add server to .mcp.json per `core/infrastructure/it-systems/SYSTEMS.md`"
+   - Timeout → "Check network/VPN, verify server endpoint in .mcp.json"
 
 ### Step 3: Git status (scope: all, git) → `health-git-checker`
 For each project directory that contains `.git/`:
@@ -111,7 +131,18 @@ Check `_arcanian-ops/core/` for required files:
 3. `methodology/PROJECT_REGISTRY.md` exists
 4. `sops/SOP_INDEX.md` exists (or equivalent)
 5. `skills/` contains expected skill files
-6. `VERSION.json` exists and `version` field matches CHANGELOG.md top `## [X.Y.Z]` entry
+6. `VERSION.json` exists and `version` field matches CHANGELOG.md top `## [X.Y.Z]` entry → Fix: update VERSION.json or CHANGELOG.md to match
+
+### Step 5b: CLI version drift (scope: all, core) → `health-core-checker`
+Check if the Claude Code CLI is current:
+1. Run `claude --version` to get local version
+2. Run `npm view @anthropic-ai/claude-code version 2>/dev/null` to get latest published version
+3. Compare: if local < latest → WARN ("Claude Code {local} is behind latest {latest}") → Fix: `npm update -g @anthropic-ai/claude-code`
+4. If npm check fails (offline, no npm) → INFO ("could not check CLI version — skipping")
+
+### Step 5c: CHANGELOG freshness (scope: all, core) → `health-core-checker`
+1. Check hub `CHANGELOG.md` — compare top version date against most recent git commit date in `core/`
+2. If core/ has commits newer than the CHANGELOG top entry → WARN ("core/ modified since last changelog entry — bump version") → Fix: update CHANGELOG.md and VERSION.json
 
 ### Step 6: Warning Intelligence — Cross-Client Pattern Detection (scope: all, clients) → `health-warning-intel`
 
@@ -191,26 +222,45 @@ HEALTH CHECK — YYYY-MM-DD
 Clients: {N}/{total} have CLAUDE.md ✓
 TASKS.md: {N}/{total} valid ✓
 CONTACTS.md: {N}/{total} exist ✓ ({missing list})
+  ✗ {slug}: CONTACTS.md missing → Fix: /extract-contacts {slug}
 Domain maps: {N}/{multi-domain total} have DOMAIN_CHANNEL_MAP.md ✓ ({missing list})
 Symlinks: {N}/{total} resolve ✓
 Brand profiles: {N}/{total} complete ({incomplete list})
+  ✗ {slug}: 2/7 brand files → Fix: /build-brand {slug}
+
+── CONTEXT FRESHNESS ──────────
+CAPTAINS_LOG: {N}/{total} current (<14 days)
+  ⚠ {slug}: last entry 23 days ago → open session, log recent work
+TASKS.md: {N}/{total} synced (<30 days)
+  ⚠ {slug}: last sync 45 days ago → Fix: /task-sync
+Inbox: {N} files overdue (>7 days)
+  ✗ {slug}: 3 files in inbox >14 days → Fix: /inbox-process
+
+── DATA BLOAT ─────────────────
+{slug}: audit/evidence/ 620MB ⚠ → archive old audits
+{slug}: data/ 180MB ✓
+All others under threshold ✓
 
 ── MCP CONNECTIONS ────────────
-Todoist ✓ | Asana ✗ (401) | GA4 ✓ | Meta ✗ (not configured)
+Todoist ✓ | Asana ✗ (401 → rotate token, restart sessions) | GA4 ✓
 
 ── GIT STATUS ─────────────────
 Clean: {N} repos
-Dirty: {list of repos with uncommitted changes}
-Unpushed: {list of repos with local-only commits}
+Dirty: {list} → commit or stash
+Unpushed: {list} → git push
 
 ── HOOKS ──────────────────────
 Configured: {N}/{total} projects
+  ✗ {slug}: no hooks → Fix: bash core/tools/hooks/deploy-hooks.sh
 
 ── CORE FILES ─────────────────
 TASK_SYSTEM_RULES.md ✓
 KNOWN_PATTERNS.md ✓
 PROJECT_REGISTRY.md ✓
-SOP_INDEX.md ✗ (missing)
+SOP_INDEX.md ✗ → create per core/sops/ directory
+VERSION.json ↔ CHANGELOG.md ✓ (v1.3.0)
+Claude Code: v1.0.20 (latest: v1.0.22 ⚠ → npm update -g @anthropic-ai/claude-code)
+CHANGELOG: ✓ current (or ⚠ core/ modified since last entry → bump version)
 
 ── WARNING INTELLIGENCE ───────
 Convergent signals: {N} (issues appearing in 2+ clients)

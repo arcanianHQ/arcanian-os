@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: daily priorities and alerts
 ---
 
 # Skill: Morning Brief (`/morning-brief`)
@@ -65,8 +66,8 @@ For each active lead in `internal/leads/*/LEAD_STATUS.md` (not Won/Lost):
 
 ```
 ── LEAD PIPELINE ──────────────
-[ExampleRetail] Score: 12.3 → Warm ↓ (was 22.4) — Stage: Pitched — Next: follow-up by 04-15
-[ExamplePress] Score: 31.7 → Hot ↑ — Stage: Discovery — Next: schedule call
+[Euronics] Score: 12.3 → Warm ↓ (was 22.4) — Stage: Pitched — Next: follow-up by 04-15
+[Domypress] Score: 31.7 → Hot ↑ — Stage: Discovery — Next: schedule call
 [Acme Corp] Score: 4.1 → Cold ↓ — Stage: Dormant — Last signal: 68 days ago
 ```
 
@@ -94,7 +95,7 @@ Quick wins: {count} available
 
 ── P0 TASKS ──────────────────
 [Diego] #53 Fix GA4 consent mode — Due: today — Owner: László
-[Arcanian] #1 Ship ExampleRetail Prism — Due: 03-25 — Owner: László
+[Arcanian] #1 Ship Euronics Prism — Due: 03-25 — Owner: László
 
 ── OVERDUE ────────────────────
 [Diego] #41 Feed audit (3 days) — Owner: Éva

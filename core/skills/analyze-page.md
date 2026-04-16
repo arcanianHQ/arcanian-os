@@ -19,6 +19,7 @@ allowed-tools:
   - mcp__firecrawl__firecrawl_batch_status
   - mcp__firecrawl__firecrawl_extract
   - mcp__firecrawl__firecrawl_map
+argument-hint: URL to analyze
 ---
 
 > v2.0 — 2026-04-12

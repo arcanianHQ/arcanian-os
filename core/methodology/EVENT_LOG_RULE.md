@@ -73,7 +73,7 @@ Step 0d: Flag any date ranges where events explain expected data shifts
 If EVENT_LOG.md doesn't exist → WARN but proceed (new client, not yet populated). Create a task to populate it.
 
 **Why hard block:** Without the event timeline, the analyst will either:
-- Waste tokens re-deriving dates from raw data (re-discovering the same budget cut every session)
+- Waste tokens re-deriving dates from raw data (repeatedly rediscovering the same budget cut)
 - Miss the context entirely and produce wrong conclusions ("sessions crashed" vs "we cut the budget")
 
 ### 2. AUTO-EXTRACT (MANDATORY — ON EVERY ANALYSIS)

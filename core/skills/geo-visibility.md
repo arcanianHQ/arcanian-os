@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: client slug or brand name
 ---
 
 # Skill: AI Visibility & Brand Perception Check (`/geo-visibility`)

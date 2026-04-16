@@ -107,4 +107,5 @@ Completed: {N} tasks | Blocked: {N} | Decisions: {N}
 
 - **Offline mode**: If no MCP sources are configured or all fail, generate report from TASKS.md + CAPTAINS_LOG.md only. Note "Metrics unavailable — offline mode" in the Executive Summary.
 - Reports are client-facing documents — use professional tone, no internal shorthand.
+- **Competitive section:** If `data/competitor/digest-*.md` exists, reference the latest digest for competitive insights. Link to `/competitor-monitor` for details.
 - Reference: `core/methodology/TASK_SYSTEM_RULES.md` for task format parsing.

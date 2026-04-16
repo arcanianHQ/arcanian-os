@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: "phase — EXPLORE, PLAN, ARCHITECT, IMPLEMENT, REVIEW, MONITOR"
+---
+
 # Skill: Delivery Phase Tracker (`/delivery-phase`)
 
 ## Purpose
@@ -29,9 +34,9 @@ Use when: user says `/delivery-phase`, "what phase are we in", "engagement statu
 
 ### Phase 2: PLAN
 **Goal:** Identify constraints and build the repair roadmap.
-- `` run
+- `/identify-constraints` run
 - `/repair-roadmap` generated
-- Brand intelligence profile started (VOICE, Target Profile, POSITIONING)
+- Brand intelligence profile started (VOICE, ICP, POSITIONING)
 - **Artifacts:** `brand/CONSTRAINT_MAP.md`, `brand/REPAIR_ROADMAP.md`, 3+ brand/ files have content
 - **Exit criteria:** Roadmap approved by client, TASKS.md populated with execution tasks
 
@@ -93,7 +98,7 @@ Phase detection rules:
 | CONSTRAINT_MAP.md has content | File >5 lines | 2 |
 | REPAIR_ROADMAP.md has content | File >5 lines | 2 |
 | VOICE.md has content | File >5 lines | 2 |
-| TARGET_PROFILE.md has content | File >5 lines | 2 |
+| ICP.md has content | File >5 lines | 2 |
 | POSITIONING.md has content | File >5 lines | 2 |
 | processes/ has files | Dir not empty | 3 |
 | TASKS.md has >10 tasks | Count task lines | 3-4 |
@@ -122,24 +127,24 @@ Current phase: Phase 4 — IMPLEMENT
 
 Phase progress:
   ✓ Phase 1 EXPLORE .... 100%  (7-Layer complete)
-  ✓ Phase 2 PLAN ....... 85%   (missing: .md)
+  ✓ Phase 2 PLAN ....... 85%   (missing: BELIEF_PROFILE.md)
   ✓ Phase 3 ARCHITECT .. 90%   (SOPs assigned, dashboard specced)
   ► Phase 4 IMPLEMENT .. 54%   (26 tasks, 14 done)
   · Phase 5 REVIEW ..... 0%
   · Phase 6 MONITOR .... 10%   (2 @monitor tasks created early)
 
 Brand intelligence: 5/7 complete
-  Missing: brand/.md, brand/POSITIONING.md
+  Missing: brand/BELIEF_PROFILE.md, brand/POSITIONING.md
 
 Tasks: 26 total | 14 done | 8 P0+P1 remaining | 2 overdue
 
 Next milestones:
   - Complete remaining P0 tasks (4 left)
-  - Fill brand/.md before Phase 5
+  - Fill brand/BELIEF_PROFILE.md before Phase 5
   - Schedule Phase 5 review session with client
 
 ═══════════════════════════════════════
-ExampleRetail is in Phase 4 (IMPLEMENT). 26 tasks, 14 done. Missing: brand/.md, brand/POSITIONING.md
+Diego is in Phase 4 (IMPLEMENT). 26 tasks, 14 done. Missing: brand/BELIEF_PROFILE.md, brand/POSITIONING.md
 ```
 
 ## Phase Override

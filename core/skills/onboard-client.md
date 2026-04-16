@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: client name
+---
+
 # Skill: Client Onboarding (`/onboard-client`)
 
 ## Purpose
@@ -17,9 +22,9 @@ Use when: user says `/onboard-client`, "onboard new client", "set up a new clien
 | `name` | Yes | — (slug, e.g., `heavytools`) |
 | `display_name` | Yes | Titlecase of `name` |
 | `type` | No | `client` |
-| `sync_system` | No | `[task-manager]` |
-| `owner` | No | `[Owner]` |
-| `team` | No | `["[Owner]"]` |
+| `sync_system` | No | `todoist` |
+| `owner` | No | `László` |
+| `team` | No | `["László"]` |
 
 ## Execution Steps
 
@@ -41,7 +46,7 @@ If `gh` or push fails: WARN and continue — document for manual creation.
 Copy `.claude/settings.json` from `core/templates/settings.json` if available. Verify preflight hook is configured.
 
 ### Step 4: Document Slack channel
-Output: `ACTION REQUIRED: Create Slack channel #arcanian-{name}-ops — Invite: [Owner] + team`
+Output: `ACTION REQUIRED: Create Slack channel #arcanian-{name}-ops — Invite: László + team`
 
 ### Step 5: Add to registries
 - **PROJECT_REGISTRY.md**: append `| {name} | {display_name} | client | clients/{name} | {sync_system} | {today} | active |`

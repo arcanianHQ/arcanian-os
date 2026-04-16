@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: file path to save
 ---
 
 # Skill: Auto-Save Deliverable

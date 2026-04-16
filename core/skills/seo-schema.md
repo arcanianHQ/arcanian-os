@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: URL to audit
 ---
 
 # Skill: Schema & Structured Data Analyzer (`/seo-schema`)
@@ -295,6 +296,6 @@ Open file: `core/scripts/ops/open-file.sh "{path}"`
 - **Use `/analyze-page` for per-page deep-dive.** This skill (`/seo-schema`) is the site-wide strategic view. For detailed per-page schema validation, run `/analyze-page --focus schema` which uses the `page-schema-checker` agent with Chrome DevTools extraction. This skill surveys the landscape; `/analyze-page` digs into individual pages.
 - **Firecrawl MCP** (`firecrawl_scrape`) is the primary tool for getting page HTML. Use `firecrawl_crawl` for multi-page analysis. `/analyze-page` prefers Chrome DevTools with Firecrawl as fallback.
 - **Google Rich Results Test** should be the final validation step — flag pages for manual testing. URL: `https://search.google.com/test/rich-results`
-- **Pairs with:** `/analyze-page` (per-page deep schema + meta analysis), `/geo-audit` (schema is one component of GEO readiness), `/geo-optimize` (schema recommendations from this skill feed into page optimization), `/seo-diagnose` (missing schema can explain rich result loss)
-- **CMS-specific notes:** WordPress (Yoast/RankMath add some schema), Shopify (Product schema built-in but often incomplete), [CMS] (needs manual implementation), custom CMS (usually needs everything added).
+- **Pairs with:** `/analyze-page` (per-page deep schema + meta analysis), `/geo-audit` (schema is one component of GEO readiness), `/geo-optimize` (schema recommendations from this skill feed into page optimization), `/seo-diagnose` (missing schema can explain rich result loss), `/measurement-audit` (schema issues can affect tracking)
+- **CMS-specific notes:** WordPress (Yoast/RankMath add some schema), Shopify (Product schema built-in but often incomplete), Drupal (needs manual implementation), custom CMS (usually needs everything added).
 - **Schema and AI Overviews:** Pages with FAQ schema are more likely to be featured in AI Overview responses. Article schema with proper Author/Publisher helps AI attribute content correctly, which builds the trust signal AI systems use for citation decisions.

@@ -1,8 +1,17 @@
-> v1.21.0 — 2026-04-16
+> v1.22.0 — 2026-04-16
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.22.0] — 2026-04-16
+
+### Changed
+- **Health check v2.1** — fix commands, context freshness, data bloat, CLI version drift, CHANGELOG freshness
+- **All skills** — `argument-hint` added to frontmatter for slash autocomplete
+- **PII cleanup** — removed client names from HOOKS_GUIDE and EVENT_LOG_RULE
 
 ---
 

@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: process meeting transcripts
+---
 
 # Skill: Meeting Sync (`/meeting-sync`)
 
@@ -65,7 +68,7 @@ This avoids loading all transcripts at once.
 8. Extract tasks
 9. Pull next batch
 
-**Transcript handling learned from ExampleLocal 2026-03-23 (94 min = 67K chars):**
+**Transcript handling learned from Mancsbazis 2026-03-23 (94 min = 67K chars):**
 - `fireflies_fetch(id)` returns full meeting — will ALWAYS exceed token limit for meetings > 20 min
 - Claude auto-saves overflow to: `.claude/projects/.../tool-results/mcp-claude_ai_Fireflies-*.txt`
 - Copy that file to `meetings/raw/` as the canonical raw transcript
@@ -85,24 +88,24 @@ Match meeting to a client using:
 
 | Signal | How to match |
 |---|---|
-| Participant email domain | `@solarnook.com` → solarnook, `@example-retail.com` → exampleretail |
-| Participant name | "[Name]" → examplelocal, "[Developer]" → example-auto-examplehome, "[Builder Contact]" → ExampleBuild |
-| Meeting title | "ExampleBrand weekly" → examplebrand, "ExampleRetail GTM review" → exampleretail |
+| Participant email domain | `@wellis.hu` → wellis, `@diego.hu` → diego |
+| Participant name | "Ricsi" → mancsbazis, "Aryan" → ah-tuning-qwallz, "Péter" → deluxe |
+| Meeting title | "Wellis weekly" → wellis, "Diego GTM review" → diego |
 | Calendar event | If linked to Google Calendar |
 
 **Client mapping table** (update as clients change):
 
 | Signal | Client |
 |---|---|
-| [Name], [Name], examplelocal, ExampleLocal | examplelocal |
-| [Developer], example-auto, examplehome | example-auto-examplehome |
-| [Name], ExampleBrand, ExampleD2C, [Team Member], [Stakeholder], [Client Contact] | examplebrand |
-| [Client Contact 1], [Client Contact 2], ExampleRetail, [Client Contact 3] | exampleretail |
-| [Builder Contact], ExampleBuild, [Builder Contact 2], [Builder Contact 3] | ExampleBuild |
-| [Wash Contact 1], [Wash Contact 2], MiniWash | example-wash |
-| [Name], ExampleBox | ExampleBox |
-| [Name], [Name] (ExampleSoft context), [Name] | ExampleSoft |
-| [Team Member 2], [Team Member 1] (internal, no client) | internal |
+| Ricsi, Kohut, mancsbazis, mancsbázis | mancsbazis |
+| Aryan, ah-tuning, qwallz | ah-tuning-qwallz |
+| Gábor, Wellis, BuenoSpa, Peti, Viktor, Ákos | wellis |
+| Orsi, Péteri, Diego, Magdolna | diego |
+| Péter (kocsibeallo context), Deluxe, Zsuzsi, Devin | deluxe |
+| Fruzsi, Flora, MiniWash | flora-miniwash |
+| Konrád, FelDoBox | feldobox |
+| Balázs, Kohut (vrsoft context), Sanyi | vrsoft |
+| Dóra, Éva (internal, no client) | internal |
 
 If UNCLEAR → place in `internal/inbox/` with flag for manual classification.
 
@@ -178,7 +181,7 @@ clients/{client}/meetings/raw/{YYYY-MM-DD}_{title-slug}_raw.md
 
 Create `meetings/` and `meetings/raw/` directories if they don't exist.
 
-If internal ([Team Member 2]/[Team Member 1] team meeting):
+If internal (Dóra/Éva team meeting):
 ```
 internal/meetings/{YYYY-MM-DD}_{title-slug}.md
 internal/meetings/raw/{YYYY-MM-DD}_{title-slug}_raw.md
@@ -225,7 +228,7 @@ If the meeting involved a lead:
 
 Update `.meeting-sync.log`:
 ```
-{date} | Synced {N} meetings | Clients: examplebrand(2), exampleretail(1), internal(1) | Tasks: 5 created
+{date} | Synced {N} meetings | Clients: wellis(2), diego(1), internal(1) | Tasks: 5 created
 ```
 
 Track `last_sync_date` so next run only pulls new meetings.
@@ -239,7 +242,7 @@ First-time setup: pull ALL Fireflies meetings, classify, route, extract.
 2. Pull 5 meetings at a time (limit: 5)
 3. Process each batch completely before pulling next
 4. For each meeting: classify from metadata FIRST, then fetch transcript only for that meeting
-5. Show progress: "Batch 1/N: 5 meetings processed (examplebrand: 2, internal: 3)"
+5. Show progress: "Batch 1/N: 5 meetings processed (wellis: 2, internal: 3)"
 6. If a batch fails (too large): reduce to 3 per batch
 7. Save progress to `.meeting-sync.log` after each batch (resume-safe)
 
@@ -265,8 +268,8 @@ After sync, update `internal/MEETING_CATALOGUE.md`:
 
 | Date | Title | Client | Duration | Tasks | File |
 |---|---|---|---|---|---|
-| 2026-03-24 | SolarNook Weekly | solarnook | 45 min | 3 | clients/solarnook/meetings/... |
-| 2026-03-24 | [Team Member 2]-[Team Member 1] standup | internal | 15 min | 1 | internal/meetings/... |
+| 2026-03-24 | Wellis Weekly | wellis | 45 min | 3 | clients/wellis/meetings/... |
+| 2026-03-24 | Dóra-Éva standup | internal | 15 min | 1 | internal/meetings/... |
 ```
 
 ## Ontology Integration

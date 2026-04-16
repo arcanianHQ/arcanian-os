@@ -106,6 +106,15 @@ Pull today's meetings from meeting transcript tool (if configured and any record
 
 Read `.registry-updates` file — any stale registries flagged by hooks?
 
+### 7b. Ticking Clock (consequence-driven escalation)
+
+After task sync and oversight, scan ALL projects for tasks with `Consequence: costly` or `Consequence: irreversible`:
+1. Calculate business days remaining until `Deadline:`
+2. If ≤ 3 business days → auto-escalate to P0 (update TASKS.md + Todoist)
+3. If ≤ 7 business days → flag as upcoming
+4. Sort by deadline (soonest first)
+5. Surface in a dedicated section ABOVE P0 tasks in the summary
+
 ### 8. Show Day Start Summary
 
 ```
@@ -115,6 +124,15 @@ Read `.registry-updates` file — any stale registries flagged by hooks?
   ExampleBrand: pulled 3 updates, 1 completed overnight
   ExampleRetail: no changes
   ExampleLocal: 2 new tasks from [Task Manager]
+
+⏰ TICKING CLOCK:
+  🔴 ExampleBrand #201: Cancel Stape subscription — €49/mo auto-renews (Deadline: Mar 27, 2 days) [irreversible]
+  🟡 ExampleLocal #202: Submit AC certification exam (Deadline: Apr 2, 6 days) [costly]
+
+📈 STREAKS:
+  ✅ Büntetőjog 4 tanulás — 3 day streak (last: yesterday) [daily]
+  ✅ LinkedIn posting + commenting — 5 day streak (last: Mar 24) [daily]
+  🟡 Example habit — missed 4 days (last: Mar 20) [daily] ← gap growing
 
 P0 TASKS: 2
   ExampleBrand #77: Roivenue BigQuery billing (Due: today)
@@ -130,6 +148,7 @@ OVERDUE: 3
   [Contact Person] ([Retail Lead]): 1 task (follow-up)
 
 QUICK WINS: 3
+  🔑 Diego #56: Email lista számla (15m, hygiene) — blocks #5 SEO project (25h)
   SolarNook #49: Wire Enhanced Conversions (15m, lever)
   MossTrail #20: Fix GAds priorities (15m, lever)
   SolarNook #22: Add SGTM to referral exclusion (15m, hygiene)

@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: "[client slug] — validate project setup"
+---
+
 # Skill: Project Validation (`/validate`)
 
 ## Purpose
@@ -44,7 +49,7 @@ Run each check and record pass/fail. Stop-on-error = false (run all checks, repo
 
 ### 5. brand/ intelligence profile
 - [ ] Directory `brand/` exists
-- [ ] Contains these 7 files: `7LAYER_DIAGNOSTIC.md`, `CONSTRAINT_MAP.md`, `REPAIR_ROADMAP.md`, `.md`, `VOICE.md`, `TARGET_PROFILE.md`, `POSITIONING.md`
+- [ ] Contains these 7 files: `7LAYER_DIAGNOSTIC.md`, `CONSTRAINT_MAP.md`, `REPAIR_ROADMAP.md`, `BELIEF_PROFILE.md`, `VOICE.md`, `ICP.md`, `POSITIONING.md`
 - Report which are present and which are missing
 - If <4 present: WARN — "Brand intelligence profile incomplete ({N}/7)."
 

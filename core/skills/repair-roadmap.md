@@ -7,6 +7,7 @@ allowed-tools:
   - Glob
   - Write
   - Edit
+argument-hint: client slug
 ---
 
 # Skill: Repair Roadmap (`/repair-roadmap`)

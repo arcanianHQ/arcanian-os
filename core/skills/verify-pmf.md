@@ -1,7 +1,11 @@
+---
+scope: shared
+argument-hint: client slug
+---
+
 # Skill: PMF Verification (`/verify-pmf`)
 
 > **Data Sufficiency Check applies.** Every signal must be tagged [DATA], [INFERRED], or [UNKNOWN].
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 > **Discovery, not pronouncement.** PMF is not binary — it's a spectrum. Show where you are on it.
 > **"We don't know yet" is the most common — and most honest — answer.**
 
@@ -38,7 +42,6 @@ Layer 1: DEMAND — do people want it? (inbound interest)
 ## Execution Steps
 
 ### Step 0: Data Sufficiency Check
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 Before anything, identify what data sources are available:
 
@@ -279,4 +282,4 @@ What did we get wrong? What signals are we missing?
 - Score 2 on Layer 1-3 = minimum viable PMF. Everything below is pre-PMF.
 - The most dangerous state: Layer 1 = 3, Layer 2 = 0. "Everyone wants it, nobody uses it" = the product is a story, not a tool.
 - Pete's endorsement is Layer 1 + Layer 5 simultaneously (he advocated without us asking). But Layer 2-4 are unverified.
-- Pairs with: `/pipeline` (lead tracking), `/health-check` (system health), `` (pre-launch validation)
+- Pairs with: `/pipeline` (lead tracking), `/health-check` (system health), `/validate-idea` (pre-launch validation)

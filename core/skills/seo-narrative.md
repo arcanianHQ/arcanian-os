@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: client slug
+---
+
 # Skill: GSC Report Narratives (`/seo-narrative`)
 
 ## Purpose
@@ -58,7 +63,6 @@ Use this skill when:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Minimum: GSC totals for both periods. If missing: STOP.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Load tone and language** — Check `PROJECT_GLOSSARY.md` and `brand/VOICE.md`. Determine: Hungarian or English? Formal or informal? Technical or plain?
 
@@ -78,7 +82,7 @@ Use this skill when:
 
 6. **Write the narrative (3-5 paragraphs):**
    - **Paragraph 1 (BLUF):** One-sentence verdict. "Organic traffic grew 12% month-over-month, driven primarily by improved positions for product category pages."
-   - **Paragraph 2 (What improved):** Specific queries and pages that gained, with numbers that mean something. Not "impressions increased" but "impressions for 'pergola installation' grew 45%, now reaching 2,400 potential searchers monthly."
+   - **Paragraph 2 (What improved):** Specific queries and pages that gained, with numbers that mean something. Not "impressions increased" but "impressions for 'hot tub maintenance' grew 45%, now reaching 2,400 potential searchers monthly."
    - **Paragraph 3 (What declined):** Honest about losses. Specific queries and pages.
    - **Paragraph 4 (Context):** Why this matters for the business. Connect SEO metrics to outcomes.
    - **Paragraph 5 (What to do next):** 2-3 concrete recommendations based on the data.

@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: keyword list or client slug
 ---
 
 # Skill: Content Performance Clustering (`/seo-cluster`)

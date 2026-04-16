@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: Hungarian text to review
+---
+
 # Magyar Szövegírás — Arcanian Stílusútmutató
 
 ## Cél

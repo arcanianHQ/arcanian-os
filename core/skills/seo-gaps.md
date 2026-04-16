@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: client slug or competitor URL
+---
+
 # Skill: Content Gap Analysis (`/seo-gaps`)
 
 ## Purpose
@@ -53,7 +58,6 @@ Without Semrush, we can't see competitor keywords. Instead, focus on:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC data available. If Semrush available, confirm correct project/domain. Log gaps.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Pull our keyword universe** — All GSC queries with impressions > 0 in last 90 days. Tag `[DATA]`.
 
@@ -157,5 +161,5 @@ Open file: `core/scripts/ops/open-file.sh "{path}"`
 
 - **GSC-only is fully valid.** Striking distance analysis is often MORE actionable than competitor gap analysis because it shows what Google already considers you relevant for.
 - **Business relevance is critical.** A 10,000-volume gap keyword that doesn't match what the client sells is worthless. Always validate with client context.
-- **Pairs with:** `/seo-cannibalize` (clean up before creating new content), `/seo-decay` (refresh decaying content before creating new), `/seo-diagnose` (gaps may explain why traffic dropped — competitor took the space), `/seo-narrative` (include gap findings in the monthly report)
+- **Pairs with:** `/competitor-monitor` (maintains `brand/COMPETITIVE_LANDSCAPE.md` and keeps competitor snapshots current — run it first on a new client), `/seo-cannibalize` (clean up before creating new content), `/seo-decay` (refresh decaying content before creating new), `/seo-diagnose` (gaps may explain why traffic dropped — competitor took the space), `/seo-narrative` (include gap findings in the monthly report)
 - **Multi-language clients:** Run separately per language. A Hungarian gap analysis is different from an English one.

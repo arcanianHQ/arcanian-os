@@ -1,10 +1,15 @@
+---
+scope: shared
+argument-hint: "[filter] — show tasks, optional filter"
+---
+
 # Skill: Task Management (`/tasks`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 
-Manages tasks across all Arcanian projects using a unified Palantir-ontology-inspired system. Tasks are stored locally in `TASKS.md` (active) and `TASKS_DONE.md` (archive) per project, with optional sync to external systems ([Task Manager], Asana, Trello, Bitrix).
+Manages tasks across all Arcanian projects using a unified Palantir-ontology-inspired system. Tasks are stored locally in `TASKS.md` (active) and `TASKS_DONE.md` (archive) per project, with optional sync to external systems (Todoist, Asana, Trello, Bitrix).
 
 ## Trigger
 
@@ -12,13 +17,13 @@ Use this skill when:
 - User asks to create, update, complete, or review tasks
 - User says "add a task", "what's open", "mark done", "what's P0"
 - User asks about task status, priorities, or blockers
-- User wants to sync tasks with [Task Manager]/Asana
+- User wants to sync tasks with Todoist/Asana
 - Working in any project that has a TASKS.md file
 - User says `/tasks`
 
 ## Rules Reference
 
-Full rules are in: `/path/to/project/memory/TASK_SYSTEM_RULES.md`
+Full rules are in: `/Users/endre/Sites/__arcanian_full/memory/TASK_SYSTEM_RULES.md`
 Always read that file before first task operation in a session.
 
 ## Commands
@@ -66,33 +71,33 @@ When invoked, ask what the user needs or detect from context:
 ```
 4. Insert into correct priority section in TASKS.md
 5. Update frontmatter `updated:`
-6. **AUTO-SYNC (bidirectional) with [Task Manager]/Asana** — on EVERY sync operation:
+6. **AUTO-SYNC (bidirectional) with Todoist/Asana** — on EVERY sync operation:
    - Read `sync:` from TASKS.md frontmatter
    - **PULL FIRST:** Before pushing, check ALL tasks with `ext:` IDs for external changes:
-     - Task completed in [Task Manager] → mark done locally, move to TASKS_DONE.md, show: "#{N} was completed in [Task Manager]"
-     - Priority changed in [Task Manager] → update local priority, move to correct section, show: "#{N} priority changed to P{X} in [Task Manager]"
-     - Due date changed in [Task Manager] → update local Due:, show: "#{N} due date changed to {date} in [Task Manager]"
-     - Task rescheduled in [Task Manager] → update local, show: "#{N} rescheduled to {date} in [Task Manager]"
-     - New task created in [Task Manager] → add to local TASKS.md (ask for Layer + Domain before adding)
+     - Task completed in Todoist → mark done locally, move to TASKS_DONE.md, show: "#{N} was completed in Todoist"
+     - Priority changed in Todoist → update local priority, move to correct section, show: "#{N} priority changed to P{X} in Todoist"
+     - Due date changed in Todoist → update local Due:, show: "#{N} due date changed to {date} in Todoist"
+     - Task rescheduled in Todoist → update local, show: "#{N} rescheduled to {date} in Todoist"
+     - New task created in Todoist → add to local TASKS.md (ask for Layer + Domain before adding)
    - **THEN PUSH:** Create/update the current task in external system with enriched description (Layer, Domain, From, Inform, ontology)
    - Store `ext:` ID + `synced:` date on the task
-   - If @waiting: use Follow-up date as [Task Manager] due (not task Due)
-   - If Inform people are [Task Manager] collaborators: add as followers
+   - If @waiting: use Follow-up date as Todoist due (not task Due)
+   - If Inform people are Todoist collaborators: add as followers
    - **Show sync summary:** "Synced: 1 pushed, 2 pulled (#{N} completed, #{M} rescheduled)"
-   - **This happens automatically — no separate  needed**
+   - **This happens automatically — no separate /task-sync needed**
 7. **ONTOLOGY ENRICHMENT** (auto, per `core/methodology/ONTOLOGY_ENRICHMENT_RULE.md`):
    - Scan task content for references: FND-NNN, REC-NNN, SOP names, meeting dates, lead names, domain names, goal tags
    - Auto-add detected edges if not already present
    - **Create backlinks:** If task has `FND: FND-039` → open finding file, add `Tasks: #{N}` to it
-   - **Create backlinks:** If task has `Lead: retail-lead` → open LEAD_STATUS.md, add `#{N}` to lead's task list
-   - If edges detected from conversation context (user said "from the [Client Contact] meeting"), add `Meeting:` and `From:` automatically
+   - **Create backlinks:** If task has `Lead: euronics` → open LEAD_STATUS.md, add `#{N}` to lead's task list
+   - If edges detected from conversation context (user said "from the Ákos meeting"), add `Meeting:` and `From:` automatically
 
 ### `/tasks complete #N` — Complete a task
 1. Find task #N in TASKS.md
 2. Change `- [ ]` to `- [x]` and add date: `- [x] #N Task (YYYY-MM-DD)`
 3. Move entire task block to TOP of TASKS_DONE.md
 4. Update frontmatter `updated:` in both files
-5. **BIDIRECTIONAL SYNC:** Pull all [Task Manager] changes first (completions, priority changes, reschedules), then mark #{N} complete in [Task Manager]
+5. **BIDIRECTIONAL SYNC:** Pull all Todoist changes first (completions, priority changes, reschedules), then mark #{N} complete in Todoist
 6. **NOTIFY:** If task has `Inform:` field, show: "Notify: {names} that #{N} is done"
 7. **ONTOLOGY UPDATE:**
    - If task has `FND:` → check: is the finding now resolved? Update finding status if all related tasks are done.
@@ -105,7 +110,7 @@ When invoked, ask what the user needs or detect from context:
 3. Update `Updated:` date to today
 4. If priority changed, move to correct section
 5. Update frontmatter `updated:`
-6. **BIDIRECTIONAL SYNC:** Pull all [Task Manager] changes first, then push #{N} update to [Task Manager]/Asana
+6. **BIDIRECTIONAL SYNC:** Pull all Todoist changes first, then push #{N} update to Todoist/Asana
 
 ### `/tasks move #N P#` — Change priority
 1. Find task #N
@@ -129,7 +134,7 @@ Show monitoring tasks with their Check/Baseline/Target/Frequency fields.
 3. Add reason in notes
 
 ### `/tasks sync` — Sync with external system
-1. Read frontmatter `sync:` to determine target ([task-manager]/asana/trello/bitrix)
+1. Read frontmatter `sync:` to determine target (todoist/asana/trello/bitrix)
 2. For each task with `ext:` ID:
    - Compare `Updated:` vs external `updatedAt` vs `synced:`
    - Push/pull based on which is newer
@@ -159,24 +164,24 @@ When creating or updating tasks, ALWAYS validate per `core/methodology/TASK_FORM
 
 ## Auto-Sync Behavior
 
-**Tasks sync automatically on create, update, and complete.** No separate `` step needed for individual task operations.
+**Tasks sync automatically on create, update, and complete.** No separate `/task-sync` step needed for individual task operations.
 
-`` is still available for:
-- ` pull` — pull changes FROM [Task Manager]/Asana (e.g., tasks created on mobile)
-- ` all` — bulk sync ALL projects (used in `/day-start`)
-- `` — full bidirectional sync with conflict resolution
+`/task-sync` is still available for:
+- `/task-sync pull` — pull changes FROM Todoist/Asana (e.g., tasks created on mobile)
+- `/task-sync all` — bulk sync ALL projects (used in `/day-start`)
+- `/task-sync` — full bidirectional sync with conflict resolution
 
 But for normal task work (create, update, complete), the sync happens inline.
 
 ## Project Detection
 
 Detect current project from working directory:
-- `_example_full/` → sync: asana
-- `_example_full/` → sync: [task-manager]
-- `_example_full/` → sync: [task-manager]
-- `__example_full/` → sync: [task-manager]
-- `_ExampleBuild_full/` → sync: [task-manager]
-- `[audit-framework]/` → sync: [task-manager]
+- `_wellis_full/` → sync: asana
+- `_diego_full/` → sync: todoist
+- `_mancsbazis-full/` → sync: todoist
+- `__arcanian_full/` → sync: todoist
+- `_deluxe_full/` → sync: todoist
+- `_measurement_audit/` → sync: todoist
 
 If no TASKS.md exists in current project root, ask if user wants to create one from the template.
 

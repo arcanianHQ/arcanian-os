@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: load project context
+---
+
 # Skill: Session Preflight (`/preflight`)
 
 ## Purpose
@@ -31,7 +36,7 @@ None. Operates on the current working directory.
 ### Step 3: Check MCP connections
 1. Read `.claude/settings.json` or `.mcp.json` if present
 2. List configured MCP servers and their connection status
-3. Common connections to check: GA4, Google Ads, Search Console, Meta Ads, [Task Manager], Asana
+3. Common connections to check: GA4, Google Ads, Search Console, Meta Ads, Todoist, Asana
 4. If no MCP config: note "No MCP connections configured for this project"
 
 ### Step 4: Last session context
@@ -58,13 +63,13 @@ Tasks: {P0_count} P0, {P1_count} P1, {total} total | {overdue_count} overdue
   P0: #12 Fix consent mode v2 implementation
   P0: #15 GA4 ecommerce events audit
 
-MCP: GA4 ✓  Ads ✓  SC ✓  [Task Manager] ✗  Meta ✗
+MCP: GA4 ✓  Ads ✓  SC ✓  Todoist ✗  Meta ✗
 
 Last session (YYYY-MM-DD):
   {first 3 lines of last log entry}
 
 Stale @waiting ({count}):
-  #8 Waiting on agency GTM access (12 days) → contact@example-agency.com
+  #8 Waiting on agency GTM access (12 days) → contact@agency.hu
   #19 Waiting on feed URL from client (9 days) → client IT
 
 Ready to work. {P0_count} P0s, {overdue_count} overdue, MCP: {summary}

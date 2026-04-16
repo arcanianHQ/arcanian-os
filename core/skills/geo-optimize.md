@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: client slug
 ---
 
 # Skill: GEO Content Optimization (`/geo-optimize`)

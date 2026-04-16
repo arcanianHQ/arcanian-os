@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: document topic
+---
 
 # Skill: OKR-BLUF Dokumentum Készítés
 

@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: client slug
+---
 
 # Skill: Plan GTM Actions (GTM Strategist Framework)
 
@@ -648,10 +651,10 @@ KILL CRITERIA:
 /plan-gtm → Create this action plan
        ↓
 Execute with support from:
-├──  → Test before building
-├──  → Create [Premium Offer]
+├── /validate-idea → Test before building
+├── /craft-offer → Create Grand Slam Offer
 ├── /build-brand → Fix positioning
-└──  → Address blocks
+└── /belief-profile → Address blocks
 
        ↓
 /analyze-gtm → Re-analyze after execution

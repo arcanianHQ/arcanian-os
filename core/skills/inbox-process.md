@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: triage inbox files
+---
 
 # Skill: Inbox Process (`/inbox`)
 
@@ -27,9 +30,9 @@ Show summary:
 ```
 Inbox: 5 files to process
 1. 2026-03-20_aryan-meeting-notes.md (4.2KB)
-2. GTM-EXAMPLE-001-003_workspace53.json (12KB)
+2. GTM-TCBKRN76_workspace53.json (12KB)
 3. screenshot-consent-banner.png (450KB)
-4. email-from-[client-contact].md (1.1KB)
+4. email-from-ricsi.md (1.1KB)
 5. random-article-about-seo.md (8KB)
 ```
 
@@ -55,7 +58,7 @@ For each file, determine:
 For each file, check if it contains action items:
 - Explicit: "TODO", "kell", "szükséges", "elküldeni", "megcsinálni"
 - Implicit: questions needing answers, decisions pending, deadlines mentioned
-- Meeting action items: "[Name] megígérte", "[Team Member 1] ellenőrzi"
+- Meeting action items: "Ricsi megígérte", "Éva ellenőrzi"
 
 For each action item found:
 1. Create a task in TASKS.md with proper format
@@ -68,7 +71,7 @@ When a `.json` file is detected as a GTM container export:
 
 1. **Parse container ID + workspace number** from the JSON:
    ```python
-   container_id = data["containerVersion"]["container"]["publicId"]  # e.g., "GTM-EXAMPLE-001-005"
+   container_id = data["containerVersion"]["container"]["publicId"]  # e.g., "GTM-5F544SR3"
    workspace = data["containerVersion"]["containerVersionId"]         # e.g., "52"
    ```
 
@@ -97,9 +100,9 @@ See: `core/methodology/GTM_DATA_STANDARD.md` for full standard.
 Move each classified file to its destination with proper naming.
 Log every move:
 ```
-MOVED: inbox/email-from-[client-contact].md → takeover/correspondence/[client-contact]-taplista-kerdes-received.md
-MOVED: inbox/GTM-EXAMPLE-001-003_workspace53.json → audit/data/gtm-exports/GTM-EXAMPLE-001-003_workspace53.json
-CREATED TASK: #15 "Reply to [Name] taplista question" (@next, P2)
+MOVED: inbox/email-from-ricsi.md → takeover/correspondence/ricsi-taplista-kerdes-received.md
+MOVED: inbox/GTM-TCBKRN76_workspace53.json → audit/data/gtm-exports/GTM-TCBKRN76_workspace53.json
+CREATED TASK: #15 "Reply to Ricsi taplista question" (@next, P2)
 SKIPPED: inbox/random-article.md → left in inbox (unclear relevance — review manually)
 ```
 
@@ -122,13 +125,13 @@ Tasks created: 2
 Left for review: 1 (random-article.md — unclear relevance)
 
 Moves:
-  email-from-[client-contact].md → correspondence/
+  email-from-ricsi.md → correspondence/
   GTM export → audit/data/gtm-exports/
   screenshot → audit/data/screenshots/
   meeting notes → notes/
 
 New tasks:
-  #15 Reply to [Name] taplista question (@next, P2)
+  #15 Reply to Ricsi taplista question (@next, P2)
   #16 Review GTM workspace 53 changes (@next, P1)
 ```
 
@@ -141,10 +144,10 @@ When run from hub root:
 ```
 INBOX SWEEP — 2026-03-24
 
-exampleretail: 57 files (47 processed, 8 tasks created, 2 manual review)
-example-auto: 2 files (2 processed, 1 task)
+diego: 57 files (47 processed, 8 tasks created, 2 manual review)
+ah-tuning: 2 files (2 processed, 1 task)
 internal: 4 files (3 processed, 1 task)
-examplebrand: 1 file (1 processed)
+wellis: 1 file (1 processed)
 All others: empty
 
 Total: 64 files processed, 10 tasks created, 2 need manual review

@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: client slug
+---
 
 # Skill: Build Brand Strategy (100M Branding Framework)
 
@@ -7,13 +10,13 @@
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-Applies Alex [Framework Author]'s branding framework to deliberately build, grow, or pivot a brand for maximum profit. Creates strategic brand associations that lower customer acquisition cost, increase lifetime value, and build lasting competitive advantage.
+Applies Alex Hormozi's branding framework to deliberately build, grow, or pivot a brand for maximum profit. Creates strategic brand associations that lower customer acquisition cost, increase lifetime value, and build lasting competitive advantage.
 
 **The Core Principle:**
 > "Branding means pairing your business with things your ideal customers like."
 
 ## Source Reference
-From **"$100M Playbook: Branding" by Alex [Framework Author]** (Acquisition.com)
+From **"$100M Playbook: Branding" by Alex Hormozi** (Acquisition.com)
 
 ## Trigger
 Use this skill when:
@@ -80,7 +83,7 @@ Did you make more money? That's the answer.
 | **Easy to Target** | Can you reach them with ads/content? | Can't find = can't sell |
 | **In Pain** | Do they desperately want what you sell? | No pain = no urgency to buy |
 
-**[Target Customer Profile] Questions:**
+**Avatar Questions:**
 1. Who specifically do you want to serve?
 2. Is that market growing or shrinking?
 3. Do they have money to spend?
@@ -97,7 +100,7 @@ Did you make more money? That's the answer.
 - **Problems they hate** (pain points, frustrations, fears)
 - **People they admire** (influencers, leaders, celebrities in their world)
 - **Content they consume** (podcasts, books, channels, publications)
-- **Values they hold** (values, principles, what they stand for)
+- **Values they hold** (beliefs, principles, what they stand for)
 - **Experiences they enjoy** (events, activities, lifestyle elements)
 - **Products they already buy** (adjacent purchases, luxury items)
 
@@ -226,7 +229,7 @@ DATE: [Analysis date]
                   STEP 1: IDEAL CUSTOMER
 ───────────────────────────────────────────────────────────────
 
-TARGET CUSTOMER: [Specific description]
+TARGET AVATAR: [Specific description]
 
 CRITERIA CHECK:
 □ Growing Market: [Yes/No - explanation]
@@ -234,7 +237,7 @@ CRITERIA CHECK:
 □ Easy to Target: [Yes/No - where they congregate]
 □ In Pain: [Yes/No - specific pain points]
 
-CUSTOMER FIT SCORE: [0-4] criteria met
+AVATAR SCORE: [0-4] criteria met
 
 ───────────────────────────────────────────────────────────────
                   STEP 2: WHAT THEY LIKE
@@ -339,7 +342,7 @@ BELIEFS AFFECTING BRAND DECISIONS:
 • [Belief that may cause weak positioning]
 • [Belief that may cause wrong associations]
 
-(Use  if customer resists charging premium,
+(Use /trace-belief if customer resists charging premium,
 being visible, or making strong associations)
 
 ═══════════════════════════════════════════════════════════════
@@ -365,7 +368,7 @@ PROBLEM: Invisible in crowded market
                   STEP 1: IDEAL CUSTOMER
 ───────────────────────────────────────────────────────────────
 
-TARGET CUSTOMER: "Women entrepreneurs, $100K-$500K revenue,
+TARGET AVATAR: "Women entrepreneurs, $100K-$500K revenue,
                service-based, want to scale to $1M+"
 
 CRITERIA CHECK:
@@ -374,7 +377,7 @@ CRITERIA CHECK:
 ☑ Easy to Target: Yes - Facebook groups, podcasts, events
 ☑ In Pain: Yes - stuck at revenue ceiling
 
-CUSTOMER FIT SCORE: 4/4 ✓
+AVATAR SCORE: 4/4 ✓
 
 ───────────────────────────────────────────────────────────────
                   STEP 2: WHAT THEY LIKE
@@ -414,13 +417,13 @@ NEW ASSOCIATIONS TO CREATE:
 ```
 /build-brand → Strategic brand positioning
        ↓
- → Does copy reflect brand associations?
+/analyze-copy → Does copy reflect brand associations?
        ↓
- → Do results reflect brand strength?
+/map-results → Do results reflect brand strength?
        ↓
- → Are assumptions blocking strong positioning?
+/belief-profile → Are beliefs blocking strong positioning?
        ↓
- → Will new brand direction succeed in market?
+/validate-idea → Will new brand direction succeed in market?
 ```
 
 **Common Belief Blocks to Strong Branding:**
@@ -475,7 +478,7 @@ NEW ASSOCIATIONS TO CREATE:
 
 From the original playbook:
 
-- [ ] Figure out ideal [Target Customer Profile] (Growing, Pain, Money, Easy to Find)
+- [ ] Figure out ideal avatar (Growing, Pain, Money, Easy to Find)
 - [ ] Figure out what they like
 - [ ] Associate with stuff they like through:
   - [ ] Content they like
@@ -509,5 +512,5 @@ From the original playbook:
 - Good branding = lower CAC + higher LTV + lower risk
 - Brand goes BOTH ways - product affects brand, brand affects product
 - Patience is essential - 5+ year time horizon
-- Use `` when customer resists strong positioning
-- Use `` before major brand pivots
+- Use `/trace-belief` when customer resists strong positioning
+- Use `/validate-idea` before major brand pivots

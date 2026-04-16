@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: client slug or URL
 ---
 
 # Skill: GEO Readiness Audit (`/geo-audit`)

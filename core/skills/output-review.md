@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: monthly output quality review
 ---
 
 # Skill: Output Review (`/output-review`)

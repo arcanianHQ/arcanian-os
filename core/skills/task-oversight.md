@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: check overdue and blocked tasks
+---
 
 # Skill: Task Oversight (`/task-oversight`)
 
@@ -55,7 +58,7 @@ Flag per `core/methodology/TASK_FORMAT_STANDARD.md`:
   - Multi-level chains: show full A→B→C chain with root blocker
 - **SYNC DRIFT:** ext: present but synced: > 3 days ago
 - **NO OWNER:** Missing Owner field
-- **FORMAT VIOLATION:** Doesn't match gold standard (ExampleBrand format)
+- **FORMAT VIOLATION:** Doesn't match gold standard (Wellis format)
 
 ### Step 3: Detect user and highlight their tasks
 
@@ -113,7 +116,7 @@ SUMMARY:
 {project}: #{N} {title} — {effort} — {impact}
 
 ═══════════════════════════════════
-Actions:  to push |  all to sync everything
+Actions: /task-sync to push | /task-sync all to sync everything
 ```
 
 ### Step 6: Auto-save
@@ -125,7 +128,7 @@ If run as part of /morning-brief, include in the morning brief output.
 
 ```
 /day-start calls:
-  1.  all (pull from [Task Manager]/Asana)
+  1. /task-sync all (pull from Todoist/Asana)
   2. /task-oversight (scan + report)
   3. /morning-brief (uses oversight data)
 

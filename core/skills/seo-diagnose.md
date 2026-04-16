@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: client slug or URL
 ---
 
 # Skill: SEO Traffic Drop Diagnostics (`/seo-diagnose`)
@@ -170,6 +171,6 @@ Open file: `core/scripts/ops/open-file.sh "{path}"`
 ## Notes
 
 - **GSC-only is valid.** The skill works without Semrush — just mark competitor hypotheses as `[UNKNOWN]`.
-- **Pairs with:** `/seo-decay` (find which content is bleeding), `/seo-cannibalize` (check if internal competition caused the drop), `/seo-anomaly` (real-time alerting), `/seo-narrative` (write the report after diagnosis)
+- **Pairs with:** `/competitor-monitor` (if a recent competitor digest exists in `data/competitor/`, the `seo-competitor-analyzer` agent can reference it as `[OBSERVED]` evidence for H4 instead of `[UNKNOWN]`), `/seo-decay` (find which content is bleeding), `/seo-cannibalize` (check if internal competition caused the drop), `/seo-anomaly` (real-time alerting), `/seo-narrative` (write the report after diagnosis)
 - **Databox query tips:** Use `dimension: "query"` for query-level GSC data, `dimension: "page"` for page-level. Always filter by the correct GSC property from DOMAIN_CHANNEL_MAP.md.
 - **Do NOT conclude "algorithm update" without evidence.** Check Google Search Status Dashboard and SEO news. An algorithm update is a hypothesis, not a default explanation.

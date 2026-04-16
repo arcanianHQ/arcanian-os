@@ -1,10 +1,15 @@
+---
+scope: shared
+argument-hint: client slug
+---
+
 # Skill: Project Scaffolding (`/scaffold-project`)
 
 ## Purpose
 
 > **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 
-Creates a fully operational Claude Code project from scratch — with every file, convention, and pattern learned from running Arcanian (468 files) and ExampleBrand (944 files) projects.
+Creates a fully operational Claude Code project from scratch — with every file, convention, and pattern learned from running Arcanian (468 files) and Wellis (944 files) projects.
 
 ## Trigger
 
@@ -18,10 +23,10 @@ Use when: starting a new client/internal/audit project, "scaffold a project", "o
 | `display_name` | Yes | `Heavy Tools` | Titlecase of project_name |
 | `project_type` | Yes | `client` / `internal` / `audit` | `client` |
 | `location` | No | `/path/to/project` | `_arcanian-ops/clients/{name}` |
-| `sync_system` | No | `[task-manager]` / `asana` / `trello` / `bitrix` | `[task-manager]` |
-| `sync_id` | No | `EXAMPLE-ID-001` | `""` |
-| `owner` | No | `[Owner]` | `[Owner]` |
-| `team` | No | `["[Owner]", "[Team Member 1]"]` | `["[Owner]"]` |
+| `sync_system` | No | `todoist` / `asana` / `trello` / `bitrix` | `todoist` |
+| `sync_id` | No | `1213304520507935` | `""` |
+| `owner` | No | `László` | `László` |
+| `team` | No | `["László", "Éva"]` | `["László"]` |
 | `goals` | No | `["Q2-heavytools-onboard"]` | `[]` |
 | `domains` | No | `["heavytools.hu", "heavytools.com"]` | `[]` — ask if multi-domain |
 | `primary_contact` | No | `{"name": "Kiss János", "nickname": "János", "email": "..."}` | `{}` — fill in CONTACTS.md |
@@ -45,8 +50,9 @@ Initial entry with project creation context.
 ### Step 3b: Generate CONTACTS.md
 
 Use template from `core/methodology/CONTACT_REGISTRY_STANDARD.md`.
-- Pre-populate Arcanian Team section ([Owner], [Team Member 1], [Team Member 2] from TEAM_DIRECTORY.md)
+- Pre-populate Arcanian Team section (László, Éva, Dóra from TEAM_DIRECTORY.md) with `Active Since: {today}` and `Status: Active`
 - Leave Client Team and Agencies sections empty (fill during onboarding)
+- **ALL tables MUST include `Active Since` and `Status` columns** — temporal tracking is mandatory
 - Set Communication Rules from client brief (language, tegező/magázó, NDA)
 
 ### Step 3c: Generate DOMAIN_CHANNEL_MAP.md (multi-domain clients only)
@@ -71,13 +77,13 @@ Use template from `core/templates/EVENT_LOG_TEMPLATE.md`.
 **This file is MANDATORY for all project types.** Every analysis skill loads it before querying data.
 
 ### Step 4: Generate TASKS.md + TASKS_DONE.md
-Use template from `core/templates/TASKS.md` (v2.0 — ExampleBrand gold standard format).
+Use template from `core/templates/TASKS.md` (v2.0 — Wellis gold standard format).
 Task format standard: `core/methodology/TASK_FORMAT_STANDARD.md`.
 
 **Fill in template variables:**
 - `{slug}` = project_name
 - `{Display Name}` = display_name
-- `{owner}` = from input or default to [Owner]
+- `{owner}` = from input or default to László
 - `{today}` = current date
 - `{two_weeks_from_now}` = today + 14 days
 - `{primary_domain}` = from CLIENT_CONFIG.md if exists, otherwise ask
@@ -92,9 +98,12 @@ If `project_type == audit`: pre-populate Phase 0-5 tasks + mandatory knowledge e
 Read `scaffold-project/AUDIT_TASKS.md` for the pre-populated task list.
 
 ### Step 5: Generate brand/ intelligence profile stubs
-Create 7 empty files in `brand/`:
-`7LAYER_DIAGNOSTIC.md`, `CONSTRAINT_MAP.md`, `REPAIR_ROADMAP.md`, `.md`, `VOICE.md`, `TARGET_PROFILE.md`, `POSITIONING.md`
-Add task to TASKS.md: "Complete client intelligence profile" with checklist.
+Create 8 empty files in `brand/`:
+`7LAYER_DIAGNOSTIC.md`, `CONSTRAINT_MAP.md`, `REPAIR_ROADMAP.md`, `BELIEF_PROFILE.md`, `VOICE.md`, `ICP.md`, `POSITIONING.md`, `COMPETITIVE_LANDSCAPE.md`
+
+For `COMPETITIVE_LANDSCAPE.md`: copy from `core/templates/COMPETITIVE_LANDSCAPE_TEMPLATE.md` and replace `{Client Name}` with display_name. Leave competitor rows empty — fill during onboarding or first `/competitor-monitor` setup.
+
+Add task to TASKS.md: "Complete client intelligence profile" with checklist (including COMPETITIVE_LANDSCAPE.md).
 
 ### Step 6: Generate .gitignore
 Read `scaffold-project/FILE_TEMPLATES.md` → section ".gitignore".
@@ -112,7 +121,7 @@ User request: $ARGUMENTS
 | Command file | Skill | Purpose |
 |---|---|---|
 | `tasks.md` | `tasks.md` | Task management (create, update, complete — with auto-sync + ontology) |
-| `task-sync.md` | `task-sync.md` | Bidirectional [Task Manager]/Asana sync |
+| `task-sync.md` | `task-sync.md` | Bidirectional Todoist/Asana sync |
 | `task-oversight.md` | `task-oversight.md` | Cross-project task health scan |
 | `council.md` | `council.md` | Multi-agent council deliberation |
 | `pipeline.md` | `pipeline.md` | Auto-chained diagnostic/measurement/discovery pipeline |
@@ -125,6 +134,7 @@ User request: $ARGUMENTS
 
 | Command file | Skill | Purpose |
 |---|---|---|
+| `newsletter.md` | `newsletter-process.md` | Email newsletter workflow |
 
 ### Step 8: Create symlinks to core
 ```bash
@@ -188,10 +198,10 @@ Add to `../../methodology/PROJECT_REGISTRY.md`.
 - [ ] `CAPTAINS_LOG.md` has initial entry
 - [ ] `CONTACTS.md` created (Arcanian team pre-populated, Client/Agency sections ready to fill)
 - [ ] `DOMAIN_CHANNEL_MAP.md` created if 2+ domains (or flagged in NEXT STEPS if single/unknown)
-- [ ] `TASKS.md` uses v2.0 template (markdown list format, ExampleBrand gold standard)
+- [ ] `TASKS.md` uses v2.0 template (markdown list format, Wellis gold standard)
 - [ ] `TASKS.md` #1 task has: Layer, Domain, From, Owner, Impact, Created
 - [ ] `TASKS_DONE.md` exists (empty template)
-- [ ] `brand/` has 7 stub files
+- [ ] `brand/` has 8 stub files (including COMPETITIVE_LANDSCAPE.md)
 - [ ] `.gitignore` blocks raw data + .env
 
 **Symlinks & agents:**
@@ -259,7 +269,7 @@ NEXT STEPS:
 | `scaffold-project/AUDIT_TASKS.md` | Pre-populated Phase 0-5 + knowledge extraction tasks | Step 4 (audit type only) |
 | `scaffold-project/NAMING_CONVENTIONS.md` | → `../../methodology/NAMING_CONVENTIONS.md` | When creating files |
 | `scaffold-project/MCP_SETUP.md` | MCP connection patterns per project type | Post-scaffold |
-| `scaffold-project/REFERENCE_IMPLEMENTATIONS.md` | ExampleBrand + [Audit Framework] patterns | Context for decisions |
+| `scaffold-project/REFERENCE_IMPLEMENTATIONS.md` | Wellis + Measurement Audit patterns | Context for decisions |
 
 ---
 
@@ -280,8 +290,8 @@ Quick lookup:
 ## Knowledge Flow (MANDATORY for audit projects)
 
 After every Phase 5, a pre-populated extraction task ensures learnings flow back to core:
-- New patterns → `core/methodology/KNOWN_PATTERNS.md`
-- SOP improvements → `core/sops/` + `SOP_CHANGELOG.md`
+- New patterns → `core/methodology/measurement-audit/KNOWN_PATTERNS.md`
+- SOP improvements → `core/sops/measurement-audit/` + `SOP_CHANGELOG.md`
 - Scripts → `core/scripts/`
 
 See `scaffold-project/AUDIT_TASKS.md` for the full extraction task with checklist.

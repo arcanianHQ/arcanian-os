@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: client slug or URL
+---
+
 # Skill: Decaying Content Alerts (`/seo-decay`)
 
 ## Purpose
@@ -51,7 +56,6 @@ Use this skill when:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Need GSC page-level data for at least 2 periods (current + 3 months ago). If only 1 period: STOP, explain that trend detection requires historical data.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Pull page-level GSC data for all periods** — For each page: clicks, impressions, CTR, avg position. Tag `[DATA]`.
 

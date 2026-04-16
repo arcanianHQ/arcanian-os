@@ -6,6 +6,7 @@ allowed-tools:
   - Grep
   - Glob
   - Agent
+argument-hint: client — run marketing council
 ---
 
 # Skill: Council Runner (`/council`)
@@ -40,7 +41,6 @@ Use when:
 
 ## Prerequisites
 
-0. **HARD BLOCK — Databox MCP must be connected.** Before doing ANYTHING else, verify Databox MCP is available. If not connected → STOP. Tell the user: "Databox MCP is not connected. Council cannot run without live data. Please reconnect Databox (`/mcp`)." Do NOT fall back to local files. Do NOT proceed with "but the local data is sufficient." See `core/methodology/DATABOX_MANDATORY_RULE.md`.
 1. Council YAML exists: `agents/councils/{council_type}.yaml` (accessible via symlink from any client)
 2. Agent definitions exist: `agents/{agent-id}.md` for each council member
 3. Client context exists: `brand/` directory with intelligence profile files (can be stubs)

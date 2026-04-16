@@ -1,10 +1,11 @@
-> v1.0 — 2026-04-03
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
+---
+scope: shared
+argument-hint: pipeline status check
+---
 
 # Skill: Sales Pulse (`/sales-pulse`)
 
 > **Data Reliability Framework applies.** Every metric must include [Confidence: HIGH/MED/LOW] and source tag [DATA]/[OBSERVED]/[INFERRED].
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies.
 > **Multi-domain prerequisite:** Load DOMAIN_CHANNEL_MAP.md before querying. Identify which CRM instance, which Databox data source.
 > **Discovery, not pronouncement.** Present observations with competing explanations. End with "What did we get wrong?"
 
@@ -277,4 +278,4 @@ GoogleAnalytics4@newUsers        — new users
 - If a metric returns null/empty, note it as "[Data not available]" — do not skip the section.
 - For multi-domain clients, run separately per domain unless explicitly asked for consolidated view.
 - Skill #3 in the AI Marketing Automation Lab free skill series.
-- Pairs with: `/analyze-gtm` (measurement), `/health-check` (project health), `` (performance mapping)
+- Pairs with: `/analyze-gtm` (measurement), `/health-check` (project health), `/map-results` (performance mapping)

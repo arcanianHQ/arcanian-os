@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: client slug or URL
+---
+
 # Skill: Ranking Anomaly Detection (`/seo-anomaly`)
 
 ## Purpose
@@ -54,7 +59,6 @@ Use this skill when:
 ## Execution Steps
 
 1. **Data Sufficiency Check** — Verify GSC daily/weekly data available. Need at least 7 days of current + 30 days of historical for rolling average. If insufficient: use whatever is available but flag reduced confidence.
-> **Temporal Awareness applies.** Identify exact dates, check holidays/seasonality before flagging anomalies. See `core/methodology/TEMPORAL_AWARENESS_RULE.md`.
 
 2. **Establish baselines:**
    - If `data/seo/BASELINES.md` exists: load baseline positions per query

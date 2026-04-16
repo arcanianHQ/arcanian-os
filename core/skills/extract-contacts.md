@@ -1,5 +1,6 @@
 ---
 scope: shared
+argument-hint: source file or URL
 ---
 
 # Skill: Extract Contacts (`/extract-contacts`)

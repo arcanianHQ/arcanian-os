@@ -44,9 +44,9 @@ Four hook types are available:
 
 **Example block:**
 ```
-⚠ Blocked: attempted write to /home/user/projects/other-client/TASKS.md
-   Current project: example-saas
-   Use the other-client project session to modify those files.
+⚠ Blocked: attempted write to /path/to/other-project/TASKS.md
+   Current project: project-a
+   Use the other-project session to modify its files.
 ```
 
 ## Hook 3: post-tool-use — Auto Log

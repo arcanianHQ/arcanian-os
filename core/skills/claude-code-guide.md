@@ -1,3 +1,8 @@
+---
+scope: shared
+argument-hint: question about Claude Code
+---
+
 # Skill: Claude Code Guide (`/claude-code-guide`)
 
 > **Version:** v1.0 (2026-02-26) | **Patterns:** 21 | **Common Mistakes:** 8
@@ -42,7 +47,7 @@ This skill operates in 4 modes. Ask which mode is needed, or infer from context.
 1. **Count instructions** — Total instruction count. Flag if >100 (remember: system prompt uses ~50, leaving ~100-150 for user instructions).
 
 2. **Apply the 80% Rule** — For each section, ask: "Is this relevant to 80%+ of sessions?" Categorize:
-   - ✅ KEEP — Relevant to most sessions (voice rules, Target Profile, conventions)
+   - ✅ KEEP — Relevant to most sessions (voice rules, ICP, conventions)
    - ⚠️ MOVE — Useful but session-specific (reference data, tool configs, lead details)
    - ❌ REMOVE — Redundant, outdated, or discoverable from code
 
@@ -354,13 +359,13 @@ Don't log WHAT you did. Log **WHY.** Format: Decision + Reasoning + Important Nu
 If you sell a diagnostic framework, run it on your own business first. Document the results. This creates authenticity AND serves as a teaching case for new team members. ("Here's how we'd analyze a client like us.")
 
 ### Pattern 4: Terminology Consistency Across All Surfaces
-Define key terms in CLAUDE.md. Use them identically everywhere: code comments, content, pitches, internal docs. If your diagnostic report is called "[Diagnostic Service]" — it's ALWAYS "[Diagnostic Service]", never "report" or "analysis." Claude will follow this if instructed.
+Define key terms in CLAUDE.md. Use them identically everywhere: code comments, content, pitches, internal docs. If your diagnostic report is called "Prism" — it's ALWAYS "Prism", never "report" or "analysis." Claude will follow this if instructed.
 
 ### Pattern 5: Publication Tracking as Accountability
 Maintain a `PUBLICATION_DIRECTORY.md` with Status / Date / File Reference for all published content. This creates a real-time map of shipped vs. promised. Gap visibility drives prioritization.
 
 ### Pattern 6: Belief Work Before Strategy (Content/Marketing Projects)
-For projects involving founder-led businesses or personal brands: identify founder patterns BEFORE building strategy. "My value is in being personally needed" will sabotage a scalability project every time. Document patterns explicitly. Create check-back schedules.
+For projects involving founder-led businesses or personal brands: identify founder beliefs BEFORE building strategy. "My value is in being personally needed" will sabotage a scalability project every time. Document beliefs explicitly. Create check-back schedules.
 
 ### Pattern 7: The KKV-Origin Cascade (Domain-Specific but Generalizable)
 In any domain, identify the **common origin pattern** of your target clients. For HU mid-market: companies that grew in revenue but kept small-company operations. The equivalent exists in tech (startup culture in a 500-person company), consulting (one partner doing everything), etc. Define this cascade in CLAUDE.md so Claude recognizes it on every new client.
@@ -384,7 +389,7 @@ Some instructions, if violated, cause real damage — legal, relationship, or fi
 Client projects need different CLAUDE.md structure than internal projects. Key differences: Hard Rules (almost always needed), sensitive data file (mandatory), stakeholder list in memory, identity separation, agency coordination docs. Client CLAUDE.md template: What This Is → Current Phase → Hard Rules → Key Contacts (→ memory) → Directories → Sensitive Data (→ memory) → Reference → Tasks (→ memory). Less voice rules, more operational rules.
 
 ### Pattern 14: Time-Bound Priorities → Tasks File, Not CLAUDE.md
-Anti-pattern: "This Week's Priorities: 1. Fix email, 2. Terminate vendor" in CLAUDE.md. These go stale in days but CLAUDE.md loads every session. Claude will think stale priorities are still active. Fix: keep only phase-level info in CLAUDE.md ("Current Phase: TAKEOVER — [Former Team Member] departed, [Owner] coordinating"), point to `memory/tasks.md` for current priorities. Tasks change daily. Phases change monthly.
+Anti-pattern: "This Week's Priorities: 1. Fix email, 2. Terminate vendor" in CLAUDE.md. These go stale in days but CLAUDE.md loads every session. Claude will think stale priorities are still active. Fix: keep only phase-level info in CLAUDE.md ("Current Phase: TAKEOVER — Benji departed, Laci coordinating"), point to `memory/tasks.md` for current priorities. Tasks change daily. Phases change monthly.
 
 ### Pattern 15: Numbered Sequential Files
 When file order matters (SOPs, processes, quick wins), use prefix numbering: `00-OVERVIEW.md`, `01-FIRST-PROCESS.md`, ..., `10-QUICK-WIN-x.md`. Rules: 00 = always the overview/index, 01-09 = stable core processes, 10+ = supplementary/changing items. The number is reading order, not priority. If you need to insert between 10 and 11, use `10b-` rather than renumbering everything.
@@ -450,7 +455,7 @@ This skill works standalone or as part of the Arcanian workflow:
 - **For clients:** Use Mode 2 to help clients set up Claude Code for their marketing teams
 - **For skill development:** Use Mode 4 when building new diagnostic skills
 - **Feeds into:** Any project setup, team onboarding, methodology development
-- **Teaching companion:** `arcanian/CLAUDE_CODE_BEST_PRACTICES.md` (Hungarian, for [Team Member 2] & [Team Member 1])
+- **Teaching companion:** `arcanian/CLAUDE_CODE_BEST_PRACTICES.md` (Hungarian, for Dóra & Éva)
 
 ## Edge Cases
 

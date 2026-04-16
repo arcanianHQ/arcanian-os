@@ -1,18 +1,21 @@
-> v1.1 — 2026-04-04 — sanitized references
+---
+scope: shared
+argument-hint: system context check
+---
 
 # ArcOS System Context
 
-You are connected to **ArcOS (Arcanian OS)** — a Company OS that manages knowledge, meetings, clients, projects, skills, content publishing, and workflows. All data lives in [CMS] (headless CMS), accessed via MCP tools or [CMS] REST/JSON:API. AI capabilities use Claude/OpenAI via a Python agent layer.
+You are connected to **ArcOS (Arcanian OS)** — a Company OS that manages knowledge, meetings, clients, projects, skills, content publishing, and workflows. All data lives in Drupal (headless CMS), accessed via MCP tools or Drupal REST/JSON:API. AI capabilities use Claude/OpenAI via a Python agent layer.
 
 ## Architecture
 
 ```
-Claude Code ──MCP──> Python Agents (FastAPI) ──JSON:API──> [CMS] (CMS)
+Claude Code ──MCP──> Python Agents (FastAPI) ──JSON:API──> Drupal (CMS)
                                               ──REST──>    + PostgreSQL (pgvector)
                                                            + Redis (cache)
 ```
 
-- **Embeddings**: OpenAI `text-embedding-3-small` (1536 dims) via [CMS] AI Search
+- **Embeddings**: OpenAI `text-embedding-3-small` (1536 dims) via Drupal AI Search
 - **Vector DB**: PostgreSQL pgvector (collection: `arcos_content`)
 - **Search indexes**: `arcos_semantic` (vector) + `arcos_fulltext` (database)
 
@@ -24,12 +27,12 @@ Claude Code ──MCP──> Python Agents (FastAPI) ──JSON:API──> [CMS]
 
 | Tool | Description | Required Params | Optional Params |
 |------|-------------|-----------------|-----------------|
-| `search_memories` | Search knowledge base | — | `subtype` (resource, psychology_client, psychology_team, snippet, decision_pattern), `client_id`, `project_id`, `access_level` (public, client, project, private), `limit` (1-100, default 20) |
+| `search_memories` | Search knowledge base | — | `subtype` (resource, mindset_client, mindset_team, snippet, belief_pattern), `client_id`, `project_id`, `access_level` (public, client, project, private), `limit` (1-100, default 20) |
 | `get_memory` | Get full memory by UUID | `uuid` | — |
 | `create_memory` | Create a knowledge memory | `title`, `subtype` | `body`, `url`, `source`, `code`, `code_language`, `access_level`, `client_id`, `project_id` |
 | `update_memory` | Update a memory (partial) | `uuid` | `title`, `body`, `source`, `url`, `code`, `access_level` |
 
-**Memory subtypes**: `resource` (docs, references), `psychology_client` (client psychology), `psychology_team` (team dynamics), `snippet` (code/config), `decision_pattern` (recurring patterns)
+**Memory subtypes**: `resource` (docs, references), `mindset_client` (client psychology), `mindset_team` (team dynamics), `snippet` (code/config), `belief_pattern` (recurring beliefs)
 
 ### Skills — Reusable Instructions (3 tools)
 
@@ -84,7 +87,7 @@ Returns: project details + recent logs (10) + meetings (5) + skills (10) + memor
 | `semantic_search` | Natural language search across all content | `query` | `content_type` (memory, skill, procedure, log_entry, meeting, engagement, arcos_project, linkedin_comment, post), `client_id`, `project_id`, `limit` (default 10, max 50) |
 | `find_similar` | Find content similar to a given item | `uuid` | `content_type`, `limit` (default 5) |
 
-`semantic_search` calls [CMS]'s `/api/search` which runs both fulltext + vector search and returns merged, deduplicated results ranked by score.
+`semantic_search` calls Drupal's `/api/search` which runs both fulltext + vector search and returns merged, deduplicated results ranked by score.
 
 ### Ontology — Data Model & Lifecycle (4 tools)
 
@@ -135,7 +138,7 @@ Returns: project details + recent logs (10) + meetings (5) + skills (10) + memor
 | Tool | Description | Required Params | Optional Params |
 |------|-------------|-----------------|-----------------|
 | `meeting_query` | Ask questions about meetings | `question` | `client_id` |
-| `meeting_extract_tasks` | Extract tasks from a meeting | `meeting_uuid` | `target` (asana, [cms]), `project_id` |
+| `meeting_extract_tasks` | Extract tasks from a meeting | `meeting_uuid` | `target` (asana, drupal), `project_id` |
 | `meeting_summarize` | Structured AI summary | `meeting_uuid` | — |
 
 ### Brand Voice & Documents (2 tools)
@@ -185,13 +188,13 @@ Pipelines are procedures with `skill_chain` references. They chain multiple skil
 
 | Tool | Description | Required Params | Optional Params |
 |------|-------------|-----------------|-----------------|
-| `check_health` | System health (API, [CMS], pgvector, embeddings) | — | — |
+| `check_health` | System health (API, Drupal, pgvector, embeddings) | — | — |
 
 ---
 
-## [CMS] REST API Endpoints
+## Drupal REST API Endpoints
 
-These endpoints are available directly on [CMS] (port 8080 locally, or the Lagoon URL). Auth: `basic_auth` or `cookie`.
+These endpoints are available directly on Drupal (port 8080 locally, or the Lagoon URL). Auth: `basic_auth` or `cookie`.
 
 ### Search
 | Method | Endpoint | Params | Purpose |
@@ -263,7 +266,7 @@ These endpoints are available directly on [CMS] (port 8080 locally, or the Lagoo
 
 ---
 
-## Content Types in [CMS]
+## Content Types in Drupal
 
 | Node Type | Description | Key Fields |
 |-----------|-------------|------------|
@@ -306,10 +309,11 @@ get_context(client_id) → search_meetings(client_id) → relationship_map(clien
 ```
 person_brief(person_uuid, context) → get_context(client_id) → search_linkedin_comments(client_id) → search_meetings(client_id)
 ```
-"Brief me for my call with John from ExampleBuildBuilding about their website project."
+"Brief me for my call with John from DeluxeBuilding about their website project."
 
 ### 5. LinkedIn Comment Workflow (A.E.L.Q.)
 ```
+load_skill("linkedin-comment skill uuid") → search_linkedin_comments(language="hu", limit=5) → create_linkedin_comment(...)  → update_linkedin_comment(uuid, publish_status="posted", posted_date="...")
 ```
 Or use the `/comment` skill which orchestrates this full workflow automatically.
 
@@ -365,8 +369,8 @@ check_health → queue_status → scheduler_status
 - **`semantic_search`** for broad natural language search. **`search_memories`/`search_skills`** for filtered, structured searches.
 - **`load_skill`** (not `get_skill`) when you need to _apply_ a skill's instructions. `get_skill` truncates at 2000 chars.
 - **`find_similar`** takes a UUID and finds related content by searching the item's title.
-- All UUIDs come from [CMS] — get them from search/list results first.
+- All UUIDs come from Drupal — get them from search/list results first.
 - All create/update tools return compact summaries. Use `get_*` tools for full details.
 - **Outcome tracking**: Use `update_linkedin_comment` or `update_post` with engagement fields to track content performance.
 - **Pipelines**: Chain skills via procedures with `skill_chain`. Use `list_pipelines` to discover, `describe_pipeline` to preview, `run_pipeline` to execute.
-- API keys are in [CMS]'s encrypted key store (`/admin/arcos/keystore`), not in `.env` files.
+- API keys are in Drupal's encrypted key store (`/admin/arcos/keystore`), not in `.env` files.

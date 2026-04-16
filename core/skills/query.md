@@ -1,4 +1,7 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+argument-hint: "node ID — e.g., FND-039, REC-012, #53"
+---
 
 # /query — Ontology Graph Traversal
 
@@ -9,10 +12,10 @@
 ```
 /query FND-039          — finding + connected tasks, recs, patterns
 /query PAT-035          — pattern + clients where seen + findings
-/query lead retail-lead    — lead status + timeline + connected tasks
+/query lead euronics    — lead status + timeline + connected tasks
 /query layer L5         — all tasks tagged L5 across all clients
 /query waiting          — all @waiting tasks + who we're waiting on
-/query client exampleretail     — task summary + findings + brand profile
+/query client diego     — task summary + findings + brand profile
 /query REC-039          — recommendation + what it addresses + tasks
 /query #53              — task + all edges (FND, REC, Lead, Layer)
 ```
@@ -46,14 +49,14 @@ For each edge found in the primary file, follow it:
 | Finding | `Related: REC-039` | Read the REC-039 file |
 | Finding | `Pattern: PAT-035` | Read KNOWN_PATTERNS.md, find PAT-035 row |
 | Task | `FND: FND-039` | Read the FND-039 file |
-| Task | `Lead: retail-lead` | Read LEAD_STATUS.md, find retail-lead section |
+| Task | `Lead: euronics` | Read LEAD_STATUS.md, find euronics section |
 | Pattern | `Seen in:` table | List all clients + finding refs |
 | Lead | `Tasks: #12, #14` | Search TASKS.md for those tasks |
 | Recommendation | `Addresses: FND-039` | Read FND-039 file |
 
 Also search for **reverse edges** -- references TO this object from other files:
 - For `FND-039`: grep all TASKS.md for `FND-039` (find tasks that reference it)
-- For `lead retail-lead`: grep all TASKS.md for `Lead: retail-lead`
+- For `lead euronics`: grep all TASKS.md for `Lead: euronics`
 - For `PAT-035`: grep all findings for `Pattern: PAT-035`
 
 ### Step 4: Present connected graph
@@ -76,10 +79,10 @@ QUERY: <ID> (<client if known>)
 
   -> Pattern match:
     PAT-035 -- Dead GA4 message bus (measurementIdOverride)
-    Seen in: ExampleRetail (FND-039), ExampleLocal (FND-007 -- at risk)
+    Seen in: Diego (FND-039), Mancsbazis (FND-007 -- at risk)
 
   -> Lead:
-    exampleretail -- Status: active-engagement
+    diego -- Status: active-engagement
 
   ! Missing edges:
     - FND-039 has no Tasks: backlink (should list #53)
@@ -91,11 +94,11 @@ QUERY: <ID> (<client if known>)
 ```
 WAITING TASKS (2026-03-24)
 
-ExampleRetail (3):
-  #55 Await GA4 property access from [Client Contact] | @waiting | since 2026-03-15
+Diego (3):
+  #55 Await GA4 property access from Jeno | @waiting | since 2026-03-15
   #58 CRM export from sales team | @waiting | since 2026-03-18
 
-ExampleBrand (1):
+Wellis (1):
   #12 Brand asset package from design | @waiting | since 2026-03-20
 ```
 
@@ -103,17 +106,17 @@ ExampleBrand (1):
 ```
 LAYER L5 TASKS (Channel)
 
-ExampleRetail (4):
+Diego (4):
   #53 Fix dead GTM message bus (P0, @next)
   #54 Validate GA4 event flow (P1, @later)
 
-ExampleBrand (2):
+Wellis (2):
   #30 Audit Meta pixel setup (P1, @next)
 ```
 
-**`/query client exampleretail`** -- full client summary:
+**`/query client diego`** -- full client summary:
 ```
-CLIENT: ExampleRetail
+CLIENT: Diego
 
 Task summary: 12 open (3 P0, 5 P1, 4 P2) | 8 done | 3 @waiting
 Findings: 15 open, 22 resolved | 37 total
