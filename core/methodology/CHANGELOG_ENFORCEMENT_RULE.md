@@ -80,7 +80,13 @@ Changes happen fast. Memory doesn't keep up. The changelog is the only thing tha
 - **Export Skills:** `/share-to-os`, `/share-to-company`, `/share-to-advanced` BLOCK push if CHANGELOG.md was not updated in the same commit
 - **Audit:** `/health-check` includes a changelog freshness check — are there recent file modifications without matching log entries?
 
-### 8. Operational Events (Budget, Agency, Platform, Tracking Changes)
+### 8. AOS Version Manifest Changes
+- **Where:** `core/VERSION.json` + `CHANGELOG.md`
+- **When:** Any distribution release that bumps the system version
+- **What to log:** Old version → new version, what triggered the bump (new skills, methodology changes, bug fixes)
+- **Rule:** `core/VERSION.json` version field MUST match the top `## [X.Y.Z]` entry in CHANGELOG.md. A mismatch means the manifest is stale or the changelog is incomplete. `/health-check` (Step 5.6) catches this.
+
+### 9. Operational Events (Budget, Agency, Platform, Tracking Changes)
 - **Where:** `clients/{slug}/EVENT_LOG.md`
 - **When:** Any external operational change that affects data interpretation — budget changes, agency handovers, platform migrations, tracking deployments, campaign launches/kills, personnel changes
 - **What to log:** EVT ID, date, type, what happened, observed impact, evidence source, layer, related FND/REC/Task

@@ -51,6 +51,16 @@ Use when: user says `/health-check`, "check system health", "is everything worki
 > Each step maps to an agent. Steps 1-5 run in parallel. Step 6 runs after, consuming their output.
 > Individual agents can be called standalone by other skills (e.g., `/validate` calls only `health-project-checker`).
 
+### Step 0: Load Previous Health State (pre-agent, automatic)
+
+Before running any agents, check for a previous health state snapshot:
+
+1. Read `memory/HEALTH_STATE.json` in the hub root (`_arcanian-ops/`)
+2. If it exists → store as `PREV_STATE` for delta comparison in Step 7
+3. If it does not exist → note "First run — baseline will be established" and proceed
+
+This step is read-only and fast. Do not block on it.
+
 ### Step 1: Project integrity (scope: all, clients) → `health-project-checker`
 For each directory in `_arcanian-ops/clients/` and `_arcanian-ops/internal/`:
 1. Check `CLAUDE.md` exists and is under 80 lines
@@ -101,6 +111,7 @@ Check `_arcanian-ops/core/` for required files:
 3. `methodology/PROJECT_REGISTRY.md` exists
 4. `sops/SOP_INDEX.md` exists (or equivalent)
 5. `skills/` contains expected skill files
+6. `VERSION.json` exists and `version` field matches CHANGELOG.md top `## [X.Y.Z]` entry
 
 ### Step 6: Warning Intelligence — Cross-Client Pattern Detection (scope: all, clients) → `health-warning-intel`
 
@@ -153,6 +164,23 @@ CONTRADICTIONS:
 | [what one source says] | [what another says] | [the conflict] | [how to resolve] |
 ```
 
+### Step 7: Persist State and Compute Delta (post-synthesis, automatic)
+
+After generating the human-readable output from Step 6:
+
+**7a — Persist current state:**
+1. If `memory/HEALTH_STATE.json` already exists → rename to `memory/HEALTH_STATE_PREV.json` (overwrite any existing _PREV)
+2. Write current run's scores, flags, warnings, and convergent signals to `memory/HEALTH_STATE.json`
+3. Schema: `core/templates/HEALTH_STATE_TEMPLATE.json`
+
+**7b — Compute delta (if PREV_STATE exists from Step 0):**
+1. For each dimension in `scores`: compute `new_score - old_score`
+2. For `critical_flags`: diff the arrays (new flags, resolved flags)
+3. For `convergent_signals`: diff (new signals, signals that disappeared)
+4. Output the `── TREND ──` section (see Output Format below)
+
+If no previous state existed (first run), skip 7b and output "Baseline established — trend data available from next run."
+
 ## Output Format
 
 ```
@@ -195,6 +223,18 @@ Blind spots: {N}
 Contradictions: {N}
   {conflict description}
 
+── TREND (vs previous run) ────
+Previous: {PREV_STATE.generated} (v{PREV_STATE.version})
+  project_integrity: {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+  mcp_connections:   {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+  git_status:        {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+  hooks:             {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+  core_methodology:  {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+  warning_intel:     {old} → {new} ({delta}) {✓/⚠/CRITICAL}
+New flags: {list or "none"}
+Resolved: {list or "none"}
+(If first run: "Baseline established — trend data available from next run.")
+
 ── SUMMARY ────────────────────
 {total_pass} pass | {total_fail} fail | {total_warn} warnings
 {Action items if any failures}
@@ -203,7 +243,7 @@ Contradictions: {N}
 
 ## Notes
 
-- This skill is **read-only**. It never modifies files.
+- This skill writes **one file**: `memory/HEALTH_STATE.json` (runtime state for trend tracking). All other operations are read-only.
 - Use `scope` parameter to run a subset of checks when debugging a specific area.
 - Run weekly or after major changes (new client onboarded, MCP reconfigured, etc.).
 - Pairs with `/validate` — this skill checks the whole system, `/validate` checks one project in depth.

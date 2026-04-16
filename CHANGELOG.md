@@ -1,8 +1,27 @@
-> v1.20.0 — 2026-04-14
+> v1.21.0 — 2026-04-16
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.21.0] — 2026-04-16
+
+### Added
+- **Version manifest** — `core/VERSION.json` for machine-readable version tracking
+- **`/update-aos` skill** — check for and apply updates from upstream (6-step pipeline: version check → diff preview → backup → pull → verify → report)
+- **Health state template** — `core/templates/HEALTH_STATE_TEMPLATE.json` for run-to-run delta tracking
+- **Constraint cascade pattern** — `core/methodology/CONSTRAINT_CASCADE_PATTERN.md` formalizing the audit→gate→optimize pattern
+
+### Changed
+- **Event Log template** — added `Prior Value` / `New Value` columns for structured before/after tracking
+- **Event Log rule** — added "Structured Value Deltas" section (mandatory for budget/bid/tracking changes)
+- **Health check** — Step 0 loads previous state, Step 7 persists state + computes trend, new TREND output section, version consistency check (Step 5.6)
+- **Hooks** — portable timestamp conversion (BSD → GNU → python3 fallback), portable sed -i
+- **Hooks Guide** — new Design Principle #7: Platform Portability
+- **Changelog Enforcement Rule** — Section 8: VERSION.json changes require changelog entry
+- **Repair Roadmap** — cross-reference to Constraint Cascade Pattern
 
 ---
 

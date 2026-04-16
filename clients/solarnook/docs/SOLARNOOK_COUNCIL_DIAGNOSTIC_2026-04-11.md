@@ -1,9 +1,8 @@
-> v1.0 — 2026-04-11
-
 # Council Deliberation: Why did Google Ads conversion value drop 74% on March 18?
 
+> v2.0 — 2026-04-11
 > Type: Council Deliberation | Council: Diagnostic
-> Client: solarnook | Agents: 5/5 responded (+ Google Ads specialist as 6th)
+> Client: solarnook | Domain: solarnook-us.com | Agents: 4/4 responded
 > Peer Review: no | Stages: collect, warning_intel, ach, synthesis, bluf_ooda
 > Engine: Arcanian Council Runner
 
@@ -11,113 +10,68 @@
 
 ## BLUF
 
-The 74% conversion value drop on March 18 is almost certainly a **measurement failure in the tag layer**, not a real revenue event — confidence **77%** (H1+H2+H3 combined). The GTM change logged March 17 is the proximate cause. Smart Bidding responded to phantom zero-value signals by cutting spend, creating the secondary symptom. **The single falsification test that decides everything: pull the GTM version diff and compare conversion COUNT vs VALUE in Google Ads for March 18-present.** If count held steady and only value dropped, H1 is confirmed. If both dropped, H2. The EU near-zero conversion precedent (existing P0 task) confirms this system has failed silently before.
+**The March 18 Google Ads conversion value collapse (-74%) is a compound measurement failure, not a business event.** [Confidence: 62%] A consent mode configuration push on March 14 degraded the conversion signal pool available to Google Ads; with a 4-day propagation lag, Smart Bidding entered a throttled state on March 18, and a simultaneous brand terms budget cut (-50%) eliminated the remaining high-ROAS fallback traffic. Revenue continued uninterrupted — Shopify recorded 11 orders ($66,599) and GA4 recorded 12 conversions ($73,722) on the same day Google Ads saw only $2,420.
 
-**Falsification:** If the GTM diff shows no changes to conversion tags, triggers, or consent configuration, this hypothesis collapses — investigate in-platform conversion action changes (H4).
+**Falsification:** Pull GTM workspace 45 diff. If `ad_storage` was firing `granted` normally on Mar 14-18, the consent-tag chain (H1/H3/H5) collapses and the root cause shifts to the budget cut + Smart Bidding interaction alone.
 
 ---
 
 ## OBSERVE
 
-| # | Finding | Source | Tag |
-|---|---------|--------|-----|
-| F1 | Conversion value dropped 74% on March 18; spend dropped same day as lagging symptom | Ads platform data | [DATA] |
-| F2 | GTM change logged March 17 in GTM-EXAMPLE-US container — one day before the drop | Client-reported change log | [STATED] |
-| F3 | GA4 revenue shows a divergent pattern from Google Ads conversion value | GA4 vs Ads comparison | [OBSERVED] |
-| F4 | EU account (AW-EXAMPLE-102) has existing P0: near-zero conversions despite stable orders — same symptom profile | Active task record | [OBSERVED] |
-| F5 | 4 of 5 analysts independently reached the same diagnosis: GA4/Ads divergence = tag-layer failure, Smart Bidding cascade = lagging symptom | Council synthesis | [INFERRED] |
-
-**Convergent signal (4/5 analysts):** GA4 continuing to show revenue while Ads shows value collapse means the business ran normally — only the measurement layer broke.
-
----
+| # | Finding | Sources | Evidence Class | Confidence |
+|---|---------|---------|----------------|------------|
+| 1 | March 18 is a measurement failure — Shopify and GA4 confirm revenue continued normally | All 4 agents | [DATA] | 82% |
+| 2 | Consent mode push (Mar 14) introduced signal degradation with 4-day lag to impact | Audit, KE, Channel | [INFERRED] | 72% |
+| 3 | Smart Bidding entered throttled state — account spent $294 vs $850/day cap | GAds, Audit, KE | [INFERRED] | 68% |
+| 4 | Brand terms budget cut (-50% on Mar 18) removed fallback conversion volume | All 4 agents | [DATA] | 85% |
+| 5 | 5 overlapping platform changes in 15 days make clean root cause isolation impossible without GTM diff | All 4 agents | [OBSERVED] | 91% |
 
 ## ORIENT
 
-### Leading Hypothesis: H1 — GTM broke the VALUE variable (confidence 42%)
+**Leading analysis (H5 — Compound Failure, 62%):** No single factor explains the full magnitude. The consent mode update degraded tag firing, Smart Bidding reacted by throttling spend, and the brand budget cut removed the highest-converting traffic simultaneously. All three factors must be present to produce a -74% conversion value drop against stable Shopify/GA4.
 
-The tag fires, Google Ads records a conversion event, but the dynamic value variable (likely `{{DLV - ecommerce.purchase.value}}` or equivalent) returns null, undefined, or 0. This explains:
-- Conversion count potentially stable (tag still fires)
-- Conversion value collapses
-- GA4 unaffected (separate tag or direct dataLayer read)
-- Smart Bidding sees ROAS collapse -> reduces spend
+**Strongest challenge (H2 — Budget Cut Only, eliminated):** The Google Ads analyst initially weighted the budget cut as primary. However, ACH revealed 5 inconsistencies — critically, GA4 and Shopify both show stable revenue, which is fatal to any demand-side explanation. Budget cuts compress volume but do not destroy efficiency; the ROAS collapse from 11.24 to 8.23 requires a measurement explanation.
 
-**Why H1 edges H2:** Value breaks are silent. The system appears functional — tags fire, no console errors — but the dollar figure is wrong. The EU precedent demonstrates exactly this failure mode.
-
-### Strongest Challenge
-
-The GTM diff has not been retrieved. [UNKNOWN] If the March 17 change touched consent configuration rather than conversion tags, H3 (Consent Mode v2 misconfiguration) becomes the leading hypothesis. Consent Mode blocking `ad_storage` would suppress conversion value reporting while leaving GA4 intact.
-
-### Critical Unknowns (ranked by decision impact)
-
-1. GTM version diff (what actually changed March 17) — blocks all hypothesis ranking
-2. Conversion COUNT in Google Ads for March 18-present (H1 vs H2 separator)
-3. Whether Google Ads conversion action imports from GA4 or uses native tag
-4. Smart Bidding target ROAS and current status
-5. Conversion backfill lag (raw March 18 data may shift)
-
----
+**Unknowns:**
+- Geo-scope of consent mode change (US-only vs global) — determines signal pool impact magnitude
+- Whether GA4 Enhanced Conversions (enabled Mar 19, one day after drop) was a **reactive fix** or coincidence
+- Whether the Mar 22 attribution window change (30d->7d) retroactively restated Mar 18-21 data
+- Shopify revenue Mar 19-21 — unverified ground truth for the "gap window"
 
 ## DECIDE
 
-**Primary recommendation:** GTM rollback of the March 17 change — today — before spending another day on a broken measurement signal.
+**Primary recommendation:** Treat this as a measurement remediation, not a performance problem. Do NOT pause Google Ads campaigns or reduce budget further — that would compound the issue. Instead, execute the GTM diff audit to confirm the consent mode hypothesis, then fix the tag chain.
 
-Rollback is low-risk (reverting a recent change), immediately testable (conversion value should recover within the next conversion event), and buys time for proper diagnosis without Smart Bidding degrading further on bad data.
+**Alternative if H5 is falsified:** If GTM diff shows consent was not the issue, shift focus to Smart Bidding signal health and the budget cut interaction. Schedule a re-council contingent on diff results.
 
-**Do not wait for full diagnosis before acting.** Every day Smart Bidding trains on zero-value conversions, the bidding model degrades. Recovery from Smart Bidding retraining takes 2-4 weeks.
-
-**Alternative paths:**
-
-| Scenario | Action |
-|----------|--------|
-| GTM diff shows the change was cosmetic | Shift to H4 — audit Google Ads conversion action settings directly |
-| GTM diff shows consent configuration change | H3 path: restore previous Consent Mode settings, verify ad_storage grants |
-| Rollback causes business-critical regression | Fix forward: re-implement the intended change correctly with QA on conversion value before publishing |
-
----
+**Separate workstream needed:** The broader 30-day all-channel session decline (-38% to -70%) is a real demand/visibility issue being obscured by the Mar 18 noise. Once measurement is confirmed clean, run a separate /7layer diagnostic on organic + direct channels.
 
 ## ACT
 
 | # | Action | Who | By When | Success Metric | From |
 |---|--------|-----|---------|----------------|------|
-| 1 | Pull GTM-EXAMPLE-US version diff: compare published version before and after March 17. Check: conversion tags, trigger conditions, variable definitions, consent configuration | Dev/GTM admin | Today, 2h | Diff retrieved and reviewed | From: /council diagnostic 2026-04-11 |
-| 2 | Pull Google Ads conversion action report segmented by date, showing BOTH conversion count AND conversion value, March 15-today | Ads manager | Today, 2h | Count vs value pattern identified | From: /council diagnostic 2026-04-11 |
-| 3 | Confirm: does primary conversion action import from GA4 or use native Google tag? Check: Conversions -> action -> Source | Ads manager | Today, 2h | Architecture documented | From: /council diagnostic 2026-04-11 |
-| 4 | If diff confirms conversion tag/value change: rollback GTM-EXAMPLE-US to pre-March 17 version | Dev/GTM admin | Today, 4h after diff | GTM reverted to known-good state | From: /council diagnostic 2026-04-11 |
-| 5 | Test transaction (or GTM Preview + Tag Assistant) to confirm conversion value fires correctly post-rollback | Dev/GTM admin | Same day as rollback | Value appears in Ads within 3h | From: /council diagnostic 2026-04-11 |
-| 6 | Switch Smart Bidding to Manual CPC or conservative tROAS temporarily — halt model degradation | Account strategist | End of business today | Spend stabilized, no further bid erosion | From: /council diagnostic 2026-04-11 |
-| 7 | Log incident in RECOMMENDATION_LOG.md. Cross-reference EU P0 task. Flag shared structural fragility | Account strategist | Today | Documented for future reference | From: /council diagnostic 2026-04-11 |
-| 8 | Audit GTM-EXAMPLE-EU with same checklist — EU P0 task may share root cause | Dev/GTM admin | By April 14 | EU tracking validated or fixed | From: /council diagnostic 2026-04-11 |
-| 9 | After measurement restored: submit conversion data correction if eligible (ad_conversion_adjustments API) | Account strategist | By April 15 | Historical data corrected | From: /council diagnostic 2026-04-11 |
-
----
+| 1 | Pull GTM workspace 45 diff; confirm `ad_storage` grant/deny rate Mar 14-18 | Dev / GTM Admin | Apr 14 | Diff retrieved, consent state documented | /council diagnostic 2026-04-11 |
+| 2 | Audit Smart Bidding status log for brand campaigns Mar 17-22 | Google Ads Manager | Apr 14 | Throttle entry date confirmed or ruled out | /council diagnostic 2026-04-11 |
+| 3 | Verify Shopify order-level data Mar 19-21 vs GA4 purchase events | Dev / Analytics | Apr 13 | Gap quantified for the "gap window" | /council diagnostic 2026-04-11 |
+| 4 | Restore brand terms budget to pre-cut level (or document strategic reason) | Google Ads Manager | Apr 12 | Brand Terms budget at $850/day | /council diagnostic 2026-04-11 |
+| 5 | Confirm GA4 Enhanced Conversions active as conversion signal fallback | Dev / Analytics | Apr 18 | EC verified firing on all purchase events | /council diagnostic 2026-04-11 |
+| 6 | Establish weekly Shopify-GA4-GAds conversion reconciliation check | Analytics Lead | Apr 18 | Baseline gap documented, <10% variance target | /council diagnostic 2026-04-11 |
 
 ## RISK ASSESSMENT
 
 | Risk | Probability | Impact | Mitigation | Decision Trigger |
 |------|-------------|--------|------------|------------------|
-| Smart Bidding continues degrading on zero-value signal | HIGH | HIGH — 2-4 week retraining cost | Switch to Manual CPC today | Every day without fix = deeper model damage |
-| GTM rollback causes unrelated regression | LOW-MED | MED | Review diff before rollback; test immediately after | Rollback + test within same session |
-| EU and US share same root cause (dual incident) | MED | HIGH — doubles exposure | P3 EU audit this week | If EU diff shows similar changes |
-| Conversion data unrecoverable in Ads | MED | MED — model quality, reporting | Conversion adjustment API | After measurement confirmed fixed |
-| H3 is correct and rollback doesn't fix it (consent) | LOW (18%) | MED — adds 1-2 days | Consent Mode audit as parallel track if rollback fails | If post-rollback test still shows zero value |
-
-**Recovery timeline:**
-- Measurement fix: same day (rollback) to 48h (fix-forward)
-- Conversion value visible in Ads: within 1-2 conversions post-fix
-- Smart Bidding model recovery: 2-4 weeks minimum
-- Full performance recovery: 3-6 weeks (PMAX particularly sensitive)
-
----
+| GTM diff shows ad_storage firing normally -> H5 collapses, no clear root cause | 25% | HIGH — council output invalidated | Pre-schedule re-council contingent on diff result | Diff retrieved by Apr 14 |
+| Smart Bidding remains throttled even after tag fix -> 2-4 week recovery lag | 50% | HIGH — ROAS suppressed during recovery | Temporarily switch to Manual CPC, re-enter Smart Bidding after 14d signal rebuild | If ROAS <5x for 7+ days post-fix |
+| Broader 30-day session decline is real demand shift, not measurement noise | 40% | CRITICAL — current plan addresses wrong problem | Run /7layer on organic + direct once measurement confirmed clean | If Shopify orders decline >20% in next 14 days |
 
 ## SUCCESS METRICS
 
 | Metric | Current | Target | Timeline | Owner |
 |--------|---------|--------|----------|-------|
-| Google Ads conversion value | -74% from baseline | Pre-March 17 baseline +/- 15% | 24h post-fix | Ads manager |
-| Conversion count:value ratio | Unknown (needs ACT #2) | Value per conversion = AOV $3K-$7K range | 24h post-fix | Ads manager |
-| GA4 vs Ads revenue delta | ~74% gap | Within attribution window variance (<20%) | 48h post-fix | Dev/GTM admin |
-| Smart Bidding spend | Depressed | Stabilized within 5 biz days, upward trend in 2 weeks | 2-4 weeks | Account strategist |
-| Test transaction value | Broken/unknown | Correct $ amount in Tag Assistant + Ads | Same day as fix | Dev/GTM admin |
+| Google Ads reported conversion value (US) | -74% vs baseline | Within 20% of Shopify-verified revenue | Apr 25 | Dev / Analytics |
+| Shopify-GA4-GAds conversion gap | Unknown (not reconciled) | <10% variance across all three | Apr 18 | Analytics Lead |
+| Smart Bidding signal health | Throttled (est.) | Return to pre-Mar 14 CPA level | May 2 | Google Ads Manager |
 
 ---
 
@@ -127,41 +81,34 @@ Rollback is low-risk (reverting a recent change), immediately testable (conversi
 
 | Signal | Sources | Confidence | Implication |
 |--------|---------|------------|-------------|
-| GA4/Ads divergence = tag-layer failure, not revenue event | Audit Checker, Channel Analyst, Google Ads Specialist, Copy Analyst | HIGH (4/5) | Root cause is measurement. Revenue intact. |
-| GTM change (Mar 17) broke Google Ads tag while GA4 survived on separate path | Audit Checker, Google Ads Specialist, Client Explorer | HIGH (3/5) | GTM diff is the single most critical artifact. |
-| Smart Bidding cascade caused spend drop as lagging symptom | Audit Checker, Channel Analyst, Google Ads Specialist | HIGH (3/5) | Spend will not recover until signal restored AND model relearns. |
-| March 18 timing inconsistent with real demand collapse | Channel Analyst, Client Explorer | MED (2/5) | No market-side investigation warranted. |
+| Mar 18 is measurement failure, not business failure | All 4 | 82% | Revenue intact; Google Ads reporting is wrong |
+| Consent mode update (Mar 14) broke Google Ads tag with 4-day lag | Audit, KE, GAds (partial), Channel | 72% | Primary measurement break vector |
+| Brand terms budget cut is compounding factor, not root cause | Audit, GAds, KE | 84% | Volume fell; efficiency collapse requires separate explanation |
+| 5 overlapping changes create unresolvable confound | All 4 | 91% | Clean root cause impossible without GTM diff |
 
 ### Weak Signal Clusters
 
-**Cluster 1: Pre-existing Structural Fragility**
-- EU task #1 (near-zero conversions) may share root cause [Audit Checker]
-- Shared Google Ads account = single point of failure [Client Explorer]
-- PMAX has no secondary signal fallback [Google Ads Specialist]
+Three minor observations combine: **the Mar 22 "recovery" (ROAS 13.24) may be fabricated data, not real recovery.**
+- Attribution window change (30d->7d) on Mar 22 [Channel, 41%]
+- GA4 Enhanced Conversions enabled Mar 19 — possibly reactive fix [KE]
+- Smart Bidding would self-correct once conversion signals resumed [GAds]
 
--> Prediction: if GTM diff reveals consent or Enhanced Conversions change, EU task #1 and March 18 collapse share one root cause. This was preventable.
-
-**Cluster 2: Recovery Timeline Underestimated**
-- 2-4 weeks for Smart Bidding relearn [Audit Checker]
-- Spend drop is lagging symptom [Google Ads Specialist]
-- No analyst explicitly called for manual bid strategy intervention during relearning
-
--> Action gap: need manual CPC or conservative tROAS during recovery period.
+Together: the account may have "recovered" because the attribution window restatement backdated conversions, Smart Bidding restabilized on new Enhanced Conversions signals, and the drop window closed before anyone noticed. **The recovery is not independently verified.**
 
 ### Blind Spots
 
-- GTM version diff not retrieved (the #1 gap — all analysis is [INFERRED] without it)
-- Whether Google Ads imports GA4 conversions or uses native tag (changes fix path entirely)
-- Conversion COUNT vs VALUE breakdown unknown (H1 vs H2 separator)
-- Smart Bidding target ROAS and current performance unknown
-- Conversion backfill may make 74% figure inaccurate
+- **Geo-scope of consent change** — EU-only vs site-wide. If EU-only, US conversion data should be unaffected.
+- **Impression share on non-brand campaigns Mar 18** — key falsification test, no data available.
+- **Shopify revenue Mar 19-21** — the "gap window" ground truth, unverified.
+- **GTM workspace 45 actual diff** — all four analysts cite this as decisive. None have seen it.
 
 ### Contradictions
 
-| Source A | Source B | Conflict | Resolution |
-|----------|----------|----------|------------|
-| Copy Analyst (LP edit possible, 58%) | Channel Analyst (cliff rules out gradual causes) | LP as contributor? | LP copy quality: ruled out. LP hard failure (404/redirect): not ruled out. Check LP state. |
-| Client Explorer (Q1 platform update, 55%) | No other analyst addresses | Platform-side change? | Weak signal, single source. Worth noting but not primary. |
+| Source A | Source B | Conflict | Investigation Needed |
+|----------|----------|----------|---------------------|
+| GAds: budget cut is primary | Audit/KE: budget cut is secondary | ROAS degradation: volume loss or signal loss? | ROAS at matched spend levels |
+| GAds: Smart Bidding throttle is main mechanism | Audit: consent tag severance is main mechanism | Different failure modes, different fixes | GTM diff + impression share data |
+| Channel: recovery is restatement artifact (41%) | GAds: recovery is Smart Bidding restabilizing | Recovery authenticity unknown | Shopify Mar 19-25 as ground truth |
 
 ---
 
@@ -169,64 +116,68 @@ Rollback is low-risk (reverting a recent change), immediately testable (conversi
 
 | # | Hypothesis | Inconsistencies | Confidence |
 |---|-----------|:---------------:|:----------:|
-| H1 | GTM broke VALUE variable (tag fires, value=0) | 0 | 42% |
-| H2 | GTM broke TAG TRIGGER (tag doesn't fire at all) | 0 | 35% |
-| H3 | Consent Mode v2 misconfiguration blocked ad_storage | 0 | 18% |
-| H4 | In-platform conversion action change (demoted/broken) | 2 | 4% |
-| H5 | Real demand/revenue drop | 4 | 1% |
+| H5 | **Compound Failure** — consent mode degraded signals + Smart Bidding throttled + budget cut removed fallback | 0 | **62%** |
+| H3 | Smart Bidding Signal Degradation — consent mode gradually degraded conversion signal pool | 0 | 25% |
+| H1 | Consent Tag Break — GTM consent update broke Google Ads conversion tag firing | 0 | 13% |
+| H4 | Attribution Restatement — 30d->7d window change retroactively depressed historical data | 3 | <5% |
+| H2 | ~~Brand Budget Cut Only~~ — manual cut caused spend and conversion collapse | 5 | **Eliminated** |
 
-**Leading:** H1 — GTM broke value variable. Tag fires but passes $0/null. Silent failure mode consistent with EU precedent.
+**Leading:** H5 — Compound Failure. Only hypothesis with zero inconsistencies AND highest confirmation count (11/14 evidence items consistent).
 
-**Falsification:** If conversion COUNT also dropped to near-zero -> H2 takes over. If GTM diff shows consent change -> H3. If GTM diff shows NO conversion tag changes -> H4.
+**Falsification:** GTM workspace 45 diff showing `ad_storage` firing normally Mar 14-18 collapses the consent-tag chain that underpins H1, H3, and H5.
 
-**Sensitivity:** Removing E2 (GTM change March 17) is the most destabilizing single evidence removal — all Tier 1 hypotheses lose their causal anchor, H4 becomes the lead.
+**Sensitivity:** Removing E3+E4 (GA4/Shopify stability) makes H2 viable (1 inconsistency). These are the load-bearing evidence items — independent verification critical.
 
-### Diagnostic Decision Tree
+### Inconsistency Matrix
 
-```
-Step 1: Pull GTM version diff for March 17 change
-  +-- Does it touch conversion tag or value variable?
-       YES -> H1/H2 confirmed as candidates -> go to Step 2
-       NO  -> H3 or H4; check Consent Mode config
-
-Step 2: Check Google Ads conversion action detail
-  +-- Did CONVERSION COUNT also drop?
-       YES -> H2 (tag not firing)
-       NO  -> H1 (tag fires, value broken)
-
-Step 3: If H3 suspected -- check Consent Mode settings in GTM
-  +-- Is ad_storage set to denied by default without modeling enabled?
-       YES -> H3 confirmed; also explains EU structural issue
-```
+| Evidence | H1 | H2 | H3 | H4 | H5 |
+|----------|:--:|:--:|:--:|:--:|:--:|
+| E1 Spend -66% | N | C | C | N | C |
+| E2 Conv -77% | C | C | C | C | C |
+| E3 GA4 stable | C | I | C | N | C |
+| E4 Shopify stable | C | I | C | N | C |
+| E5 GTM Mar 14 | C | N | C | N | C |
+| E6 Brand budget -50% | N | C | N | N | C |
+| E7 Enhanced Conv Mar 19 | N | N | N | N | N |
+| E8 Attribution 30d->7d Mar 22 | N | N | N | C | N |
+| E9 Paid Search sessions slight decline | C | I | C | I | C |
+| E10 Partial recovery Mar 22 | N | N | C | I | C |
+| E11 Under-delivery vs cap | C | I | C | N | C |
+| E12 4-day lag | C | I | N | N | C |
+| E13 Smart Bidding throttle | C | N | C | N | C |
+| E14 30-day session decline | N | N | N | I | N |
 
 ---
 
 ## Specialist Perspectives
 
-### Audit Checker — Measurement & Tracking
-**Primary finding:** GTM change corrupted Google Ads purchase conversion tag (value variable or firing conditions) while GA4 continued via separate path. Divergence = fingerprint of tag-layer failure.
-**Key insight:** Four specific failure modes identified (value variable, trigger, consent, enhanced conversions). EU P0 task may be same root cause.
-**Confidence:** 72% MED-HIGH
+### Audit Checker — Measurement & Tracking [Confidence: 68%]
 
-### Channel & Market Analyst — L4-L7
-**Primary finding:** Spend+value lockstep drop = Smart Bidding signature response to broken conversion signal. Measurement artifact, not revenue event.
-**Key insight:** Attribution window mismatch causes gradual divergence, not cliff. Seasonal context favorable — no market explanation for 74% single-day drop.
-**Confidence:** 70% MED-HIGH
+Primary: The drop is a measurement attribution failure, not business failure. GTM consent mode update (Mar 14) severed Google Ads' tag firing path while GA4 continued via first-party. 4-day lag consistent with cookie expiry/geo-rollout. GA4 Enhanced Conversions was NOT active until Mar 19 — no fallback existed. Brand terms budget cut explains spend drop but NOT the ROAS collapse (ROAS dropped 27% with only 3 conversions — volume loss exceeds budget cut alone). Recommended: Audit GTM workspace 45 diff against workspace 44 — check consent initialization trigger firing order.
 
-### Google Ads Channel Analyst — Platform Specialist
-**Primary finding:** GTM change broke Google Ads conversion tag while GA4 remained intact. Smart Bidding cascade followed within 24h.
-**Key insight:** PMAX amplifies risk (no secondary signal fallback). If PMAX active, spend collapse would be more severe and faster.
-**Confidence:** 80% HIGH
+### Google Ads Channel Analyst [Confidence: 74%]
 
-### Copy & Voice Analyst — Messaging
-**Primary finding:** Structural fingerprint = measurement failure, not messaging. LP-copy interface should not be dismissed until LP state confirmed.
-**Key insight:** Same-day co-drop inconsistent with copy-driven quality shift. Seasonal creative refresh plausible but doesn't produce overnight cliff.
-**Confidence:** 45% LOW-MED (honest self-demotion — limited lens for this incident)
+Primary: Most likely a direct consequence of Brand Terms budget cut (-50%), compounded by Smart Bidding entering restricted-spend state. $294 spend vs $850/day cap = significant under-delivery beyond the budget cut alone. Consent mode is candidate secondary factor (55% confidence). The account under-delivered its budget by 65%, suggesting portfolio-wide suppression, not just brand term reduction. Recommended: Restore brand terms budget immediately, pull Search Terms report Mar 15-22 to confirm whether brand query volume dropped.
 
-### Client Explorer — External/Environmental
-**Primary finding:** Internal tracking event, not external market shift. Shared account architecture is single point of failure.
-**Key insight:** Q1 Smart Bidding/conversion dedup updates could interact with dual-tag setup. Mid-March seasonal softening = 10-20% over weeks, not 74% overnight.
-**Confidence:** 60% MED
+### Channel & Market Analyst — L4-L7 [Confidence: 68%]
+
+Primary: Mar 18 is measurement artifact, not demand failure. But the broader 30-day all-channel session decline (-38% to -70%) is a SEPARATE real demand/visibility problem being obscured. Sessions down 40-70% but Shopify only -16% = fewer visitors, same conversion rate = top-of-funnel problem (L6-L7). Mar 22 "recovery" may be attribution restatement artifact (41% confidence). Recommended: Fix tracking first, then diagnose demand decline separately.
+
+### Knowledge Extractor — Pattern Recognition [Confidence: 72%]
+
+Primary: Textbook "Consent-Gated Tag Failure Masked by Simultaneous Budget Event" pattern. 4-day lag is canonical for consent mode surfacing. Budget cuts compress volume but don't destroy efficiency — ROAS degradation is the signal. 5 overlapping changes in 15 days make clean root cause structurally impossible. Recommended: Add to KNOWN_PATTERNS.md as "False Recovery" warning — ROAS normalization after tracking break =/= performance recovery.
+
+---
+
+## Prior Recommendations (Dedup Check)
+
+| REC ID | Date | Relevance | Status |
+|--------|------|-----------|--------|
+| REC-001 | 2026-03-20 | GTM tag break on EU domain — **different domain** (solarnook.eu), separate GTM container. Does not apply to US. | confirmed |
+| REC-002 | 2026-03-22 | Consent mode compliance on EU — related but EU-only. US domain consent state unknown. | in_progress |
+| REC-003 | 2026-03-25 | Email session drop — separate issue (automation flow broken). Explains part of 30-day Email -70% decline. | open |
+
+**Note:** This council's actions are NEW — they apply to solarnook-us.com (GTM-EXAMPLE-US / AW-EXAMPLE-101), not the EU domain previously addressed.
 
 ---
 
@@ -234,53 +185,50 @@ Step 3: If H3 suspected -- check Consent Mode settings in GTM
 stage_id: council
 council_type: diagnostic
 success: true
-confidence: 77
+confidence: 62
 client: solarnook
-question: "Why did Google Ads conversion value drop 74% on March 18?"
-agents_responded: 5
+question: "Why did Google Ads conversion value drop 74% on March 18, while GA4 and Shopify show stable?"
+agents_responded: 4
 peer_review: false
 ach:
-  leading: H1
+  leading: H5
   hypotheses:
     - id: H1
-      description: "GTM broke VALUE variable — tag fires but passes $0/null"
+      description: "Consent mode tag break — GTM update broke Google Ads conversion tag firing"
       inconsistencies: 0
-      confidence: 42
+      confidence: 13
     - id: H2
-      description: "GTM broke TAG TRIGGER — tag doesn't fire at all"
-      inconsistencies: 0
-      confidence: 35
+      description: "Brand budget cut only — manual 50% reduction caused collapse"
+      inconsistencies: 5
+      confidence: 0
     - id: H3
-      description: "Consent Mode v2 misconfiguration blocked ad_storage"
+      description: "Smart Bidding signal degradation — consent mode gradually degraded signal pool"
       inconsistencies: 0
-      confidence: 18
+      confidence: 25
     - id: H4
-      description: "In-platform conversion action change"
-      inconsistencies: 2
-      confidence: 4
+      description: "Attribution window retroactive restatement — 30d to 7d change rewrote history"
+      inconsistencies: 3
+      confidence: 5
     - id: H5
-      description: "Real demand/revenue drop"
-      inconsistencies: 4
-      confidence: 1
-  falsification: "If GTM diff shows no changes to conversion tags, triggers, or consent — H1/H2/H3 collapse to H4"
+      description: "Compound failure — consent mode + Smart Bidding throttle + budget cut"
+      inconsistencies: 0
+      confidence: 62
+  falsification: "GTM workspace 45 diff showing ad_storage firing normally Mar 14-18"
 convergent_signals:
-  - signal: "GA4/Ads divergence = tag-layer failure"
-    sources: [audit-checker, channel-analyst, google-ads-specialist, copy-analyst]
+  - signal: "Mar 18 is measurement failure, not business failure"
+    sources: [audit-checker, channel-analyst-google-ads, channel-analyst, knowledge-extractor]
     confidence: HIGH
-  - signal: "Smart Bidding cascade caused spend drop"
-    sources: [audit-checker, channel-analyst, google-ads-specialist]
-    confidence: HIGH
-  - signal: "GTM March 17 change is proximate cause"
-    sources: [audit-checker, google-ads-specialist, client-explorer]
+  - signal: "Brand terms budget cut is compounding, not root cause"
+    sources: [audit-checker, channel-analyst-google-ads, knowledge-extractor]
     confidence: HIGH
 blind_spots:
-  - "GTM version diff not retrieved"
-  - "Google Ads conversion import vs native tag unknown"
-  - "Conversion count vs value breakdown unknown"
-  - "Smart Bidding target ROAS unknown"
+  - "Geo-scope of consent mode change (EU-only vs site-wide)"
+  - "Impression share on non-brand campaigns Mar 18"
+  - "Shopify revenue Mar 19-21 ground truth"
+  - "GTM workspace 45 actual diff — decisive but unread"
 metadata:
   council: diagnostic
-  agents: [audit-checker, channel-analyst, channel-analyst-google-ads, copy-analyst, client-explorer]
+  agents: [audit-checker, channel-analyst-google-ads, channel-analyst, knowledge-extractor]
   stages_run: [collect, warning_intel, ach, synthesis, bluf_ooda]
   date: 2026-04-11
 ```
@@ -288,11 +236,14 @@ metadata:
 ---
 
 ## Ontology
+
 - Client: solarnook
-- Layer: L5 (Channels — conversion tracking)
-- Task: #1 (EU near-zero conversions — related)
+- Domain: solarnook-us.com
+- Layer: L5 (Channels — measurement subsystem)
+- Task: #1 (Google Ads conversion tracking)
 - Council: diagnostic
-- Agents: audit-checker, channel-analyst, channel-analyst-google-ads, copy-analyst, client-explorer
+- Agents: audit-checker, channel-analyst-google-ads, channel-analyst, knowledge-extractor
+- REC: REC-001 (related, different domain), REC-002 (related, EU consent)
 
 ---
 

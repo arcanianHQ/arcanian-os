@@ -379,5 +379,8 @@ Locked layers aren't failures — they're boundary conditions. The roadmap expli
 ### 6. 90-Day Review
 Constraints change. Sacred cows die. L0 blocks soften. Hard constraints expire. Review the map, recalculate the ceiling, adjust the roadmap. Every 90 days.
 
+### Pattern Reference
+This skill implements the **Constraint Cascade Pattern** — findings gate downstream phases via ACH validation. See `core/methodology/CONSTRAINT_CASCADE_PATTERN.md`.
+
 ### 7. The Unity Principle
 Sales and marketing repair happens on the same layers. An outbound sales fix (L5) and a campaign fix (L5) share the same root cause. Don't create separate repair tracks for sales and marketing — they're one system.

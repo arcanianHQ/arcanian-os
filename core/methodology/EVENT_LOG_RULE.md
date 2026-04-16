@@ -30,6 +30,31 @@ An event is a **dated, external, operational change** that affects data interpre
 
 **NOT events:** internal decisions (→ CAPTAINS_LOG), task status changes (→ TASKS.md), analytical findings (→ FND files), audit steps (→ AUDIT_LOG).
 
+## Structured Value Deltas
+
+The EVENT_LOG table includes `Prior Value` and `New Value` columns for machine-readable before/after tracking.
+
+**Mandatory** (must have concrete values) for:
+- Budget changes: `€150/day` → `€80/day` (always include currency code)
+- Bid strategy changes: `Manual CPC` → `tROAS 300%`
+- Tracking ID swaps: `UA-12345-1` → `G-EXAMPLE-001`
+- Spend caps: `€5,000/month` → `€3,000/month`
+- Campaign budget allocation: `60% Search / 40% Shopping` → `40% / 60%`
+
+**Optional** (use `—` dash) for:
+- Personnel/agency changes (narrative events)
+- Campaign launches (no "prior" exists)
+- Legal/compliance events
+- Market events
+
+**Format rules:**
+- Currency: always with code or symbol (`€150/day`, not `150`)
+- Percentages: with `%` symbol (`300%`, not `3x`)
+- Tracking IDs: full ID, not abbreviated
+- Bid strategies: readable label, not API enum (`Target ROAS 300%`, not `TARGET_ROAS`)
+
+Skills reading EVENT_LOG.md for anomaly detection (e.g., `/health-check` Step 4b) should parse `Prior Value → New Value` deltas to adjust anomaly thresholds around the event date — a -50% session drop on the same day as a budget halving is not an anomaly.
+
 ## Three Enforcement Points
 
 ### 1. PRE-LOAD (MANDATORY — HARD BLOCK)
@@ -48,7 +73,7 @@ Step 0d: Flag any date ranges where events explain expected data shifts
 If EVENT_LOG.md doesn't exist → WARN but proceed (new client, not yet populated). Create a task to populate it.
 
 **Why hard block:** Without the event timeline, the analyst will either:
-- Waste tokens re-deriving dates from raw data (what just happened with ExampleD2C)
+- Waste tokens re-deriving dates from raw data (re-discovering the same budget cut every session)
 - Miss the context entirely and produce wrong conclusions ("sessions crashed" vs "we cut the budget")
 
 ### 2. AUTO-EXTRACT (MANDATORY — ON EVERY ANALYSIS)

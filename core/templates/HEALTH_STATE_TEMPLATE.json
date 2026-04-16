@@ -1,0 +1,17 @@
+{
+  "generated": "YYYY-MM-DDTHH:MM:SS",
+  "version": "X.Y.Z",
+  "overall_score": 0,
+  "scores": {
+    "project_integrity": 0,
+    "mcp_connections": 0,
+    "git_status": 0,
+    "hooks": 0,
+    "core_methodology": 0,
+    "warning_intel": 0
+  },
+  "critical_flags": [],
+  "warnings": [],
+  "convergent_signals": [],
+  "blind_spots": []
+}

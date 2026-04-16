@@ -1,0 +1,7 @@
+{
+  "version": "1.21.0",
+  "released": "2026-04-16",
+  "codename": "AOS",
+  "min_claude_code_version": null,
+  "notes": "Machine-readable version manifest. Updated on every distribution release. Version must match CHANGELOG.md top entry."
+}

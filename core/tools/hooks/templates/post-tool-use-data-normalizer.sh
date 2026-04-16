@@ -25,8 +25,14 @@ if [ -n "$TIMESTAMPS" ]; then
   while IFS= read -r ts; do
     # Verify it's a plausible timestamp (not just any 10-digit number)
     if [ "$ts" -ge 1577836800 ] && [ "$ts" -le 1924991999 ] 2>/dev/null; then
-      # Convert to ISO 8601 using date command (macOS compatible)
+      # Convert to ISO 8601 — portable: try BSD (macOS), then GNU (Linux), then python3
       ISO_DATE=$(date -r "$ts" '+%Y-%m-%dT%H:%M:%S%z' 2>/dev/null)
+      if [ -z "$ISO_DATE" ]; then
+        ISO_DATE=$(date -d "@$ts" '+%Y-%m-%dT%H:%M:%S%z' 2>/dev/null)
+      fi
+      if [ -z "$ISO_DATE" ]; then
+        ISO_DATE=$(python3 -c "import datetime; print(datetime.datetime.fromtimestamp($ts).strftime('%Y-%m-%dT%H:%M:%S'))" 2>/dev/null)
+      fi
       if [ -n "$ISO_DATE" ]; then
         NORMALIZED="${NORMALIZED}  ${ts} → ${ISO_DATE}\n"
       fi

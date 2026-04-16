@@ -26,9 +26,9 @@ scope: shared
 
 ## Event Log
 
-| EVT ID | Date | Type | What | Impact | Source | Layer | Related |
-|--------|------|------|------|--------|--------|-------|---------|
-| _EVT-YYYY-MM-DD-NNN_ | _YYYY-MM-DD_ | _type_ | _What happened (factual, 1 line)_ | _Observed or expected effect_ | _[DATA]/[STATED]/[OBSERVED]_ | _L0-L7_ | _FND/REC/Task refs_ |
+| EVT ID | Date | Type | What | Prior Value | New Value | Impact | Source | Layer | Related |
+|--------|------|------|------|-------------|-----------|--------|--------|-------|---------|
+| _EVT-YYYY-MM-DD-NNN_ | _YYYY-MM-DD_ | _type_ | _What happened (factual, 1 line)_ | _old value or —_ | _new value or —_ | _Observed or expected effect_ | _[DATA]/[STATED]/[OBSERVED]_ | _L0-L7_ | _FND/REC/Task refs_ |
 
 ## Rules
 
