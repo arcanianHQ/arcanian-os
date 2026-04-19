@@ -54,7 +54,8 @@ Clear separation prevents tool confusion, reduces latency, and keeps MCP budget 
 All skills, agents, and manual operations that touch the web:
 - `/seo-diagnose`, `/seo-gaps`, `/seo-decay`, `/seo-cannibalize`, `/seo-anomaly`, `/seo-narrative`
 - `/client-explorer`, `/extract-platforms`, `/extract-contacts`
-- `/analyze-gtm`, `/analyze-copy`, `/build-brand`
+- `/analyze-gtm`, `/build-brand`, copy-analysis runs
+- `/competitor-monitor`
 - `/validate-idea`, `/plan-gtm`, `/verify-pmf`
 - All channel-analyst agents, client-explorer agent
 - Any ad-hoc web research or scraping task

@@ -25,7 +25,7 @@ Changes happen fast. Memory doesn't keep up. The changelog is the only thing tha
 - **When:** Every commit, every push — no matter how small
 - **What to log:** Version bump, what files were added/changed/removed, which skill ran the export
 - **Format:** Keep Changelog standard (`## [X.Y.Z] — YYYY-MM-DD` + `### Added/Changed/Fixed`)
-- **Rule:** `/share-to-os`, `/share-to-company`, `/share-to-advanced` MUST update CHANGELOG.md as a mandatory step. A push without a changelog update is a failed export.
+- **Rule:** every export-to-flavour workflow MUST update CHANGELOG.md as a mandatory step. A push without a changelog update is a failed export.
 
 ### 3. Client Configuration Changes
 - **Where:** `clients/{slug}/CAPTAINS_LOG.md`
@@ -77,7 +77,7 @@ Changes happen fast. Memory doesn't keep up. The changelog is the only thing tha
 
 - **Hook:** Post-tool-use hooks should warn when files matching changelog-tracked categories are modified without a corresponding log entry in the same session
 - **Task Overseer:** `/task-oversight` flags GTM exports without changelog entries
-- **Export Skills:** `/share-to-os`, `/share-to-company`, `/share-to-advanced` BLOCK push if CHANGELOG.md was not updated in the same commit
+- **Export Skills:** every export-to-flavour workflow BLOCKs push if CHANGELOG.md was not updated in the same commit
 - **Audit:** `/health-check` includes a changelog freshness check — are there recent file modifications without matching log entries?
 
 ### 8. AOS Version Manifest Changes

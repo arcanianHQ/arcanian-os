@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 > v1.0 — 2026-03-24
 
 # Arcanian Ops — Master Thesaurus & Dictionary
@@ -18,8 +22,8 @@
 | **SOP** | Standard Operating Procedure | A repeatable process. In `core/sops/` |
 | **MCP** | Model Context Protocol | How Claude Code connects to external APIs |
 | **GTD** | Getting Things Done | Task management methodology (Allen). Our labels: @next, @waiting, @someday, etc. |
-| **[Customer Need Framework]** | Jobs To Be Done | Framework for understanding what customers "hire" a product to do |
-| **SFM** | Success Factor Modeling | Dilts methodology for modeling excellence |
+| **Customer-job mapping** | — | Framework for understanding what customers are really trying to accomplish when they buy |
+| **Identity overlay** | — | Person-level mapping across identity, values, capability, behaviour, environment |
 | **L0-L7** | Layer 0-7 | Arcanian Marketing Control Framework layers |
 | **CMP** | Consent Management Platform | Cookie consent tool (CookieBot, Amasty, Unas native) |
 | **sGTM** | Server-side GTM | Server-side Google Tag Manager |
@@ -29,7 +33,7 @@
 | **GTM export** | GTM container JSON | Full config snapshot. Named: `GTM-{ID}_workspace{N}.json`. Stored in `data/gtm-exports/`. |
 | **UPD** | User Provided Data | Any data the client provides. Stored in `upd/` per client. |
 | **ROAS** | Return On Ad Spend | Revenue ÷ ad cost |
-| **AC** | ActiveCampaign | CRM/email platform (used by ExampleBrand) |
+| **AC** | ActiveCampaign | CRM/email platform (used by Wellis) |
 
 ## File/Directory Concepts
 
@@ -37,10 +41,10 @@
 |---|---|
 | **upd/** | User Provided Data directory — per client. Raw inputs from the client: exports, screenshots, docs, answers. |
 | **inbox/** | Staging area for unprocessed inputs. Triage within 7 days. |
-| **brand/** | Client intelligence profile (7 files: 7LAYER_DIAGNOSTIC, CONSTRAINT_MAP, REPAIR_ROADMAP, VOICE, Target Profile, POSITIONING) |
+| **brand/** | Client intelligence profile (7 files: 7LAYER_DIAGNOSTIC, CONSTRAINT_MAP, REPAIR_ROADMAP, BELIEF_PROFILE, VOICE, ICP, POSITIONING) |
 | **meetings/** | Meeting transcripts + processed notes. `raw/` subdirectory for original Fireflies output. |
-| **core/** | Protected shared resources (skills, SOPs, methodology). [Owner] only. |
-| **ext:** | External system task ID ([Task Manager] task ID, Asana gid) |
+| **core/** | Protected shared resources (skills, SOPs, methodology). László only. |
+| **ext:** | External system task ID (Todoist task ID, Asana gid) |
 | **synced:** | Timestamp of last sync with external system |
 
 ## Impact Scale
@@ -70,9 +74,9 @@
 
 | Layer | Name (EN) | Name (HU) | Covers |
 |---|---|---|---|
-| **L0** | Source | Forrás | People's identity, patterns, mindset. WHY they can't change. |
+| **L0** | Source | Forrás | People's identity, beliefs, mindset. WHY they can't change. |
 | **L1** | Core | Mag | Organizational capability: team, processes, structure, decisions. |
-| **L2** | Customer | Ügyfél | Who the customer is: Target Profile, personas, segments, identity. |
+| **L2** | Customer | Ügyfél | Who the customer is: ICP, personas, segments, identity. |
 | **L3** | Value | Érték | What value is delivered: product-market fit, methodology. |
 | **L4** | Offer | Ajánlat | How value is packaged: pricing, bundling, guarantees. |
 | **L5** | Channels | Csatornák | Where marketing happens: SEO, ads, email, social, tracking, measurement. |
@@ -84,7 +88,7 @@
 | Phase | Name | What happens |
 |---|---|---|
 | 1 | **EXPLORE** | Discovery call, /7layer, First Signal |
-| 2 | **PLAN** | , /repair-roadmap, brand intelligence |
+| 2 | **PLAN** | Constraint classification, repair sequencing, brand intelligence |
 | 3 | **ARCHITECT** | Strategy design, SOP adaptation, dashboards |
 | 4 | **IMPLEMENT** | Execute tasks, run audits, agency coordination |
 | 5 | **REVIEW** | Knowledge extraction, pattern checking, quality |
@@ -116,5 +120,5 @@
 | **Árrés** | Margin | Profit margin (typically 20-25% for e-commerce) |
 | **Tegező** | Informal "te" address | Casual register |
 | **Magázó / Önöző** | Formal "Ön" address | Formal register |
-| **Navigátor szerep** | Navigator role | ExampleLocal-specific: [Name]'s positioning |
-| **Kommunikációs Útmutató** | Communication guide | ExampleLocal-specific: NOT "brand kézikönyv" |
+| **Navigátor szerep** | Navigator role | Mancsbazis-specific: Ricsi's positioning |
+| **Kommunikációs Útmutató** | Communication guide | Mancsbazis-specific: NOT "brand kézikönyv" |

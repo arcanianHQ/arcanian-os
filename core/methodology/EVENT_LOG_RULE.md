@@ -61,7 +61,7 @@ Skills reading EVENT_LOG.md for anomaly detection (e.g., `/health-check` Step 4b
 
 **Before ANY data analysis, load EVENT_LOG.md.**
 
-Applies to: `/7layer`, `/map-results`, `/analyze-gtm`, `/council`, `/measurement-audit`, `/health-check`, `/morning-brief` anomaly detection, all channel-analyst agents, outcome-tracker.
+Applies to: `/7layer`, `/analyze-gtm`, `/council`, `/measurement-audit`, `/health-check`, `/morning-brief` anomaly detection, results-mapping runs, all channel-analyst agents, outcome-tracker.
 
 ```
 Step 0a: Load DOMAIN_CHANNEL_MAP.md (existing rule)

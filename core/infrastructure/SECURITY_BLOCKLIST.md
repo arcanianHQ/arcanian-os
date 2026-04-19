@@ -27,7 +27,7 @@ This file defines prohibited references that must not appear in committed file n
 - `linkedin`
 - `substack`
 - `belief`
-- `nlp`
+- (proprietary language-pattern acronyms — see `core/tools/hooks/public-content-blocklist.txt`)
 - `todoist`
 
 ## Data Protection Requirements

@@ -16,7 +16,7 @@ weight: 0.30
 
 ## Purpose
 
-Diagnoses the deepest layers: owner beliefs/identity (L0) and organizational capability (L1). These are the invisible foundations — when they're broken, nothing above works. Uses belief profiling, NLP pattern detection, and organizational assessment.
+Diagnoses the deepest layers: owner beliefs/identity (L0) and organizational capability (L1). These are the invisible foundations — when they're broken, nothing above works. Uses identity-pattern profiling, language-pattern detection, and organizational assessment.
 
 ## Process
 
@@ -57,5 +57,5 @@ Process maturity: {rating}
 ```
 
 ## References
-- `core/skills/nlp-beliefs.md`, `core/skills/belief-profile.md`
+- Belief-tracing and identity-pattern profiling skills (when available in your flavour)
 - `core/agents/belief-analyst.md` (can be called for deeper analysis)

@@ -1,9 +1,11 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # System Guardrail: Unverified Assumptions
 
 > **SYSTEM-WIDE RULE** — applies to ALL skills, agents, SOPs, and diagnostics.
-> Learned from: ExampleLocal 2026-03-24 — system assumed "no developer" because none was named. Developer existed. False constraint blocked the entire repair roadmap.
+> Learned from: Mancsbazis 2026-03-24 — system assumed "no developer" because none was named. Developer existed. False constraint blocked the entire repair roadmap.
 
 ---
 
@@ -42,13 +44,13 @@ An UNVERIFIED constraint:
 ### Skills (all diagnostic skills)
 | Skill | How it applies |
 |---|---|
-| `` | Every resource-absence constraint → UNVERIFIED until client confirms |
+| Constraint mapping | Every resource-absence constraint → UNVERIFIED until client confirms |
 | `/7layer` | Layer rated "Constraint" based on missing info → add "(unverified)" |
-| `/repair-roadmap` | Cannot sequence repairs based on UNVERIFIED constraints |
-| `` | Inferred patterns from language → flag as "inferred, not stated" |
-| `` | 3 Constraint Signals — if a signal is inferred, not observed → flag |
+| Repair planning | Cannot sequence repairs based on UNVERIFIED constraints |
+| Identity-pattern work | Inferred beliefs from language → flag as "inferred, not stated" |
+| Signal extraction | 3 Constraint Signals — if a signal is inferred, not observed → flag |
 | `/build-brand` | Voice assumptions from copy analysis → verify with client |
-| `` | Pricing constraints inferred from behavior → verify |
+| Offer refinement | Pricing constraints inferred from behaviour → verify |
 
 ### Agents
 | Agent | How it applies |
@@ -62,7 +64,7 @@ An UNVERIFIED constraint:
 |---|---|
 | `arcanian/02-discovery-call.md` | Post-call: list what was NOT discussed (gaps) |
 | `arcanian/06-client-intelligence-profile.md` | Each profile file must note verified vs unverified |
-| `[audit-framework]/06-phase-5-diagnosis.md` | Distinguish "confirmed absent" vs "couldn't access" |
+| `measurement-audit/06-phase-5-diagnosis.md` | Distinguish "confirmed absent" vs "couldn't access" |
 
 ### Client Intelligence Profile (brand/)
 Every file in `brand/` should end with:
@@ -93,7 +95,7 @@ When a constraint map or diagnostic has UNVERIFIED items:
 2. **In the document:** Mark clearly as UNVERIFIED with the question
 3. **In the presentation:** Say "we noticed X wasn't discussed — is this the case?"
 4. **After verification:** Update the document, change status to Verified or Removed
-5. **Log in CAPTAINS_LOG:** "Verified: developer exists ([Team Member 2] confirmed)"
+5. **Log in CAPTAINS_LOG:** "Verified: developer exists (Dóra confirmed)"
 
 ## Hook Enforcement
 

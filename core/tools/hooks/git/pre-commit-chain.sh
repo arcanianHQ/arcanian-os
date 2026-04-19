@@ -32,6 +32,7 @@ fi
 CHECKS=(
   "pre-commit-lock-check.sh"          # git-lfs lock enforcement
   "pre-commit-skill-structure.sh"     # skill audit (hard failures block)
+  "pre-commit-public-content.sh"      # public-content guardrail (blocklist)
 )
 
 for check in "${CHECKS[@]}"; do

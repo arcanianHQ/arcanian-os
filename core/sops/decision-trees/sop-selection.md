@@ -36,8 +36,8 @@ graph TD
     H -->|Existing agency coord| T[SOP 01: Agency Coordination]
     
     I -->|Explore| U[Delivery Phase 1<br/>/pipeline discovery]
-    I -->|Plan| V[Delivery Phase 2<br/>/identify-constraints]
-    I -->|Architect| W[Delivery Phase 3<br/>/repair-roadmap]
+    I -->|Plan| V[Delivery Phase 2<br/>Constraint mapping]
+    I -->|Architect| W[Delivery Phase 3<br/>Repair planning]
     I -->|Implement| X[Delivery Phase 4<br/>Execute tasks per TASKS.md]
     I -->|Review| Y[Delivery Phase 5<br/>Knowledge extraction]
     I -->|Monitor| Z[Delivery Phase 6<br/>@monitor tasks]

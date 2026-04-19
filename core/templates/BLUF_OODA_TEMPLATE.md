@@ -1,13 +1,17 @@
+---
+scope: shared
+---
+
 # BLUF+OODA Deliverable Template
 
-> Source: Pentagon briefing format + Boyd's OODA Loop
+> Source: Pentagon briefing format + the observe-orient-decide-act decision loop
 > Adapted from Marketing Council v12 (Karpathy LLM Council derivative)
 > Added to Arcanian Ops: 2026-03-25
 
 ## When to Use
 
 Use this format for:
-- Executive summaries of diagnostic outputs (/7layer, /repair-roadmap)
+- Executive summaries of diagnostic outputs (/7layer, constraint mapping, repair planning)
 - Client-facing recommendation documents
 - Internal decision memos
 - Health check and morning brief summaries
@@ -132,8 +136,8 @@ The ACT table maps directly to TASKS.md entries:
 ## Compatibility
 
 Works alongside existing output formats:
-- **Constraint Map** () → add BLUF+OODA as executive summary section
-- **Repair Roadmap** (/repair-roadmap) → add BLUF+OODA as opening section
+- **Constraint Map** (constraint-mapping stage) → add BLUF+OODA as executive summary section
+- **Repair Roadmap** (repair-planning stage) → add BLUF+OODA as opening section
 - **7-Layer Diagnosis** (/7layer) → add BLUF+OODA for client-facing summary
 - **Health Check** (/health-check) → BLUF+OODA replaces flat summary section
 - **Morning Brief** (/morning-brief) → BLUF+OODA structures the brief

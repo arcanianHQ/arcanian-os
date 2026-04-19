@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 # Peer Review Protocol (Anonymous Multi-Perspective)
 
 > Source: Andrej Karpathy's LLM Council → Marketing Council v12 Stage 2
@@ -11,14 +15,14 @@ An optional protocol that runs 3 independent diagnostic perspectives in parallel
 ## When to Use (OPT-IN)
 
 **Use when:**
-- [Diagnostic Service] or Fixer engagement (paid diagnostic — worth the extra LLM cost)
+- First Signal or The Fixer engagement (paid — worth the extra LLM cost)
 - High-stakes client decision depends on the diagnosis
 - Previous diagnostic produced a surprising or counterintuitive result — verify it
 - Client explicitly asks for a second opinion
 - User adds `--peer-review` or says "with peer review" when invoking a skill
 
 **Skip when:**
-- First Signal / Morsel (quick, free — not worth 3x cost)
+- Pattern Check (quick, free — not worth 3x cost)
 - Routine health checks
 - Single-layer drill (Mode 3) where the constraint is already known
 - Time-constrained (peer review adds ~2-3 minutes)
@@ -27,7 +31,7 @@ An optional protocol that runs 3 independent diagnostic perspectives in parallel
 
 ```
 Peer review available: run `/7layer --peer-review` for 3 independent perspectives.
-Recommended for [Diagnostic Service]/Fixer tier.
+Recommended for First Signal / The Fixer tier.
 ```
 
 ## How It Works
@@ -37,21 +41,21 @@ Recommended for [Diagnostic Service]/Fixer tier.
 Launch 3 Agent subagents in parallel, each using a formal agent definition from `core/agents/`. They receive the SAME input data but different analytical lenses:
 
 ```
-Agent A — [diagnostic-analyst] (core/agents/[diagnostic-analyst].md)
+Agent A — belief-analyst (core/agents/belief-analyst.md)
 Focus: L0-L2 (Source, Core, Identity)
-Lens: Owner patterns, [Communication Framework] meta-programs, identity patterns, constraint types.
-Skills: , 
+Lens: Owner beliefs, language meta-programs, identity patterns, constraint types.
+Skills: identity-pattern mapping, belief tracing, rapport + coaching skills (where available)
 
 Agent B — channel-analyst (core/agents/channel-analyst.md)
 Focus: L4-L7 (Offer, Channels, Customer, Market)
-Lens: ROAS, channel mix, [Framework Author] Value Equation, [Customer Need Framework], competitive position.
-Skills: /analyze-gtm, /[customer need framework], /[customer need framework]-map
+Lens: ROAS, channel mix, value-equation offer construction, customer-job analysis, competitive position.
+Skills: /analyze-gtm, offer refinement, customer-job mapping suite, results mapping
 
 Agent C — copy-analyst (core/agents/copy-analyst.md)
 Focus: Cross-layer messaging coherence
 Lens: Does what they SAY match who they ARE (L2), what they OFFER (L4),
       and who they're talking TO (L6)? Voice consistency, copy-market fit.
-Skills: , /build-brand, /magyar-szoveg
+Skills: copy analysis, `/build-brand`, `/magyar-szoveg`, signature-story construction
 ```
 
 These are real agents with YAML frontmatter, context allocations, and defined skill sets — not ad-hoc prompts.
@@ -136,13 +140,13 @@ Add at the end of Mode 2 (Pattern Map) output:
 ### Peer Review
 
 This diagnosis was produced from a single analytical perspective.
-For [Diagnostic Service]/Fixer engagements, run with `--peer-review` to get 3
+For Prism/Fixer engagements, run with `--peer-review` to get 3
 independent perspectives with anonymous synthesis.
 ```
 
 When `--peer-review` is active, the standard /7layer analysis becomes the "seed" — the 3 agents receive the same input data but NOT the seed analysis. The synthesis step then compares the 3 perspectives AND the original seed.
 
-### With 
+### With constraint mapping
 
 Peer review runs BEFORE ACH (Step 5). The competing hypotheses in ACH become richer because they originate from genuinely independent analytical frames, not one analyst generating alternatives.
 
@@ -150,14 +154,14 @@ Flow with peer review:
 ```
 /7layer (seed diagnosis)
     → Peer Review Phase 1-4 (3 perspectives, anonymized, synthesized)
-    →  Step 1-4 (collect, classify, verify)
-    →  Step 5 ACH (hypotheses now come from 3 lenses)
-    →  Step 6-8 (ceiling, conversation, strategy)
+    → Constraint mapping Step 1-4 (collect, classify, verify)
+    → Constraint mapping Step 5 ACH (hypotheses now come from 3 lenses)
+    → Constraint mapping Step 6-8 (ceiling, conversation, strategy)
 ```
 
-### With /repair-roadmap
+### With repair planning
 
-Not directly integrated — peer review feeds into the diagnosis, not the repair plan. The repair roadmap consumes the richer ACH output that peer review produces.
+Not directly integrated — peer review feeds into the diagnosis, not the repair plan. The repair-planning step consumes the richer ACH output that peer review produces.
 
 ## Output Format
 
@@ -222,7 +226,7 @@ if user requested --peer-review:
 - **Not a vote.** 2-out-of-3 agreement doesn't make something true. Convergence increases confidence; divergence increases investigation.
 - **Not a replacement for ACH.** Peer review produces richer input for ACH. ACH tests hypotheses against evidence. Different mechanisms, complementary.
 - **Not automatic.** Always opt-in. The user decides when the extra cost and time is justified.
-- **Not for every skill.** Only diagnostic skills (/7layer, ). Not for operational skills (/tasks, /scaffold-project, /health-check).
+- **Not for every skill.** Only diagnostic work (/7layer, constraint mapping). Not for operational skills (/tasks, /scaffold-project, /health-check).
 
 ## Cost & Time
 
@@ -231,4 +235,4 @@ if user requested --peer-review:
 | Agent calls | 1 | 4 (3 perspectives + 1 synthesis) |
 | Time | ~1-2 min | ~3-5 min |
 | Token cost | ~1x | ~3-4x |
-| When justified | First Signal, routine | [Diagnostic Service], Fixer, high-stakes |
+| When justified | First Signal, routine | Prism, Fixer, high-stakes |

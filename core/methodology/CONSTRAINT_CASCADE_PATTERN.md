@@ -47,11 +47,11 @@ Constraint Evaluation
 
 ## Existing Implementations in AOS
 
-### 1. `/repair-roadmap` — ACH-gated layer sequencing
+### 1. Repair planning — ACH-gated layer sequencing
 
-The constraint map from `/identify-constraints` determines which layers are locked and which repair actions are feasible.
+The constraint map from the constraint-classification step determines which layers are locked and which repair actions are feasible.
 
-**Cascade:** `/7layer` (diagnose) → `/identify-constraints` (classify locks) → ACH hypothesis validation → **gate** → `/repair-roadmap` (plan only feasible repairs) → execute
+**Cascade:** `/7layer` (diagnose) → constraint-classification (classify locks) → ACH hypothesis validation → **gate** → repair planning (plan only feasible repairs) → execute
 
 **Gate logic:** If the leading hypothesis about root cause cannot be verified, a falsification indicator is built into Month 1 as a validation gate:
 > "If [indicator] is observed by [date], STOP and reassess. Switch to repair sequence for H[Y]."
@@ -108,7 +108,7 @@ If the answer is no, the gates are not explicit enough.
 
 ## References
 
-- `/repair-roadmap` (`core/skills/repair-roadmap.md`) — constraint-gated layer sequencing
+- Repair-planning skill (available in company + advanced flavours) — constraint-gated layer sequencing
 - `/measurement-audit` (`core/skills/measurement-audit/measurement-audit.md`) — phase-gated audit pipeline
 - `/health-check` (`core/skills/health-check.md`) — sync-lag-gated anomaly detection
 - `core/methodology/CONFIDENCE_ENGINE.md` — evidence-quality cascade

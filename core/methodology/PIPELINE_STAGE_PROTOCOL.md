@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 # Pipeline Stage Protocol
 
 > Source: Council v12 BaseStage pattern. Added 2026-03-26.
@@ -8,8 +12,8 @@
 
 Currently, diagnostic skills hand off prose-to-prose:
 ```
-/7layer outputs → human reads →  inputs manually
- outputs → human reads → /repair-roadmap inputs manually
+/7layer outputs → human reads → constraint-mapping inputs manually
+constraint-mapping outputs → human reads → repair-planning inputs manually
 ```
 
 This works but loses structured data at each handoff. ACH hypotheses, confidence levels, constraint types — all rendered as markdown, then re-parsed from prose.
@@ -44,7 +48,7 @@ findings:
 metadata:
   mode: 2  # Pattern Map
   peer_review: false
-  client: exampleretail
+  client: diego
   date: 2026-03-26
 ```
 ````
@@ -53,11 +57,11 @@ metadata:
 
 | Stage ID | Skill | Produces | Consumed By |
 |----------|-------|----------|-------------|
-| `7layer` | /7layer | broken_layers, primary_constraint, findings |  |
-| `constraints` |  | constraint_map, ach_hypotheses, ceiling | /repair-roadmap |
-| `repair` | /repair-roadmap | repair_cards, timeline, milestones | execution / /delivery-phase |
+| `7layer` | /7layer | broken_layers, primary_constraint, findings | constraint-mapping stage |
+| `constraints` | constraint-mapping stage | constraint_map, ach_hypotheses, ceiling | repair-planning stage |
+| `repair` | repair-planning stage | repair_cards, timeline, milestones | execution / /delivery-phase |
 | `health` | /health-check | project_statuses, warning_intel | /morning-brief |
-| `peer_review` | PEER_REVIEW_PROTOCOL | perspectives, convergent, divergent |  (ACH) |
+| `peer_review` | PEER_REVIEW_PROTOCOL | perspectives, convergent, divergent | constraint-mapping stage (ACH) |
 
 ### Per-Stage Result Schemas
 
@@ -164,27 +168,27 @@ metadata:
 stage_id: health
 success: true
 projects:
-  - slug: exampleretail
+  - slug: diego
     claude_md: true
     tasks_md: true
     symlinks: true
     brand_complete: 7  # out of 7
     issues: []
-  - slug: examplelocal
+  - slug: mancsbazis
     claude_md: true
     tasks_md: true
     symlinks: true
     brand_complete: 3
     issues: ["brand profile incomplete"]
 mcp:
-  - server: [task-manager]
+  - server: todoist
     status: connected
   - server: asana
     status: auth_error
 warning_intel:
   convergent:
     - signal: "description"
-      clients: [exampleretail, examplebrand]
+      clients: [diego, wellis]
       confidence: HIGH
   blind_spots:
     - "area not covered"

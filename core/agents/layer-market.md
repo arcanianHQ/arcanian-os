@@ -60,5 +60,5 @@ Regulatory: {constraints}
 ```
 
 ## References
-- `core/skills/jtbd.md`, `core/skills/jtbd-map.md`
+- Customer-job mapping skills (when available)
 - `core/agents/channel-analyst.md` (L4-L7 perspective)

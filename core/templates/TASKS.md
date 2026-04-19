@@ -1,15 +1,15 @@
 ---
 project: "{slug}"
-sync: [task-manager]
+sync: todoist
 sync_id: ""
 updated: {YYYY-MM-DDThh:mm}
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # {Display Name} — Tasks
 
-> Local source of truth. Syncs to `sync:` system via ``.
-> Format: `core/methodology/TASK_FORMAT_STANDARD.md` (ExampleBrand gold standard)
+> Local source of truth. Syncs to `sync:` system via `/task-sync`.
+> Format: `core/methodology/TASK_FORMAT_STANDARD.md` (Wellis gold standard)
 > Done tasks → `TASKS_DONE.md`
 
 ---
@@ -25,12 +25,13 @@ updated: {YYYY-MM-DDThh:mm}
   - SOP: client-intelligence-profile
   - Checklist:
     - [ ] Run /7layer → brand/7LAYER_DIAGNOSTIC.md
-    - [ ] Run  → brand/CONSTRAINT_MAP.md
-    - [ ] Run /repair-roadmap → brand/REPAIR_ROADMAP.md
-    - [ ] Run  → brand/.md
+    - [ ] Constraint mapping → brand/CONSTRAINT_MAP.md
+    - [ ] Repair planning → brand/REPAIR_ROADMAP.md
+    - [ ] Identity-pattern mapping → brand/BELIEF_PROFILE.md
     - [ ] Run /build-brand → brand/VOICE.md
-    - [ ] Run /[customer need framework]-map + /7layer L6 → brand/TARGET_PROFILE.md
-    - [ ] Run  + /analyze-gtm → brand/POSITIONING.md
+    - [ ] Customer-job mapping + /7layer L6 → brand/ICP.md
+    - [ ] Offer refinement + /analyze-gtm → brand/POSITIONING.md
+    - [ ] Fill brand/COMPETITIVE_LANDSCAPE.md with 3-5 competitors + monitored page URLs
 
 ---
 
@@ -71,7 +72,7 @@ updated: {YYYY-MM-DDThh:mm}
   - Required fields: #{N}, @tag, Priority, Owner, Due, Impact, Created, Layer
   - @waiting requires: Waiting on, Waiting since, Follow-up
   - Multi-domain clients: add Domain: field to every task
-  - Sync:  pushes to [Task Manager] with ontology enrichment
+  - Sync: /task-sync pushes to Todoist with ontology enrichment
 
 ---
 

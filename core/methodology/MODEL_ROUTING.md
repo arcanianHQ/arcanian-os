@@ -1,3 +1,7 @@
+---
+scope: shared
+---
+
 > v1.0 — 2026-04-08
 
 # System Guardrail: Model Routing
@@ -40,7 +44,7 @@ On Claude Max flat-rate, the cost is not dollars but **rate limit budget**. Ever
 | Project structure validation | Directory tree vs template | `project-architect` agent |
 | File renaming/routing | Naming convention application | File intake routing step |
 | Glossary term checking | Word list matching | Post-tool-use glossary hook |
-| Task sync conflict resolution | Simple diff comparison | Task sync conflict step |
+| Task sync conflict resolution | Simple diff comparison | `/task-sync` conflict step |
 | Report structure review | Template compliance check | `report-reviewer` agent |
 | Morning brief aggregation | Data pull + simple prioritization | `/morning-brief` data collection |
 | Scaffold operations | Template copy + variable substitution | `/scaffold-project` |
@@ -58,24 +62,28 @@ Agent({
 
 | Workflow | Why Sonnet | Example |
 |----------|------------|---------|
-| LinkedIn posts/comments | Good writing, follows rules | `/linkedin-post` |
+| LinkedIn posts/comments | Good writing, follows rules | LinkedIn content skills |
 | Email drafting | Tone matching + structure | Deliverable generation |
 | Client reports | Data narrative from pre-pulled metrics | `/client-report` |
 | SEO analysis (all types) | Pattern recognition in keyword data | `/seo-diagnose`, `/seo-gaps`, `/seo-decay` |
 | Copy analysis | Voice consistency, messaging fit | `copy-analyst` agent |
 | Knowledge extraction | Pattern recognition from audit findings | `knowledge-extractor` agent |
 | Meeting transcript processing | Speaker attribution + task extraction | `/meeting-sync` |
+| Offer crafting | Value-equation application | Offer-refinement step |
+| Rapport matching | Meta-program detection | Rapport skill (int) |
 | Channel analysis (single) | Platform-specific ROAS/performance | `channel-analyst-*` agents |
 | GTM analysis | Gap identification against framework | `/analyze-gtm` |
 | Campaign management | Strategy + UTM + targeting | SOP execution |
+| Belief analysis | L0-L2 diagnostic patterns | `belief-analyst` agent |
 | Client exploration synthesis | Digital presence analysis + strategic summary | Post-client-explorer synthesis |
+| Newsletter processing | HTML + CSS fixes | Newsletter skill (int) |
 
 **Subagent pattern:**
 ```
 Agent({
   model: "sonnet",
   description: "Draft LinkedIn post",
-  prompt: "Write a LinkedIn post following content rules..."
+  prompt: "Write a LinkedIn post following LINKEDIN_CONTENT_RULES..."
 })
 ```
 
@@ -86,12 +94,16 @@ Agent({
 | 7-Layer diagnosis | Cascade logic, evidence weighting, hidden assumptions | `/7layer`, `/7layer-hu` |
 | Diagnostic council | Multi-agent synthesis, convergent signals | `/council` orchestration |
 | PMF verification | 5-layer signal validation, confidence scoring | `/verify-pmf` |
-| Repair roadmap | Strategic sequencing with dependencies | `/repair-roadmap` |
+| Constraint identification | Type 1/2/3 classification with verification | Constraint-mapping step |
+| Belief profiling | Deep pattern archaeology | Identity-pattern and belief-tracing skills |
+| Customer-job full analysis | Outcome mapping, switch analysis, hiring criteria | Customer-job mapping suite |
+| Repair roadmap | Strategic sequencing with dependencies | Repair-planning step |
 | Brand strategy | Positioning, identity, messaging architecture | `/build-brand` |
 | Complex client deliverables | Proposals, strategic memos, quarterly reviews | High-stakes writing |
 | ACH analysis | Hypothesis generation + evidence scoring | Any anomaly requiring competing explanations |
-| Measurement audit diagnosis | Root cause reconstruction from fragmented data | Diagnosis phase |
-| Strategic planning | Pretotyping, GTM planning | `/validate-idea`, `/plan-gtm` |
+| Coaching conversations | SCORE model, perceptual positions, reframing | Coaching skill (int) |
+| Measurement audit Phase 5 | Root cause reconstruction from fragmented data | Diagnosis phase |
+| Validate idea / GTM planning | Pretotyping, strategic planning | `/validate-idea`, `/plan-gtm` |
 | Cross-project synthesis | Pattern recognition across clients | `/health-check` synthesis step |
 
 **These stay in the main session (Opus) — no model downgrade.**
@@ -119,8 +131,8 @@ Does the task require multi-step reasoning, judgment, or strategy?
 
 ### 1. Subagent Spawning (Agent tool)
 Already implemented for 18 agents:
-- **Haiku agents (8):** audit-checker, client-explorer, data-rules-checker, pii-scanner, project-architect, report-reviewer, task-overseer, compliance-checker
-- **Sonnet agents (10):** channel-analyst, copy-analyst, knowledge-extractor, code-reviewer, code-architect, code-explorer, security-scanner, bug-detector, test-analyzer, and others
+- **Haiku agents (8):** audit-checker, **client-explorer**, data-rules-checker, pii-scanner, project-architect, report-reviewer, task-overseer, compliance-checker
+- **Sonnet agents (10):** belief-analyst, channel-analyst, copy-analyst, knowledge-extractor, code-reviewer, code-architect, code-explorer, security-scanner, bug-detector, test-analyzer
 
 **Rule:** When spawning ad-hoc agents (not from agent definitions), explicitly set `model:` based on this routing table.
 
@@ -196,14 +208,14 @@ Live A/B test across all three tier boundaries. Same-day, same codebase.
 **Metrics:** 93K tokens, 14s, 1 tool call.
 **Conclusion:** Task format validation is deterministic pattern matching. Haiku handles it perfectly. No reason to use Opus.
 
-### Test 2: T2 Sonnet — Content Generation (Hungarian)
-**Input:** Marketing topic with content rules loaded.
-**Result:** PASS. Publication-quality Hungarian. Humble tone, problem-first structure, no exact client numbers, no system names in client context. Follows all rules from the methodology file.
+### Test 2: T2 Sonnet — Hungarian LinkedIn Post
+**Input:** Topic "Miért nem elég a GA4 önmagában egy webshop mérésére" with LINKEDIN_CONTENT_RULES.md loaded.
+**Result:** PASS. Publication-quality Hungarian. Humble tone, problem-first structure, no exact client numbers, no system names in client context, "kérdezz bátran" ending, link-in-comment note. Follows all rules from the methodology file.
 **Metrics:** 29K tokens, 23s, 1 tool call.
-**Conclusion:** Sonnet produces client-ready content. Opus unnecessary for content generation at this complexity level.
+**Conclusion:** Sonnet produces client-ready Hungarian content. Opus unnecessary for content generation at this complexity level.
 
 ### Test 3: T3 Boundary — Haiku on ACH Diagnostic Reasoning
-**Input:** 7 competing signals (analytics session drop, e-commerce flat, holiday, server-side tag migration, ad platform pause, landing page launch, ad platform unchanged). Required: full ACH with evidence scoring.
+**Input:** 7 competing signals (GA4 session drop, Shopify flat, Easter, sGTM migration, Meta pause, landing page launch, Google Ads unchanged). Required: full ACH with evidence scoring.
 **Result:** SURPRISING PASS with caveats. Haiku generated 4 hypotheses, applied timeline test correctly (landing page fails — cause after effect), identified the session/order paradox as keystone evidence, tagged evidence classes, self-critiqued its own reasoning limits.
 **Metrics:** 97K tokens, 50s, 2 tool calls.
 **Conclusion:** Haiku CAN do ACH, but at 3.5x the token cost and 3.5x the time of what Opus needs for comparable quality. The self-flagged weak spots (confidence in trade-offs, evidence class boundaries) confirm T3 tasks should stay with Opus for production client work. Token efficiency + judgment safety justify the tier.
@@ -213,7 +225,7 @@ Live A/B test across all three tier boundaries. Same-day, same codebase.
 | Test | Model | Task Type | Quality | Tokens | Time | Routing Confirmed |
 |---|---|---|---|---|---|---|
 | T1 | Haiku | Task validation | Perfect | 93K | 14s | Yes — T1 correct |
-| T2 | Sonnet | Content generation | Publication-ready | 29K | 23s | Yes — T2 correct |
+| T2 | Sonnet | LinkedIn HU post | Publication-ready | 29K | 23s | Yes — T2 correct |
 | T3 | Haiku | ACH diagnosis | Good but inefficient | 97K | 50s | Yes — keep at T3 Opus |
 
 **Key finding:** The tier boundaries hold. T1/T2 are clear wins (cheaper models produce correct output). T3 boundary is validated by cost: Haiku spent 3.5x more tokens on diagnostic reasoning that Opus handles in one efficient pass.
@@ -225,7 +237,7 @@ Live A/B test across all three tier boundaries. Same-day, same codebase.
 - **MCP_RATE_LIMITS.md** — batching for API calls (complementary to model routing)
 - **CONFIDENCE_ENGINE.md** — output quality threshold; if Haiku output falls below 0.7 confidence, escalate to Sonnet
 - **ALARM_CALIBRATION.md** — anomaly detection may need Opus ACH regardless of initial routing
-- Agent definitions — already implement model routing via frontmatter
+- Agent definitions in `.claude/agents/` — already implement model routing via frontmatter
 
 ---
 
@@ -233,4 +245,4 @@ Live A/B test across all three tier boundaries. Same-day, same codebase.
 
 | Date | Change |
 |---|---|
-| 2026-04-08 | v1.0 — Initial model routing table. 18 agents already routed. Skill-level routing documented. Verified with live A/B tests. |
+| 2026-04-08 | v1.0 — Initial model routing table. 18 agents already routed. Skill-level routing documented. |

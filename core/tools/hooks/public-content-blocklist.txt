@@ -1,0 +1,85 @@
+# Public Content Guardrail — Blocklist
+#
+# Each line is a term that must NOT appear in public AOS materials.
+# Comments start with #. Blank lines ignored.
+#
+# The shell script `check-public-content.sh` greps each target file
+# against this list (case-insensitive, word-boundary). Any match
+# produces a violation report and a non-zero exit code.
+#
+# Extend this list whenever Arcanian adds a new proprietary methodology
+# to its internal toolkit. See `core/methodology/PUBLIC_CONTENT_GUARDRAIL.md`
+# for the rule and extension procedure.
+#
+# Last updated: 2026-04-18
+
+# ── Personal names of proprietary-methodology authors
+Boyd
+Dilts
+Gilligan
+Christensen
+Ulwick
+Moesta
+Hormozi
+Covey
+Wickman
+
+# ── Framework names (proprietary or distinctive phrasings)
+NLP
+SFM
+JTBD
+EOS
+L10
+V/TO
+Neurological Level
+Success Factor Model
+Success Factor Modelling
+Success Factor Modeling
+Jobs-to-be-Done
+Jobs to be Done
+Conversion Story Formula
+Offer theory
+$100M Offers
+$100M
+Acquisition.com
+colinboyd
+
+# ── Int-tagged skill names (must never appear in public materials)
+/conversion-story
+/sfm-analyse
+/sfm-coach
+/jtbd
+/jtbd-map
+/jtbd-hire
+/jtbd-outcomes
+/jtbd-switch
+/jtbd_onboarding
+/craft-offer
+/belief-profile
+/trace-belief
+/nlp-beliefs
+/nlp-coaching
+/nlp-rapport
+/identify-constraints
+/repair-roadmap
+/map-results
+/extract-morsel
+/analyze-alchemy
+/analyze-copy
+/arcanum
+/authoredup
+/inbox-triage
+/linkedin-post
+/linkedin-comment
+/substack-post
+/mckinsey-deck
+/newsletter-process
+/drupal-plan
+/ralph-inbox
+/ralph-qa
+/cancel-ralph
+/share-to-advanced
+/share-to-company
+/share-to-os
+
+# ── End of blocklist

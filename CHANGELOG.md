@@ -1,4 +1,4 @@
-> v1.25.0 — 2026-04-19
+> v1.26.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
@@ -6,10 +6,21 @@ All notable changes to the public repository.
 
 ---
 
+## [1.26.0] — 2026-04-19
+
+### Added
+- **Pre-commit public-content guardrail** — `core/tools/hooks/git/pre-commit-public-content.sh` refuses commits whose staged `core/**/*.md`, `docs/**/*.md`, or root-level `CLAUDE.md`/`CHANGELOG.md`/`README.md` contain blocklisted terms (proprietary methodology names, internal-only skill references, protected author names). Reuses the existing `check-public-content.sh` checker and is added to the pre-commit chain by default. Escape hatch: `AOS_SKIP_PUBLIC_CONTENT_CHECK=1`.
+
+### Changed
+- **Full public-content cleanup — 19 remaining files.** All methodology docs, agents, templates, SOPs, and infrastructure files that still carried blocklisted references have been rewritten to use generic language. The public repo is now guardrail-clean end-to-end — a full repo sweep finds zero files with blocklist violations.
+- **Files cleaned:** 13 methodology docs (`UNVERIFIED_ASSUMPTIONS_RULE`, `PIPELINE_STAGE_PROTOCOL`, `MASTER_THESAURUS`, `ONTOLOGY_ENRICHMENT_RULE`, `CHANGELOG_ENFORCEMENT_RULE`, `WEB_TOOL_ROUTING_RULE`, `DATABOX_MANDATORY_RULE`, `EVENT_LOG_RULE`, `CONSTRAINT_CASCADE_PATTERN`, `MODEL_ROUTING`, `DISCOVERY_NOT_PRONOUNCEMENT`, `PEER_REVIEW_PROTOCOL`, `RECOMMENDATION_DEDUP_RULE`), 2 agents (`layer-foundation`, `layer-market`), 2 templates (`BLUF_OODA_TEMPLATE`, `TASKS`), 2 SOPs (`decision-trees/sop-selection`, `decision-trees/signal-routing`), 1 infrastructure (`SECURITY_BLOCKLIST`).
+
+---
+
 ## [1.25.0] — 2026-04-19
 
 ### Changed
-- **Public-content guardrail cleanup — 18 files.** Removed references to proprietary methodology names and int-tagged skill commands (`/jtbd`, `/trace-belief`, `/craft-offer`, `/identify-constraints`, etc.) that had leaked into public-facing materials. Rewrote cross-references as generic actions (e.g., "constraint mapping", "repair planning", "belief tracing") so the public flavour is self-contained and no longer cites internal tooling.
+- **Public-content guardrail cleanup — 18 files.** Removed references to proprietary methodology names and internal-only skill commands that had leaked into public-facing materials. Rewrote cross-references as generic actions (e.g. "constraint mapping", "repair planning", "belief tracing") so the public flavour is self-contained and no longer cites internal tooling. See the public-content blocklist for the full list of restricted terms.
 - **Files cleaned:** `CLAUDE.md`, `docs/GETTING_STARTED.md`, plus 16 skills — `7layer`, `7layer-hu`, `analyze-gtm`, `analyze-page`, `build-brand`, `council`, `delivery-phase`, `manage-client`, `pipeline`, `plan-gtm`, `sales-pulse`, `save-deliverable`, `scaffold-project/FILE_TEMPLATES`, `scheduled-workflows`, `update-aos`.
 
 ### Removed

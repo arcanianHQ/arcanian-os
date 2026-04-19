@@ -29,7 +29,7 @@ Before creating any recommendation (REC), check `RECOMMENDATION_LOG.md` in the c
 When a recommendation has prior history:
 
 ```markdown
-### REC-058: Increase PMAX budget for example-pool.com
+### REC-058: Increase PMAX budget for medencevasar.hu
 **Previously recommended:** REC-034 (2026-02-15) — status: no effect
 **What changed:** New creative assets available, seasonal demand shift
 **Why this time is different:** [specific evidence]
@@ -40,7 +40,7 @@ When a recommendation has prior history:
 
 Any skill or agent that outputs RECs:
 - `/analyze-gtm`, `/plan-gtm`
-- `/repair-roadmap`
+- Repair-planning runs
 - `/health-check` (when creating follow-up tasks)
 - `/7layer`, `/7layer-hu`
 - Council deliberations

@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Ontology Enrichment Rule — Automatic Palantir-Style Linking
 
@@ -21,10 +23,10 @@ When `/tasks create` or `/tasks update` runs, BEFORE saving:
 | A recommendation (REC-NNN) | `REC: REC-039` | "implement REC-039" → adds `REC: REC-039` |
 | An SOP name or number | `SOP: {sop-name}` | "follow the campaign SOP" → adds `SOP: 05-CAMPAIGN-MANAGEMENT` |
 | A meeting date | `Meeting: {date} {label}` | "from Monday's meeting" → adds `Meeting: 2026-03-24 weekly` |
-| A person who requested it | `From: {person}` | "[Client Contact] asked for this" → adds `From: [Client Contact]` |
-| A domain name | `Domain: {domain}` | "on example-d2c.com" → adds `Domain: example-d2c.com` |
+| A person who requested it | `From: {person}` | "Ákos asked for this" → adds `From: Ákos` |
+| A domain name | `Domain: {domain}` | "on buenospa.com" → adds `Domain: buenospa.com` |
 | A goal reference | `Goal: {goal}` | "for the Q1 website launch" → adds `Goal: Q1-website-live` |
-| A lead reference | `Lead: {slug}` | "for the [Retail Lead] pitch" → adds `Lead: retail-lead` |
+| A lead reference | `Lead: {slug}` | "for the Euronics pitch" → adds `Lead: euronics` |
 
 **Auto-create backlinks:**
 
@@ -32,7 +34,7 @@ When `/tasks create` or `/tasks update` runs, BEFORE saving:
 |-------------------------|----------------------|-----|
 | `FND: FND-039` | Finding file FND-039 → add `Tasks: #{N}` | Read + Edit finding file |
 | `REC: REC-039` | Recommendation file REC-039 → add `Tasks: #{N}` | Read + Edit rec file |
-| `Lead: retail-lead` | LEAD_STATUS.md → add `#{N}` to retail-lead Tasks section | Read + Edit lead file |
+| `Lead: euronics` | LEAD_STATUS.md → add `#{N}` to euronics Tasks section | Read + Edit lead file |
 | `Goal: Q1-website-live` | (soft — no backlink needed, queryable via grep) | — |
 
 ### 2. On File Intake (from Downloads, inbox, etc.)
@@ -68,7 +70,7 @@ When `/tasks complete #N` runs:
 
 ### 5. On Data Analysis Completion (Auto-Extract Events)
 
-When any analysis skill (`/7layer`, `/map-results`, `/analyze-gtm`, `/council`, `/measurement-audit`, channel-analyst agents) completes:
+When any analysis skill (`/7layer`, `/analyze-gtm`, `/council`, `/measurement-audit`, results-mapping runs, channel-analyst agents) completes:
 
 **Scan output for dated inflection points and auto-append to EVENT_LOG.md:**
 
@@ -131,7 +133,7 @@ Every object in the system exists AT a layer:
 - Deliverables have `Layer: L5, L7` in their ontology
 - Leads are worked at specific layers
 
-This means you can query: "Show me everything at L5 for ExampleBrand" and get:
+This means you can query: "Show me everything at L5 for Wellis" and get:
 - Tasks tagged L5
 - Findings at L5
 - Deliverables touching L5

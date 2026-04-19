@@ -17,11 +17,11 @@ graph TD
     B -->|Unknown person| D{Relevant topic?}
     B -->|Competitor| E[Log silently to Content Memory<br/>Do NOT engage]
     
-    C -->|P0| F[Draft /linkedin-comment<br/>React within 30 min]
+    C -->|P0| F[Draft LinkedIn comment<br/>React within 30 min]
     C -->|P1| G{Topic relevant<br/>to us?}
     C -->|P2| H[Queue for next day<br/>Relationship building]
     
-    G -->|Yes| I[Draft /linkedin-comment<br/>React same day]
+    G -->|Yes| I[Draft LinkedIn comment<br/>React same day]
     G -->|No| J[Skip or light engagement<br/>Like only]
     
     D -->|Yes| K{Person matches<br/>our ECP?}
@@ -49,8 +49,8 @@ graph TD
 
 | Signal | Action | Time |
 |---|---|---|
-| P0 tracked profile posts | `/linkedin-comment` + lead score update | 30 min |
-| P1 relevant topic | `/linkedin-comment` + lead score update | Same day |
+| P0 tracked profile posts | LinkedIn comment + lead score update | 30 min |
+| P1 relevant topic | LinkedIn comment + lead score update | Same day |
 | P1 irrelevant topic | Like only | When convenient |
 | P2 any topic | Light engagement | Next day |
 | Unknown person, relevant, matches ECP | Content Memory + consider lead | Same day |

@@ -46,7 +46,7 @@ The whole point of Databox integration is that every number is live, verifiable,
 ## How to apply
 
 This rule applies to ALL skills that touch data:
-- `/7layer`, `/council`, `/map-results`, `/analyze-gtm`, `/measurement-audit`
+- `/7layer`, `/council`, `/analyze-gtm`, `/measurement-audit`, results-mapping runs
 - `/day-start` (anomaly detection section)
 - `/health-check` (metric verification)
 - Any ad-hoc analysis request from the user
