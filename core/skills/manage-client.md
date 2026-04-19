@@ -62,7 +62,7 @@ Show all clients with status
 **Output:**
 ```
 ACTIVE CLIENTS:
-• acme-coaching - Scaling - /craft-offer in progress
+• acme-coaching - Scaling - offer refinement in progress
 • smith-fitness - Pre-launch - /validate-idea complete
 
 ON HOLD:
@@ -182,9 +182,9 @@ When creating new client:
 □ Add to DASHBOARD.md
 □ Schedule first session
 □ Determine starting point:
-  □ Have marketing copy? → /analyze-copy first
-  □ Have business data? → /map-results first
-  □ Neither? → /trace-belief from stated challenge
+  □ Have marketing copy? → copy analysis first
+  □ Have business data? → results mapping first
+  □ Neither? → belief tracing from their stated challenge
 ```
 
 ---

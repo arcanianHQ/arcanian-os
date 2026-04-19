@@ -177,7 +177,7 @@ scope: shared
 
 ### 9. Daily Arcanum Snapshot — 23:00
 
-**Purpose:** Capture daily wiki state manifest for temporal comparison (/arcanum review).
+**Purpose:** Capture daily wiki state manifest for temporal comparison (review via the wiki's challenge routine).
 **Frequency:** Daily, 23:00
 **Machine:** Mac mini
 
@@ -211,7 +211,7 @@ scope: shared
 /schedule create --name "arcanum-challenge" \
   --cron "0 20 * * 0" \
   --prompt "
-    Run /arcanum challenge.
+    Run the wiki challenge routine (cross-reference recent deliverables against current wiki knowledge).
     Save output to arcanum/challenges/CHALLENGE_{today_YYYY-MM-DD}.md.
     Append to arcanum/wiki/log.md.
     If any HIGH confidence contradictions found:

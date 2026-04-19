@@ -1,8 +1,22 @@
-> v1.24.0 — 2026-04-19
+> v1.25.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.25.0] — 2026-04-19
+
+### Changed
+- **Public-content guardrail cleanup — 18 files.** Removed references to proprietary methodology names and int-tagged skill commands (`/jtbd`, `/trace-belief`, `/craft-offer`, `/identify-constraints`, etc.) that had leaked into public-facing materials. Rewrote cross-references as generic actions (e.g., "constraint mapping", "repair planning", "belief tracing") so the public flavour is self-contained and no longer cites internal tooling.
+- **Files cleaned:** `CLAUDE.md`, `docs/GETTING_STARTED.md`, plus 16 skills — `7layer`, `7layer-hu`, `analyze-gtm`, `analyze-page`, `build-brand`, `council`, `delivery-phase`, `manage-client`, `pipeline`, `plan-gtm`, `sales-pulse`, `save-deliverable`, `scaffold-project/FILE_TEMPLATES`, `scheduled-workflows`, `update-aos`.
+
+### Removed
+- **`core/skills/repair-roadmap.md`** and its `.claude/commands/repair-roadmap.md` wrapper. The repair-roadmap methodology is Arcanian proprietary (on the public-content blocklist) and has been demoted to `scope: int-company` in the dev source — it remains available to company and advanced flavours but is no longer distributed in the public repo.
+
+### Known remaining
+- 19 files (methodology docs, agents, templates, SOPs, 1 infrastructure file) still carry pre-existing public-content violations. Tracked as task #75 in the dev source with a 2026-05-03 target.
 
 ---
 

@@ -71,7 +71,7 @@ Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`,
 ## Skills (50 slash commands)
 
 Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client, /extract-contacts, /extract-platforms
-Diagnostic: /7layer, /7layer-hu, /repair-roadmap, /council, /sales-pulse, /verify-pmf
+Diagnostic: /7layer, /7layer-hu, /council, /sales-pulse, /verify-pmf
 Strategy: /build-brand, /validate-idea, /analyze-gtm, /plan-gtm
 SEO & GEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly, /seo-cluster, /seo-schema, /geo-audit, /geo-visibility, /geo-optimize
 Content: /magyar-szoveg
@@ -90,7 +90,7 @@ Platform: /arcos, /connect, /frontend-design, /okr-bluf-dokumentum, /claude-code
 
 ## Delivery Phases (client engagement lifecycle)
 1. EXPLORE — Discovery, /7layer, First Signal
-2. PLAN — /repair-roadmap, brand intelligence
+2. PLAN — Constraint classification, repair sequencing, brand intelligence
 3. ARCHITECT — Strategy, SOP adaptation, dashboards
 4. IMPLEMENT — Execute tasks, run audits, agency coordination
 5. REVIEW — Knowledge extraction, pattern checking, quality

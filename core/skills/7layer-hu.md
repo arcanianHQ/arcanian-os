@@ -40,7 +40,7 @@ Egy vállalkozás marketingjét diagnosztizálja az Arcanian 7-Layer Marketing C
 ## Forrás Referenciák
 - **The Arcanian Methodology** — Alapkeretrendszer dokumentum (Hermetikus alap)
 - **7-Layer Marketing Control Framework** — Ügyfél guide
-- **SFM × 7-Layer Integration** — Success Factor Modeling overlay
+- **Identitás-réteg overlay** — Személy- és vállalati identitás-szintű térképezés L1/L2 mélységben
 - 22 év marketing mintázat-felismerés, rendszerbe foglalva
 
 ## Trigger
@@ -739,22 +739,22 @@ TÜNET: "Nem tudunk nyereségesen skálázni"
 /7layer (Mód 3)  →  Mélyfúrás — Nexus: Foundation/Insight/Optimize szint.
 
 DIAGNÓZIS UTÁN:
-/7layer → /jtbd          Térképezd fel az ügyfél valódi job-ját (ha L6 az akadály)
-/7layer → /build-brand   Építsd újra az identitást és pozíciót (ha L2 az akadály)
-/7layer → /craft-offer   Építsd újra az ajánlatot (ha L4 az akadály)
-/7layer → /analyze-gtm   Ellenőrizd a GTM összehangolást a Mintázat Térképpel
-/7layer → /plan-gtm      Építs végrehajtási tervet a diagnózisból
-/7layer → /trace-belief   Találd meg az L1 hitet, ami mindent blokkol (ha L1 az akadály)
-/7layer → /analyze-copy   Ellenőrizd, hogy az üzenetek tükrözik-e a javítást
+/7layer → Vevőkutatás        Térképezd fel az ügyfél valódi célját (ha L6 az akadály)
+/7layer → /build-brand       Építsd újra az identitást és pozíciót (ha L2 az akadály)
+/7layer → Ajánlat-finomítás  Építsd újra az ajánlatot (ha L4 az akadály)
+/7layer → /analyze-gtm       Ellenőrizd a GTM összehangolást a Mintázat Térképpel
+/7layer → /plan-gtm          Építs végrehajtási tervet a diagnózisból
+/7layer → Belief tracing     Találd meg az L1 hitet, ami mindent blokkol (ha L1 az akadály)
+/7layer → Copy analízis      Ellenőrizd, hogy az üzenetek tükrözik-e a javítást
 
-KOMBINÁLÁS JTBD-VEL:
-/jtbd (milyen job-ra alkalmazzák az ügyfelek) + /7layer (hol törött a marketing)
+KOMBINÁLÁS VEVŐKUTATÁSSAL:
+Vevőkutatás (milyen célra alkalmazzák az ügyfelek) + /7layer (hol törött a marketing)
 = Teljes diagnózis: mit kellene mondanunk + hol vallunk kudarcot, hogy elmondjuk
 ```
 
 ---
 
-## A Fractional CMO Alkalmazás
+## A The Fixer Alkalmazás
 
 ### Térkép (Map) — 1-2. hónap
 Futtasd a `/7layer` Mód 1-et először: ez a **Nexus: Diagnostic** — a 48 órás röntgen. Aztán Mód 2-t (Mintázat Térkép) a teljes képért. Ez MAGA a Térkép fázis — láthatóvá tenni a láthatatlant.
@@ -765,17 +765,19 @@ Használd a Mód 3-at (Constraint Drill) minden javítandó rétegre, mélységi
 ### Változás (Change) — Folyamatos
 A Mintázat Térkép lesz az operációs rendszer. Hetente: "Melyik rétegen dolgozunk? Mi változott? Mi a következő akadály?" A marketing kontrollálhatóvá válik, nem kaotikus.
 
-### Nexus Terméklétra
+### Nexus Terméklétra *(SUPERSEDED 2026-04-17)*
 
-| Termék | Rétegek | Ár | Mikor |
+> **⚠ Az alábbi „Nexus" tier-struktúra 2026-04-17-ével retired.** Aktuális commercial stack: **Pattern Check / First Signal / AOS Setup / The Fixer / Custom** — lásd `internal/strategy/BUSINESS_MODEL.md` v1.1 + `core/methodology/ENGAGEMENT_MAP.md`. A tábla történelmi referenciaként marad (a 7-Layer mapping logika érvényes, csak a termék-nevek cserélődtek).
+
+| Termék *(régi név)* | Rétegek | Ár *(régi)* | Mikor |
 |--------|---------|-----|-------|
-| **Nexus: Morsel** | Felszíni scan | Ingyenes | Lead gen — első benyomás |
-| **Nexus: Diagnostic** | Mind a 7 feltérképezve | $497 | Mintázat Térkép + hol kell indulni |
-| **Nexus: Foundation** | L1 + L2 (Core + Identity) | $997 | "Nem tudjuk, kik vagyunk és mit érünk" |
-| **Nexus: Insight** | L3 + L4 (Product + Offer) | $2,500 | "A termékünk jó, de nem fogy" |
-| **Nexus: Optimize** | L5 + L6 (Channels + Customer) | $5,000 | "Minden csatornán ott vagyunk, de nem működik" |
-| **Nexus: Strategy** | L1-L6 teljes | $10,000 | "Mindenen dolgozunk egyszerre" |
-| **Nexus: Core** | L7 | $5,000/negyedév | "Mindent jól csinálunk, mégis akadunk" |
+| **Nexus: Morsel** → Pattern Check | Felszíni scan | Ingyenes | Lead gen — első benyomás |
+| **Nexus: Diagnostic** → First Signal | Mind a 7 feltérképezve | €497 | Mintázat Térkép + hol kell indulni |
+| **Nexus: Foundation** → *Custom (L1+L2 focus)* | L1 + L2 (Core + Identity) | egyedi | "Nem tudjuk, kik vagyunk és mit érünk" |
+| **Nexus: Insight** → *Custom (L3+L4 focus)* | L3 + L4 (Product + Offer) | egyedi | "A termékünk jó, de nem fogy" |
+| **Nexus: Optimize** → *Custom (L5+L6 focus)* | L5 + L6 (Channels + Customer) | egyedi | "Minden csatornán ott vagyunk, de nem működik" |
+| **Nexus: Strategy** → The Fixer | L1-L6 teljes | €5-6K/hó | "Mindenen dolgozunk egyszerre" |
+| **Nexus: Core** → *Custom (L7 focus)* | L7 | egyedi | "Mindent jól csinálunk, mégis akadunk" |
 
 ---
 

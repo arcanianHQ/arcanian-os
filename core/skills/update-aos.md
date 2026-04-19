@@ -15,7 +15,7 @@ allowed-tools:
 
 ## Purpose
 
-Check for and apply updates to a local Arcanian OS installation. This is the **pull** counterpart to `/share-to-os` (which pushes from the dev source). Runs on the receiver's clone — not on `_arcanian-ops` itself.
+Check for and apply updates to a local Arcanian OS installation. This is the **pull** counterpart to the dev-source export workflow. Runs on the receiver's clone — not on the dev source itself.
 
 ## Trigger
 

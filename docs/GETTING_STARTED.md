@@ -197,11 +197,10 @@ Expected first-run output:
 ### Strategy
 | Skill | What it does |
 |---|---|
-| `` | Hormozi Value Equation offer construction |
-| `` | Jobs-to-be-Done analysis |
 | `/plan-gtm` | Go-to-market action plan |
 | `/build-brand` | Brand intelligence profile builder |
-| `/repair-roadmap` | Constraint-based repair plan |
+| `/validate-idea` | Assumption validation before building |
+| `/analyze-gtm` | GTM gap identification |
 
 ### Content
 | Skill | What it does |

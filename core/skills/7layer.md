@@ -42,7 +42,7 @@ Diagnoses a business's marketing using the Arcanian Marketing Control Framework 
 ## Source References
 - **The Arcanian Methodology** — Core framework document (Hermetic foundation)
 - **7-Layer Marketing Control Framework** — Client guide
-- **SFM × 7-Layer Integration** — Success Factor Modeling overlay
+- **Identity overlay** — Person-level identity and values mapping at L1/L2 (how owner identity shapes the system)
 - 22 years of marketing pattern recognition, systematized
 
 ## Architecture
@@ -145,7 +145,7 @@ Use this skill when:
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for Prism/Fixer. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
+| `--peer-review` | off | Run 3 independent diagnostic perspectives (anonymized) before synthesis. Adds ~3 min, ~3x tokens. Recommended for First Signal / The Fixer engagements. See `core/methodology/PEER_REVIEW_PROTOCOL.md`. |
 
 When `--peer-review` is active: after the standard diagnosis completes, spawn 3 Agent subagents with different lenses (Deep Layer L0-L2, Channel/Market L4-L7, Systems/Constraint cross-layer). Anonymize outputs, synthesize without knowing which lens produced what, then reveal. Convergent findings become HIGH confidence; divergent findings feed into ACH as competing hypotheses. Full protocol: `core/methodology/PEER_REVIEW_PROTOCOL.md`.
 
@@ -499,9 +499,9 @@ Revenue is mid-market (1–15B Ft) but the operating model is still kisvállalko
 **L0 Shadow:** "That's just how business works." The most dangerous L0 patterns are transparent — the owner doesn't experience them as beliefs at all. They experience them as reality.
 
 **Tools for L0 diagnosis:**
-- `/trace-belief` — traces transparent beliefs (beliefs experienced as reality)
-- `/belief-profile` — maps the 5 identity patterns
-- SFM Person Map — Neurological Levels assessment
+- Belief tracing — surfaces transparent beliefs (beliefs experienced as reality, not as beliefs)
+- Identity-pattern mapping — the 5 archetypes (Helper, Martyr, Visionary, Fixer, Architect)
+- Person-level identity map — who the owner is across identity, values, capability, behaviour, environment
 - COACH/CRASH state check — readiness to receive diagnosis
 
 ### Mapping Connections
@@ -856,26 +856,26 @@ SYMPTOM: "Can't scale profitably"
 /7layer (Mode 3)  →  Drill into specific constraint layer.
 
 AFTER DIAGNOSIS → REPAIR PLANNING:
-/7layer → /identify-constraints   Classify what can't change (Type 1/2/3), calculate ceiling
-/7layer → /repair-roadmap         Build layer-by-layer repair plan with exit criteria
+/7layer → Constraint mapping    Classify what can't change (Type 1/2/3), calculate ceiling
+/7layer → Repair roadmap        Build layer-by-layer repair plan with exit criteria
 
 REPAIR-SPECIFIC:
-/7layer → /trace-belief   Find the L0 transparent belief creating the constraint
-/7layer → /belief-profile Map the L0 identity pattern (Helper/Martyr, etc.)
-/7layer → /jtbd           Map the customer's actual job (if L6 is constraint)
-/7layer → /build-brand    Rebuild identity and positioning (if L2 is constraint)
-/7layer → /craft-offer    Rebuild the offer (if L4 is constraint)
-/7layer → /analyze-gtm    Check GTM alignment against Pattern Map
-/7layer → /plan-gtm       Build execution plan from diagnosis
-/7layer → /analyze-copy   Check if messaging reflects the fix
+/7layer → Belief tracing        Find the L0 transparent belief creating the constraint
+/7layer → Identity-pattern map  Map the L0 identity pattern (Helper/Martyr, etc.)
+/7layer → Vevőkutatás           Map the customer's actual purpose (if L6 is constraint)
+/7layer → /build-brand          Rebuild identity and positioning (if L2 is constraint)
+/7layer → Offer refinement      Rebuild the offer (if L4 is constraint)
+/7layer → /analyze-gtm          Check GTM alignment against Pattern Map
+/7layer → /plan-gtm             Build execution plan from diagnosis
+/7layer → Copy analysis         Check if messaging reflects the fix
 
 L0 DIAGNOSTIC TOOLS:
 /7layer finds WHERE the problem is (L0–L7)
-/trace-belief finds the L0 belief creating it
-/belief-profile maps the identity pattern at L0
+Belief tracing finds the L0 belief creating it
+Identity-pattern mapping surfaces the identity pattern at L0
 COACH/CRASH state check = L0 readiness assessment before presenting findings
 
-COMBINING WITH JTBD:
+COMBINING WITH CUSTOMER RESEARCH:
 Job 1 = diagnosis (WHERE) — /7layer
 Job 2 = fix it (requires L0 shift if beliefs block implementation)
 Job 3 = become capable (L0→L1 transformation — identity shift enables capability)
@@ -889,7 +889,7 @@ Job 3 = become capable (L0→L1 transformation — identity shift enables capabi
 Run `/7layer` Mode 1 (Röntgen) first. Then Mode 2 (Pattern Map) for the full L0–L7 picture. This IS the Térkép phase — making visible what's invisible. L0 often only surfaces during deeper engagement.
 
 ### Rendszer (System) — Months 2-4
-Run `/identify-constraints` to classify what can and can't change. Then `/repair-roadmap` to build the layer-by-layer plan with exit criteria. Use Mode 3 (Constraint Drill) on each layer that needs fixing, in order of depth. Each layer fix is measured and validated before moving to the next. If L0 is the root, system work includes coaching through belief shifts. If layers are locked, apply constrained repair strategies (see `REPAIR_FRAMEWORK_CONSTRAINED.md`).
+Run the constraint-mapping step to classify what can and can't change. Then build a layer-by-layer repair plan with exit criteria per layer. Use Mode 3 (Constraint Drill) on each layer that needs fixing, in order of depth. Each layer fix is measured and validated before moving to the next. If L0 is the root, system work includes coaching through belief shifts. If layers are locked, apply constrained repair strategies (see `REPAIR_FRAMEWORK_CONSTRAINED.md`).
 
 ### Változás (Change) — Ongoing
 The Pattern Map + Repair Roadmap become the operating system. Weekly: "Which layer are we working on? What proof do we have? What's the next constraint?" Every 90 days: review the Constraint Map — walls move, sacred cows die, L0 blocks soften. Marketing becomes controllable, not chaotic.

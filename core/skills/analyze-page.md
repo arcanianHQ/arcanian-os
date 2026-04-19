@@ -283,7 +283,7 @@ If no `--client` specified, save to current project docs/ or print to conversati
 Other skills can call a single agent without running the full council:
 - `/seo-diagnose` → call `page-schema-checker` on affected URLs
 - `/seo-decay` → call `page-content-checker` on decaying pages
-- `/analyze-copy` → call `page-readability-checker` for metrics
+- Copy analysis → call `page-readability-checker` for metrics
 
 ## Output Format
 
@@ -407,7 +407,7 @@ Issues: {list any problems — multiple H1s, skipped levels, empty headings}
 - `/seo-decay` → check content quality on decaying pages
 - `/seo-gaps` → analyze competitor pages for gap queries
 - `/measurement-audit` Phase 0 → validate schema markup
-- `/analyze-copy` → add readability metrics to belief marker analysis
+- Copy analysis → add readability metrics to belief marker analysis
 
 ## What NOT to Do
 

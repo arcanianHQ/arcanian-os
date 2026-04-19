@@ -23,7 +23,7 @@ Use when:
 - Running a full diagnostic that benefits from multiple perspectives
 - User says `/council {type}` (e.g., `/council diagnostic`)
 - User says "run the diagnostic council", "get multiple perspectives", "council review"
-- Before a Prism or Fixer deliverable (recommended)
+- Before a First Signal or The Fixer deliverable (recommended)
 - When a previous single-perspective analysis needs verification
 
 ## Input
@@ -451,7 +451,7 @@ What did we get wrong? What's missing?
 
 | Council | Agents | Best For |
 |---------|--------|----------|
-| `diagnostic` | belief-analyst, channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer, /identify-constraints, Prism, Fixer |
+| `diagnostic` | belief-analyst, channel-analyst, copy-analyst, client-explorer, audit-checker, knowledge-extractor | /7layer runs, constraint mapping, deep diagnostic work |
 | `measurement` | audit-checker, channel-analyst, data-rules-checker, knowledge-extractor | Measurement audits, GTM checks |
 | `delivery` | report-reviewer, copy-analyst, pii-scanner, data-rules-checker | Pre-delivery quality gate |
 | `discovery` | client-explorer, project-architect | New leads, onboarding |
@@ -483,8 +483,8 @@ WITH PIPELINE (future #38):
 /pipeline diagnostic --client diego
   → /7layer Mode 2
   → /council diagnostic (reads 7layer stage-result as input context)
-  → /identify-constraints (reads council stage-result)
-  → /repair-roadmap (reads constraints stage-result)
+  → Constraint mapping step (reads council stage-result)
+  → Repair planning step (reads constraint output)
 
 WITH SCHEDULE (future #39):
 /schedule create --name "weekly-measurement-council" \

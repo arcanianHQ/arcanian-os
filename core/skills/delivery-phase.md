@@ -32,8 +32,8 @@ Use when: user says `/delivery-phase`, "what phase are we in", "engagement statu
 
 ### Phase 2: PLAN
 **Goal:** Identify constraints and build the repair roadmap.
-- `/identify-constraints` run
-- `/repair-roadmap` generated
+- Constraints identified and classified (which are real walls, which are sacred cows, which are beliefs in disguise)
+- Layer-by-layer repair roadmap generated with exit criteria per layer
 - Brand intelligence profile started (VOICE, ICP, POSITIONING)
 - **Artifacts:** `brand/CONSTRAINT_MAP.md`, `brand/REPAIR_ROADMAP.md`, 3+ brand/ files have content
 - **Exit criteria:** Roadmap approved by client, TASKS.md populated with execution tasks

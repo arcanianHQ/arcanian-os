@@ -33,7 +33,7 @@ When the user asks for ANY of these:
 
 AND when Claude PRODUCES any of these (even without explicit save request):
 - Data analysis with tables/findings (Databox, GA4, Ads, SEO, any MCP query)
-- Diagnostic output (/7layer, /identify-constraints, /repair-roadmap, /health-check)
+- Diagnostic output (/7layer, /health-check, constraint maps, repair plans)
 - Audit findings or measurement reports
 - Channel/funnel/attribution analysis
 - Any output > 50 lines with structured findings
@@ -192,7 +192,7 @@ At the bottom of every deliverable:
 
 **input_context examples:**
 - `signal: P0 Pete Caputa LinkedIn post on measurement`
-- `brief: Euronics Prism pitch, enrichment stage Diagnosed`
+- `brief: First Signal pitch for {client}, enrichment stage Diagnosed`
 - `meeting: 2026-04-08 Wellis weekly sync`
 - `task: #53 Fix GA4 consent mode`
 - `freeform: user request "write email about..."`

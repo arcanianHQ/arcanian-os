@@ -473,7 +473,7 @@ BELIEFS THAT MAY BE CAUSING GAPS:
 • [Limiting belief affecting GTM decisions]
 • [Fear or assumption blocking action]
 
-(Use /trace-belief if deeper belief work needed)
+(Trace the belief layer by layer if deeper work is needed — what would someone have to believe to get this result?)
 
 ───────────────────────────────────────────────────────────────
                     RECOMMENDED NEXT STEPS
@@ -501,11 +501,11 @@ SHORT-TERM (This Month):
        ↓
 /plan-gtm → Create action plan to close gaps
        ↓
-/craft-offer → Build Grand Slam Offer (if offer gap)
+Offer refinement → Rebuild the offer hypothesis (if offer gap)
 /build-brand → Fix positioning (if positioning gap)
 /validate-idea → Validate assumptions (if market/ECP gap)
        ↓
-/belief-profile → Address beliefs blocking GTM
+Identity mapping → Address beliefs blocking GTM
 ```
 
 ---

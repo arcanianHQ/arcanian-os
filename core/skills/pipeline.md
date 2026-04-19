@@ -17,7 +17,7 @@ argument-hint: "type --client — Pipeline type and client (e.g., diagnostic --c
 
 Auto-chains diagnostic skills in sequence, passing structured data between stages. Human intervenes only at gates (ACH falsification, unverified assumptions).
 
-**Without pipeline:** You run /7layer, read the output, manually invoke /identify-constraints, copy findings, manually invoke /repair-roadmap.
+**Without pipeline:** You run /7layer, read the output, manually invoke constraint mapping, copy findings, manually invoke repair planning.
 
 **With pipeline:** One command runs all three, passing stage-result blocks between them, stopping at gates for your decision.
 
@@ -49,7 +49,7 @@ Stage 2: /council diagnostic (optional, if --council flag)
   │  [continue] [verify first] [stop]     │
   └───────────────────────────────────────┘
     ▼
-Stage 3: /identify-constraints
+Stage 3: Constraint mapping
     │ receives: broken_layers, findings from Stage 1/2
     │ produces: constraint_map, ach, ceiling
     │ output: stage-result block
@@ -62,7 +62,7 @@ Stage 3: /identify-constraints
   │  [continue anyway] [verify] [stop]    │
   └───────────────────────────────────────┘
     ▼
-Stage 4: /repair-roadmap
+Stage 4: Repair planning
     │ receives: constraint_map, ach, ceiling from Stage 3
     │ produces: repair_cards, timeline, milestones
     │ output: stage-result block + BLUF+OODA summary
@@ -131,8 +131,8 @@ For each stage in the pipeline:
    |---|---|
    | /7layer | `broken_layers`, `primary_constraint`, `findings` |
    | /council | `perspectives`, `grabo_signals`, `ach_table` |
-   | /identify-constraints | `constraint_map`, `ceiling`, `ach` |
-   | /repair-roadmap | `repair_cards`, `timeline`, `milestones` |
+   | Constraint mapping | `constraint_map`, `ceiling`, `ach` |
+   | Repair planning | `repair_cards`, `timeline`, `milestones` |
 
    If required fields are missing:
    1. Log: "Stage {N} output incomplete. Missing: {fields}"
@@ -188,7 +188,7 @@ After all stages complete (or at a gate stop):
 ---
 
 ## Stage 3: Constraint Map
-[Full output from /identify-constraints]
+[Full output from constraint mapping stage]
 
 --- GATE: Unverified Assumptions ---
 [User decision recorded here]
@@ -196,7 +196,7 @@ After all stages complete (or at a gate stop):
 ---
 
 ## Stage 4: Repair Roadmap
-[Full output from /repair-roadmap]
+[Full output from repair planning stage]
 
 ---
 

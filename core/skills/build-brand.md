@@ -9,13 +9,10 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-Applies Alex Hormozi's branding framework to deliberately build, grow, or pivot a brand for maximum profit. Creates strategic brand associations that lower customer acquisition cost, increase lifetime value, and build lasting competitive advantage.
+Deliberately builds, grows, or pivots a brand for maximum profit by engineering strategic brand associations that lower customer acquisition cost, increase lifetime value, and build lasting competitive advantage.
 
 **The Core Principle:**
-> "Branding means pairing your business with things your ideal customers like."
-
-## Source Reference
-From **"$100M Playbook: Branding" by Alex Hormozi** (Acquisition.com)
+> Branding means pairing your business with things your ideal customers already like, trust, or aspire to.
 
 ## Trigger
 Use this skill when:
@@ -341,8 +338,9 @@ BELIEFS AFFECTING BRAND DECISIONS:
 • [Belief that may cause weak positioning]
 • [Belief that may cause wrong associations]
 
-(Use /trace-belief if customer resists charging premium,
-being visible, or making strong associations)
+(Trace the belief if the customer resists charging premium,
+being visible, or making strong associations — what would someone
+have to believe to stay invisible?)
 
 ═══════════════════════════════════════════════════════════════
 ```
@@ -416,11 +414,11 @@ NEW ASSOCIATIONS TO CREATE:
 ```
 /build-brand → Strategic brand positioning
        ↓
-/analyze-copy → Does copy reflect brand associations?
+Copy analysis → Does copy reflect brand associations?
        ↓
-/map-results → Do results reflect brand strength?
+Results mapping → Do results reflect brand strength?
        ↓
-/belief-profile → Are beliefs blocking strong positioning?
+Identity check → Are beliefs blocking strong positioning?
        ↓
 /validate-idea → Will new brand direction succeed in market?
 ```
@@ -511,5 +509,5 @@ From the original playbook:
 - Good branding = lower CAC + higher LTV + lower risk
 - Brand goes BOTH ways - product affects brand, brand affects product
 - Patience is essential - 5+ year time horizon
-- Use `/trace-belief` when customer resists strong positioning
+- Trace the belief when the customer resists strong positioning — it's rarely about the market, usually about identity
 - Use `/validate-idea` before major brand pivots

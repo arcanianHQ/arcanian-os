@@ -651,9 +651,9 @@ KILL CRITERIA:
        ↓
 Execute with support from:
 ├── /validate-idea → Test before building
-├── /craft-offer → Create Grand Slam Offer
+├── Offer refinement → Rebuild the value proposition
 ├── /build-brand → Fix positioning
-└── /belief-profile → Address blocks
+└── Identity mapping → Surface and address psychological blocks
 
        ↓
 /analyze-gtm → Re-analyze after execution

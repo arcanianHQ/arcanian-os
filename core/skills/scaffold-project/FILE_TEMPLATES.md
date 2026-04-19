@@ -1,4 +1,6 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
 
 # Scaffold — File Templates
 
@@ -68,7 +70,7 @@ Strategic decisions and reasoning. Append-only. Newest at bottom.
 
 ### Next Steps
 1. Fill in client/project details
-2. Complete brand/ intelligence profile (/7layer →  → /repair-roadmap)
+2. Complete brand/ intelligence profile (/7layer → constraint mapping → repair planning)
 3. Add team contacts to EXTERNAL-CONTACTS-TABLE.md
 4. Configure MCP servers
 5. Create first real tasks
@@ -120,12 +122,13 @@ updated: {now_iso}
   - SOP: arcanian/06-client-intelligence-profile
   - Checklist:
     - [ ] Run /7layer → brand/7LAYER_DIAGNOSTIC.md
-    - [ ] Run  → brand/CONSTRAINT_MAP.md
-    - [ ] Run /repair-roadmap → brand/REPAIR_ROADMAP.md
-    - [ ] Run  → brand/.md
+    - [ ] Constraint mapping → brand/CONSTRAINT_MAP.md
+    - [ ] Repair planning → brand/REPAIR_ROADMAP.md
+    - [ ] Identity-pattern mapping → brand/BELIEF_PROFILE.md
     - [ ] Run /build-brand → brand/VOICE.md
-    - [ ] Run /[customer need framework]-map → brand/TARGET_PROFILE.md
-    - [ ] Run  → brand/POSITIONING.md
+    - [ ] Customer-job mapping → brand/ICP.md
+    - [ ] Offer refinement → brand/POSITIONING.md
+    - [ ] Fill brand/COMPETITIVE_LANDSCAPE.md with 3-5 competitors + monitored page URLs
 
 ---
 
@@ -375,7 +378,7 @@ created: "{today}"
 > Files, exports, screenshots, and data provided BY THE CLIENT.
 > NOT our analysis — their raw inputs.
 >
-> Examples: GA4 exports, product lists, brand guidelines PDF, photos
+> Examples: GA4 exports, product lists, brand guidelines PDF, photos, 
 > competitor screenshots, email lists, any file the client sends us.
 >
 > Track what was received, when, from whom, and whether it was processed.
