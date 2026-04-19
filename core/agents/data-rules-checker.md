@@ -5,8 +5,8 @@ focus: "Repository compliance with DATA_RULES.md — secrets, raw data, .gitigno
 context: []
 data: []
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Data Rules Checker
 

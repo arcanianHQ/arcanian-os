@@ -6,8 +6,8 @@ context: [brand, offerings]
 data: [analytics]
 active: true
 confidence_scoring: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Knowledge Extractor
 

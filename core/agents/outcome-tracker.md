@@ -5,8 +5,8 @@ focus: "Closed-loop feedback: verify whether recommendations actually worked by 
 context: [offerings, market]
 data: [analytics, google_ads, meta_ads, shopify]
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Outcome Tracker
 
@@ -76,7 +76,7 @@ Output per client:
 |---|---|---|---|---|---|---|
 | REC-034 | Google Ads ROAS | 6.2 | 8.1 | +30% | confirmed | HIGH |
 | REC-041 | Meta CPA | €18.40 | €17.90 | -3% | no effect | MEDIUM |
-| REC-045 | Sessions (solarnook.com) | 11,200 | 9,800 | -12% | too early | LOW (sync lag) |
+| REC-045 | Sessions (wellis.hu) | 11,200 | 9,800 | -12% | too early | LOW (sync lag) |
 
 **Hit rate this period:** 1/3 (33%)
 **Cumulative hit rate:** 12/28 (43%)
@@ -97,10 +97,10 @@ After each weekly run, push outcome data to Databox for dashboard visibility:
 
 | Field | Databox Details |
 |---|---|
-| **Account** | Your agency account (get ID from `list_accounts`) |
-| **Data Source** | Create via `create_data_source(name="AOS Recommendation Outcomes")` |
-| **Dataset 1** | Recommendation Outcomes — create via `create_dataset` with columns: rec_id, client, metric_targeted, status, metric_before, metric_after, change_pct, confidence, created_date, outcome_date |
-| **Dataset 2** | REC Hit Rate Summary — create via `create_dataset` with columns: client, week, total_recs_checked, confirmed, no_effect, too_early, invalidated, hit_rate_pct, cumulative_hit_rate_pct |
+| **Account** | Arcanian Consulting Ltd. (`579880`) |
+| **Data Source** | AOS Recommendation Outcomes (`4942040`) |
+| **Dataset 1** | Recommendation Outcomes (`a757ff92-1875-445a-a572-f991cf4df0c2`) — per-REC row |
+| **Dataset 2** | REC Hit Rate Summary (`a58ca753-7697-4ba1-8b74-67c01a50dd54`) — per-client weekly rollup |
 
 **Ingest flow:**
 1. After updating RECOMMENDATION_LOG.md, format each changed REC as a row

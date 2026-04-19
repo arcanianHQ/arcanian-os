@@ -5,8 +5,8 @@ focus: "Google Ads platform specialist: Smart Bidding, search terms, PMAX, Shopp
 context: [audience, offerings, market]
 data: [google_ads, analytics]
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Google Ads Channel Analyst
 

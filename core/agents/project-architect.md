@@ -5,8 +5,8 @@ focus: "Project structure validation against scaffold standard"
 context: [brand]
 data: []
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Project Architect
 

@@ -6,8 +6,8 @@ context: [brand, audience, competition, market]
 data: [analytics, organic_search]
 active: true
 confidence_scoring: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Client Explorer
 
@@ -17,14 +17,14 @@ Deep exploration of a new client's digital presence to build a comprehensive bas
 ## When to Use
 - During Discovery phase (before formal audit begins)
 - When a new lead enters the pipeline
-- When preparing a Morsel or [Diagnostic Service] proposal
+- When preparing a Pattern Check or First Signal proposal
 - First Signal phase: quick reconnaissance for pitch preparation
 
 ## Input
 - Client name and primary website URL
 - Known platform accounts (if any)
 - Industry/vertical context
-- Engagement scope (Morsel / [Diagnostic Service] / Fractional CMO)
+- Engagement scope (Pattern Check / First Signal / AOS Setup / The Fixer / Custom)
 
 ## Process
 

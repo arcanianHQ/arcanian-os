@@ -5,8 +5,8 @@ focus: "PII, API tokens, and secrets detection in files and commits"
 context: []
 data: []
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: PII Scanner
 
@@ -22,7 +22,6 @@ Scan files for personally identifiable information, API tokens, and secrets befo
 ## Input
 - File path(s) or directory to scan
 - DATA_RULES.md (defines what counts as PII and handling rules)
-- SECURITY_BLOCKLIST.md (prohibited names/terms in file names and contents)
 - Optional: allowlist file for known-safe patterns (e.g., team emails in CLAUDE.md)
 
 ## Process
@@ -54,23 +53,13 @@ Scan files for personally identifiable information, API tokens, and secrets befo
 - Unredacted screenshots
 - Database dumps or CSV exports with row-level user data
 
-### 6. Forbidden Term and Scope Checks (Mandatory)
-- Scan both **file names** and **file contents** for prohibited references listed in `SECURITY_BLOCKLIST.md`
-- Block only client-specific prohibited terms (for public export), including:
-  - Any real client names, project codenames, or internal methodology names listed in `SECURITY_BLOCKLIST.md`
-- Do **not** block core product vocabulary (e.g., GTM/GA4/measurement terminology) unless specifically overridden by policy
-- Treat any match as **HIGH** severity (or **CRITICAL** if combined with PII/secrets)
-- Flag direct client names in committed content unless they are approved placeholders
-
 ## Output
 - List of findings with: file, line number, pattern type, matched text (partially redacted)
 - Severity: CRITICAL (secrets/tokens), HIGH (clear PII), MEDIUM (possible PII), LOW (suspicious pattern)
 - BLOCK or PASS verdict
 - If BLOCK: exact list of items to redact/remove before proceeding
-- Include a dedicated "Blocklist Violations" section with counts by term and by file
 
 ## References
 - `DATA_RULES.md`
-- `SECURITY_BLOCKLIST.md`
 - `.gitignore` (verify PII-risk files are excluded)
 - `allowlist.txt` (if maintained per project)

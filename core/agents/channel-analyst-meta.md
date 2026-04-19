@@ -5,8 +5,8 @@ focus: "Meta Ads platform specialist: Advantage+, creative fatigue, frequency de
 context: [audience, offerings, market]
 data: [meta_ads, analytics]
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Meta Ads Channel Analyst
 

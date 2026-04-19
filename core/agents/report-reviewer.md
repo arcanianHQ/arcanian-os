@@ -6,8 +6,8 @@ context: [brand]
 data: []
 active: true
 confidence_scoring: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Report Reviewer
 
@@ -15,7 +15,7 @@ confidence_scoring: true
 Multi-point quality review of client-facing deliverables before they leave the team.
 
 ## When to Use
-- Before sending any audit report, [Diagnostic Service], or recommendation document to a client
+- Before sending any audit report, First Signal, or recommendation document to a client
 - Before publishing any client-referenced content
 - When a team member flags a deliverable as "ready for review"
 

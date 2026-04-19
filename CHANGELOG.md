@@ -1,8 +1,24 @@
-> v1.26.0 — 2026-04-19
+> v1.27.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.27.0] — 2026-04-19
+
+### Added
+- **Agent-structure audit** — `core/scripts/test/check-agent-structure.sh`, mirroring the skill audit. Supports three frontmatter schemas: AOS system agents (`id:` + `name:`), AOS managed agents (`type:`), and Claude native agents (`name:` + `description:`). Includes `--staged` and `--files` modes.
+- **Pre-commit agent-structure hook** — `core/tools/hooks/git/pre-commit-agent-structure.sh` refuses commits whose staged `core/agents/*.md` have hard violations (missing frontmatter, identification, scope, or title). Added to the pre-commit chain. Escape hatch: `AOS_SKIP_AGENT_CHECK=1`.
+- **Agent template** — `core/templates/AGENT_TEMPLATE.md` is the canonical skeleton for new agents. Documents all three supported schemas with inline comments.
+
+### Changed
+- **Health-check agent** — `health-core-checker` now runs `check-agent-structure.sh` as step 8 and reports pass/warn/fail counts in its output table. Hard failures dock 20 points from the Core Methodology score.
+- **Agent frontmatter drift cleanup** — 11 agents that had lost their `scope:` field in this repo were re-synced from the dev source: `channel-analyst`, `channel-analyst-google-ads`, `channel-analyst-meta`, `channel-analyst-shopify`, `client-explorer`, `data-rules-checker`, `knowledge-extractor`, `outcome-tracker`, `pii-scanner`, `project-architect`, `report-reviewer`.
+
+### Removed
+- **`core/agents/copy-analyst.md`** — file was `scope: int-company` in the dev source but had been shipping here. Scope drift fix; file remains available in company + advanced flavours.
 
 ---
 

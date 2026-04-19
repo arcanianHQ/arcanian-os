@@ -5,8 +5,8 @@ focus: "Shopify platform specialist: GA4 discrepancy, checkout funnel, discount 
 context: [audience, offerings]
 data: [analytics, shopify]
 active: true
+scope: shared
 ---
-> v1.0 — 2026-04-03
 
 # Agent: Shopify Channel Analyst
 
