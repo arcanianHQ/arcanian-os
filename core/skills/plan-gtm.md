@@ -9,7 +9,6 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Creates actionable Go-To-Market plans based on identified gaps. Takes the analysis from `/analyze-gtm` and transforms it into specific, executable steps with OKRs, experiments, and timelines.
 
 **The Core Principle:**

@@ -16,8 +16,6 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Builds a layer-by-layer repair plan from a completed 7-Layer diagnosis and Constraint Map. Follows the Direction Rule (repair deepest broken layer first), applies exit criteria per layer, and accounts for locked layers using constrained repair strategies. Outputs an actionable roadmap with WHO does WHAT by WHEN, measured by WHAT PROOF.
 
 **The Core Principle:**

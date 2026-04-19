@@ -27,8 +27,6 @@ Scoring: `core/methodology/SEO_DIAGNOSTIC_SCORING.md` (ACH, not weighted average
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 When organic traffic drops, diagnose WHY in 30 seconds. Cross-reference GSC (impressions, clicks, position changes) with GA4 (sessions by channel, landing pages) to identify the root cause before panic sets in.
 
 > **Multi-domain prerequisite:** If client has 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. Select the correct GSC property and GA4 property for the domain in question. Never mix domain data. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

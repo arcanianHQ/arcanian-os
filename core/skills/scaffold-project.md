@@ -7,8 +7,6 @@ argument-hint: client slug
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Creates a fully operational Claude Code project from scratch — with every file, convention, and pattern learned from running Arcanian (468 files) and Wellis (944 files) projects.
 
 ## Trigger

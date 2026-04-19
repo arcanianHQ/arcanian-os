@@ -15,8 +15,6 @@ argument-hint: "client — Kliens slug (pl. wellis, diego)"
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 > **Multi-domain előfeltétel:** Ha az ügyfélnek 2+ domainje van, ELŐSZÖR töltsd be a `DOMAIN_CHANNEL_MAP.md`-t. Az L5 (Csatornák) és L6 (Ügyfél) diagnózis domainenként KELL — csatorna-teljesítmény és ügyfélprofil eltér domainek között. Lásd: `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.
 
 > **Confidence scoring:** Minden réteg-értékelés és megállapítás egységes konfidencia-pontszámot kap: `core/methodology/CONFIDENCE_ENGINE.md`. Score = min(Source Confidence, Evidence Class, Assumption Status).

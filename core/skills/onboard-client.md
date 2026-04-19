@@ -7,8 +7,6 @@ argument-hint: client name
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Full new client onboarding — wraps `/scaffold-project` and adds repo creation, hook setup, registry entries, and post-onboard validation.
 
 ## Trigger

@@ -11,8 +11,6 @@ argument-hint: client slug or URL
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-14`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Audit how well a client's website content is optimized for AI-driven search engines (ChatGPT, Perplexity, Gemini, Google AI Overviews). Evaluates content against the 9 proven GEO tactics from the Aggarwal et al. (2023) research: citations, statistics, quotations, fluency, technical terms, authoritative tone, easy-to-understand language, unique words, and keyword enhancement.
 
 Traditional SEO rankings don't guarantee AI visibility. This skill assesses the gap between traditional SEO readiness and GEO readiness, producing a prioritized action plan.

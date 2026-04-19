@@ -11,8 +11,6 @@ argument-hint: keyword list or client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-14`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 "What's working? Give me more like it." — Analyzes blog/content performance, clusters posts by topic and performance tier, identifies the winning patterns (format, topic, length, freshness), and recommends what to create next based on what's already proven.
 
 This is the content strategist skill — it turns raw performance data into a repeatable content playbook.

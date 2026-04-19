@@ -15,8 +15,6 @@ argument-hint: "client — Client slug (e.g., wellis, diego)"
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Diagnoses a business's marketing using the Arcanian Marketing Control Framework (L0–L7). Finds the PRIMARY CONSTRAINT — the deepest layer blocking growth — and shows how problems cascade across layers. Delivers a Pattern Map that makes the invisible visible.
 
 > **Multi-domain prerequisite:** If client has 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. L5 (Channels) and L6 (Customer) diagnosis MUST be per-domain — channel performance and customer identity differ across domains. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

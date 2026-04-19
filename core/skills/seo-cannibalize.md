@@ -9,8 +9,6 @@ argument-hint: client slug or URL
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Find pages competing for the same keyword. When two pages fight for the same query, neither wins. Show which to keep, merge, or redirect — with data, not guesses.
 
 > **Multi-domain prerequisite:** If client has 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. Select the correct GSC property. Cannibalization is per-domain — never mix. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

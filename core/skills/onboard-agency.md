@@ -7,8 +7,6 @@ argument-hint: agency name
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-03`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Onboard a new agency (or solo practitioner) onto Arcanian OS. Sets up their hub, first client, MCP connections, and runs a validation check — goal: "run your first /health-check in 30 minutes."
 
 ## Trigger

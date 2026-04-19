@@ -7,8 +7,6 @@ argument-hint: load project context
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Run at session start before doing any work. Loads project context, surfaces urgent tasks, checks tool availability, and shows what happened last session.
 
 ## Trigger

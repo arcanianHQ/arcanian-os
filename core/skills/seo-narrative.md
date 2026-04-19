@@ -9,8 +9,6 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Turn raw GSC impressions and clicks into the executive summary paragraph that goes at the top of the report. The one nobody wants to write. Makes numbers meaningful by connecting them to business outcomes.
 
 > **Multi-domain prerequisite:** If client has 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. Write separate narratives per domain or clearly attribute numbers. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

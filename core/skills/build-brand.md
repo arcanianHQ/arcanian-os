@@ -9,7 +9,6 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Applies Alex Hormozi's branding framework to deliberately build, grow, or pivot a brand for maximum profit. Creates strategic brand associations that lower customer acquisition cost, increase lifetime value, and build lasting competitive advantage.
 
 **The Core Principle:**

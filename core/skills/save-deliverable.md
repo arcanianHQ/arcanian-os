@@ -7,8 +7,6 @@ argument-hint: file path to save
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date.
-
 When Claude generates a deliverable (memo, email, LinkedIn post, answer, letter, proposal, brief, report), it MUST auto-save as .md, place in the correct location, add ontology edges, and open in Typora.
 
 ## IMPORTANT — This is NOT a slash command

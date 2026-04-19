@@ -7,8 +7,6 @@ argument-hint: monthly output quality review
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Monthly analysis of deliverable quality and engagement to identify which input contexts, enrichment levels, and deliverable types produce the best outcomes. This is the feedback loop that turns output archival into compound learning.
 
 > **Discovery, not pronouncement:** Present findings as observations with questions. Show all calculations. End with "What did we get wrong?"

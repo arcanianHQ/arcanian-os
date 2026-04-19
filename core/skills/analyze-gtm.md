@@ -14,7 +14,6 @@ argument-hint: "client — Client slug (e.g., wellis, diego)"
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Analyzes a business's Go-To-Market strategy against the complete GTM Strategist framework to identify gaps, weaknesses, and opportunities. Provides a clear diagnosis of what's missing or underperforming before action planning.
 
 > **Multi-domain prerequisite:** If `CLIENT_CONFIG.md` lists 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. Filter all channel/ROAS/spend queries by domain. Never use account-level totals as domain metrics. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

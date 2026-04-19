@@ -9,8 +9,6 @@ argument-hint: process meeting transcripts
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Downloads ALL meetings from Fireflies via MCP, classifies by client, routes to the correct client directory, extracts action items to TASKS.md, and logs to CAPTAINS_LOG. Full ontology integration.
 
 ## Trigger

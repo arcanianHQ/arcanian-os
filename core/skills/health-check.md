@@ -12,8 +12,6 @@ argument-hint: [scope] — all, clients, mcp, git, core
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 > **Evidence classification:** Every finding MUST be tagged: `[DATA]`, `[OBSERVED]`, `[STATED]`, `[NARRATIVE]`, `[INFERRED]`, `[HEARSAY]`. Only DATA and OBSERVED can be CC in ACH. Split confidence: data ≠ causal. See `core/methodology/EVIDENCE_CLASSIFICATION_RULE.md`.
 
 Verifies system-wide health — project integrity, MCP connections, symlinks, git status, and core methodology files. Catches drift before it causes problems.

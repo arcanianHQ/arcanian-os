@@ -7,9 +7,14 @@ argument-hint: Hungarian text to review
 
 ## Cél
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Természetes, kifinomult magyar szövegek írása. Nem fordításmagyar, nem AI-magyar, nem hivatali nyelv — hanem élő, beszélt, mégis igényes próza.
+
+## Mikor használd
+
+- Magyar szöveg íródott, és nyelvi minőség-ellenőrzés kell (mielőtt kimegy)
+- AI-magyar gyanú (meg lehet + főnévi igenév, személytelen szerkezetek, hivatali nyelv)
+- User azt mondja: "nézd át magyarul", "javítsd a magyart", "magyarul hangozzon természetesen"
+- Minden magyar kliens-anyag, LinkedIn poszt, newsletter publikálás előtt
 
 ---
 

@@ -11,8 +11,6 @@ argument-hint: URL to audit
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-14`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Analyze a website's structured data (schema markup) implementation, assess its completeness, and evaluate how well it supports both traditional SEO rich results and AI engine discoverability. Compares content-to-schema ratio and identifies gaps where schema would improve visibility in AI Overviews, ChatGPT, and other generative search engines.
 
 Schema markup is the bridge between content and AI understanding. Well-implemented schema makes content parseable, categorizable, and citable by AI systems. The correlation between proper schema and AI Overview inclusion is significant.

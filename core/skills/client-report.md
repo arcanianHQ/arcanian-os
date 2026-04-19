@@ -14,8 +14,6 @@ argument-hint: "client — Client slug (e.g., wellis, diego)"
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Auto-generates a weekly or monthly client report by combining task progress, decision log, and MCP-sourced metrics into a single markdown document.
 
 > **Multi-domain prerequisite:** If client has 2+ domains, load `DOMAIN_CHANNEL_MAP.md` FIRST. All MCP metric queries (Databox, AC, GA4) must be domain-filtered. Report sections should show "(Domain: X)" for domain-specific metrics. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

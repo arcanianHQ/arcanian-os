@@ -11,8 +11,6 @@ argument-hint: client slug
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-14`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Apply proven GEO optimization tactics to specific pages or content pieces to improve their visibility in AI-generated responses. Takes a page URL and produces concrete, line-level recommendations (or direct content rewrites) based on the 9 research-backed GEO tactics.
 
 This is the "do the work" skill — it takes the findings from `/geo-audit` or `/geo-visibility` and turns them into optimized content.

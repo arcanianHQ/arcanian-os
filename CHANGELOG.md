@@ -1,8 +1,20 @@
-> v1.22.0 — 2026-04-16
+> v1.23.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.23.0] — 2026-04-19
+
+### Changed
+- **Skills audit cleanup** — stripped duplicated "File versioning" blockquote from 35 skill files. Versioning is now enforced via the path-scoped `.claude/rules/deliverable-save.md` rule (loads automatically on writes under `clients/*/{takeover,docs,proposals,reports,diagnoses,audit,analysis,seo,brand}` and `internal/{content,analyses,strategy,leads/*/sent,correspondence}`).
+- **Trigger section added** to `magyar-szoveg.md` (`## Mikor használd`) for routing clarity.
+- **`day-start.md`** — synced from dev source (restored missing frontmatter).
+
+### Added
+- **`core/scripts/test/check-skill-structure.sh`** — audits `core/skills/*.md` for frontmatter scope, title, Purpose/BLUF, and Trigger section presence. Current score: 48/54 skills passing, 0 hard failures.
 
 ---
 

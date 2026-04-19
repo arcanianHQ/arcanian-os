@@ -7,8 +7,6 @@ argument-hint: "phase — EXPLORE, PLAN, ARCHITECT, IMPLEMENT, REVIEW, MONITOR"
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Tracks which phase a client engagement is in across the Arcanian delivery lifecycle. Auto-detects phase from project artifacts, or accepts a manual override. Use for status reporting, handoff planning, and ensuring nothing gets skipped.
 
 ## Trigger

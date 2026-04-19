@@ -7,7 +7,6 @@ argument-hint: "client slug — client operations"
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
 Helps manage client projects - onboarding new clients, tracking progress, switching between clients, and maintaining the client dashboard.
 
 ## Trigger

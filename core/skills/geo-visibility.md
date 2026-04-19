@@ -11,8 +11,6 @@ argument-hint: client slug or brand name
 
 > **Output posture:** Present observations with questions, not conclusions. Show calculations. Invite disagreement. See `core/methodology/DISCOVERY_NOT_PRONOUNCEMENT.md`.
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-04-14`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Track how a brand appears (or doesn't appear) in AI-generated responses across ChatGPT, Perplexity, Google AI Overviews, and Gemini. Identifies which queries surface the brand, which competitors get cited instead, and what content gaps prevent AI citation.
 
 AI platforms now drive a growing share of discovery (ChatGPT: 180M+ MAU, Perplexity: 10M MAU, 79% of consumers expected to use AI search). Brands that aren't tracked in AI responses are flying blind.

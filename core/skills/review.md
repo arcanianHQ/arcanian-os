@@ -12,8 +12,6 @@ argument-hint: "file_path — Path to the file to review"
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date.
-
 Spawns the report-reviewer agent in an ISOLATED context to review a deliverable, analysis, or any output file. The reviewer has NO access to the reasoning that produced the content — this prevents self-review bias.
 
 > **Why isolation matters:** "A model that retains reasoning context from generation is less likely to question its own decisions." — Claude Architect best practice. Independent review instances catch issues that self-review misses.

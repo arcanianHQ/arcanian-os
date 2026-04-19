@@ -7,8 +7,6 @@ argument-hint: daily priorities and alerts
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date in the file (e.g., `v1.0 — 2026-03-24`). When updating an existing file, bump the version and note what changed. Never overwrite without versioning.
-
 Daily cross-project summary for the founder. Scans all projects for urgent items, overdue tasks, stale dependencies, and quick wins — in one compact view.
 
 > **Multi-domain prerequisite:** When pulling metrics for multi-domain clients, load `DOMAIN_CHANNEL_MAP.md` and report KPIs per domain — not account-level aggregates. See `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`.

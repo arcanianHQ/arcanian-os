@@ -13,8 +13,6 @@ argument-hint: client — run marketing council
 
 ## Purpose
 
-> **File versioning:** When generating .md output files, include version + date.
-
 Orchestrates a multi-agent council deliberation. Reads a council YAML definition, spawns subagents in parallel, runs the pipeline stages (collect → peer review → warning intel → ACH → synthesis → BLUF+OODA), and auto-saves the result.
 
 **This is the runtime that makes agents, councils, and the Karpathy pipeline actually work.**
