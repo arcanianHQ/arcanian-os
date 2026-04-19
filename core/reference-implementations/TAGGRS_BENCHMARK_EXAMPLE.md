@@ -1,5 +1,5 @@
-> v1.0 — 2026-04-03
 ---
+scope: shared
 name: TAGGRS Configuration Benchmark (ExampleRetail Gold Standard)
 description: Reference implementation of TAGGRS tracking tags in Web GTM and sGTM — extracted from ExampleRetail production setup (GTM-EXAMPLE-001-001 ws296, GTM-EXAMPLE-001-002 ws118)
 type: reference-implementation

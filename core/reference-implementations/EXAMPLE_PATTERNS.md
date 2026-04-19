@@ -1,4 +1,8 @@
-> v1.0 — 2026-04-03
+---
+scope: shared
+---
+
+> v1.0 — 2026-04-03 | scope-tagged 2026-04-19
 
 # Reference: ExampleBrand Patterns
 

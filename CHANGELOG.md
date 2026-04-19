@@ -1,8 +1,23 @@
-> v1.27.0 — 2026-04-19
+> v1.28.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.28.0] — 2026-04-19
+
+### Removed
+- **`core/skills/measurement-audit/measurement-audit.md`** — was `scope: int-confidential` in the dev source but had been shipping here. Scope leak: confidential content was visible in the public repo. Now removed.
+- **`core/skills/update.md`** — deprecated orphan, replaced by `update-aos.md` in the dev source. Removed.
+
+### Changed
+- **`core/infrastructure/SECURITY_BLOCKLIST.md`** — added proper frontmatter (`scope: shared`). File is now tracked in the dev source and will sync consistently on future exports.
+- **`core/reference-implementations/EXAMPLE_PATTERNS.md`** + **`TAGGRS_BENCHMARK_EXAMPLE.md`** — same: added frontmatter, promoted to dev source.
+
+### Notes
+- Flavour-drift audit baseline: 0 extras (down from 6); 167 scope:shared files still MISSING from this repo (pre-existing gap, tracked as task #76 for staged cleanup).
 
 ---
 
