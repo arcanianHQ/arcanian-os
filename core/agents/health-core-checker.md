@@ -38,7 +38,13 @@ Verifies that core methodology files, SOPs, skills, and templates are present an
 
 5. **Council configs:** count files in `agents/councils/` — compare to expected (currently 5)
 
-6. **Templates:** `templates/` directory exists with key templates (FINDING, RECOMMENDATION, etc.)
+6. **Templates:** `templates/` directory exists with key templates (FINDING, RECOMMENDATION, `SKILL_TEMPLATE.md`, etc.)
+
+7. **Skill structure audit:** run `core/scripts/test/check-skill-structure.sh` and report:
+   - Total skills scanned, pass / warn / fail counts
+   - All hard failures (missing frontmatter, scope, or title) — these are blockers
+   - First 5 soft warnings (missing Trigger, duplicated boilerplate) when pass rate is below 90%
+   - If the script is missing, flag: "audit script not installed in this repo — copy from dev source at `core/scripts/test/check-skill-structure.sh`"
 
 ## Scoring
 
@@ -49,6 +55,7 @@ Reference: `core/methodology/HEALTH_CHECK_SCORING.md` → Section 5
 - Skills presence: count/expected × 20
 - Agents presence: count/expected × 20
 - Templates: 20
+- Skill structure audit: any hard failure → −20 from the Core Methodology score; warnings-only does not affect score
 
 ## Output
 
@@ -63,6 +70,7 @@ Reference: `core/methodology/HEALTH_CHECK_SCORING.md` → Section 5
 | Agents | {expected} | {found} | {ok/missing N} |
 | Council configs | {expected} | {found} | {ok/missing N} |
 | Templates | present | {yes/no} | {status} |
+| Skill structure audit | {pass}/{total} | {pass} | {ok / N warnings / N failures} |
 
-Evidence: [OBSERVED: core directory check, {date}]
+Evidence: [OBSERVED: core directory check + check-skill-structure.sh, {date}]
 ```

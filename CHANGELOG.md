@@ -1,8 +1,26 @@
-> v1.23.0 — 2026-04-19
+> v1.24.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.24.0] — 2026-04-19
+
+### Added
+- **Pre-commit skill enforcement** — `core/tools/hooks/git/pre-commit-skill-structure.sh` refuses commits whose staged `core/skills/*.md` files lack frontmatter, `scope:`, or a top-level title. Soft warnings (missing Trigger, duplicated boilerplate) surface but don't block.
+- **Hook chain** — `core/tools/hooks/git/pre-commit-chain.sh` runs all AOS pre-commit checks in sequence (lock-check + skill-structure-check; extensible).
+- **One-command installer** — `bash core/scripts/ops/setup-git-hooks.sh` installs the chain into `.git/hooks/pre-commit`. Handles both regular repos and submodules via `git rev-parse --git-path hooks`.
+- **Skill template** — `core/templates/SKILL_TEMPLATE.md` is the canonical skeleton for new skills (frontmatter, Purpose, Trigger, Skip, Input, Process, Output).
+- **Audit modes** — `core/scripts/test/check-skill-structure.sh` gained `--staged` (audit only git-staged skill files) and `--files f1 f2 …` modes so the hook can call it incrementally.
+
+### Changed
+- **`health-core-checker` agent** — step 7 now runs `check-skill-structure.sh` and reports pass/warn/fail counts in its output table. Hard failures dock 20 points from the Core Methodology score.
+
+### Escape hatches
+- `AOS_SKIP_SKILL_CHECK=1 git commit …` — bypass the skill-structure check
+- `GIT_LFS_SKIP_LOCK_CHECK=1 git commit …` — bypass the lock check
 
 ---
 
