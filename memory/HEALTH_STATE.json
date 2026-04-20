@@ -1,0 +1,68 @@
+{
+  "version": "2.1",
+  "generated": "2026-04-17",
+  "first_run": true,
+  "scope": "all",
+  "scores": {
+    "project_integrity": 0.55,
+    "mcp_connections": 0.90,
+    "git_status": 1.0,
+    "hooks": 0.40,
+    "core_methodology": 0.60,
+    "warning_intel": 0.55
+  },
+  "clients_checked": ["loopforge", "mosstrail", "solarnook"],
+  "critical_flags": [],
+  "warnings": [
+    "brand/ missing on all 3 clients",
+    "core/skills symlinks missing on all 3 clients",
+    "core/sops symlinks missing on all 3 clients",
+    "per-client .claude/settings.json missing on all 3 clients",
+    "CAPTAINS_LOG last dated 2026-04-03 (14 days) on all 3 clients",
+    "BASELINES.md missing on all 3 clients — anomaly detection disabled",
+    "core/methodology/KNOWN_PATTERNS.md missing",
+    "VERSION.json missing (CHANGELOG top is v1.22.0)"
+  ],
+  "info": [
+    "solarnook CLAUDE.md at 80-line soft limit",
+    "All 3 clients are demo projects scaffolded same day"
+  ],
+  "convergent_signals": [
+    {
+      "signal": "brand/ directory missing",
+      "clients": ["loopforge", "mosstrail", "solarnook"],
+      "confidence": "HIGH",
+      "implication": "scaffold template does not create brand/ skeleton"
+    },
+    {
+      "signal": "core/ symlinks missing",
+      "clients": ["loopforge", "mosstrail", "solarnook"],
+      "confidence": "HIGH",
+      "implication": "scaffold template skips symlink creation"
+    },
+    {
+      "signal": "CAPTAINS_LOG stale >14 days",
+      "clients": ["loopforge", "mosstrail", "solarnook"],
+      "confidence": "HIGH",
+      "implication": "no client session activity — all demos are shelf-ware"
+    }
+  ],
+  "contradictions": [
+    {
+      "source_a": "CLAUDE.md header (v2.2)",
+      "source_b": "CHANGELOG.md v1.22.0",
+      "conflict": "CLAUDE.md says '50 skills', CHANGELOG says '96 skills'",
+      "investigation": "count core/skills/*.md and update the stale source"
+    }
+  ],
+  "blind_spots": [
+    "No live client work in repo — every client is a demo",
+    "KNOWN_PATTERNS.md missing → no cross-client pattern extraction target"
+  ],
+  "cli": {
+    "local": "2.1.112",
+    "latest": "2.1.112",
+    "up_to_date": true
+  },
+  "changelog_freshness": "current (top entry 2026-04-16)"
+}

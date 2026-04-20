@@ -1,8 +1,25 @@
-> v1.28.0 — 2026-04-19
+> v1.29.0 — 2026-04-19
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.29.0] — 2026-04-19
+
+### Added
+- **Bulk propagation from dev source — 53 files.** All `scope: shared` files in the dev source that were missing from this repo have been copied over. Categories: agents (4), methodology, templates, skills, sops, tools (pre-commit hooks + script templates), infrastructure (IT-systems onboarding docs), brand, scripts. The shared flavour is now fully in sync with its dev-source scope-tag promise.
+- Specific notable additions: `core/agents/competitor-*` suite, `core/agents/page-*` analyzer suite, `core/infrastructure/it-systems/` onboarding guides, pre-commit hook templates under `core/tools/hooks/`.
+
+### Removed
+- **14 files rescoped and retired from this repo.** These were tagged `scope: shared` in the dev source but their content referenced blocklisted internal-only skills and methodology names. Rather than gut the content, the dev source rescoped them to `int-company` — the files remain available in the Company and Advanced flavours. Removed from this repo only.
+
+### Audit state after this release
+- **Flavour drift:** 0 missing, 0 extra, 0 stale (task #76 cleared end-to-end)
+- **Public-content guardrail:** 0 violations (full repo sweep)
+- **Skill-structure audit:** baseline unchanged
+- **Agent-structure audit:** 0 hard failures
 
 ---
 
