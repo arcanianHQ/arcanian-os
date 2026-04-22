@@ -182,5 +182,5 @@ Add rows as campaigns are planned or retroactively documented. Don't over-struct
 
 | Version | Date | Change |
 |---|---|---|
-| v1.0 | 2026-04-21 | Initial — schema, update triggers, resolution order, scope rules. Extracted from `.nexus-config.md` v1.3 which had campaigns inline; promoted to standalone registry per VID-002 real-data readiness requirements. |
+| v1.0 | 2026-04-21 | Initial — schema, update triggers, resolution order, scope rules. Extracted from `.nexus-config.md` v1.3 which had campaigns inline; promoted to standalone registry per real-data-readiness requirements. |
 | v1.1 | 2026-04-22 | **Four-phase resolution + auto-registration**: rewrote §Resolution order as explicit Phase A (files) → Phase B (one ask-back) → Phase C (mandatory persistence) → Phase D (hard prohibition on data-pattern inference). Added new §Auto-registration from disambiguation section making registry write-back blocking before data pull. Caught during shared-flavor test where `/nexus-answer` inferred a promo window from a revenue plateau (instead of asking) AND didn't persist the resulting window (so the next session would re-infer). Both failure modes now codified as explicit violations. Companion change: `core/skills/nexus-answer.md` v1.8 phases realigned to reference this standard. |

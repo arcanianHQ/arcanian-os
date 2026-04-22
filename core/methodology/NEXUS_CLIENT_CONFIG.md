@@ -181,4 +181,4 @@ Never commit this file to a public-scope repo. Never include real client slugs o
 
 | Version | Date | Change |
 |---|---|---|
-| v1.0 | 2026-04-21 | Initial — file schema, location convention, ambiguity defaults, minimum-config template. Covers the 4 real-data gaps identified in VID-002 build. |
+| v1.0 | 2026-04-21 | Initial — file schema, location convention, ambiguity defaults, minimum-config template. Covers 4 real-data gaps identified during the Nexus real-data-readiness pass. |

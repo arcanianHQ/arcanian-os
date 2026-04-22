@@ -27,7 +27,7 @@ Per `core/methodology/CAMPAIGN_REGISTRY_STANDARD.md`. **Mirrors `clients/_demo/C
 | alias | resolves to (id) | notes |
 |---|---|---|
 | akció | akcio-demo-2026-spring | primary alias (matches data language) |
-| akciós időszak | akcio-demo-2026-spring | full phrase from VID-002 typed query |
+| akciós időszak | akcio-demo-2026-spring | full Hungarian phrase |
 | kampány | akcio-demo-2026-spring | generic "campaign" |
 | promo | akcio-demo-2026-spring | generic English "promo" |
 | Glamour | akcio-demo-2026-spring | cosmetic compat — illustrative skill-docs vocabulary |
@@ -36,9 +36,9 @@ Per `core/methodology/CAMPAIGN_REGISTRY_STANDARD.md`. **Mirrors `clients/_demo/C
 
 (None — DEMO is single-year synthetic data.)
 
-## Script sync
+## Data sync
 
-This registry is kept in full alignment with the VID-002 script (`internal/video-production/VID-002_diego-welcome/SCRIPT.md`), specifically the Beat 1 typed query. If the script's campaign reference changes, update this registry AND `clients/_demo/CAMPAIGN_REGISTRY.md` together.
+This registry is kept aligned with the synthetic data pushed to the DEMO Databox account (748621). The campaign window dates are pulled from the data itself (GA4 revenue spike pattern + Explanation-dataset weekly reports), not invented. If the synthetic data is re-pushed with different windows, update this registry AND `clients/_demo/CAMPAIGN_REGISTRY.md` together — they must mirror each other.
 
 ## Notes
 

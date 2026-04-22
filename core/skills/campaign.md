@@ -175,4 +175,4 @@ Follow `core/brand/arcanian/VOICE.md`:
 
 | Version | Date | Change |
 |---|---|---|
-| v1.0 | 2026-04-21 | Initial — CRUD subcommands, auto-trigger patterns, privacy rules per VID-002 real-data build. |
+| v1.0 | 2026-04-21 | Initial — CRUD subcommands, auto-trigger patterns, privacy rules per real-data-readiness pass. |

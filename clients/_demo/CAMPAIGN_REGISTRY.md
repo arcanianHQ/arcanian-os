@@ -29,7 +29,7 @@ When the user types one of these short names, the skill resolves to the canonica
 | alias | resolves to (id) | notes |
 |---|---|---|
 | akció | akcio-demo-2026-spring | primary alias (matches data language) |
-| akciós időszak | akcio-demo-2026-spring | full phrase from VID-002 typed query |
+| akciós időszak | akcio-demo-2026-spring | full Hungarian phrase |
 | kampány | akcio-demo-2026-spring | generic "campaign" |
 | promo | akcio-demo-2026-spring | generic English "promo" |
 | Glamour | akcio-demo-2026-spring | cosmetic compat — the skill's illustrative docs use "Glamour" as an example campaign name; resolves to the actual DEMO promo here |
@@ -42,4 +42,4 @@ When the user types one of these short names, the skill resolves to the canonica
 
 **Isolated spike on 2026-03-30**: GA4 Ecommerce shows a separate one-day revenue spike (107,072 HUF / 16 transactions) on 2026-03-30, well after the main promo ended. This is NOT part of `akcio-demo-2026-spring`. If it represents a distinct event, register it separately as `akcio-demo-2026-03-30` or similar. For now: unregistered.
 
-**Script sync**: the VID-002 typed query *"Szia, Nexus. Véget ért a Mosstrail akciós időszaka."* resolves via the "akció" / "akciós időszak" aliases → `akcio-demo-2026-spring` → window 2026-03-23 → 2026-03-26. The Glamour alias is retained for skill-docs compat (the skill's changelog v1.7 predates this correction and references `glamour-demo-2026-spring`; the id was changed here to match the data's vocabulary, but Glamour still resolves).
+**Alias behaviour**: operator-typed HU phrases — *"véget ért az akciónk"*, *"hogyan teljesített a kampány"*, *"mi volt az akciós időszakban"* — all resolve through the aliases above to `akcio-demo-2026-spring` (2026-03-23 → 2026-03-26). The `Glamour` alias is retained for skill-docs compatibility (the skill's v1.7 changelog references an earlier id `glamour-demo-2026-spring`; the id was corrected here to match the data's vocabulary, but Glamour still resolves).

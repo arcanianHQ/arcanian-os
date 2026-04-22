@@ -44,6 +44,9 @@ $100M
 Acquisition.com
 colinboyd
 
+# ── Int-tagged artifact identifiers (internal video / campaign / asset IDs)
+VID-002
+
 # ── Int-tagged skill names (must never appear in public materials)
 /conversion-story
 /sfm-analyse
