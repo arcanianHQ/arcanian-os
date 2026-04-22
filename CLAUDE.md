@@ -1,4 +1,4 @@
-> v2.2 — 2026-04-14 — Updated counts (50 skills, 13 agents, 25 SOPs, 41 methodology rules)
+> v2.3 — 2026-04-22 — Count reconciliation (67 skills, 48 agents + 9 councils, 29 SOPs, 61 methodology rules)
 
 # Arcanian OS — System Instructions
 
@@ -15,10 +15,10 @@ Marketing operations system: skills (slash commands), agents (subagents), SOPs (
 arcanian-os/
 ├── CLAUDE.md                ← YOU ARE HERE — the kernel
 ├── core/
-│   ├── skills/              ← 48 slash commands
-│   ├── agents/              ← 14 agents + 4 council configs
-│   ├── sops/                ← 20 standard operating procedures
-│   ├── methodology/         ← 35 rules, standards, guardrails
+│   ├── skills/              ← 67 slash commands
+│   ├── agents/              ← 48 agents + 9 council configs
+│   ├── sops/                ← 29 standard operating procedures
+│   ├── methodology/         ← 61 rules, standards, guardrails
 │   ├── templates/           ← Scaffolds for client files
 │   ├── infrastructure/      ← DATA_RULES, SECURITY_BLOCKLIST
 │   └── reference-implementations/
@@ -52,7 +52,7 @@ Tasks are NODES with typed EDGES to other objects. All edges are bidirectional.
 
 ## Agents (core/agents/)
 
-14 agents:
+48 agents (representative subset listed — full set under `core/agents/`):
 - `audit-checker.md` — measurement/tracking issue detection
 - `report-reviewer.md` — quality check before client delivery
 - `pii-scanner.md` — PII/secrets detection
@@ -66,9 +66,9 @@ Tasks are NODES with typed EDGES to other objects. All edges are bidirectional.
 - `channel-analyst-shopify.md` — GA4 discrepancy, checkout funnel, discount tracking
 - `outcome-tracker.md` — weekly REC verification, closed-loop feedback
 
-Plus 4 council configs: `councils/diagnostic.yaml`, `councils/measurement.yaml`, `councils/delivery.yaml`, `councils/discovery.yaml`
+Plus 9 council configs: `councils/7layer.yaml`, `councils/delivery.yaml`, `councils/diagnostic.yaml`, `councils/discovery.yaml`, `councils/health-check.yaml`, `councils/measurement.yaml`, `councils/measurement-audit.yaml`, `councils/page-analysis.yaml`, `councils/seo-diagnostic.yaml`
 
-## Skills (50 slash commands)
+## Skills (67 slash commands)
 
 Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-report, /morning-brief, /health-check, /onboard-client, /onboard-agency, /inbox-process, /task-oversight, /pipeline, /meeting-sync, /save-deliverable, /day-start, /day-end, /query, /manage-client, /extract-contacts, /extract-platforms
 Diagnostic: /7layer, /7layer-hu, /council, /sales-pulse, /verify-pmf
