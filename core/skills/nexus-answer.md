@@ -30,28 +30,36 @@ When disambiguation requires the user to specify an account:
 
 This rule applies regardless of flavor (shared / company / advanced) because even in shared practitioner-mode, client names must not surface in output that could be logged, shared, or rendered publicly.
 
-### Rule 2 — No cross-client file reads, no emergent cache-surfacing
+### Rule 2 — No autonomous cross-client reads (explicit naming permitted)
 
-**This skill only reads from the ACTIVE client's directory.** Active client = the directory the user is running the session from (resolved via `pwd`). If no active client:
+**This skill only crosses client boundaries when the user explicitly names a client.** It never autonomously decides which client to read based on fuzzy matches, recent context, or pattern guessing.
 
-- Allowed reads: `.nexus-config.md` and `CAMPAIGN_REGISTRY.md` **in the current working directory only**
-- Allowed reads in hub mode: only the fallback DEMO configuration (if any)
-- **Forbidden:** globbing or searching for analysis markdowns, reports, or cached deliverables across `clients/*/` paths — even when the user's question name-matches a filename there
-- **Forbidden:** surfacing cached analyses from other client directories, even with a warning
+**Active client resolution:**
 
-**Why:** the skill is a Databox query interface, not a file search tool. Emergent behavior where Claude decides to read `clients/diego/docs/campaigns/*.md` because the question mentions "Glamour" is:
-- **Non-reproducible** — depends on which files happen to exist
-- **Privacy-blurring** — a teammate running the same query sees different results
-- **Freshness-lying** — rendering from a stale cached markdown while claiming "live analysis"
-- **Scope-creep** — the skill's single job is to query Databox and render 4 blocks; file-search is a different skill's job
+1. **CWD client** — if `pwd` is `clients/{slug}/`, that's the active client. Read its `.nexus-config.md` and `CAMPAIGN_REGISTRY.md`.
+2. **Explicit-named client (hub mode)** — if the question contains an explicit client name (e.g., *"Mosstrail akciós időszaka"*, *"Diego ROAS"*) AND `clients/{slug}/` exists in the repo:
+   - Resolve the named client → that directory becomes the active scope
+   - Read its `.nexus-config.md` + `CAMPAIGN_REGISTRY.md`
+   - Continue normally — the user authorized the cross-read by naming the client
+3. **Hub mode, no explicit name** — fall back to `clients/_demo/` virtual client (if present), otherwise stop with a "name a client" ask-back
 
-If the user's question references a campaign that can't be resolved from the current CWD's CAMPAIGN_REGISTRY.md or .nexus-config.md, the skill either:
-1. Asks a disambiguation question (options ONLY from current CWD)
-2. Or redirects the user to change directories (without enumerating which clients exist)
+**What's still forbidden** (the original Rule 2 motivations apply only to AUTONOMOUS cross-reads):
 
-It does NOT autonomously search `clients/*/` for cached analyses to render from. That is outside scope. If the user wants to find cached analyses, they use a separate tool (grep / `/find-analysis` / similar — not this skill).
+- **Fuzzy / heuristic auto-pick** — never decide "the user probably means Diego" from context like prior conversation, recent edits, or pattern guessing. Explicit naming required.
+- **Multi-client merge** — never read TWO clients in one query. If the question implies cross-client comparison, ask the user to clarify which one (or invoke a different skill that's designed for cross-client analysis).
+- **Globbing for cached analyses** — never search `clients/*/docs/*.md` or similar for pre-rendered reports. This skill queries Databox; it is not a file-search tool. If the user wants cached deliverables, that's a different skill (`/find-analysis` or similar).
+- **Account enumeration** — see Rule 1. Never list which clients exist in the repo via skill output.
 
-> v1.9 — 2026-04-22 — Mandatory currency annotation per `CURRENCY_NORMALIZATION.md` — Block 1 monetary rows tagged `(CUR)` or `(?)`, unknown currency triggers warning + Conf penalty
+**Why explicit naming is safe** — the original Rule 2 risks (non-reproducibility, privacy-blurring, freshness-lying) all stem from the skill picking a client *on its own*. When the user names the client, those risks disappear:
+- Reproducible (the same name gives the same client)
+- Not privacy-blurring (the user has filesystem access AND named the target)
+- Not freshness-lying (Databox query still pulls live data; only the config/registry is read from file)
+
+**The filesystem is the security layer, not the skill.** If the practitioner has read access to `clients/mosstrail/`, they can read it directly outside the skill anyway. Refusing inside the skill is ceremony, not safety. Reserve enforcement for the cases that actually create risk: autonomous picking, fuzzy matching, enumeration.
+
+If the user's question references a campaign that can't be resolved from the active client's `CAMPAIGN_REGISTRY.md` or `.nexus-config.md`, the skill follows the standard four-phase resolution (Phase B ask-back + Phase C persist) — same as in CWD-client mode.
+
+> v1.10 — 2026-04-22 — Rule 2 refinement: explicit-naming permits cross-client reads (filesystem, not skill, is the security layer)
 
 # Skill: `/nexus-answer` — structured answer to a business-data question
 
@@ -149,6 +157,21 @@ For ANY question containing time or campaign language, follow this four-phase pr
 
 **Phase A — File resolution (always first, never skip):**
 
+**A.0 — Active-client resolution** (per Rule 2 — explicit naming permitted):
+
+Before reading any registry/config, determine which client dir is the active scope:
+
+- **CWD client** — if `pwd` is `clients/{slug}/`, use that. Done.
+- **Explicit-named client (hub mode)** — if the question contains an explicit client name AND `clients/{slug}/` exists in the repo:
+  - Resolve name → that dir becomes active scope (single exact match required)
+  - If two clients could match the name: Phase B ask-back with the matching slugs as options (NOT enumeration of all clients)
+  - If no client dir matches the name: Phase B ask-back asking the user to either change directories or rename
+- **Hub mode, no explicit name** — fall back to `clients/_demo/` virtual client if present, otherwise Phase B ask-back asking the user to name a client (do NOT enumerate which clients exist)
+
+**Hard prohibition** (Rule 2 boundary): NEVER auto-pick a client from fuzzy matches, recent context, or pattern guessing. Explicit naming required for cross-CWD reads.
+
+Once active scope is set, continue with A.1–A.3 in that scope:
+
 1. **CAMPAIGN_REGISTRY.md** in the active client dir — read it first. Match order:
    - a) Exact `id` match
    - b) Exact `name_short` match, unique
@@ -166,8 +189,8 @@ If Phase A yields no window, ask the user ONE disambiguation with ONLY these opt
 - `(4)` Explicit date range only — *"mondd meg a start/end dátumot"*
 
 Privacy constraints:
-- **Do NOT offer "másik account" as an option.** If the user wants a different client, they change directories. The skill does not cross client boundaries.
-- **Do NOT enumerate accessible Databox accounts.** See §🔒 Privacy hard rule.
+- **Do NOT offer "másik account" as an option** in CAMPAIGN-window context. If the user wants a different client's data, they either name it explicitly in the question (Phase A.0 resolves it) or change directories.
+- **Do NOT enumerate accessible Databox accounts or client directories.** See §🔒 Privacy hard rule.
 
 **Phase C — Persistence (MANDATORY when Phase B answer names a campaign or window):**
 
@@ -600,3 +623,4 @@ Never render a half-broken block. Either render fully or show the error state cl
 | v1.7 | 2026-04-22 | **DEMO virtual-client fallback**: hub/unknown context now reads `clients/_demo/.nexus-config.md` + `clients/_demo/CAMPAIGN_REGISTRY.md` as authoritative fallback, instead of hardcoded account ID. DEMO is treated like any other client (single entity, pre-registered campaigns matching synthetic data). Benefits: (a) hub queries like "Hogyan teljesített a Glamour kampány?" auto-resolve via DEMO registry, no disambiguation required, (b) synchronized between synthetic data push + campaign window references, (c) removes the need for Beat 1.5 "Visszakérdez" scene in VID-002 (script simplified). Rule 2 still applies — skill only reads the active config directory (DEMO in this case), never crosses into other clients' files. |
 | v1.8 | 2026-04-22 | **Window resolution four-phase protocol + mandatory Phase C persistence**: replaced the loose 5-step resolution order with an explicit Phase A (files) → Phase B (one ask-back) → Phase C (write result to `CAMPAIGN_REGISTRY.md` BEFORE data pull) → Phase D (hard prohibition on data-pattern inference) contract. Caught during shared-flavor test where the skill inferred a 4-day "revenue plateau" as a promo window instead of asking, resulting in a fictional BLUF (script review flagged both the inference AND the fact that next session would re-ask the same question because no persistence happened). Skill §Steps §1 shorthand realigned to reference the phase numbers. Companion change: `CAMPAIGN_REGISTRY_STANDARD.md §Auto-registration from disambiguation` (canonical rule). |
 | v1.9 | 2026-04-22 | **Mandatory currency annotation per `CURRENCY_NORMALIZATION.md`**: added Prerequisites §1b (reporting_currency resolution order: CLIENT_CONFIG → DOMAIN_CHANNEL_MAP → .nexus-config → DEMO → unknown); Block 1 monetary rows now REQUIRED to carry `(CUR)` tag (`(?)` + ⚠ warning when currency unresolved); unknown-currency rows take -0.2 Source Confidence penalty (HIGH → MEDIUM); Block 1 footer gets mandatory `Currency: {CUR} ({source})` line; cross-currency multi-entity aggregation must disclose rate + date in Block 2 footer; §Multi-entity aggregation updated to reference canonical `reporting_currency` field (not stale `primary_currency` alias) and CURRENCY_NORMALIZATION's conversion-source priority chain; Error modes table extended with 3 currency-related rows. Caught during shared-flavor script review where Block 1 rendered `399,446` unitless — the exact failure mode CURRENCY_NORMALIZATION §Problem describes ("summing raw numbers across currencies produces nonsense"; worse here: rendering a number without ANY currency leaves the reader to guess). |
+| v1.10 | 2026-04-22 | **Rule 2 refinement — explicit-naming permits cross-client reads**: revised the strict CWD-boundary (v1.6) which proved too restrictive in practice. Added Phase A.0 "Active-client resolution" — when the question contains an explicit client name AND `clients/{slug}/` exists, that dir becomes the active scope (read its `.nexus-config.md` + `CAMPAIGN_REGISTRY.md`). Hard prohibitions retained: NO autonomous fuzzy-match auto-pick, NO multi-client merge, NO globbing for cached analyses, NO account/client enumeration. Reasoning: the original Rule 2 risks (non-reproducibility, privacy-blurring, freshness-lying) all stem from autonomous picking — explicit naming neutralizes them. The filesystem (read-permission) is the security layer, not the skill. Caught during shared-flavor test where typed query *"Mosstrail akciós időszaka"* from hub got refused with "cd clients/mosstrail" ceremony, despite the practitioner having direct read access to that dir anyway. |
