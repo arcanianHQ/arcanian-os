@@ -1,0 +1,52 @@
+---
+client: "{Client Name}"
+slug: "{slug}"
+scope: int-confidential
+created: "{YYYY-MM-DD}"
+---
+
+> v1.0 — {YYYY-MM-DD}
+
+# {Client Name} — Nexus Configuration
+
+## Purpose
+
+Per `core/methodology/NEXUS_CLIENT_CONFIG.md` — wires this client to Databox, defines entities (multi-domain mapping), default routing, and known measurement caveats. Read by `/nexus-answer` and every data-querying skill.
+
+## Entities
+
+Single-entity client → one row. Multi-domain / multi-market client → one row per entity (e.g. US Shopify, EU WooCommerce).
+
+| entity_id | databox_account_id | name | reporting_currency | notes |
+|---|---|---|---|---|
+| {slug}-default | TBD | {Client} default | {CUR} | set `databox_account_id` when the Databox account is provisioned |
+
+## Defaults
+
+```yaml
+default_for:
+  general: {slug}-default
+```
+
+When a question doesn't specify an entity, the skill uses `default_for: general`.
+
+## Measurement caveats
+
+Declared data-quality issues that lower confidence per `core/methodology/DYNAMIC_RELIABILITY_SCORING.md`. Add caveats as discovered.
+
+Format examples:
+- `GA4 consent mode ~30% undercount` → reduces GA4 Revenue/Conversions confidence by 0.1
+- `Meta pixel overcounter` → reduces Meta Conversions confidence by 0.1
+- `Shopify discount tracking unreliable` → flag in narrative
+
+(None declared yet.)
+
+## Reporting currency
+
+Canonical source: `CLIENT_CONFIG.md` `reporting_currency` field per `core/methodology/CURRENCY_NORMALIZATION.md`. The skill reads from there; this file repeats it per-entity for cross-currency aggregation.
+
+## Related files
+
+- `CAMPAIGN_REGISTRY.md` — campaign-name → date-window registry
+- `CLIENT_CONFIG.md` — currency, alarm sensitivity, tracking IDs
+- `DOMAIN_CHANNEL_MAP.md` (if multi-domain) — per-source currency

@@ -59,7 +59,7 @@ This rule applies regardless of flavor (shared / company / advanced) because eve
 
 If the user's question references a campaign that can't be resolved from the active client's `CAMPAIGN_REGISTRY.md` or `.nexus-config.md`, the skill follows the standard four-phase resolution (Phase B ask-back + Phase C persist) — same as in CWD-client mode.
 
-> v1.10 — 2026-04-22 — Rule 2 refinement: explicit-naming permits cross-client reads (filesystem, not skill, is the security layer)
+> v1.11 — 2026-04-22 — Silent skill mechanics rule: phase names, scope labels, rule references never appear in user-facing output
 
 # Skill: `/nexus-answer` — structured answer to a business-data question
 
@@ -555,6 +555,27 @@ All HU text follows canonical voice rules:
 - **Sorkin-style for narrative peaks** — paradox, inversion, earn the pause
 - **No temporal pins** in reusable outputs (no "holnap reggel", no specific weekday assumptions)
 
+### Silent skill mechanics — NEVER spoken to the user
+
+The skill's internal protocol vocabulary is **implementation detail**, not narrative content. The user sees ONLY the result (4-block answer, or HU disambiguation question, or HU error message). The user MUST NOT see narration of *what the skill is doing*.
+
+**Forbidden in user-facing output** (HU or EN):
+- *"Phase A.0 — explicit naming"*, *"Phase B-re megyek"*, *"Phase C-ben felveszem"*, *"Phase D hard prohibition"*
+- *"Active scope: clients/mosstrail/"*, *"Hub session (pwd=...)"*, *"CWD client"*
+- *"Rule 2 refinement"*, *"Rule 1"*, *"Skill kontraktus"*, *"hard block"*
+- *"reporting_currency resolution"*, *"DEMO virtual-client fallback"*
+- *"per the skill v1.x changelog"*, *"per CAMPAIGN_REGISTRY_STANDARD.md"*
+
+**Allowed in user-facing output:**
+- The 4-block answer (A számok / Magyarázat / Megbízhatóság / Mit tegyél) per the templates
+- HU disambiguation question with options (Phase B output) — phrased as a normal question, not as *"Phase B-re megyek, melyik ablak?"*
+- HU one-line registry-write confirmation (Phase C output) — *"Feljegyeztem: glamour-2026-spring (2026-04-14 → 2026-04-21)."* — NOT *"Phase C wrote to CAMPAIGN_REGISTRY.md."*
+- HU error/gap messages — *"Nincs Databox kapcsolat — anélkül nem tudok elemezni."*, *"Nincs `clients/mosstrail/.nexus-config.md` — adj meg egy Databox account-ot."* — phrased as user-facing problem statements, not as *"Hub session, no DEMO fallback, Rule 2 refusal"*
+
+**Rule of thumb**: would a non-technical operator on the receiving end of a Nexus answer recognize this term? If no, it's mechanics — strip it. The skill describes ITSELF in English in this file (executable prose for the runtime); the runtime DOES the work and produces operator-facing HU output. The two registers don't cross.
+
+This rule applies to ALL skill output, including diagnostic / fallback / error states — not just the happy-path 4-block answer.
+
 ## Multi-entity aggregation (Diego case)
 
 When the user's question targets multiple entities ("cégcsoport", "összes Diego"):
@@ -624,3 +645,4 @@ Never render a half-broken block. Either render fully or show the error state cl
 | v1.8 | 2026-04-22 | **Window resolution four-phase protocol + mandatory Phase C persistence**: replaced the loose 5-step resolution order with an explicit Phase A (files) → Phase B (one ask-back) → Phase C (write result to `CAMPAIGN_REGISTRY.md` BEFORE data pull) → Phase D (hard prohibition on data-pattern inference) contract. Caught during shared-flavor test where the skill inferred a 4-day "revenue plateau" as a promo window instead of asking, resulting in a fictional BLUF (script review flagged both the inference AND the fact that next session would re-ask the same question because no persistence happened). Skill §Steps §1 shorthand realigned to reference the phase numbers. Companion change: `CAMPAIGN_REGISTRY_STANDARD.md §Auto-registration from disambiguation` (canonical rule). |
 | v1.9 | 2026-04-22 | **Mandatory currency annotation per `CURRENCY_NORMALIZATION.md`**: added Prerequisites §1b (reporting_currency resolution order: CLIENT_CONFIG → DOMAIN_CHANNEL_MAP → .nexus-config → DEMO → unknown); Block 1 monetary rows now REQUIRED to carry `(CUR)` tag (`(?)` + ⚠ warning when currency unresolved); unknown-currency rows take -0.2 Source Confidence penalty (HIGH → MEDIUM); Block 1 footer gets mandatory `Currency: {CUR} ({source})` line; cross-currency multi-entity aggregation must disclose rate + date in Block 2 footer; §Multi-entity aggregation updated to reference canonical `reporting_currency` field (not stale `primary_currency` alias) and CURRENCY_NORMALIZATION's conversion-source priority chain; Error modes table extended with 3 currency-related rows. Caught during shared-flavor script review where Block 1 rendered `399,446` unitless — the exact failure mode CURRENCY_NORMALIZATION §Problem describes ("summing raw numbers across currencies produces nonsense"; worse here: rendering a number without ANY currency leaves the reader to guess). |
 | v1.10 | 2026-04-22 | **Rule 2 refinement — explicit-naming permits cross-client reads**: revised the strict CWD-boundary (v1.6) which proved too restrictive in practice. Added Phase A.0 "Active-client resolution" — when the question contains an explicit client name AND `clients/{slug}/` exists, that dir becomes the active scope (read its `.nexus-config.md` + `CAMPAIGN_REGISTRY.md`). Hard prohibitions retained: NO autonomous fuzzy-match auto-pick, NO multi-client merge, NO globbing for cached analyses, NO account/client enumeration. Reasoning: the original Rule 2 risks (non-reproducibility, privacy-blurring, freshness-lying) all stem from autonomous picking — explicit naming neutralizes them. The filesystem (read-permission) is the security layer, not the skill. Caught during shared-flavor test where typed query *"Mosstrail akciós időszaka"* from hub got refused with "cd clients/mosstrail" ceremony, despite the practitioner having direct read access to that dir anyway. |
+| v1.11 | 2026-04-22 | **Silent skill mechanics rule** in §Voice rules: the four-phase protocol (Phase A/B/C/D), Rule 1/2 references, "active scope", "DEMO virtual-client fallback", "reporting_currency resolution" etc. are implementation detail and MUST NOT appear in user-facing output. Caught during shared-flavor test where Nexus narrated *"Phase A.0 — explicit naming. Hub session (pwd=arcanian-os-shared). Phase A nem old fel ablakot — Phase B-re megyek. Phase D hard prohibition."* — a verbatim leak of the skill's own execution log, not an operator-facing message. Rule of thumb: would a non-technical operator recognize the term? If no, strip it. Two registers (skill prose / operator HU) don't cross. |

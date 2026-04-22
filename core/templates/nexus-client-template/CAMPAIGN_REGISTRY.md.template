@@ -1,0 +1,58 @@
+---
+client: "{Client Name}"
+slug: "{slug}"
+scope: int-confidential
+---
+
+# {Client Name} — Campaign Registry
+
+Per `core/methodology/CAMPAIGN_REGISTRY_STANDARD.md`. Maps human campaign references (*"Glamour"*, *"Húsvét"*, *"Black Friday"*) to precise date windows for `/nexus-answer` and related skills.
+
+The registry resolves *which window?* before any campaign analysis begins. Without it, the skill cannot answer *"hogyan teljesített az akciónk"* — it falls into Phase B disambiguation.
+
+## Active / upcoming
+
+| id | name_short | start | end | status | entities |
+|---|---|---|---|---|---|
+| (none yet) | | | | | |
+
+Field reference (full schema in CAMPAIGN_REGISTRY_STANDARD.md §What the registry contains):
+- `id` — stable slug (e.g., `glamour-2026-spring`); never changes
+- `name_short` — what the team CALLS it in conversation
+- `start` / `end` — ISO dates, first/last live day
+- `status` — `scheduled` / `active` / `ended` / `cancelled`
+- `entities` — list of entity_ids that participated
+
+## Archive (recent)
+
+Last 12 months of ended campaigns, sortable by start date. Older → move to a separate `CAMPAIGN_ARCHIVE.md` if registry gets unwieldy.
+
+| id | name_short | start | end | status | notes |
+|---|---|---|---|---|---|
+| (none yet) | | | | | |
+
+## Alias resolution
+
+When teams use multiple short names for the same campaign, list them here. The skill matches `aliases` field then resolves to canonical `id`.
+
+| alias | resolves to (id) | notes |
+|---|---|---|
+| (none yet) | | |
+
+## Year-over-year pairs
+
+Explicit YoY mapping for `Glamour 2026 vs Glamour 2025`-style comparisons.
+
+| this year (id) | last year (id) | notes |
+|---|---|---|
+| (none yet) | | |
+
+## When to update
+
+| Trigger | Action |
+|---|---|
+| New campaign approved | Add row, `status: scheduled` |
+| Campaign goes live | Update to `status: active`, confirm `start` |
+| Campaign ends | Update to `status: ended`, confirm `end`, add notes |
+| New short name surfaces | Add to `aliases` |
+| Disambiguation answer from `/nexus-answer` | Auto-registered by Phase C |
