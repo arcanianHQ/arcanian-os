@@ -8,6 +8,13 @@ scope: shared
 
 > **Canonical rule** — every skill, agent, or workflow that queries Databox data must follow this routing. Duplicating the logic inline is fine; *deviating from it* means you've probably missed a corner case.
 
+> **Position in the routing stack**: this rule applies AFTER `core/methodology/QUESTION_ROUTING.md` has classified the question and decided that Databox is the applicable tool. Routing is a top-down concern:
+> 1. `QUESTION_ROUTING.md` — which category, which MCP tools, which data sources
+> 2. This rule — within Databox, which query method (ask_genie vs load_metric_data)
+> 3. `DYNAMIC_RELIABILITY_SCORING.md` — after data arrives, how to score the sources
+>
+> Don't invert. Don't skip layers.
+
 ---
 
 ## The Problem

@@ -2,7 +2,7 @@
 scope: shared
 ---
 
-> v1.0 — 2026-04-21
+> v1.1 — 2026-04-22 — §Source applicability by question category + SEMrush removed from campaign-performance base ratings
 
 # Dynamic Reliability Scoring
 
@@ -25,6 +25,16 @@ It also works **without any pushed reliability dataset at all** — which is how
 
 ---
 
+## Source applicability (pointer)
+
+Reliability scoring is step THREE in the data-answering pipeline. Before any scoring, the question is classified into a category and routed to applicable sources — see `core/methodology/QUESTION_ROUTING.md` for the canonical rule.
+
+Sources **outside** a question's applicable-sources list (per QUESTION_ROUTING) MUST have `base_rating = 0` in that context. They are not scored, not rendered in the matrix, not queried. This prevents the failure mode where a wrong-tool source is displayed as a "low-reliability peer" when it's actually a category error.
+
+The base rating tables below are scoped to the **campaign-performance** category (the one `/nexus-answer` serves). Other categories have their own base ratings expressed against their applicable sources.
+
+---
+
 ## The algorithm
 
 ### Inputs
@@ -39,30 +49,32 @@ For each metric of interest (Revenue, Conversions, Sessions, ROAS, Spend, etc.):
 Base ratings encode *intrinsic* source trustworthiness for each metric type. They come from data-platform knowledge, not from any specific client's data.
 
 ```
-BASE_RATINGS (0.0–1.0 scale)
+BASE_RATINGS (0.0–1.0 scale) — ratings below are for the **campaign-performance question category** (see §Source applicability). Other categories use their own base ratings; don't cross-apply.
 
 metric \ source  | GoogleAds | GA4  | MetaAds | SEMrush | Shopify | GSC
 ─────────────────┼───────────┼──────┼─────────┼─────────┼─────────┼──────
-Revenue          |   0.75    | 0.90 |  0.55   |  0.20   |  0.95   | 0.00
-Conversions      |   0.85    | 0.88 |  0.60   |  0.15   |  0.90   | 0.00
-Sessions         |   0.30    | 0.92 |  0.25   |  0.55   |  0.00   | 0.40
-ROAS             |   0.80    | 0.65 |  0.58   |  0.10   |  0.00   | 0.00
+Revenue          |   0.75    | 0.90 |  0.55   |  0.00   |  0.95   | 0.00
+Conversions      |   0.85    | 0.88 |  0.60   |  0.00   |  0.90   | 0.00
+Sessions         |   0.30    | 0.92 |  0.25   |  0.00   |  0.00   | 0.40
+ROAS             |   0.80    | 0.65 |  0.58   |  0.00   |  0.00   | 0.00
 Spend            |   1.00    | 0.00 |  1.00   |  0.00   |  0.00   | 0.00
-Impressions      |   0.95    | 0.00 |  0.95   |  0.30   |  0.00   | 0.85
-Clicks           |   0.95    | 0.70 |  0.95   |  0.25   |  0.00   | 0.85
+Impressions      |   0.95    | 0.00 |  0.95   |  0.00   |  0.00   | 0.85
+Clicks           |   0.95    | 0.70 |  0.95   |  0.00   |  0.00   | 0.85
 Visibility/Rank  |   0.00    | 0.00 |  0.00   |  0.75   |  0.00   | 0.80
 ```
+
+The **Visibility/Rank** row is kept in the table to document that SEMrush has a legitimate domain (organic-context, ranking, AIO) — but that domain is served by different skills (e.g. `/seo-diagnose`, `/geo-audit`), each using the applicable-sources list from their own question category. In a campaign-performance answer, the Visibility row is not rendered; the SEMrush column is dropped entirely.
 
 Rationale:
 - **Shopify Revenue = 0.95** — direct payment record, source of truth when present
 - **GA4 Revenue = 0.90** — first-party e-commerce tracking, known consent-mode undercounts
 - **Google Ads Revenue = 0.75** — ad-click-attributed, attribution window distorts
 - **Meta Ads Revenue = 0.55** — Meta-pixel + 7-day-click + 1-day-view is known overcounter
-- **SEMrush Revenue = 0.20** — third-party estimation
+- **SEMrush Revenue = 0.00** — not a campaign-performance source; third-party organic-traffic estimation is not a peer of paid/first-party measurement for this question category
 - **GA4 Sessions = 0.92** — first-party, GA4 literally measures sessions
 - **GA4 ROAS = 0.65** — needs cross-source spend reconciliation (GA4 doesn't know spend)
 - **Google Ads Spend = 1.00** — the ad platform is definitional for its own spend
-- **0.00** = source cannot measure this metric at all (ignore the cell)
+- **0.00** = source is either (a) structurally unable to measure this metric, or (b) outside the applicable-sources list for this question category. Either way: ignore the cell, drop the column if all its cells are 0.
 
 ### Step 2 — Compute the cross-source agreement factor
 
@@ -271,3 +283,4 @@ Skills surface both:
 | Version | Date | Change |
 |---|---|---|
 | v1.0 | 2026-04-21 | Initial — dynamic cross-source variance-based scoring. Base ratings per (metric × source). Agreement factor from deviation from median. Worked example on DEMO data. Integrates with CONFIDENCE_ENGINE.md Source Confidence dimension. |
+| v1.1 | 2026-04-22 | **Source applicability extracted to `QUESTION_ROUTING.md`** — the question-category → applicable-sources logic was initially added here but belongs at the top of the pipeline, not inside the scoring rule. This doc now carries a short pointer section referencing QUESTION_ROUTING. Base rating table scoped to the campaign-performance category: SEMrush × {Revenue, Conversions, ROAS, Sessions, Impressions, Clicks} → 0.00 (SEMrush is not a campaign-performance source; its legitimate domain — SEO / competitive / AIO — is handled by different skills). Kept SEMrush × Visibility/Rank = 0.75 as documentation that the source has a domain, just not this one. Caught during `/nexus-answer` test where the Block 3 matrix rendered SEMrush as 🔴 10 / 🔴 15 on Revenue / Conversions — category error masquerading as a reliability issue. |

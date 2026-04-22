@@ -59,7 +59,7 @@ This rule applies regardless of flavor (shared / company / advanced) because eve
 
 If the user's question references a campaign that can't be resolved from the active client's `CAMPAIGN_REGISTRY.md` or `.nexus-config.md`, the skill follows the standard four-phase resolution (Phase B ask-back + Phase C persist) — same as in CWD-client mode.
 
-> v1.11 — 2026-04-22 — Silent skill mechanics rule: phase names, scope labels, rule references never appear in user-facing output
+> v1.12 — 2026-04-22 — Question-category routing (QUESTION_ROUTING.md): SEMrush dropped from Block 3 campaign-metric matrix (category error); cross-category context surfaces only in Block 2 prose
 
 # Skill: `/nexus-answer` — structured answer to a business-data question
 
@@ -233,16 +233,28 @@ From config `measurement caveats`:
 
 ## Default data sources (ArcanianOS DEMO)
 
-| Source | Source ID | Dataset ID | Type | Purpose |
-|---|---|---|---|---|
-| Google Ads Daily | `4942423` | `01f567ea-8d5e-44f2-8f60-4c2b45b21a36` | custom-ingested | Paid search performance |
-| GA4 Ecommerce | `4942424` | `52ab550e-8845-4ba3-80d4-9035e6bbf016` | custom-ingested | First-party analytics |
-| Meta Ads Daily | `4952835` | `78272e0b-54e3-4fcd-a56d-4ab3ecc64135` | custom-ingested | Paid social performance |
-| SEMrush Daily | `4952836` | `ef399c10-4729-40e1-b252-c6294203e886` | custom-ingested | Organic/competitive context |
-| Reliability Matrix Weekly | `4952873` | `8a59abb3-f099-43a7-a3b8-74e7e4d7aca3` | custom-ingested | Per-source confidence scores (input to Confidence Engine) |
-| Explanation Weekly | `4952879` | `c5af0c4b-b994-46db-b968-ade72ec6178b` | custom-ingested | Narrative context + control questions |
+This skill's question category is **campaign performance** (per `core/methodology/DYNAMIC_RELIABILITY_SCORING.md §Source applicability`). The applicable sources are:
 
-All 6 sources are custom-ingested → **Genie-first query path** per `core/methodology/DATABOX_QUERY_ROUTING.md`.
+| Source | Source ID | Dataset ID | Type | Role |
+|---|---|---|---|---|
+| Google Ads Daily | `4942423` | `01f567ea-8d5e-44f2-8f60-4c2b45b21a36` | custom-ingested | Paid search performance (Block 1 + Block 3 peer) |
+| GA4 Ecommerce | `4942424` | `52ab550e-8845-4ba3-80d4-9035e6bbf016` | custom-ingested | First-party analytics (Block 1 + Block 3 peer) |
+| Meta Ads Daily | `4952835` | `78272e0b-54e3-4fcd-a56d-4ab3ecc64135` | custom-ingested | Paid social performance (Block 1 + Block 3 peer) |
+
+**Not applicable for this skill** (different question categories):
+
+| Source | Dataset ID | Why excluded here |
+|---|---|---|
+| SEMrush Daily | `ef399c10-4729-40e1-b252-c6294203e886` | Belongs to SEO / competitive / environment categories — served by `/seo-diagnose`, `/seo-*`, `/geo-*` skills. Base rating = 0 for campaign metrics per the applicability table. May be queried ONCE for Block 2 narrative context (e.g., *"visibility -6% in the window"*) but never as a Block 3 peer and never for Revenue / Conversions / ROAS reliability scoring. |
+
+**Legacy (optional cache only, NOT query peers):**
+
+| Source | Dataset ID | Role |
+|---|---|---|
+| Reliability Matrix Weekly | `8a59abb3-f099-43a7-a3b8-74e7e4d7aca3` | Dashboard-visualization cache only. Skill computes reliability live per `DYNAMIC_RELIABILITY_SCORING.md`. |
+| Explanation Weekly | `c5af0c4b-b994-46db-b968-ade72ec6178b` | Narrative cache. Skill composes Block 2 live from today's observations + caveats. |
+
+All active sources are custom-ingested → **Genie-first query path** per `core/methodology/DATABOX_QUERY_ROUTING.md`.
 
 For real (OAuth-integrated) clients, `load_metric_data` with platform metric_keys is the correct path — see the routing doc.
 
@@ -305,13 +317,7 @@ All 6 default sources on ArcanianOS DEMO are **custom-ingested type** (`Push cus
    )
    ```
 
-   **SEMrush Daily** — dataset `ef399c10-4729-40e1-b252-c6294203e886`
-   ```
-   ask_genie(
-     dataset_id="ef399c10-4729-40e1-b252-c6294203e886",
-     question="Compare {current_start} to {current_end} vs {prev_start} to {prev_end}. Give me averages and PoP deltas for: visibility_score, estimated_organic_traffic. Return as 'metric: current_avg | previous_avg | delta_pct'."
-   )
-   ```
+   **SEMrush Daily** — **DO NOT query as a peer for Block 1 / Block 3.** Per `core/methodology/QUESTION_ROUTING.md §1 Campaign performance`, SEMrush is outside the applicable-sources list for this category. It may be queried ONCE as a Block 2 narrative-context check if competitive/organic context is explicitly relevant to the answer (e.g., sudden traffic drop where organic visibility might explain part of it). Tag the result as `[context only — not a campaign-performance peer]` wherever it's used. Default behaviour: skip this query.
 
 3. **Source-confidence matrix (Block 3)** — **COMPUTED DYNAMICALLY**, not pulled from stored dataset.
 
@@ -472,30 +478,33 @@ Use the templates in §Output templates below. All boxes use ASCII box-drawing c
 ### Block 3 — Megbízhatóság
 
 ```
-┌─ Megbízhatóság ────────────────────────────────────┐
-│                                                     │
-│               GoogleAds   GA4    MetaAds   SEMrush │
-│  Revenue       🟢 78     🟢 89   🟡 48    🔴 18    │
-│  Conversions   🟢 85     🟢 82   🟡 46    🔴 14    │
-│  Sessions      🔴 24     🟢 92   🔴 20    🟡 44    │
-│  ROAS          🟢 80     🟡 60   🟡 54    🔴 10    │
-│                                                     │
-│  ⚠ Sessions: GA4 and paid sources disagree.        │
-│    (variance 68 pts)                                │
-│  → Trust GA4 for Sessions. Paid-side counts are    │
-│    "sessions-after-ad-click", not total.            │
-│                                                     │
-│  Dynamically scored — reflects current data         │
-│  variance, per DYNAMIC_RELIABILITY_SCORING.md.      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
+┌─ Megbízhatóság ─────────────────────────────┐
+│                                              │
+│               GoogleAds   GA4    MetaAds    │
+│  Revenue       🟢 78     🟢 89   🟡 48      │
+│  Conversions   🟢 85     🟢 82   🟡 46      │
+│  Sessions      🔴 24     🟢 92   🔴 20      │
+│  ROAS          🟢 80     🟡 60   🟡 54      │
+│                                              │
+│  ⚠ Sessions: GA4 and paid sources disagree. │
+│    (variance 68 pts)                         │
+│  → Trust GA4 for Sessions. Paid-side counts │
+│    are "sessions-after-ad-click", not total.│
+│                                              │
+│  Dynamically scored — reflects current data │
+│  variance, per DYNAMIC_RELIABILITY_SCORING. │
+│                                              │
+└──────────────────────────────────────────────┘
 ```
 
 **Rules:**
-- 4×4 matrix: rows = metrics, cols = sources
+
+- **Columns = applicable sources only** per `core/methodology/QUESTION_ROUTING.md §1 Campaign performance`: Google Ads, GA4, Meta Ads, Shopify (if present). NOT SEMrush, NOT GSC — these belong to different categories and are dropped from this matrix entirely, not rendered as low-scoring peers.
+- **Shopify** included as a column only if the client's `.nexus-config.md` wires a Shopify source for the active entity.
+- Rows = the metrics actually queried (typically Revenue, Conversions, Sessions, ROAS).
 - **Scores computed DYNAMICALLY** per `core/methodology/DYNAMIC_RELIABILITY_SCORING.md`:
   - Base rating × agreement factor × 100
-  - Base rating table from the methodology doc
+  - Base rating table from the methodology doc (scoped to campaign-performance category)
   - Agreement factor = 1.0 − deviation-from-median-penalty (see doc §Step 2)
 - Emoji thresholds (Confidence Engine mapping):
   - score > 70 → 🟢 (HIGH)
@@ -504,8 +513,9 @@ Use the templates in §Output templates below. All boxes use ASCII box-drawing c
 - Compute row with max source-variance (max − min score). If variance > 40:
   - Append warning line: `⚠ {metric}: {highest-source} and {lowest-source} disagree. (variance {N} pts)`
   - Append action line: `→ Trust {highest} for {metric}.` + one-sentence WHY (e.g., attribution-ablak, consent undercount, etc.)
-- If a source cannot measure a metric (base rating = 0): skip that cell (render blank or "—"), don't lie by scoring it
+- If a source cannot measure a metric (base rating = 0 within this category): skip that cell (render blank or "—"), don't lie by scoring it
 - If a source is missing from the account entirely: render column with `❌ NOT CONNECTED`, don't pretend to score
+- **If cross-category context was pulled** (e.g., SEMrush visibility for Block 2 narrative), it does NOT appear here — this block renders only applicable-source peers. Cross-category context surfaces in Block 2 prose with `[context only]` tag.
 - Append attribution footer: "Dynamically scored — reflects current data variance, per DYNAMIC_RELIABILITY_SCORING.md."
 
 ### Block 4 — Mit tegyél
@@ -645,3 +655,4 @@ Never render a half-broken block. Either render fully or show the error state cl
 | v1.9 | 2026-04-22 | **Mandatory currency annotation per `CURRENCY_NORMALIZATION.md`**: added Prerequisites §1b (reporting_currency resolution order: CLIENT_CONFIG → DOMAIN_CHANNEL_MAP → .nexus-config → DEMO → unknown); Block 1 monetary rows now REQUIRED to carry `(CUR)` tag (`(?)` + ⚠ warning when currency unresolved); unknown-currency rows take -0.2 Source Confidence penalty (HIGH → MEDIUM); Block 1 footer gets mandatory `Currency: {CUR} ({source})` line; cross-currency multi-entity aggregation must disclose rate + date in Block 2 footer; §Multi-entity aggregation updated to reference canonical `reporting_currency` field (not stale `primary_currency` alias) and CURRENCY_NORMALIZATION's conversion-source priority chain; Error modes table extended with 3 currency-related rows. Caught during shared-flavor script review where Block 1 rendered `399,446` unitless — the exact failure mode CURRENCY_NORMALIZATION §Problem describes ("summing raw numbers across currencies produces nonsense"; worse here: rendering a number without ANY currency leaves the reader to guess). |
 | v1.10 | 2026-04-22 | **Rule 2 refinement — explicit-naming permits cross-client reads**: revised the strict CWD-boundary (v1.6) which proved too restrictive in practice. Added Phase A.0 "Active-client resolution" — when the question contains an explicit client name AND `clients/{slug}/` exists, that dir becomes the active scope (read its `.nexus-config.md` + `CAMPAIGN_REGISTRY.md`). Hard prohibitions retained: NO autonomous fuzzy-match auto-pick, NO multi-client merge, NO globbing for cached analyses, NO account/client enumeration. Reasoning: the original Rule 2 risks (non-reproducibility, privacy-blurring, freshness-lying) all stem from autonomous picking — explicit naming neutralizes them. The filesystem (read-permission) is the security layer, not the skill. Caught during shared-flavor test where typed query *"Mosstrail akciós időszaka"* from hub got refused with "cd clients/mosstrail" ceremony, despite the practitioner having direct read access to that dir anyway. |
 | v1.11 | 2026-04-22 | **Silent skill mechanics rule** in §Voice rules: the four-phase protocol (Phase A/B/C/D), Rule 1/2 references, "active scope", "DEMO virtual-client fallback", "reporting_currency resolution" etc. are implementation detail and MUST NOT appear in user-facing output. Caught during shared-flavor test where Nexus narrated *"Phase A.0 — explicit naming. Hub session (pwd=arcanian-os-shared). Phase A nem old fel ablakot — Phase B-re megyek. Phase D hard prohibition."* — a verbatim leak of the skill's own execution log, not an operator-facing message. Rule of thumb: would a non-technical operator recognize the term? If no, strip it. Two registers (skill prose / operator HU) don't cross. |
+| v1.12 | 2026-04-22 | **Question-category routing** per new `core/methodology/QUESTION_ROUTING.md`. Nexus is declared as the primary skill for the "campaign performance" category. Consequence: SEMrush dropped from Block 3 reliability matrix (category error — it measures SEO / competitive / AIO, not campaign-attributed metrics). Default data sources section split into "applicable" (Google Ads, GA4, Meta Ads) vs "not applicable for this skill" (SEMrush) vs "legacy cache only" (Reliability Matrix Weekly, Explanation Weekly). §Steps §2 updated: SEMrush query skipped in default flow (may be pulled ONCE as Block 2 narrative context with `[context only]` tag when relevant). Block 3 template switched from 4-column (with SEMrush 🔴 10 leak) to 3-column. Caught during `/nexus-answer` test where the Block 3 matrix rendered SEMrush as 🔴 10 / 🔴 15 on Revenue / Conversions — misleading "kicsit alkalmas" framing when the correct framing is "wrong tool, don't query". Architectural point made by user: routing is a FIRST-class concern, not a scoring subsection. |

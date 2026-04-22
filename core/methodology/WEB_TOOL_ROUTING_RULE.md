@@ -4,7 +4,15 @@ scope: shared
 
 # Web Tool Routing: Firecrawl vs Built-in
 
-> v1.0 — 2026-04-14
+> v1.1 — 2026-04-22 — added position-in-stack reference to QUESTION_ROUTING
+
+## Position in the routing stack
+
+This rule applies AFTER `core/methodology/QUESTION_ROUTING.md` has decided that a web tool (not Databox, not local files) is the applicable source for the question. Routing is a top-down concern:
+1. `QUESTION_ROUTING.md` — which category, which MCP tools
+2. This rule — within web tools, which one (Firecrawl vs WebSearch vs WebFetch)
+
+Don't skip QUESTION_ROUTING just because a question mentions a URL. First classify the category, then consult this rule to pick within web tools.
 
 ## Rule
 
