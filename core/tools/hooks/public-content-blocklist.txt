@@ -11,7 +11,7 @@
 # to its internal toolkit. See `core/methodology/PUBLIC_CONTENT_GUARDRAIL.md`
 # for the rule and extension procedure.
 #
-# Last updated: 2026-04-18
+# Last updated: 2026-04-22
 
 # ── Personal names of proprietary-methodology authors
 Boyd
@@ -62,7 +62,6 @@ colinboyd
 /nlp-rapport
 /identify-constraints
 /repair-roadmap
-/map-results
 /extract-morsel
 /analyze-alchemy
 /analyze-copy

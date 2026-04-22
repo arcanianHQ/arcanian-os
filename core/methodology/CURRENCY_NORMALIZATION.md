@@ -1,4 +1,4 @@
-> v1.0 — 2026-04-03
+> v1.1 — 2026-04-22 — Added §Per-Skill Application with the tagging contract inherited by /nexus-answer and sibling skills
 
 # System Rule: Currency Normalization
 
@@ -79,8 +79,19 @@ Total ad spend: €47,200 (reporting currency: EUR)
 
 The `currency` column already exists in some client maps (e.g., ExampleRetail: HUF, EUR, RON). Ensure ALL data sources have a currency value. Missing currency = cannot include in cross-domain calculations.
 
+## Per-Skill Application
+
+Skills rendering monetary values MUST:
+1. Resolve `reporting_currency` at session start (priority: `CLIENT_CONFIG.md` → `DOMAIN_CHANNEL_MAP.md` → `.nexus-config.md` → DEMO virtual client → `unknown`).
+2. Tag every monetary metric line with `(CUR)` in the output (e.g., `Revenue (HUF):`). Dimensionless ratios (ROAS, Conv Rate) and counts (Sessions, Transactions) do NOT need currency tags but ROAS comparisons across currencies require explicit conversion disclosure.
+3. If `reporting_currency` cannot be resolved: render `(?)` on monetary rows, prepend a ⚠ *Currency UNKNOWN* warning, and drop monetary-row confidence to MEDIUM max (never HIGH without a known unit).
+4. Never guess or infer currency from the magnitude of numbers or the client's country — same hard prohibition as other inference rules.
+
+Canonical implementation: `core/skills/nexus-answer.md §Prerequisites §1b` (Resolve reporting currency) + §Output templates §Block 1 rules. Other data-rendering skills (/client-report, /morning-brief, /health-check) inherit the same contract.
+
 ## References
 - `core/methodology/MULTI_DOMAIN_ANALYSIS_RULE.md`
 - `core/methodology/DATA_RELIABILITY_FRAMEWORK.md`
+- `core/skills/nexus-answer.md` — canonical per-skill implementation
 - Per-client `DOMAIN_CHANNEL_MAP.md`
 - Per-client `CLIENT_CONFIG.md`
