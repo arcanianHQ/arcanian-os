@@ -6,13 +6,15 @@ scope: int-confidential
 
 # DEMO Virtual Client — Campaign Registry
 
-Pre-registered campaigns matching the synthetic data pushed to the DEMO Databox account (748621). Used by `/nexus-answer` hub-fallback to resolve user references like *"Glamour"*, *"akció"*, *"promo"* to specific date windows — without disambiguation ask-back.
+Pre-registered campaigns matching the synthetic data pushed to the DEMO Databox account (748621). Used by `/nexus-answer` hub-fallback to resolve user references like *"akció"*, *"kampány"*, *"promo"* to specific date windows — without disambiguation ask-back.
+
+**Window provenance**: dates are confirmed from the DEMO GA4 Ecommerce dataset (daily revenue spike pattern) and the Explanation dataset (weekly reports naming *"Akció alatt"* on 2026-03-23 week and *"Akció lezárult — mérleg"* on 2026-03-30). Not invented, not guessed — pulled from the data.
 
 ## Active / upcoming
 
 | id | name_short | start | end | status | entities |
 |---|---|---|---|---|---|
-| glamour-demo-2026-spring | Glamour | 2026-04-14 | 2026-04-21 | ended | mosstrail-demo |
+| akcio-demo-2026-spring | akció | 2026-03-23 | 2026-03-26 | ended | mosstrail-demo |
 
 ## Archive (recent)
 
@@ -26,10 +28,11 @@ When the user types one of these short names, the skill resolves to the canonica
 
 | alias | resolves to (id) | notes |
 |---|---|---|
-| Glamour | glamour-demo-2026-spring | primary alias — VID-002 demo question |
-| akció | glamour-demo-2026-spring | generic Hungarian "promo" |
-| promo | glamour-demo-2026-spring | generic English "promo" |
-| akciós időszak | glamour-demo-2026-spring | full Hungarian phrase |
+| akció | akcio-demo-2026-spring | primary alias (matches data language) |
+| akciós időszak | akcio-demo-2026-spring | full phrase from VID-002 typed query |
+| kampány | akcio-demo-2026-spring | generic "campaign" |
+| promo | akcio-demo-2026-spring | generic English "promo" |
+| Glamour | akcio-demo-2026-spring | cosmetic compat — the skill's illustrative docs use "Glamour" as an example campaign name; resolves to the actual DEMO promo here |
 
 ## Year-over-year pairs
 
@@ -37,4 +40,6 @@ When the user types one of these short names, the skill resolves to the canonica
 
 ## Notes
 
-The Glamour DEMO campaign window (2026-04-14 → 2026-04-21) is hand-coordinated with the synthetic data push to the ArcanianOS DEMO Databox account. If you change either side, sync the other — desync produces the same kind of misleading analysis the four-phase resolution protocol is designed to prevent.
+**Isolated spike on 2026-03-30**: GA4 Ecommerce shows a separate one-day revenue spike (107,072 HUF / 16 transactions) on 2026-03-30, well after the main promo ended. This is NOT part of `akcio-demo-2026-spring`. If it represents a distinct event, register it separately as `akcio-demo-2026-03-30` or similar. For now: unregistered.
+
+**Script sync**: the VID-002 typed query *"Szia, Nexus. Véget ért a Mosstrail akciós időszaka."* resolves via the "akció" / "akciós időszak" aliases → `akcio-demo-2026-spring` → window 2026-03-23 → 2026-03-26. The Glamour alias is retained for skill-docs compat (the skill's changelog v1.7 predates this correction and references `glamour-demo-2026-spring`; the id was changed here to match the data's vocabulary, but Glamour still resolves).
