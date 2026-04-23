@@ -1,8 +1,25 @@
-> v1.29.0 — 2026-04-19
+> v1.32.2 — 2026-04-23
 
 # Arcanian OS — Changelog
 
 All notable changes to the public repository.
+
+---
+
+## [1.32.2] — 2026-04-23
+
+### Removed
+- **`core/skills/magyar-szoveg.md`** — Hungarian prose style guide. Rescoped to `int-company` in the dev source (AI-magyar anti-tell taxonomy is Arcanian-internal IP).
+- **`core/agents/hu-grammar-checker.md`** — Hungarian grammar review agent. Depends on `magyar-szoveg`, travels with it to `int-company`.
+- **`.claude/commands/magyar-szoveg.md`** — command stub for the removed skill.
+
+### Changed
+- **`core/methodology/PEER_REVIEW_PROTOCOL.md`** — removed `/magyar-szoveg` from the copy-analyst skill list (line 58).
+- **`CLAUDE.md`** — dropped the `Content: /magyar-szoveg` skill-category line.
+
+### Notes
+- Public-content guardrail clean after the change.
+- Both files remain available in the Company and Advanced flavours.
 
 ---
 

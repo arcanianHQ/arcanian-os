@@ -74,7 +74,6 @@ Ops: /tasks, /scaffold-project, /validate, /preflight, /delivery-phase, /client-
 Diagnostic: /7layer, /7layer-hu, /council, /sales-pulse, /verify-pmf
 Strategy: /build-brand, /validate-idea, /analyze-gtm, /plan-gtm
 SEO & GEO: /seo-diagnose, /seo-cannibalize, /seo-gaps, /seo-decay, /seo-narrative, /seo-anomaly, /seo-cluster, /seo-schema, /geo-audit, /geo-visibility, /geo-optimize
-Content: /magyar-szoveg
 Platform: /arcos, /connect, /frontend-design, /okr-bluf-dokumentum, /claude-code-guide, /scheduled-workflows
 
 ## SOP Auto-Surface (ALWAYS-ON BEHAVIOR)

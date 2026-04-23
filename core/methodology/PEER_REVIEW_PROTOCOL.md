@@ -55,7 +55,7 @@ Agent C — copy-analyst (core/agents/copy-analyst.md)
 Focus: Cross-layer messaging coherence
 Lens: Does what they SAY match who they ARE (L2), what they OFFER (L4),
       and who they're talking TO (L6)? Voice consistency, copy-market fit.
-Skills: copy analysis, `/build-brand`, `/magyar-szoveg`, signature-story construction
+Skills: copy analysis, `/build-brand`, signature-story construction
 ```
 
 These are real agents with YAML frontmatter, context allocations, and defined skill sets — not ad-hoc prompts.
